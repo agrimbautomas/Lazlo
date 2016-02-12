@@ -52,6 +52,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    background: blue;
 }
 
 .log {
