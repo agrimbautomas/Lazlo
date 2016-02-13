@@ -40,7 +40,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     display: block;
 }
 
-
 .header {
     background-color: black;
     background-size: cover;
@@ -52,7 +51,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    background: blue;
 }
 
 .log {
@@ -62,7 +60,6 @@ body {
     float: left;
     margin-top: -6px;
 }
-
 
 .car {
     width: 50%;
@@ -117,6 +114,7 @@ body {
     margin-top: 39px;
     font-size: 14px;
 }
+
 .clo {
     width: 25%;
     text-align: center;
@@ -126,25 +124,24 @@ body {
     font-size: 14px;
 }
 
-
 h4 {
     font-size: 20px;
     font-family: "Montserrat", sans sans-serif;
 
 }
 
-.clock{
+.clock {
     height: 720px;
     background-color: white;
     margin-left: -186px;
 }
 
-.clock h3{
+.clock h3 {
     margin-left: 227px;
     line-height: 2;
 }
 
-.clock h4{
+.clock h4 {
     margin-left: 227px;
 }
 
@@ -152,29 +149,29 @@ h4 {
     text-align: center;
 }
 
-.arrow{
+.arrow {
     height: 100px;
     margin-top: 11px;
     margin-left: 270px;
 }
 
-.plays{
+.plays {
     height: 880px;
     background-color: whitesmoke;
     line-height: 2;
 }
 
-.tables{
+.tables {
     height: 720px;
     background-color: white;
 }
 
-.horses{
+.horses {
     height: 720px;
     background-color: whitesmoke;
 }
 
-.clocks2{
+.clocks2 {
     height: 720px;
     background-color: white;
 }
@@ -192,7 +189,6 @@ h3 {
     float: left;
 }
 
-
 .links {
     width: 50%;
 }
@@ -202,7 +198,6 @@ h3 {
     background-color: dimgrey;
     height: 800px;
 }
-
 
 .soc {
     width: 50%;
@@ -223,7 +218,7 @@ h3 {
     background-color: dimgrey
 }
 
-.ins{
+.ins {
     width: 500px;
     float: right;
     height: 262px;
@@ -234,7 +229,7 @@ h3 {
     background-color: dimgrey;
 }
 
-.ml{
+.ml {
     width: 100%;
     float: right;
     height: 292px;
@@ -244,7 +239,6 @@ h3 {
     border-color: grey;
     background-color: dimgrey;
 }
-
 
 .mail {
     width: 50%;
@@ -266,31 +260,31 @@ h3 {
     font-style: italic;
 }
 
-.mail .nom{
+.mail .nom {
     margin-left: 4px;
     margin-bottom: 20px;
     margin-top: 112px;
 }
 
-.mail .tel{
+.mail .tel {
     margin-left: 4px;
     margin-bottom: 20px;
     margin-top: 15px;
 }
 
-.mail .em{
+.mail .em {
     margin-left: 4px;
     margin-bottom: 20px;
     margin-top: 15px;
 }
 
-.mail .cons{
+.mail .cons {
     margin-left: 4px;
     margin-bottom: 20px;
     margin-top: 15px;
 }
 
-input{
+input {
     border: none;
     border-bottom: 1px solid #4d4d4d;
     outline: none;
@@ -298,7 +292,8 @@ input{
     font-size: 15px;
     color: #4d4d4d;
 }
-.but{
+
+.but {
     font-size: 17px;
     margin-top: 56px;
     margin-left: 151px;
@@ -308,7 +303,7 @@ input{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    color:dimgrey;
+    color: dimgrey;
 
 }
 
@@ -328,14 +323,13 @@ input{
     margin-bottom: 13px;
 }
 
-.det-list img{
+.det-list img {
     width: 100%
 }
 
 .circle-list {
     margin-bottom: 8px;
 }
-
 
 /************************************************************************************/
 /************************************************************************************/

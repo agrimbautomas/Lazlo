@@ -4,10 +4,9 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{git@bitbucket.org:agrimbautomas/macain-web-rails.git}
-role :web, %w{git@bitbucket.org:agrimbautomas/macain-web-rails.git}
-role :db,  %w{git@bitbucket.org:agrimbautomas/macain-web-rails.git}
-
+role :app, %w{deploy@52.90.82.156}
+role :web, %w{deploy@52.90.82.156}
+role :db,  %w{deploy@52.90.82.156}
 
 # Extended Server Syntax
 # ======================
@@ -15,9 +14,11 @@ role :db,  %w{git@bitbucket.org:agrimbautomas/macain-web-rails.git}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '52.6.246.20', user: 'deploy', roles: %w{web app}, my_property: :my_value
+server '52.90.82.156', user: 'deploy', roles: %w{web app}, my_property: :my_value
 set :rails_env, 'development'
 set :branch, 'development_deploy'
+
+set :rvm_custom_path, '/home/ubuntu/.rvm'  # only needed if not detected
 
 
 # Custom SSH Options
