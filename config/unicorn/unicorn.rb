@@ -1,8 +1,8 @@
 # paths
 
 # To generate unicorn on console:
-# unicorn_rails -c /srv/rails/macain-test/config/unicorn/unicorn.rb -D
-root = "/srv/rails/macain-web"
+# unicorn_rails -c /srv/rails/macain-web/current/config/unicorn/unicorn.rb -D
+root = "/srv/rails/macain-web/current"
 working_directory root
 pid "#{root}/tmp/ids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
