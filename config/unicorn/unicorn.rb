@@ -1,12 +1,14 @@
 # paths
 
-root = "/srv/rails/macain-test"
+# To generate unicorn on console:
+# unicorn_rails -c /srv/rails/macain-test/config/unicorn/unicorn.rb -D
+root = "/srv/rails/macain-web"
 working_directory root
 pid "#{root}/tmp/ids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
 
-listen "/tmp/unicorn.macain-test.sock"
+listen "/tmp/unicorn.macain-web.sock"
 worker_processes 2
 timeout 30
 
