@@ -1,212 +1,98 @@
-<!-- Start Header -->
-<div class="header">
-  <div class="grilla">
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag 'jquery.fullPage.min' %>
+    <%= javascript_include_tag 'jquery.slides.min' %>
+    <%= javascript_include_tag 'home-functions' %>
+<% end %>
 
-    <div class="log">
-      <%= image_tag('logo.png') %>
-    </div>
-
-    <div class="car">
-      <%= image_tag('carrito.png') %>
-    </div>
-  </div>
-</div>
-<!-- End Header -->
-
-<!--Start icons-->
+<%= render :partial => 'home/fixed_top_nav' %>
 
 
-<div class="icons">
-  <div class="grilla">
-    <div class="che">
-      <%= image_tag('chess.png') %>
-      <h5>Juegos de</h5>
-      <h5> Ajedrez</h5>
-    </div>
+<div id="slider-container">
 
-    <div class="tab">
-      <%= image_tag('ratable.png') %>
-      <h5>Mesas</h5>
-      <h5>Ratonas</h5>
-    </div>
+  <%= render :partial => 'home/landing_block' %>
 
-    <div class="hor">
-      <%= image_tag('horsy.png') %>
-      <h5>Caballos</h5>
-      <h5>Mecedores</h5>
-    </div>
 
-    <div class="clo">
-      <%= image_tag('clock.png') %>
-      <h5>Relojes</h5>
-      <h5>de Mesa</h5>
+  <div class="slider-block odd">
+    <div class="grilla">
+      <div class="product-container plays">
+        <h3>Juegos de Ajedrez</h3>
+        <h4>Piezas en madera laqueada con polibretano</h4>
+
+        <div class="image-container">
+          <%= image_tag('chezz.png') %>
+        </div>
+
+        <div class="arrow">
+          <a href="#mesas"></a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<!-- End Icons -->
 
 
-<!--Start CLOCK-->
-<div class="grilla">
-  <div class="clock">
-    <h3>Relojes de diseño</h3>
-    <h4>Colores a pedido de cerámica laqueada</h4>
+  <div class="slider-block ">
 
-    <%= image_tag('clocks.jpg') %>
+    <div class="grilla">
+      <div class="product-container tables">
+        <h3>Mesas Auxiliares</h3>
+        <h4>Lo único que le falta para ser un original Ratman</h4>
 
-    <div class="arrow">
-      <%= image_tag('scroll-arrow.png') %>
+        <div class="image-container">
+          <%= image_tag('mesas-auxiliares.png') %>
+        </div>
+
+        <div class="arrow">
+          <a href="#caballos"></a>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
-<!-- End CLOCK-->
 
 
-<!--Start PLAYS-->
-<div class="grilla">
-  <div class="plays">
-    <h3>Juegos de Ajedrez</h3>
-    <h4>Piezas laqueadas con aires de merluza</h4>
+  <div class="slider-block odd">
+    <!--Start HORSES-->
+    <div class="grilla">
+      <div class="product-container horses">
+        <h3>Caballos Mecedores</h3>
+        <h4>El primer caballo que Rupi no va a pervertir</h4>
 
-    <%= image_tag('chezz.png') %>
+        <div class="image-container">
+          <%= image_tag('horsymc.png') %>
+        </div>
 
-    <div class="arrow">
-      <%= image_tag('scroll-arrow.png') %>
+        <div class="arrow">
+          <a href="#relojes"></a>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
+  <!-- End HORSES -->
 
-<div class="icon-list">
-  <div class="det-list">
-    <%= image_tag('chezz-icon.png') %>
+
+  <div class="slider-block ">
+    <!--Start CLOCK2-->
+    <div class="product-container clock2">
+      <h3>Relojes de Mesa</h3>
+      <h4>Parecidos a la cabeza de la foca pero dan la hora</h4>
+
+      <div class="image-container">
+        <%= image_tag('reloj-blanco.png') %>
+      </div>
+
+      <div class="arrow">
+        <a href="#contacto"></a>
+      </div>
+
+    </div>
+    <div class="grilla">
+    </div>
+    <!-- End CLOCK2 -->
   </div>
 
-  <div class="circle-list">
-    <%= image_tag('circle.png') %>
-  </div>
-
-  <div class="det-list">
-    <%= image_tag('ratable.png') %>
-  </div>
-
-  <div class="circle-list">
-    <%= image_tag('circle.png') %>
-  </div>
-
-  <div class="det-list">
-    <%= image_tag('horsy.png') %>
-  </div>
-
-  <div class="circle-list">
-    <%= image_tag('circle.png') %>
-  </div>
-
-  <div class="det-list">
-    <%= image_tag('carrito.png') %>
-  </div>
-
-  <div class="circle-list">
-    <%= image_tag('circle.png') %>
-  </div>
-
-  <div class="det-list">
-    <%= image_tag('clock.png') %>
-  </div>
+  <%= render :partial => 'home/contact_footer' %>
 
 </div>
-<!-- End PLAYS -->
 
-
-<!--Start TABLES-->
-<div class="grilla">
-  <div class="tables">
-    <h3>Mesas Ratonas</h3>
-    <h4>Lo único que le falta para ser un original Ratman</h4>
-    <%= image_tag('table.png') %>
-
-    <div class="arrow">
-      <%= image_tag('scroll-arrow.png') %>
-    </div>
-
-  </div>
-</div>
-<!-- End TABLES -->
-
-
-<!--Start HORSES-->
-<div class="grilla">
-  <div class="horses">
-    <h3>Caballos Mecedores</h3>
-    <h4>El primer caballo que Rupi no va a pervertir</h4>
-    <%= image_tag('horsymc.png') %>
-
-    <div class="arrow">
-      <%= image_tag('scroll-arrow.png') %>
-    </div>
-
-  </div>
-</div>
-<!-- End HORSES -->
-
-
-<!--Start CLOCK2-->
-<div class="grilla">
-  <div class="clock2">
-    <h3>Relojes de Mesa</h3>
-    <h4>Parecidos a la cabeza de la foca pero dan la hora</h4>
-    <%= image_tag('clocks2.png') %>
-
-    <div class="arrow">
-      <%= image_tag('scroll-arrow.png') %>
-    </div>
-
-  </div>
-</div>
-<!-- End CLOCK2 -->
-
-<!-- Start Contact -->
-<div class="grilla">
-  <div class="contact">
-
-    <div class="face">
-      <%= image_tag('face.png') %>
-    </div>
-
-    <div class="ins">
-      <%= image_tag('ins.png') %>
-    </div>
-
-    <div class="ml">
-      <%= image_tag('ml.png') %>
-    </div>
-  </div>
-
-  <div class="mail">
-    <h4>Consultá por los productos</h4>
-    <h5>alo@macain.com.ar</h5>
-
-    <div class="nom">
-      <input type="text" id="nombre" placeholder="Nombre"/>
-    </div>
-
-    <div class="tel">
-      <input type="tel" id="telefono" size="20" placeholder="Teléfono"/>
-    </div>
-
-    <div class="em">
-      <input type="email" id="e-mail" placeholder="E-mail"/>
-    </div>
-
-    <div class="cons">
-      <input type="text" id="cons" placeholder="Consulta"/>
-    </div>
-
-    <div class="cons">
-      <input type="password" placeholder="Password"/>
-    </div>
-
-    <button type="button" class="but">Enviar</button>
-  </div>
-</div>
-
-<!-- End Contact -->
+<%= render :partial => 'home/sidebar_nav' %>

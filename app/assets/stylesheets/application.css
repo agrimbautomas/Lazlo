@@ -40,18 +40,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     display: block;
 }
 
+body {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
 
 .header {
-    background-color: black;
+    background-color: #3E3E3E;
     background-size: cover;
     height: 45px;
     width: 100%;
     display: inline-block;
-}
-
-body {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    z-index: 99;
+    left: 0px;
+    top: 0px;
 }
 
 .log {
@@ -59,9 +62,8 @@ body {
     text-align: left;
     display: inline-block;
     float: left;
-    margin-top: -6px;
+    margin-top: -8px;
 }
-
 
 .car {
     width: 50%;
@@ -74,7 +76,7 @@ body {
 .icons {
     background-color: whitesmoke;
     height: 165px;
-    margin-top: -22px;
+
     width: 100%;
     color: dimgrey;
 
@@ -90,41 +92,28 @@ body {
 
 }
 
-.che {
-    width: 25%;
-    text-align: center;
-    display: inline-block;
-    float: left;
-    margin-top: 39px;
-    font-size: 14px;
+.product-container {
+
 }
 
-.tab {
-    width: 25%;
-    text-align: center;
-    display: inline-block;
-    float: left;
-    margin-top: 39px;
-    font-size: 14px;
+.product-container .image-container {
+
 }
 
-.hor {
-    width: 25%;
-    text-align: center;
-    display: inline-block;
-    float: left;
-    margin-top: 39px;
-    font-size: 14px;
-}
-.clo {
-    width: 25%;
-    text-align: center;
-    display: inline-block;
-    float: left;
-    margin-top: 39px;
-    font-size: 14px;
+.product-container .image-container img {
+    height: 700px;
+    width: 700px;
 }
 
+.nav-icon {
+    width: 25%;
+    text-align: center;
+    display: inline-block;
+    float: left;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
 
 h4 {
     font-size: 20px;
@@ -132,50 +121,35 @@ h4 {
 
 }
 
-.clock{
+.product-containerclock {
     height: 720px;
     background-color: white;
     margin-left: -186px;
 }
 
-.clock h3{
-    margin-left: 227px;
-    line-height: 2;
-}
-
-.clock h4{
-    margin-left: 227px;
-}
-
-.clock img {
-    text-align: center;
-}
-
-.arrow{
+.arrow {
     height: 100px;
-    margin-top: 11px;
-    margin-left: 270px;
+    cursor: pointer;
 }
 
-.plays{
-    height: 880px;
-    background-color: whitesmoke;
-    line-height: 2;
+.arrow a {
+    height: 65px;
+    width: 65px;
+    border: grey 3px solid;
+    display: inline-block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: url("/assets/flecha.png") no-repeat center;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
-.tables{
-    height: 720px;
-    background-color: white;
-}
-
-.horses{
-    height: 720px;
-    background-color: whitesmoke;
-}
-
-.clocks2{
-    height: 720px;
-    background-color: white;
+.arrow a:hover {
+    background-color: #D6D6D6;
 }
 
 h3 {
@@ -191,7 +165,6 @@ h3 {
     float: left;
 }
 
-
 .links {
     width: 50%;
 }
@@ -201,7 +174,6 @@ h3 {
     background-color: dimgrey;
     height: 800px;
 }
-
 
 .soc {
     width: 50%;
@@ -222,7 +194,7 @@ h3 {
     background-color: dimgrey
 }
 
-.ins{
+.ins {
     width: 500px;
     float: right;
     height: 262px;
@@ -233,7 +205,7 @@ h3 {
     background-color: dimgrey;
 }
 
-.ml{
+.ml {
     width: 100%;
     float: right;
     height: 292px;
@@ -243,7 +215,6 @@ h3 {
     border-color: grey;
     background-color: dimgrey;
 }
-
 
 .mail {
     width: 50%;
@@ -265,31 +236,31 @@ h3 {
     font-style: italic;
 }
 
-.mail .nom{
+.mail .nom {
     margin-left: 4px;
     margin-bottom: 20px;
     margin-top: 112px;
 }
 
-.mail .tel{
+.mail .tel {
     margin-left: 4px;
     margin-bottom: 20px;
     margin-top: 15px;
 }
 
-.mail .em{
+.mail .em {
     margin-left: 4px;
     margin-bottom: 20px;
     margin-top: 15px;
 }
 
-.mail .cons{
+.mail .cons {
     margin-left: 4px;
     margin-bottom: 20px;
     margin-top: 15px;
 }
 
-input{
+input {
     border: none;
     border-bottom: 1px solid #4d4d4d;
     outline: none;
@@ -297,7 +268,8 @@ input{
     font-size: 15px;
     color: #4d4d4d;
 }
-.but{
+
+.but {
     font-size: 17px;
     margin-top: 56px;
     margin-left: 151px;
@@ -307,27 +279,57 @@ input{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    color:dimgrey;
+    color: dimgrey;
 
 }
 
 .icon-list {
-    height: 460px;
-    width: 60px;
+    width: 40px;
     position: fixed;
-    background-color: antiquewhite;
     bottom: 74px;
     background-size: cover;
     background-position: center;
-
     right: 30px;
+    top: 35%;
+    text-align: center;
+    z-index: 10;
+}
+
+.icon-list li {
+    list-style: none;
+    height: 55px;
+}
+
+.icon-list li div,
+.icon-list li a {
+    width: 80%;
+    display: inline-block;
+    margin-top: 10px;
+
+    -moz-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+    -webkit-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+}
+
+.icon-list li.active a {
+    width: 100%;
+}
+
+.icon-list div img {
+    width: 100%;
+}
+
+.icon-list div.circle-list img {
+    width: auto;
 }
 
 .det-list {
     margin-bottom: 13px;
 }
 
-.det-list img{
+.det-list img {
     width: 100%
 }
 
@@ -335,6 +337,65 @@ input{
     margin-bottom: 8px;
 }
 
+.slider-container {
+    background: blue;
+    overflow: hidden;
+}
+
+.slider-block {
+    background: white;
+}
+
+.slider-block.odd {
+    background: whitesmoke;
+    overflow: hidden;
+}
+
+.slide-home {
+    display: none;
+}
+
+.landing-slides-container {
+
+}
+
+.landing-slides-container img {
+    height: 600px;
+}
+
+ul.slidesjs-pagination {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+ul.slidesjs-pagination li {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 3px 6px;
+    position: relative;
+}
+
+ul.slidesjs-pagination li a {
+    border: grey 3px solid;
+    height: 100%;
+    width: 100%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 1px;
+    text-indent: -9999;
+    /* margin: 0px 2px; */
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+ul.slidesjs-pagination li a.active,
+ul.slidesjs-pagination li a:hover {
+    background: grey;
+}
 
 /************************************************************************************/
 /************************************************************************************/
