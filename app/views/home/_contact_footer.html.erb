@@ -17,19 +17,23 @@
 
     </div>
 
-    <div class="mail">
-      <h4>Consultá por los productos</h4>
-      <h5><a href="mailto:alo@macain.com.ar" target="_blank">alo@macain.com.ar</a></h5>
+    <%= form_tag('/contact_email', method: 'POST') do %>
+        <div class="mail">
+          <h4>Consultá por los productos</h4>
+          <h5><a href="mailto:alo@macain.com.ar" target="_blank">alo@macain.com.ar</a></h5>
 
-      <input type="text" id="nombre" placeholder="Nombre"/>
+          <input type="text" name="name" placeholder="Nombre" required/>
 
-      <input type="tel" id="telefono" size="20" placeholder="Teléfono"/>
-      <input type="email" id="e-mail" placeholder="E-mail"/>
-      <input type="text" id="cons" placeholder="Consulta"/>
+          <input type="tel" name="tel" size="20" placeholder="Teléfono" required/>
 
+          <input type="email" name="email" placeholder="E-mail" required/>
 
-      <input type="submit" class="but" value="Enviar">
-    </div>
+          <input type="text" name="message" placeholder="Consulta" required/>
+
+          <%= submit_tag('Enviar', class: 'but') %>
+        </div>
+    <% end %>
+
   </div>
 </div>
 
