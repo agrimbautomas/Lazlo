@@ -217,13 +217,12 @@ h3 {
 }
 
 .mail {
-    width: 50%;
-    /* background-color: red; */
+    width: 32%;
     float: right;
     height: 780px;
     color: dimgrey;
     line-height: 2;
-    padding-top: 110px;
+    margin: 110px 9% 0px;
 }
 
 .mail h4 {
@@ -231,9 +230,10 @@ h3 {
     font-style: italic;
 }
 
-.mail h5 {
+.mail h5 a {
     font-size: 17px;
     font-style: italic;
+    color: dimgrey;
 }
 
 .mail .nom {
@@ -267,20 +267,39 @@ input {
     padding: 2px 0px 2px 7px;
     font-size: 15px;
     color: #4d4d4d;
+    background: none;
+    display: block;
+    width: 100%;
+    margin: 40px auto 0px;
 }
 
-.but {
-    font-size: 17px;
-    margin-top: 56px;
-    margin-left: 151px;
-    border: 2px solid dimgrey;
-    background-color: white;
-    padding: 10px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    color: dimgrey;
+input[type='submit'].but {
+    background: none;
+    border-radius: 0px;
+    text-shadow: none;
+    border: 2px solid hsla(0, 0%, 30%, 0.7);
+    outline: none;
+    padding: 12px 0px;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #4d4d4d;
+    display: block;
+    width: 125px;
+    margin: 40px auto 0px;
+    font-weight: lighter;
+    float: right;
+    box-shadow: none;
+    cursor: pointer;
 
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type='submit'].but:hover {
+    background-image: none;
+    background-color: #CACACA;
 }
 
 .icon-list {
@@ -355,12 +374,25 @@ input {
     display: none;
 }
 
-.landing-slides-container {
+.slide-img-container {
 
 }
 
+.bx-wrapper {
+}
+
+.bx-controls {
+    margin: -17% auto 20px auto;
+    position: relative;
+    z-index: 99999;
+}
+
+.landing-slides-container {
+    margin-bottom: 30px;
+}
+
 .landing-slides-container img {
-    height: 600px;
+    width: 100%;
 }
 
 ul.slidesjs-pagination {
@@ -368,7 +400,7 @@ ul.slidesjs-pagination {
     margin-bottom: 15px;
 }
 
-ul.slidesjs-pagination li {
+.bx-pager-item {
     display: inline-block;
     width: 8px;
     height: 8px;
@@ -376,8 +408,8 @@ ul.slidesjs-pagination li {
     position: relative;
 }
 
-ul.slidesjs-pagination li a {
-    border: grey 3px solid;
+.bx-pager-item a {
+    border: grey 2px solid;
     height: 100%;
     width: 100%;
     -webkit-border-radius: 50%;
@@ -392,8 +424,8 @@ ul.slidesjs-pagination li a {
     left: 0px;
 }
 
-ul.slidesjs-pagination li a.active,
-ul.slidesjs-pagination li a:hover {
+.bx-pager-item a.active,
+.bx-pager-item a:hover {
     background: grey;
 }
 

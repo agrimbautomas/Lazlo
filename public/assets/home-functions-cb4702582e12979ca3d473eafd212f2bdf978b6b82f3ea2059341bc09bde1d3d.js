@@ -21,7 +21,6 @@ $(document).ready(function () {
 
     $('#landing-slides-container').bxSlider({
         mode: 'fade',
-        captions: true,
-        controls: false
+        captions: true
     });
 });

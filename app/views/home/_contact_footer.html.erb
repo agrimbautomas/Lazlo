@@ -3,6 +3,10 @@
   <div class="grilla">
     <div class="contact">
 
+      <div class="ml">
+        <%= image_tag('ml.png') %>
+      </div>
+
       <div class="face">
         <%= image_tag('face.png') %>
       </div>
@@ -11,36 +15,20 @@
         <%= image_tag('ins.png') %>
       </div>
 
-      <div class="ml">
-        <%= image_tag('ml.png') %>
-      </div>
     </div>
 
     <div class="mail">
       <h4>Consultá por los productos</h4>
-      <h5>alo@macain.com.ar</h5>
+      <h5><a href="mailto:alo@macain.com.ar" target="_blank">alo@macain.com.ar</a></h5>
 
-      <div class="nom">
-        <input type="text" id="nombre" placeholder="Nombre"/>
-      </div>
+      <input type="text" id="nombre" placeholder="Nombre"/>
 
-      <div class="tel">
-        <input type="tel" id="telefono" size="20" placeholder="Teléfono"/>
-      </div>
+      <input type="tel" id="telefono" size="20" placeholder="Teléfono"/>
+      <input type="email" id="e-mail" placeholder="E-mail"/>
+      <input type="text" id="cons" placeholder="Consulta"/>
 
-      <div class="em">
-        <input type="email" id="e-mail" placeholder="E-mail"/>
-      </div>
 
-      <div class="cons">
-        <input type="text" id="cons" placeholder="Consulta"/>
-      </div>
-
-      <div class="cons">
-        <input type="password" placeholder="Password"/>
-      </div>
-
-      <button type="button" class="but">Enviar</button>
+      <input type="submit" class="but" value="Enviar">
     </div>
   </div>
 </div>
