@@ -21,12 +21,12 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => "587",
-      :domain               => "gmail.com",
-      :user_name            => "testamalgama@gmail.com",
-      :password             => "sinclair2955",
+      :domain               => "macain.com.ar",
+      :user_name            => "alo@macain.com.ar",
+      :password             => "mi4queridoh",
       :authentication       => "plain"
   }
-  
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
