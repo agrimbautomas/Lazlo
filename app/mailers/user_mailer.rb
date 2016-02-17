@@ -8,11 +8,7 @@ class UserMailer < ApplicationMailer
     @email = params[:email]
     @message = params[:message]
     @url  = 'http://macain.com.ar/'
-    mail(to: 'tomas@macain.com.ar', subject: 'Siranushen Alert :) - Message from: ' + @name)
+    mail(to: 'alo@macain.com.ar, tomas@macain.com.ar', subject: 'Siranushen Alert :) - Message from: ' + @name)
   end
 
-  def simple_email
-    @url  = 'http://macain.com.ar/'
-    mail(to: 'tomas@macain.com.ar', subject: 'Siranushen Alert :) - Message from: Test')
-  end
 end
