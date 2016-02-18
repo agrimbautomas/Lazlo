@@ -73,7 +73,7 @@ function papin() {
     var konami = '80,65,80,73,78';
 
     $(document).keydown(function (e) {
-        stopAudio();
+
         keys.push(e.keyCode);
         if (keys.toString().indexOf(konami) >= 0) {
             playAudio();
@@ -87,7 +87,7 @@ function foca() {
     var konami = '70,79,67,65';
 
     $(document).keydown(function (e) {
-        stopAudio();
+
         keys.push(e.keyCode);
         if (keys.toString().indexOf(konami) >= 0) {
             playAudio();
@@ -101,7 +101,7 @@ function siranush() {
     var konami = '83, 73, 82, 65, 78, 85, 83, 72';
 
     $(document).keydown(function (e) {
-        stopAudio();
+
         keys.push(e.keyCode);
         if (keys.toString().indexOf(konami) >= 0) {
             playAudio();
@@ -115,7 +115,7 @@ function salchipapa() {
     var konami = '83,65,76,67,72,73,80,65,80,65';
 
     $(document).keydown(function (e) {
-        stopAudio();
+
         keys.push(e.keyCode);
         if (keys.toString().indexOf(konami) >= 0) {
             playAudio();
@@ -126,8 +126,4 @@ function salchipapa() {
 
 function playAudio() {
     document.getElementById('audio-up').play();
-}
-
-function stopAudio() {
-    document.getElementById('audio-up').stop();
 }

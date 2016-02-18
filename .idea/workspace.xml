@@ -6,36 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="827896b2-9a50-43bd-afde-a78e14c8e7f0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/home.psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/horsy-l.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/rat-l.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/jquery.bxslider.min.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/anillo_gris.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-circulo-gris.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/carrito-b.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-compra-icono.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/carrito.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-compra.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/chezz-icon.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-ajedrez-icon.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/chezz.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-ajedrez-diseno-blanco-negro-minimalista.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/circle.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-circulo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/clo-l.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-reloj-icon.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/clock.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-reloj.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/clocks.jpg" afterPath="$PROJECT_DIR$/app/assets/images/macain-relojes-diseno-minimalista.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/clocks2.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-relojes-diseno-rojo-blanco-minimalista.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/horsy.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-caballo-mecedor-compra.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/horsymc.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-caballos-mecedores-diseno-minimalista.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/logo.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-logo-diseno-blanco-negro-minimalista.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/mesas-auxiliares.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-mesas-marmol-diseno-minimalista.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/ratable.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-mesa-marmol-diseno-minimalista.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/reloj-blanco.png" afterPath="$PROJECT_DIR$/app/assets/images/macain-reloj-blanco-diseno-minimalista.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-85713bc7dc93859d282c1ef6177ea30d.json" afterPath="$PROJECT_DIR$/public/assets/.sprockets-manifest-85713bc7dc93859d282c1ef6177ea30d.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/_fixed_top_nav.html.erb" afterPath="$PROJECT_DIR$/app/views/home/_fixed_top_nav.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/_landing_block.html.erb" afterPath="$PROJECT_DIR$/app/views/home/_landing_block.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/_sidebar_nav.html.erb" afterPath="$PROJECT_DIR$/app/views/home/_sidebar_nav.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/assets.rb" afterPath="$PROJECT_DIR$/config/initializers/assets.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/home-functions.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/home-functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="macain-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,20 +29,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39377084" vertical-offset="942" max-vertical-offset="1872">
-              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state vertical-scroll-proportion="-19.11111" vertical-offset="942" max-vertical-offset="1872">
+              <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home-functions.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home-functions.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/home-functions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1504" max-vertical-offset="2484">
+            <state vertical-scroll-proportion="0.06695464" vertical-offset="1504" max-vertical-offset="2430">
               <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding />
             </state>
@@ -617,7 +588,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22901554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.323993" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.323993" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -965,18 +936,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/home-functions.js">
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1504" max-vertical-offset="2484">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        <state vertical-scroll-proportion="-19.11111" vertical-offset="942" max-vertical-offset="1872">
+          <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/home-functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39377084" vertical-offset="942" max-vertical-offset="1872">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.06695464" vertical-offset="1504" max-vertical-offset="2430">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>
