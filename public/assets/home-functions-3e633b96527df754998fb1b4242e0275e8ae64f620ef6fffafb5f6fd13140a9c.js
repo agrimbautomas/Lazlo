@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     setupPager();
-   // setupSlider();
+    setupSlider();
     setupResize();
 
     papin();
@@ -26,11 +26,16 @@ function setupPager() {
         slidesNavigation: true,
 
         //Custom selectors
-        sectionSelector: '.slider-block',
-        slideSelector: '.slide-home',
+        sectionSelector: '.slider-block'
     });
 }
 
+function setupSlider() {
+    $(function () {
+        //$('#landing-slides-container').slidesjs({
+
+    });
+}
 
 function setupResize() {
     var win = $(this); //this = window

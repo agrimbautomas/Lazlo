@@ -1,38 +1,38 @@
 <!-- Start Contact -->
 <div class="slider-block odd">
   <div class="grilla">
-    <div class="contact">
+    <div class="social">
 
-      <div class="ml">
+      <div class="social-block ml">
         <%= image_tag('ml.png') %>
       </div>
 
-      <div class="face">
+      <div class="social-block  face">
         <%= image_tag('face.png') %>
       </div>
 
-      <div class="ins">
+      <div class="social-block ins">
         <%= image_tag('ins.png') %>
       </div>
 
     </div>
 
-    <%= form_tag('/contact_email', method: 'POST') do %>
-        <div class="mail">
-          <h4>Consultá por los productos</h4>
-          <h5><a href="mailto:alo@macain.com.ar" target="_blank">alo@macain.com.ar</a></h5>
+      <%= form_tag('/contact_email', method: 'POST', class: 'contact') do %>
+          <div class="mail">
+            <h4>Consultá por los productos</h4>
+            <h5><a href="mailto:alo@macain.com.ar" target="_blank">alo@macain.com.ar</a></h5>
 
-          <input type="text" name="name" placeholder="Nombre" required/>
+            <input type="text" name="name" placeholder="Nombre" required/>
 
-          <input type="tel" name="tel" size="20" placeholder="Teléfono" required/>
+            <input type="tel" name="tel" size="20" placeholder="Teléfono" required/>
 
-          <input type="email" name="email" placeholder="E-mail" required/>
+            <input type="email" name="email" placeholder="E-mail" required/>
 
-          <input type="text" name="message" placeholder="Consulta" required/>
+            <input type="text" name="message" placeholder="Consulta" required/>
 
-          <%= submit_tag('Enviar', class: 'but') %>
-        </div>
-    <% end %>
+            <%= submit_tag('Enviar', class: 'but') %>
+          </div>
+      <% end %>
 
   </div>
 </div>

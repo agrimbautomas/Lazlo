@@ -64,6 +64,11 @@ body {
     top: 0px;
 }
 
+.header .grilla{
+    margin-top: 20px;
+
+}
+
 .log {
     width: 50%;
     text-align: left;
@@ -93,9 +98,9 @@ body {
     width: 1000px;
     text-align: center;
     display: inline-block;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    max-width: 100%;
+    margin: 0px 2.5% 0px;
+    max-width: 95%;
+    position: relative;
 
 }
 
@@ -108,8 +113,8 @@ body {
 }
 
 .product-container .image-container img {
-    height: 700px;
     width: 700px;
+    max-width: 100%;
 }
 
 .nav-icon {
@@ -164,12 +169,19 @@ h3 {
     font-family: "Montserrat", sans sans-serif;
 }
 
-.contact {
+.social {
     width: 50%;
     background-color: dimgrey;
     margin-left: auto;
     margin-right: auto;
     float: left;
+    height: 100vh;
+    position: relative;
+}
+
+.contact {
+    width: 50%;
+    float: right;
 }
 
 .links {
@@ -190,46 +202,48 @@ h3 {
     height: 800px;
 }
 
-.face {
-    width: 500px;
-    float: right;
-    height: 292px;
-    line-height: 17;
-    border-style: solid;
-    border-width: 3px;
-    border-color: grey;
-    background-color: dimgrey
+.social-block{
+    height: 33vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    text-align:center; /* Align center inline elements */
+    font: 0/0 a;
 }
 
-.ins {
-    width: 500px;
-    float: right;
-    height: 262px;
-    line-height: 21;
-    border-style: solid;
-    border-width: 1px 3px 1px 3px;
-    border-color: grey;
-    background-color: dimgrey;
+.social-block:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
 }
 
-.ml {
-    width: 100%;
-    float: right;
-    height: 292px;
-    line-height: 22;
-    border-style: solid;
-    border-width: 3px;
-    border-color: grey;
-    background-color: dimgrey;
+.social-block img{
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.social-block.face {
+    top:33%;
+}
+
+.social-block.ins {
+    top: 66%;
+}
+
+.social-block.ml {
 }
 
 .mail {
-    width: 32%;
+    width: 80%;
     float: right;
-    height: 780px;
+    height: auto;
     color: dimgrey;
     line-height: 2;
-    margin: 110px 9% 0px;
+    margin: 110px 10% 40px;
 }
 
 .mail h4 {
@@ -463,6 +477,26 @@ ul.slidesjs-pagination {
 /************************************************************************************/
 /************************************************************************************/
 
-@media screen and (min-width: 1300px) {
+@media screen and (max-width: 1300px) {
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .social,
+    .contact{
+        width: 100%;
+    }
+    .social{
+
+    }
+    .contact{
+
+    }
+
+    .social-block {
+
+    }
+
 
 }
