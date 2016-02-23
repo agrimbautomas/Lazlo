@@ -448,7 +448,6 @@ input[type='submit'].but:hover {
 .slider-block {
     background: white;
     margin: 45px 0px -45px;
-    overflow: hidden;
 }
 
 .slider-block.odd {
