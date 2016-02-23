@@ -30,7 +30,7 @@ function setupPager() {
 
         //Slides
         slidesNavigation: true,
-
+        fitToSection: false,
         //Custom selectors
         sectionSelector: '.slider-block'
     });

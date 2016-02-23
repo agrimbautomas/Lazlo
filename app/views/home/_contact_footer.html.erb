@@ -3,17 +3,18 @@
   <div class="grilla grilla-social">
     <div class="social">
 
-      <div class="social-block ml">
-        <%= image_tag('ml.png') %>
-      </div>
-
-      <div class="social-block  face">
+      <a class="social-block  face" href="http://listado.mercadolibre.com.ar/_CustId_130206835" target="_blank">
         <%= image_tag('face.png') %>
-      </div>
+      </a>
 
-      <div class="social-block ins">
+      <a class="social-block ml" href="http://listado.mercadolibre.com.ar/_CustId_130206835" target="_blank">
+        <%= image_tag('ml.png', class: 'hide-in-mobile') %>
+        <%= image_tag('mercadolibre-dark.png', class: 'hide-in-desktop') %>
+      </a>
+
+      <a class="social-block ins" href="http://listado.mercadolibre.com.ar/_CustId_130206835" target="_blank">
         <%= image_tag('ins.png') %>
-      </div>
+      </a>
 
     </div>
 

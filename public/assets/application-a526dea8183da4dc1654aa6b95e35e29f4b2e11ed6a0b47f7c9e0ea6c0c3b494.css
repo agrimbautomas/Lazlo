@@ -10,7 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
+
  */
 
 /*
@@ -20,6 +20,7 @@
 /*--------------------------------------------------------
 Resets
 --------------------------------------------------------*/
+
 html, body {
     height: 100% !important;
     text-align: center;
@@ -241,12 +242,6 @@ h3 {
 
     text-align: center; /* Align center inline elements */
     font: 0/0 a;
-
-
-    -webkit-transition: all 0.6s ease-in-out;
-    -moz-transition: all 0.6s ease-in-out;
-    -o-transition: all 0.6s ease-in-out;
-    transition: all 0.6s ease-in-out;
 }
 
 .social-block:before {
@@ -271,20 +266,6 @@ h3 {
 
 .social-block.ml {
 }
-
-
-.social-block.ml:hover {
-    background: #FFF059;
-}
-
-.social-block.face:hover {
-    background: #4c66a4;
-}
-
-.social-block.ins:hover {
-    background: #3f729b;
-}
-
 
 .mail {
     width: 80%;
@@ -374,7 +355,7 @@ input[type='submit'].but:hover {
 }
 
 .icon-list {
-    width: 55px;
+    width: 40px;
     position: fixed;
     bottom: 74px;
     background-size: cover;
@@ -396,12 +377,19 @@ input[type='submit'].but:hover {
     display: inline-block;
     margin-top: 10px;
 
+    -moz-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+    -webkit-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
 }
 
+.icon-list li.active a {
+    width: 100%;
+}
 
 .icon-list div img {
     width: 100%;
-
 }
 
 .icon-list div.circle-list img {
@@ -413,25 +401,11 @@ input[type='submit'].but:hover {
 }
 
 .det-list img {
-    width: auto;
-    max-height: 41px;
-    max-width: 42px;
-
-
-    -moz-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
-    -webkit-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
-    -moz-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
-    -o-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
-    transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
-}
-.active .det-list  img {
-    max-height: 51px;
-    max-width: 52px;
-    margin: -3px;
+    width: 100%
 }
 
 .circle-list {
-    margin: 8px 0px;
+    margin-bottom: 8px;
     border: #A2A2A2 1px solid;
     width: 7px;
     height: 7px;
@@ -439,13 +413,13 @@ input[type='submit'].but:hover {
     border-radius: 50%;
 }
 
-#slider-container {
-    margin: -45px 0px;
+.slider-container {
+    background: blue;
+    overflow: hidden;
 }
 
 .slider-block {
     background: white;
-    margin: 45px 0px -45px;
 }
 
 .slider-block.odd {
@@ -540,10 +514,6 @@ ul.slidesjs-pagination {
 
 }
 
-.hide-in-desktop{
-    display: none !important;
-}
-
 /************************************************************************************/
 /************************************************************************************/
 /************************************************************************************/
@@ -566,8 +536,7 @@ ul.slidesjs-pagination {
     }
 
     .social {
-        height: 50px;
-        display: inline-block;
+        height: auto;
     }
 
     .contact {
@@ -575,18 +544,13 @@ ul.slidesjs-pagination {
     }
 
     .social-block {
-        height: 100%;
+        height: auto;
         position: relative;
-        width: 33.3%;
-        display: inline-block;
-        float: left;
-        top: 0px !important;
-        margin: 0px 0px;
     }
 
-    .social-block img {
-        max-height: 25px;
-        max-width: 50%;
+    .social-block img{
+        max-height: 30px;
+        max-width: 90px;
         margin: 8px 0px;
     }
 
@@ -611,57 +575,25 @@ ul.slidesjs-pagination {
     .hide-in-mobile,
     .arrow,
     .icon-list {
-        display: none !important;
+        display: none;
     }
 
-    .hide-in-desktop{
-        display: inline-block !important;
-    }
+
 
     .icons.icons-footer {
-        display: block !important;
+        display: block;
     }
 
-    h3 {
+    h3{
         font-size: 22px;
     }
 
-    h4 {
+    h4{
         font-size: 12px;
     }
 
-    h5 {
+    h5{
         font-size: 11px;
     }
-
-    .mail {
-        margin: 10px 10% 40px;
-    }
-
-    .mail h4 {
-        line-height: 20px;
-
-    }
-
-    .mail input {
-        margin: 30px 0px auto 0px;
-    }
-
-    input[type='submit'].but {
-        width: 100%;
-    }
-
-    .social-block.ml {
-        background: #FFF059;
-    }
-
-    .social-block.face {
-        background: #4c66a4;
-    }
-
-    .social-block.ins {
-        background: #3f729b;
-    }
-
 
 }
