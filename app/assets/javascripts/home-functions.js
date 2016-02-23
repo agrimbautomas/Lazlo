@@ -3,8 +3,6 @@ var elementsHeight;
 
 $(document).ready(function () {
 
-
-
     setupPager();
     setupSlider();
     setupResize();
@@ -14,6 +12,7 @@ $(document).ready(function () {
     foca();
     siranush();
     salchipapa();
+
 });
 
 function setupPager() {
@@ -73,7 +72,14 @@ function adjustStyles(){
 
 
 
-
+// To hide navigation bar
+window.addEventListener("load",function() {
+    // Set a timeout...
+    setTimeout(function(){
+        // Hide the address bar!
+        window.scrollTo(0, 1);
+    }, 0);
+});
 
 
 
