@@ -29,7 +29,7 @@ function setupPager() {
 
         //Slides
         slidesNavigation: true,
-        fitToSection: false,
+        fitToSection: true,
         //Custom selectors
         sectionSelector: '.slider-block'
     });
@@ -55,7 +55,7 @@ function setupResize() {
     });
 }
 
-function adjustStyles(){
+function adjustStyles() {
     elementsHeight = $('.icons').height() + $('.header').height() + $('.arrow').height() + 40; //40 for margins
 
     console.log("Window Height: ", win.height());
@@ -63,24 +63,46 @@ function adjustStyles(){
 
     $('.landing-slides-container').css('height', win.height() - elementsHeight);
 
-    if (win.height() >= 820) {
+    //If is not mobile
+    if (win.width() > 700) {
 
-    }
-    if (win.width() >= 1280) {
+        $('.image-container img').css({
+            height: win.height() / 1.4,
+            width: 'auto'
+        });
+        $('.arrow a').css({
+            height: win.height() / 12,
+            width: win.height() / 12
+        });
+
+        $('h3').css({
+            'font-size': win.height() / 24
+        });
+
+        $('h4').css({
+            'font-size': win.height() / 35
+        });
+
+        $('h5').css({
+            'font-size': win.height() / 50
+        });
+
+        $('.nav-icon img').css({
+            height: win.height() / 15
+        });
+
     }
 }
 
 
-
 // To hide navigation bar
-window.addEventListener("load",function() {
+window.addEventListener("load", function () {
     // Set a timeout...
-    setTimeout(function(){
+    setTimeout(function () {
         // Hide the address bar!
         window.scrollTo(0, 1);
     }, 0);
 });
-
 
 
 function papin() {
