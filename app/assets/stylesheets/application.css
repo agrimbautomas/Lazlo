@@ -142,6 +142,14 @@ body {
 
 }
 
+.blured{
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+
 .product-container .image-container img {
     width: auto;
     max-width: 100%;
