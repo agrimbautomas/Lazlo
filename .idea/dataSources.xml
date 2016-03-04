@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2872323191">
+  <component name="DataSourceManagerImpl" format="xml" hash="490554687">
     <data-source source="LOCAL" name="Rails macain-web: development" uuid="2392c177-396b-43c9-b3bc-12814b418f8b">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/macain_web_development</jdbc-url>
+      <user-name>macain-usr</user-name>
+      <user-password>dfd9dfc3dfc4dfc9dfc6dfcbdfc3dfd8df98df93df9fdf9f</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails macain-web: test" uuid="af059578-e3fd-40df-a976-6bfb80052dbf">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/db/test.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails macain-web: production" uuid="861ce010-ab7e-45b7-bcff-3cb85a262063">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/db/production.sqlite3</jdbc-url>
       <libraries />
     </data-source>
   </component>

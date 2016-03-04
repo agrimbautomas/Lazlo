@@ -28,6 +28,7 @@ gem 'rails_config'
 
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
+gem 'mysql2', '~> 0.3.18'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
