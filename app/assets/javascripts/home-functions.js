@@ -76,19 +76,19 @@ function adjustStyles() {
         });
 
         $('h3').css({
-            'font-size': win.height() / 24
+            'font-size': win.height() / 30
         });
 
         $('h4').css({
-            'font-size': win.height() / 35
+            'font-size': win.height() / 40
         });
 
         $('h5').css({
-            'font-size': win.height() / 50
+            'font-size': win.height() / 65
         });
 
         $('.nav-icon img').css({
-            height: win.height() / 15
+            height: win.height() / 25
         });
 
     }
