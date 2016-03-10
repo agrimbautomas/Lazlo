@@ -1,5 +1,7 @@
 ActiveAdmin.register Buyer do
-  permit_params :email, :password, :password_confirmation
+  menu priority: 3
+
+  permit_params :name, :email, :phone
 
 
 end

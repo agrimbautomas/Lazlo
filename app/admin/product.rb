@@ -1,6 +1,7 @@
 ActiveAdmin.register Product do
+  menu priority: 1
 
-  permit_params :name, :description, :price, :type, :image
+  permit_params :name, :description, :price, :product_type_id, :image
 
   filter :name
   filter :price
@@ -12,6 +13,9 @@ ActiveAdmin.register Product do
     column :name
     column 'Price' do |product|
       '$' + product.price.to_s
+    end
+    column 'Type' do |product|
+      ProductType.find(product.product_type_id).name
     end
     column :created_at
     column :updated_at
@@ -44,6 +48,6 @@ ActiveAdmin.register Product do
       end
 
     end
-
   end
+
 end

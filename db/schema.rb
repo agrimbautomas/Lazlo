@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310025359) do
+ActiveRecord::Schema.define(version: 20160310035815) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -51,7 +51,29 @@ ActiveRecord::Schema.define(version: 20160310025359) do
     t.string   "email",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "phone",      limit: 255
   end
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "buyer_id",        limit: 4
+    t.integer  "product_id",      limit: 4
+    t.string   "code",            limit: 255
+    t.string   "status",          limit: 255
+    t.string   "detail",          limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "order_status_id", limit: 4
+  end
+
+  add_index "orders", ["buyer_id"], name: "index_orders_on_buyer_id", using: :btree
+  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
+  add_index "orders", ["product_id"], name: "index_orders_on_product_id", using: :btree
 
   create_table "product_types", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -93,5 +115,8 @@ ActiveRecord::Schema.define(version: 20160310025359) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "orders", "buyers"
+  add_foreign_key "orders", "order_statuses"
+  add_foreign_key "orders", "products"
   add_foreign_key "products", "product_types"
 end

@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
 
   has_one :product_type
+  has_many :orders
 
   validates :name, presence: true
 
