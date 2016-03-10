@@ -34,6 +34,9 @@ Rails.application.configure do
   config.action_mailer.default_options = {from: 'no-reply@example.com'}
 
 
+  #Paper Clip
+  Paperclip.options[:command_path] = "/usr/bin/"
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

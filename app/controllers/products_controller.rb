@@ -4,4 +4,8 @@ class ProductsController < ApplicationController
 
   def show
   end
+
+  def tables
+    @tables = Product.all
+  end
 end

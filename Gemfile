@@ -30,6 +30,11 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'mysql2', '~> 0.3.18'
 
+gem 'paperclip', '~> 4.3'
+
+# Gemfile
+#gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

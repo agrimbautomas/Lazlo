@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   post '/contact_email' => 'home#contact_email'
 
+  get '/mesas' => 'products#tables'
+
   root 'home#index'
 
 

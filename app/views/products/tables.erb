@@ -1,0 +1,10 @@
+<% @tables.each do |table| %>
+    <div>
+      <h1><%= table.name %></h1>
+
+      <p><%= table.description %></p>
+
+      <p>Precio: $<%= table.price %></p>
+      <%= image_tag table.image.url(:medium) %>
+    </div>
+<% end %>
