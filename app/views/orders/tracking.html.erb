@@ -1,0 +1,7 @@
+<h1><%= @locals[:order].product.name %></h1>
+<h1><%= @locals[:order].buyer.name %></h1>
+<h1><%= @locals[:status].name %></h1>
+
+<% @locals[:statuses].each do |product_status| %>
+    <p><%= product_status.name %></p>
+<% end %>
