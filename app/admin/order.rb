@@ -25,7 +25,6 @@ ActiveAdmin.register Order do
   form do |f|
     f.inputs do
       f.input :buyer
-      f.input :buyer
       f.input :product
       f.input :order_status_id, :as => :select, include_blank: false,
               collection: OrderStatus.all

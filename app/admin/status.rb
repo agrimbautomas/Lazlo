@@ -1,5 +1,6 @@
 ActiveAdmin.register OrderStatus do
-  menu priority: 5
+
+  menu false
 
   permit_params :name, :image
 
