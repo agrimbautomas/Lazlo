@@ -1,7 +1,45 @@
-<h1><%= @locals[:order].product.name %></h1>
-<h1><%= @locals[:order].buyer.name %></h1>
-<h1><%= @locals[:status].name %></h1>
+<%= render :partial => 'home/fixed_top_nav' %>
 
-<% @locals[:statuses].each do |product_status| %>
-    <p><%= product_status.name %></p>
-<% end %>
+<div class="full-container">
+
+  <div class="buyers-data">
+    <h1><%= @locals[:order].tracking_title %></h1>
+
+    <div class="product-image">
+      <%= image_tag @locals[:order].product.image.url(:medium) %>
+    </div>
+  </div>
+
+  <%
+     status_class = 'status-active'
+     date_created = @locals[:order].created_at.strftime('%m/%d')
+     week_later = (@locals[:order].created_at + 10.days).strftime('%m/%d')
+  %>
+  <div class="status-blocks-container">
+    <% @locals[:statuses].each_with_index do |product_status, i|
+      start_date = (i == 0) ? date_created : ''
+      deliver_date = (i == (@locals[:statuses].size - 1)) ? week_later : ''
+    %>
+
+        <div class="status-block <%= status_class %>">
+
+          <label><%= start_date %><%= deliver_date %></label>
+
+          <div class="logo-container ">
+            <%= image_tag product_status.image.url(:thumb) %>
+          </div>
+
+          <p><%= product_status.name %></p>
+
+          <div class="status-line"></div>
+        </div>
+
+        <%
+           if (status_class == 'status-active') and (product_status.name == @locals[:status].name)
+             status_class = 'status-inactive'
+           end
+        %>
+    <% end %>
+  </div>
+
+</div>

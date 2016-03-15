@@ -3,13 +3,21 @@ ActiveAdmin.register AdminUser  do
 
   permit_params :email, :password, :password_confirmation
 
-  index do
-  end
 
   filter :email
   filter :current_sign_in_at
   filter :sign_in_count
   filter :created_at
+
+  index do
+    selectable_column
+
+    column :id
+    column :email
+    column :created_at
+
+    actions
+  end
 
   form do |f|
     f.inputs "Admin Details" do
