@@ -623,6 +623,7 @@ ul.slidesjs-pagination {
     max-width: 80px;
     position: relative;
     z-index: 10;
+    width: 100%;
 }
 
 .status-block p {
@@ -649,13 +650,20 @@ ul.slidesjs-pagination {
     left: -10%;
 }
 
-.status-block:first-child .status-line,
-.status-block.status-inactive .status-line{
+.status-block:first-child .status-line{
     display: none;
 }
 
-.product-image{
+.status-block.status-inactive .status-line{
 
+
+}
+
+.product-image{
+}
+
+.product-image img{
+    max-width: 100%;
 }
 
 /************************************************************************************/
@@ -667,8 +675,57 @@ ul.slidesjs-pagination {
 /************************************************************************************/
 /************************************************************************************/
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 900px) {
+    .status-blocks-container{
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        margin: 10% 2% 0px 0px;
+        width: 20%;
+        height: 90%;
+    }
+    .status-block{
+        width: 100%;
+        height: 20%;
+    }
 
+    .status-block .logo-container img{
+
+    }
+
+    .status-block label{
+        float: left;
+        width: 55%;
+        margin: 0px 0px 0px 0px;
+        text-align: right;
+    }
+
+    .status-block p{
+        margin: -5px 0px 0px 0px;
+        float: left;
+        font-size: 12px;
+        text-align: right;
+        width: 55%;
+    }
+
+    .status-block .logo-container {
+        float: right;
+        margin: 0px;
+        width: 30%;
+    }
+
+    .status-block .status-line{
+        height: 100%;
+        width: 7%;
+        bottom: 95%;
+        right: 12%;
+        left: inherit;
+        top: inherit;
+    }
+
+    .status-block.status-inactive p{
+        margin-top: 0px;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -785,4 +842,33 @@ ul.slidesjs-pagination {
         background: #3f729b;
     }
 
+    .status-blocks-container {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        margin: 15% 2% -15% 0px;
+        width: 35%;
+        height: 95%;
+        top: inherit;
+    }
+
+    .tracking-container{
+        width: 55%;
+        margin: 40px 0px 0px 5%;
+        display: inline-block;
+        float: left;
+    }
+
+    .status-block p {
+        font-size: 10px;
+    }
+
+    .status-block label{
+        margin-top: -10px;
+        font-size: 10px;
+    }
+
+    .buyers-data h1{
+        font-size: 18px;
+    }
 }
