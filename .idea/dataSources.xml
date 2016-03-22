@@ -5,8 +5,6 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://127.0.0.1/macain_web_development</jdbc-url>
-      <user-name>macain-usr</user-name>
-      <user-password>dfd9dfc3dfc4dfc9dfc6dfcbdfc3dfd8df98df93df9fdf9f</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails macain-web: test" uuid="af059578-e3fd-40df-a976-6bfb80052dbf">
@@ -23,4 +21,3 @@
     </data-source>
   </component>
 </project>
-

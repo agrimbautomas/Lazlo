@@ -3,13 +3,13 @@
   <div class="grilla grilla-social">
     <div class="social">
 
-      <a class="social-block  face" href="http://listado.mercadolibre.com.ar/_CustId_130206835" target="_blank">
+      <a class="social-block  face" href="https://www.facebook.com/allomacain" target="_blank">
         <%= image_tag('face.png') %>
       </a>
 
-      <a class="social-block ml" href="https://www.facebook.com/allomacain" target="_blank">
-        <%= image_tag('ml.png', class: 'hide-in-mobile') %>
-        <%= image_tag('mercadolibre-dark.png', class: 'hide-in-desktop') %>
+      <a class="social-block ml" href="http://listado.mercadolibre.com.ar/_CustId_130206835" target="_blank">
+        <%= image_tag('ml.png', :class => 'hide-in-mobile') %>
+        <%= image_tag('mercadolibre-dark.png', :class => 'hide-in-desktop') %>
       </a>
 
       <a class="social-block ins" href="https://www.instagram.com/alo_macain/" target="_blank">
@@ -18,7 +18,7 @@
 
     </div>
 
-    <%= form_tag('/contact_email', method: 'POST', class: 'contact') do %>
+    <%= form_tag('/contact_email', :method => 'POST', :class => 'contact') do %>
         <div class="mail">
           <h4>Consultá por los productos</h4>
           <h5><a href="mailto:alo@macain.com.ar" target="_blank">alo@macain.com.ar</a></h5>
@@ -31,7 +31,7 @@
 
           <input type="text" name="message" placeholder="Consulta" required/>
 
-          <%= submit_tag('Enviar', class: 'but') %>
+          <%= submit_tag('Enviar', :class => 'but') %>
         </div>
     <% end %>
 

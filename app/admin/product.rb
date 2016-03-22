@@ -11,14 +11,15 @@ ActiveAdmin.register Product do
     selectable_column
 
     column :name
-    column 'Price' do |product|
+    column 'Precio' do |product|
       '$' + product.price.to_s
     end
-    column 'Type' do |product|
+    column 'Tipo de Producto' do |product|
       ProductType.find(product.product_type_id).name
     end
-    column :created_at
-    column :updated_at
+    column :image do |product|
+      image_tag(product.image.url(:thumb), :class => 'product-thumb')
+    end
 
     actions
   end
@@ -39,10 +40,18 @@ ActiveAdmin.register Product do
   show do |product|
 
     attributes_table_for product do
-      row :name
-      row :description
-      row :price
-      row :created_at
+      row 'Nombre' do
+        product.name
+      end
+      row 'Descripcion' do
+        product.description
+      end
+      row 'Precio' do
+        product.price
+      end
+      row 'Tipo de producto' do
+        ProductType.find(product.product_type_id).name
+      end
       row :image do
         image_tag(product.image.url(:medium))
       end

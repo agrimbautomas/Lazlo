@@ -19,14 +19,17 @@ ActiveAdmin.register Order do
     column 'Producto' do |order|
       p order.product.name
     end
-    column 'Statado' do |order|
-      OrderStatus.find(order.order_status_id).name
+    column 'Estado' do |order|
+      OrderStatus.find(order.order_status_id).name unless order.order_status_id.nil?
     end
     column 'A Cobrar' do |order|
       '$' + order.payment.to_s
     end
-    column 'Fecha de Ingreso' do |order|
-      order.created_at.strftime("%m/%d/%Y")
+    column 'Fecha de Entrega' do |order|
+      (order.created_at + 10.days).strftime("%m/%d/%Y")
+    end
+    column 'Imagen' do |order|
+      image_tag(order.product.image.url(:thumb), :class => 'product-thumb')
     end
 
     actions
@@ -52,8 +55,12 @@ ActiveAdmin.register Order do
   show do |order|
 
     attributes_table_for order do
-      row :buyer
-      row :product
+      row 'Comprador' do
+        order.buyer
+      end
+      row 'Producto' do
+        order.product
+      end
       row 'Tracking Link' do
         href = request.base_url + tracking_order_by_code_path(order.code)
         link_to href, href, target: '_blank'
@@ -61,8 +68,15 @@ ActiveAdmin.register Order do
       row 'Status' do
         OrderStatus.find(order.order_status_id).name
       end
-      row :detail
-      row :tracking_title
+      row 'Detalle' do
+        order.detail
+      end
+      row 'Título para Tracking' do
+        order.tracking_title
+      end
+      row 'Imagen' do
+        image_tag(order.product.image.url(:thumb))
+      end
     end
 
   end
