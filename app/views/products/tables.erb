@@ -1,13 +1,25 @@
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag 'jquery.fullPage.min' %>
+    <%= javascript_include_tag 'tables-functions' %>
+<% end %>
 
 <%= render :partial => 'home/fixed_top_nav' %>
 
-<% @tables.each do |table| %>
-    <div>
-      <h1><%= table.name %></h1>
 
-      <p><%= table.description %></p>
 
-      <p>Precio: $<%= table.price %></p>
-      <%= image_tag table.image.url(:medium) %>
-    </div>
-<% end %>
+<div class="tables-box-container">
+
+  <% @tables.each do |table| %>
+      <div class="table-box">
+        <h1><%= table.name %></h1>
+
+        <p><%= table.description %></p>
+
+        <p>Precio: $<%= table.price %></p>
+        <%= image_tag table.image.url(:medium) %>
+      </div>
+  <% end %>
+</div>
+
+
+
