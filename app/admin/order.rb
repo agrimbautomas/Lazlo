@@ -9,7 +9,8 @@ ActiveAdmin.register Order do
   filter :product
   filter :code
 
-  index do
+  #index(:row_class => -> record { 'my-class' if record.was_updated? }) do
+  index(:row_class =>  -> record { OrderStatus.find(record.order_status_id).name_slug unless record.order_status_id.nil? }) do
     selectable_column
 
     column 'Nro' do |order|
@@ -21,14 +22,14 @@ ActiveAdmin.register Order do
     column :product do |order|
       p order.product.name
     end
-    column 'Estado' do |order|
+    column 'Estado', :class => 'status' do |order|
       OrderStatus.find(order.order_status_id).name unless order.order_status_id.nil?
     end
     column :payment do |order|
       '$' + order.payment.to_s
     end
     column 'Fecha Límite de Entrega' do |order|
-      (order.created_at + 15.days).strftime("%m/%d/%Y")
+      (order.created_at + 15.days).strftime("%m/%d")
     end
     column 'Imagen' do |order|
       image_tag(order.product.image.url(:thumb), :class => 'product-thumb')

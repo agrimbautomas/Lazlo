@@ -6,7 +6,6 @@
 //
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
-
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
@@ -16,6 +15,33 @@
 //
 //   .status_tag { background: #6090DB; }
 
-.product-thumb{
+.product-thumb {
   width: 40px;
+}
+
+tr {
+
+  &.encargado td{
+    background: #F7BCBC !important;
+  }
+
+  &.en-herreria td{
+    background: #FFD789 !important;
+  }
+  &.en-pintureria td{
+    background: #CAB1D5 !important;
+  }
+  &.listo-para-entregar td{
+    background: #70CACE !important;
+  }
+  &.entregada td{
+    background: #ACEFBA !important;
+  }
+
+  &.even td{
+  }
+  .status {
+    font-weight: bold;
+  }
+
 }
