@@ -32,7 +32,6 @@ gem 'mysql2', '~> 0.3.18'
 
 gem 'paperclip', '~> 4.3'
 
-gem 'sitemap_generator'
 
 # Gemfile
 #gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
