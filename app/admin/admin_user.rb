@@ -5,16 +5,13 @@ ActiveAdmin.register AdminUser  do
 
 
   filter :email
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
 
   index do
     selectable_column
 
     column :id
     column :email
-    column :created_at
+    column :current_sign_in_at
 
     actions
   end
@@ -27,5 +24,15 @@ ActiveAdmin.register AdminUser  do
     end
     f.actions
   end
+
+  show do |buyer|
+    attributes_table_for buyer do
+      row :email
+      row :current_sign_in_at
+      row :sign_in_count
+    end
+
+  end
+
 
 end

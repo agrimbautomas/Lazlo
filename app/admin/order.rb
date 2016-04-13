@@ -3,6 +3,8 @@ ActiveAdmin.register Order do
 
   permit_params :buyer_id, :product_id, :code, :detail, :order_status_id, :tracking_title, :payment
 
+  config.per_page = 20
+
   filter :buyer
   filter :product
   filter :code
@@ -13,20 +15,20 @@ ActiveAdmin.register Order do
     column 'Nro' do |order|
       p order.id
     end
-    column 'Comprador' do |order|
+    column :buyer do |order|
       p order.buyer.name
     end
-    column 'Producto' do |order|
+    column :product do |order|
       p order.product.name
     end
     column 'Estado' do |order|
       OrderStatus.find(order.order_status_id).name unless order.order_status_id.nil?
     end
-    column 'A Cobrar' do |order|
+    column :payment do |order|
       '$' + order.payment.to_s
     end
-    column 'Fecha de Entrega' do |order|
-      (order.created_at + 10.days).strftime("%m/%d/%Y")
+    column 'Fecha Límite de Entrega' do |order|
+      (order.created_at + 15.days).strftime("%m/%d/%Y")
     end
     column 'Imagen' do |order|
       image_tag(order.product.image.url(:thumb), :class => 'product-thumb')
@@ -38,12 +40,12 @@ ActiveAdmin.register Order do
 
   form do |f|
     f.inputs do
-      f.input :buyer, :label => 'Comprador'
-      f.input :product, :label => 'Producto'
+      f.input :buyer
+      f.input :product
       f.input :order_status_id, :as => :select, include_blank: false,
               collection: OrderStatus.all, :label => 'Estado'
-      f.input :detail, :hint => 'Algun tipo de detalle para la producción', :label => 'Detalle'
-      f.input :payment, :label => 'A cobrar', :input_html => {:min => 0, :step => 100}
+      f.input :detail, :hint => 'Algun tipo de detalle para la producción'
+      f.input :payment, :input_html => {:min => 0, :step => 100}
       f.input :tracking_title, :hint => 'Titulo para mostrar en la página de trackeo',
               :label => 'Titulo para el tracking'
     end
@@ -55,12 +57,9 @@ ActiveAdmin.register Order do
   show do |order|
 
     attributes_table_for order do
-      row 'Comprador' do
-        order.buyer
-      end
-      row 'Producto' do
-        order.product
-      end
+      row :buyer
+      row :product
+
       row 'Tracking Link' do
         href = request.base_url + tracking_order_by_code_path(order.code)
         link_to href, href, target: '_blank'
@@ -68,9 +67,7 @@ ActiveAdmin.register Order do
       row 'Status' do
         OrderStatus.find(order.order_status_id).name
       end
-      row 'Detalle' do
-        order.detail
-      end
+      row :detail
       row 'Título para Tracking' do
         order.tracking_title
       end

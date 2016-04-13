@@ -13,7 +13,7 @@
   <%
      status_class = 'status-active'
      date_created = @locals[:order].created_at.strftime('%m/%d')
-     week_later = (@locals[:order].created_at + 10.days).strftime('%m/%d')
+     week_later = (@locals[:order].created_at + 15.days).strftime('%m/%d')
   %>
   <div class="status-blocks-container">
     <% @locals[:statuses].each_with_index do |product_status, i|

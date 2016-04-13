@@ -3,6 +3,9 @@ ActiveAdmin.register Buyer do
 
   permit_params :name, :email, :phone, :address
 
+  filter :name
+  filter :email
+
   index do
     selectable_column
 
@@ -16,10 +19,10 @@ ActiveAdmin.register Buyer do
 
   form do |f|
     f.inputs do
-      f.input :name, :label => 'Nombre del Comprador'
+      f.input :name
       f.input :email
-      f.input :phone, :label => 'Teléfono'
-      f.input :address, :label => 'Dirección'
+      f.input :phone
+      f.input :address
     end
 
     actions
@@ -28,19 +31,13 @@ ActiveAdmin.register Buyer do
 
   show do |buyer|
     attributes_table_for buyer do
-      row 'Nombre' do
-        buyer.name
-      end
+      row :name
       row :email
-      row 'Teléfono' do
-        buyer.phone
-      end
-      row 'Dirección' do
-        buyer.address
-      end
+      row :phone
+      row :address
 
     end
-
   end
+
 
 end
