@@ -32,6 +32,13 @@ gem 'mysql2', '~> 0.3.18'
 
 gem 'paperclip', '~> 4.3'
 
+# For AdminUser roles:
+gem 'rolify'
+
+# For admin authorizations:
+gem 'cancan'
+
+gem 'responsive_active_admin'
 
 # Gemfile
 #gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+

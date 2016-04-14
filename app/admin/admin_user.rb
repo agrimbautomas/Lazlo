@@ -11,6 +11,9 @@ ActiveAdmin.register AdminUser  do
 
     column :id
     column :email
+    column 'Rol' do |adminUser|
+      adminUser.roles.map(&:name).join("<br />").humanize
+    end
     column :current_sign_in_at
 
     actions
@@ -21,6 +24,8 @@ ActiveAdmin.register AdminUser  do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :roles, as: :radio,
+              collection: Role.all.map { |role| [role.name.humanize, role.id] }
     end
     f.actions
   end
