@@ -590,7 +590,6 @@ ul.slidesjs-pagination {
   padding: 45px 0px;
   text-align: center;
 
-
   h1 {
     font-family: 'PT Sans Narrow', sans-serif;
     font-size: 35px;
@@ -598,12 +597,13 @@ ul.slidesjs-pagination {
     padding: 40px 0px;
   }
 
-  .inner-container{
+  .inner-container {
     width: 100%;
     height: 100%;
     display: inline-block;
     margin: 10px auto;
     max-width: 1100px;
+    min-height: 1000px;
     position: relative;
   }
 }
@@ -634,19 +634,7 @@ ul.slidesjs-pagination {
   -o-transition-property: left, right, top;
   transition-property: left, right, top;
 
-  h2 {
-    font-size: 14px;
-    color: #99abff;
-  }
-
-  p{
-    font-size: 12px;
-    color: white;
-  }
-
-
-
-  .hidden-info{
+  .hidden-info {
     opacity: 0;
     position: absolute;
     top: 0px;
@@ -654,15 +642,45 @@ ul.slidesjs-pagination {
     height: 90%;
     padding: 5%;
     width: 90%;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
 
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+
   }
 
-  img{
+  &.small-box {
+    h2 {
+      font-size: 14px;
+      color: #99abff;
+      line-height: 22px;
+    }
+
+    .price {
+      float: right;
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      font-size: 16px;
+      color: white;
+    }
+
+    &.big-box {
+      h2 {
+        font-size: 20px;
+        line-height: 34px;
+      }
+
+      .price {
+        font-size: 22px;
+      }
+    }
+  }
+
+
+  img {
     width: 100%;
   }
 
@@ -676,7 +694,7 @@ ul.slidesjs-pagination {
     height: 40%;
   }
 
-  &:hover .hidden-info{
+  &:hover .hidden-info {
     opacity: 1;
   }
 }

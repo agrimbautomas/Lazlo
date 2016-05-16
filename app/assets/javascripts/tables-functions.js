@@ -7,6 +7,7 @@ var counter = 0;
 var topPointer = 0;
 var leftPointer = 0;
 var goToTop = false;
+var doubleRowCounter  = 0;
 
 $(document).ready(function () {
 
@@ -45,6 +46,7 @@ function setBigBoxes() {
 function setPositions() {
 
     counter = 0;
+    doubleRowCounter = 0;
     goToTop = false;
     topPointer = 0;
     leftPointer = 0;
@@ -66,11 +68,21 @@ function setPositions() {
             leftPointer += smallBoxesWidth;
         }
 
-        topPointer = (goToTop) ? 0 : (topPointer + smallBoxesWidth);
+        topPointer = (goToTop) ?  topPointerPosition() : (topPointer + smallBoxesWidth);
 
+
+        if (counter % 7 == 0){
+            leftPointer = 0;
+            counter = 0;
+            doubleRowCounter++;
+        }
     });
 }
 
+function topPointerPosition(){
+    var doubleRowHeight = smallBoxesWidth*2;
+    return doubleRowHeight * doubleRowCounter;
+}
 
 jQuery.fn.extend({
     setSmallBox: function () {
@@ -86,11 +98,10 @@ jQuery.fn.extend({
 
 jQuery.fn.extend({
     setBigBox: function () {
-        $(this).css({
+        $(this).addClass('big-box').css({
             width: bigBoxesWidth,
             height: bigBoxesWidth
-        });
-        $(this).animate({
+        }).animate({
             top: topPointer,
             left: leftPointer
         });
