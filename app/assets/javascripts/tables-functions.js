@@ -7,7 +7,8 @@ var counter = 0;
 var topPointer = 0;
 var leftPointer = 0;
 var goToTop = false;
-var doubleRowCounter  = 0;
+var doubleRowCounter = 0;
+var featuredBoxDisplayed;
 
 $(document).ready(function () {
 
@@ -50,37 +51,51 @@ function setPositions() {
     goToTop = false;
     topPointer = 0;
     leftPointer = 0;
+    featuredBoxDisplayed = false;
 
+    var featuredBoxIndexes = [1,3,5,7];
+    var randomNum = Math.floor(Math.random() * featuredBoxIndexes.length) + 0;
 
     $('.table-box').each(function () {
         counter++;
 
 
-
-        if (counter % 5 == 0) {
+        if ((counter % featuredBoxIndexes[randomNum] == 0) && !featuredBoxDisplayed) {
             $(this).setBigBox();
+            featuredBoxDisplayed = true;
         } else {
             $(this).setSmallBox();
         }
 
 
-        if ( (counter % 2 == 0) && goToTop ) {
-            leftPointer += smallBoxesWidth;
+        //Set Values for next loop
+        if (goToTop) {
+            if (!featuredBoxDisplayed) {
+                if (counter % 2 == 0)
+                    leftPointer += smallBoxesWidth;
+            }
+
+            if (featuredBoxDisplayed && !$(this).hasClass('big-box')) {
+                if (counter % 2 != 0 )
+                    leftPointer += smallBoxesWidth;
+            }
         }
 
-        topPointer = (goToTop) ?  topPointerPosition() : (topPointer + smallBoxesWidth);
+        topPointer = (goToTop) ? topPointerPosition() : (topPointer + smallBoxesWidth);
 
 
-        if (counter % 7 == 0){
+        if ( counter % 7 == 0) {
             leftPointer = 0;
             counter = 0;
             doubleRowCounter++;
+            featuredBoxDisplayed = false;
+            randomNum = Math.floor(Math.random() * featuredBoxIndexes.length) + 0;
         }
     });
 }
 
-function topPointerPosition(){
-    var doubleRowHeight = smallBoxesWidth*2;
+function topPointerPosition() {
+    var doubleRowHeight = smallBoxesWidth * 2;
     return doubleRowHeight * doubleRowCounter;
 }
 
@@ -91,8 +106,12 @@ jQuery.fn.extend({
             left: leftPointer
         });
 
-        goToTop = (counter % 2 == 0) && !goToTop ? true : false;
-        
+        if (!featuredBoxDisplayed)
+            goToTop = (counter % 2 == 0) && !goToTop ? true : false;
+
+        if (featuredBoxDisplayed)
+            goToTop = (counter % 2 != 0) && !goToTop ? true : false;
+
     }
 });
 
