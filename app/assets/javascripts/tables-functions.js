@@ -1,14 +1,11 @@
-var $tablesContainer;
-var containerWidth;
-var smallBoxesWidth;
-var bigBoxesWidth;
+var $tablesContainer, containerWidth, smallBoxesWidth, bigBoxesWidth;
 
 var counter = 0;
 var topPointer = 0;
 var leftPointer = 0;
 var goToTop = false;
 var doubleRowCounter = 0;
-var featuredBoxDisplayed;
+var randomNum, featuredBoxIndexes, featuredBoxDisplayed;
 
 $(document).ready(function () {
 
@@ -53,8 +50,8 @@ function setPositions() {
     leftPointer = 0;
     featuredBoxDisplayed = false;
 
-    var featuredBoxIndexes = [1,3,5,7];
-    var randomNum = Math.floor(Math.random() * featuredBoxIndexes.length) + 0;
+    featuredBoxIndexes = [1,3,5,7];
+    randomNum = Math.floor(Math.random() * featuredBoxIndexes.length) + 0;
 
     $('.table-box').each(function () {
         counter++;
@@ -81,17 +78,22 @@ function setPositions() {
             }
         }
 
+        resetValues();
+
         topPointer = (goToTop) ? topPointerPosition() : (topPointer + smallBoxesWidth);
-
-
-        if ( counter % 7 == 0) {
-            leftPointer = 0;
-            counter = 0;
-            doubleRowCounter++;
-            featuredBoxDisplayed = false;
-            randomNum = Math.floor(Math.random() * featuredBoxIndexes.length) + 0;
-        }
     });
+}
+
+function resetValues(){
+
+    if ( counter % 7 == 0) {
+
+        leftPointer = 0;
+        counter = 0;
+        doubleRowCounter++;
+        featuredBoxDisplayed = false;
+        randomNum = Math.floor(Math.random() * featuredBoxIndexes.length) + 0;
+    }
 }
 
 function topPointerPosition() {
