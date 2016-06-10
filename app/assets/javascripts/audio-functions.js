@@ -38,7 +38,7 @@ function foca() {
 
 function siranush() {
     var keys = [];
-    var konami = '83, 73, 82, 65, 78, 85, 83, 72';
+    var konami = '83,73,82,65,78,85,83,72';
 
     $(document).keydown(function (e) {
 
