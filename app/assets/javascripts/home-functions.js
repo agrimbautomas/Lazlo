@@ -1,7 +1,7 @@
 var win;
 var elementsHeight;
 
-$(document).ready(function () {
+$(document).on('ready page:load', function(event) {
 
     setupPager();
     setupSlider();
@@ -15,7 +15,6 @@ function setupPager() {
 
         scrollBar: true,
         paddingTop: '45px',
-
 
         //Navigation
         //menu: '#sidebar-nav',
