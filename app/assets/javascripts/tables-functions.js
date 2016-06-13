@@ -19,8 +19,17 @@ function setupResponsiveBoxes() {
 
     setSmallBoxes();
     setBigBoxes();
-
     setPositions();
+    setBoxesContainer();
+}
+
+function setBoxesContainer() {
+    var doubleRowsCount = Math.ceil($('.table-box').length / 7);
+    var containerHeight = doubleRowsCount * bigBoxesWidth;
+
+    console.log('doubleRowsCount', doubleRowsCount);
+    console.log('containerHeight', containerHeight);
+    $tablesContainer.height(containerHeight)
 }
 
 function setSmallBoxes() {
@@ -28,7 +37,6 @@ function setSmallBoxes() {
     $('.small-box').css({
         width: smallBoxesWidth,
         height: smallBoxesWidth
-
     });
 }
 
@@ -37,7 +45,6 @@ function setBigBoxes() {
     $('.big-box').css({
         width: bigBoxesWidth,
         height: bigBoxesWidth
-
     });
 }
 
@@ -55,7 +62,6 @@ function setPositions() {
 
     $('.table-box').each(function () {
         counter++;
-
 
         if ((counter % featuredBoxIndexes[randomNum] == 0) && !featuredBoxDisplayed) {
             $(this).setBigBox();

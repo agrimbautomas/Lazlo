@@ -5,21 +5,22 @@
 <div class="tables-box-container">
   <h1>Mesas Macain</h1>
 
-  <div class="inner-container">
+  <div class="products-white-container">
+    <div class="inner-container">
 
-    <% @tables.each_with_index do |table, i| %>
-        <a class="table-box small-box"
-           href="<%= product_path(table) %>"
-           style="background-image: url('<%= table.image.url(:big) %>');">
-          <div class="hidden-info">
-            <h2><%= table.name %></h2>
+      <% @tables.each_with_index do |table, i| %>
+          <a class="table-box small-box"
+             href="<%= product_path(table) %>"
+             style="background-image: url('<%= table.image.url(:big) %>');">
+            <div class="hidden-info">
+              <h2><%= table.name %></h2>
 
-            <p class="price">$<%= table.price.to_i %></p>
+              <p class="price">$<%= table.price.to_i %></p>
 
-          </div>
-        </a>
-    <% end %>
-
+            </div>
+          </a>
+      <% end %>
+    </div>
   </div>
 </div>
 
