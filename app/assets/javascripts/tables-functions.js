@@ -10,7 +10,6 @@ var randomNum, featuredBoxIndexes, featuredBoxDisplayed;
 $(document).on('ready page:load', function(event) {
 
     setupResponsiveBoxes();
-
 });
 
 function setupResponsiveBoxes() {
@@ -27,8 +26,6 @@ function setBoxesContainer() {
     var doubleRowsCount = Math.ceil($('.table-box').length / 7);
     var containerHeight = doubleRowsCount * bigBoxesWidth;
 
-    console.log('doubleRowsCount', doubleRowsCount);
-    console.log('containerHeight', containerHeight);
     $tablesContainer.height(containerHeight)
 }
 

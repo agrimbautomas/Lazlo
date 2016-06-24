@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @table = Product.find(params[:id])
   end
 
   def tables

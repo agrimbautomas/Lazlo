@@ -605,11 +605,67 @@ ul.slidesjs-pagination {
     max-width: 1100px;
     position: relative;
   }
-}
 
-.products-white-container{
-  background: white;
-  margin: 70px 0px;
+  .products-white-container {
+    background: white;
+    margin: 70px 0px;
+  }
+
+  &.tables-box-container-detail {
+
+    .text-detail-container {
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+      margin: 60px auto;
+      line-height: 24px;
+    }
+
+    .products-white-container {
+      margin: 10px 0px;
+    }
+
+    .inner-container {
+      max-width: 1000px;
+    }
+
+    .product-name {
+      text-transform: uppercase;
+      font-size: 22px;
+    }
+    .product-description {
+      font-size: 14px;
+    }
+
+    .product-price {
+      font-size: 36px;
+      line-height: 50px;
+      font-style: italic;
+      margin: 10px auto;
+      color: #3E3E3E;
+    }
+    .product-buy-button {
+      font-size: 15px;
+      background: #3E3E3E;
+      padding: 10px 20px;
+      margin: 20px auto;
+      color: #DEDEDE;
+      display: inline-block;
+      cursor: pointer;
+      &:hover {
+        background: #807D7D;
+      }
+
+    }
+    .payment-methods {
+      background: url('/assets/MP-payButton-logos.png');
+      height: 28px;
+      width: 164px;
+      display: block;
+      background-repeat: no-repeat;
+      background-position: 0px -26px;
+    }
+  }
 }
 
 .table-box {
@@ -682,7 +738,6 @@ ul.slidesjs-pagination {
     }
   }
 
-
   img {
     width: 100%;
   }
@@ -709,6 +764,32 @@ ul.slidesjs-pagination {
 }
 
 /************************************************************************************/
+/*************************** DETAIL PAGE ********************************************/
+/************************************************************************************/
+
+.half-container {
+  width: 50%;
+
+  &.half-container-left {
+    float: left;
+    width: 60%;
+  }
+
+  &.half-container-right {
+    float: right;
+    width: 40%;
+  }
+}
+
+.image-detail-container {
+  display: inline-block;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
 /************************************************************************************/
 /************************************************************************************/
 /************************************************************************************/
@@ -878,4 +959,57 @@ ul.slidesjs-pagination {
   .buyers-data h1 {
     font-size: 18px;
   }
+}
+
+@media screen and (max-width: 500px) {
+
+  .tables-box-container h1 {
+    padding: 25px 0px;
+    font-size: 25px;
+  }
+
+  .table-box.small-box.big-box h2,
+  .table-box.small-box h2 {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .table-box.small-box.big-box .price,
+  .table-box.small-box .price {
+    width: 100%;
+    right: 0px;
+    bottom: 10px;
+    font-size: 12px;
+  }
+
+  .half-container.half-container-left,
+  .half-container.half-container-right {
+    width: 100%;
+  }
+
+  .tables-box-container.tables-box-container-detail {
+    .text-detail-container {
+      width: 95%;
+      margin: 0px 2.5%;
+    }
+    .product-buy-button {
+      margin: 40px 0px 0px 25%;
+      width: 50%;
+      text-align: center;
+      padding: 10px 0px;
+    }
+    .payment-methods{
+      background-size: cover;
+      margin: 15px 0px 30px 25%;
+      width: 50%;
+    }
+    .product-name{
+      font-size: 18px;
+    }
+    .product-price{
+      font-size: 26px;
+    }
+
+  }
+
 }

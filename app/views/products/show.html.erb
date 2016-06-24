@@ -1,2 +1,41 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<%= render :partial => 'home/fixed_top_nav' %>
+
+
+<div class="tables-box-container tables-box-container-detail">
+  <h1>Mesas Macain</h1>
+
+  <div class="products-white-container">
+    <div class="inner-container">
+
+      <div class="half-container half-container-left">
+        <div class="image-detail-container">
+          <%= image_tag @table.image.url(:big) %>
+        </div>
+      </div>
+
+      <div class="half-container half-container-right">
+        <div class="text-detail-container">
+
+          <div class="product-name">
+            <%= @table.name %>
+          </div>
+          <div class="product-price">
+            $<%= @table.price.to_i %>
+          </div>
+          <div class="product-description">
+            <%= @table.description %>
+          </div>
+
+          <a class="product-buy-button" target="_blank" href="https://www.mercadopago.com/mla/checkout/start?pref_id=130206835-08c100e4-e2e6-40cb-908b-f9ea210181ce">
+            COMPRAR
+          </a>
+          <span class="payment-methods"></span>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
