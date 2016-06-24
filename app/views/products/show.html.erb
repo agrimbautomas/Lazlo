@@ -26,11 +26,11 @@
             <%= @table.description %>
           </div>
 
-          <a class="product-buy-button" target="_blank" href="https://www.mercadopago.com/mla/checkout/start?pref_id=130206835-08c100e4-e2e6-40cb-908b-f9ea210181ce">
+          <a href="<%= @preference['response']['init_point'] %>" name="MP-Checkout" class="product-buy-button">
             COMPRAR
           </a>
           <span class="payment-methods"></span>
-
+          <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>
         </div>
       </div>
 
