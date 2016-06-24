@@ -5,18 +5,7 @@ class ProductsController < ApplicationController
   def show
 
 
-    @table = Product.find(params[:id])
-    preference_data = {
-        "items" => [
-            "title" => @table.name,
-            "quantity" => 1,
-            "unit_price" => @table.price,
-            "currency_id" => "ARS",
-            "picture_url" => @table.image.url(:medium)
-        ]}
-
-    @preference = $mp_client.create_preference(preference_data)
-
+    @table = Product.friendly.find(params[:id])
   end
 
   def tables

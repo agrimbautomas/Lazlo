@@ -45,6 +45,11 @@ namespace :deploy do
     end
   end
 
+  desc 'Create Slugs'
+  task :generate_slugs => :environment do
+    Product.find_each(&:save)
+  end
+
   after :publishing, :restart
 
   after :restart, :clear_cache do

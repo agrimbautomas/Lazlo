@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   has_one :product_type
   has_many :orders
@@ -10,6 +12,19 @@ class Product < ActiveRecord::Base
                     default_url: "/images/:style/missing.png", :preserve_files => true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
+
+
+  def payment
+    preference_data = {
+        'items' => [
+            'title' => self.name,
+            'quantity' => 1,
+            'unit_price' => self.price,
+            'currency_id' => 'ARS',
+            'picture_url' => self.image.path(:medium)
+        ]}
+    $mp_client.create_preference(preference_data)
+  end
 
   def serializable_hash(*args)
     hash = super(*args)
