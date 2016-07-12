@@ -8,6 +8,11 @@ ActiveAdmin.register Product do
   filter :name
   filter :price
 
+  controller do
+    defaults :finder => :find_by_slug
+  end
+
+
   index do
     selectable_column
 

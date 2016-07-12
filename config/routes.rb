@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   ActiveAdmin.routes(self)
-  resources :products
+  resources :products do
+    get 'purchased', to: 'products#purchased'
+  end
 
   post '/contact_email' => 'home#contact_email'
 

@@ -25,6 +25,7 @@
           <div class="product-description">
             <%= @table.description %>
             <%= @table.slug %>
+            <%= @table.payment %>
           </div>
 
           <a href="<%= @table.payment['response']['init_point'] %>" name="MP-Checkout" class="product-buy-button">
