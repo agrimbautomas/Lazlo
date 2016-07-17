@@ -1,8 +1,6 @@
 $(document).on('ready page:load', function (event) {
     setupMercadoPago();
 
-    console.log("Fophe");
-
 });
 
 function setupMercadoPago() {

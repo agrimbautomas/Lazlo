@@ -18,12 +18,13 @@
 
           <div class="product-name">
             <%= @table.name %>
+            <%= product_purchased_path(@table.id) %>
           </div>
           <div class="product-price">
             $<%= @table.price.to_i %>
           </div>
           <div class="product-description">
-            <%= @table.description %>
+            <%= simple_format(@table.description) %>
           </div>
 
           <a href="<%= @table.payment['response']['sandbox_init_point'] %>" name="MP-Checkout" class="product-buy-button">

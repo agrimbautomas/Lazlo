@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
   resources :products do
-    get 'purchased', to: 'products#purchased'
+    get 'purchased', to: 'products#purchase'
   end
 
   post '/contact_email' => 'home#contact_email'

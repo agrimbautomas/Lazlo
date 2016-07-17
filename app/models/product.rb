@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -24,13 +26,17 @@ class Product < ActiveRecord::Base
             'picture_url' => self.image_uri
         ],
         'back_urls' => {
-            'pending' => 'http://theamalgama.com/',
-            'success' => 'http://theamalgama.com/',
-            'failure' => 'http://theamalgama.com/'
+            'pending' => product_path(self),
+            'success' => product_purchased_path(self),
+            'failure' => product_path(self)
         }
     }
 
-    #'success' => product_purchased_path(self.id),
+    #collection_id=1196139
+    # &collection_status=approved
+    # &preference_id=130206835-9b5612a0-23f7-4a65-bd35-2eb50c1ed4bd
+    # &external_reference=null&payment_type=credit_card&merchant_order_id=null
+
 
     $mp_client.create_preference(preference_data)
   end
