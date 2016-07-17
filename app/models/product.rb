@@ -21,7 +21,7 @@ class Product < ActiveRecord::Base
             'quantity' => 1,
             'unit_price' => self.price,
             'currency_id' => 'ARS',
-            'picture_url' => self.image.path(:medium)
+            'picture_url' => self.image_uri
         ],
         'back_urls' => {
             'pending' => 'http://theamalgama.com/',
@@ -33,6 +33,10 @@ class Product < ActiveRecord::Base
     #'success' => product_purchased_path(self.id),
 
     $mp_client.create_preference(preference_data)
+  end
+
+  def image_uri
+    URI.join($request.url, self.image.url)
   end
 
   def serializable_hash(*args)
