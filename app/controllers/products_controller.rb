@@ -3,8 +3,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-
-
     @table = Product.friendly.find(params[:id])
   end
 

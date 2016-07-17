@@ -24,11 +24,10 @@
           </div>
           <div class="product-description">
             <%= @table.description %>
-            <%= @table.slug %>
-            <%= @table.payment %>
+            <%= @table.image.path(:medium) %>
           </div>
 
-          <a href="<%= @table.payment['response']['init_point'] %>" name="MP-Checkout" class="product-buy-button">
+          <a href="<%= @table.payment['response']['sandbox_init_point'] %>" name="MP-Checkout" class="product-buy-button">
             COMPRAR
           </a>
           <span class="payment-methods"></span>
