@@ -26,9 +26,9 @@ class Product < ActiveRecord::Base
             'picture_url' => self.image_uri
         ],
         'back_urls' => {
-            'pending' => product_path(self),
+            'pending' => product_purchased_path(self),
             'success' => product_purchased_path(self),
-            'failure' => product_path(self)
+            'failure' => product_purchased_path(self)
         }
     }
 
@@ -41,9 +41,14 @@ class Product < ActiveRecord::Base
     $mp_client.create_preference(preference_data)
   end
 
+  def set_quantity quantity
+    @quantity = quantity
+  end
+
   def image_uri
     URI.join($request.url, self.image.url)
   end
+
 
   def serializable_hash(*args)
     hash = super(*args)

@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   ActiveAdmin.routes(self)
+
   resources :products do
     get 'purchased', to: 'products#purchase'
+    get 'purchase-data', to: 'api#purchase_product_data'
+    get 'checkout', to: 'products#purchase'
   end
 
   post '/contact_email' => 'home#contact_email'

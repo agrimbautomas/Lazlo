@@ -1,9 +1,9 @@
 var win;
 var elementsHeight;
 
-$(document).on('ready page:load', function(event) {
+$(document).on('ready page:load', function (event) {
 
-    setupPager();
+    //setupPager();
     setupSlider();
     setupResize();
     adjustStyles();
@@ -11,22 +11,28 @@ $(document).on('ready page:load', function(event) {
 });
 
 function setupPager() {
-    $('#slider-container').fullpage({
+    var $sliderContainer = $('#slider-container');
+    if ($sliderContainer.length) {
+        $sliderContainer.fullpage({
 
-        scrollBar: true,
-        paddingTop: '45px',
+            scrollBar: true,
+            paddingTop: '45px',
 
-        //Navigation
-        //menu: '#sidebar-nav',
-        anchors: ['productos', 'ajedrez', 'mesas', 'caballos', 'relojes', 'contacto'],
-        menu: '#sidebar-nav',
+            //Navigation
+            //menu: '#sidebar-nav',
+            anchors: ['productos', 'ajedrez', 'mesas', 'caballos', 'relojes', 'contacto'],
+            menu: '#sidebar-nav',
 
-        //Slides
-        slidesNavigation: true,
-        fitToSection: true,
-        //Custom selectors
-        sectionSelector: '.slider-block'
-    });
+            //Slides
+            slidesNavigation: true,
+            fitToSection: true,
+            //Custom selectors
+            sectionSelector: '.slider-block'
+        });
+    }else{
+        $sliderContainer = null;
+        console.log('NOT Settef');
+    }
 }
 
 function setupSlider() {

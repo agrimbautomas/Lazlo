@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-
   before_filter :set_request
 
   def index
@@ -20,6 +19,7 @@ class ProductsController < ApplicationController
 
     Order.create(product: params[:id])
   end
+
 
   def set_request
     $request = request
