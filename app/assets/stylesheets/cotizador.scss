@@ -1,0 +1,45 @@
+.cotizador-white-container {
+  background: white;
+  margin: 0px 0px;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+
+  .inner-container {
+    max-width: 400px;
+    width: 100%;
+    margin: 0px auto;
+    text-align: center;
+
+    input,
+    label,
+    select {
+      width: 95%;
+      display: inline-block;
+      font-size: 30px;
+      padding: 10px 2.5%;
+      outline: none;
+      text-align: center;
+    }
+
+    select {
+      text-align: left;
+    }
+
+    button {
+      width: 60%;
+      display: inline-block;
+      font-size: 21px;
+      padding: 15px 2.5%;
+      outline: none;
+      margin: 35px 0px 0px;
+      border-radius: 3px;
+      border: none;
+      background: #6C6CF1;
+      text-shadow: none;
+      &:hover{
+        background: #597ef1;
+      }
+    }
+  }
+}

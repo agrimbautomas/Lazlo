@@ -244,6 +244,9 @@ es:
         admin_user:
           one: Administrador
           other: Administradores
+        marvel:
+          one: Mármol
+          other: Mármoles
       attributes:
         product:
           title: Título
@@ -260,6 +263,10 @@ es:
           name: Nombre
           phone: Teléfono
           address: Dirección
+        marvel:
+          name: Nombre
+          price: Precio de 100cm x 100cm
+          updated_at: Última vez actualizado
         admin_user:
           current_sign_in_at: Última vez conectado
           sign_in_count: Cantidad de veces conectado

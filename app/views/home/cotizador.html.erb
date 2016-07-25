@@ -1,0 +1,34 @@
+<%= render :partial => 'home/fixed_top_nav' %>
+
+
+<div class="tables-box-container tables-box-container-detail">
+  <h1>Cotizador</h1>
+</div>
+
+
+<div class="cotizador-white-container">
+  <div class="inner-container">
+
+    <%= form_tag do %>
+
+        <label>Ancho</label>
+        <input name="width_size" type="number" max="10000" min="0">
+
+        <label>Alto</label>
+        <input name="heigth_size" type="number" max="10000" min="0">
+
+        <label>Material</label>
+        <% if @marvels.present? %>
+            <select>
+              <% @marvels.each_with_index do |marvel, i| %>
+                  <option value="<%= marvel.id %>"><%= marvel.name %></option>
+              <% end %>
+            </select>
+        <% end %>
+
+        <button id="calculate-price">Calcular Precio</button>
+    <% end %>
+
+
+  </div>
+</div>

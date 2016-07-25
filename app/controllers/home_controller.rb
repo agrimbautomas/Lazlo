@@ -12,6 +12,10 @@ class HomeController < ApplicationController
   end
 
 
+  def cotizador
+    @marvels = Marvel.all.order(:name)
+  end
+
   private
 
   def contact_params

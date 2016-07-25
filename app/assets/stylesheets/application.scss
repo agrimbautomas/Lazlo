@@ -13,7 +13,8 @@
 
 /*
  *  Author     : Borba Jr
-
+*= require_self
+ *= require_tree .
 /*--------------------------------------------------------
  *Resets
  *--------------------------------------------------------
@@ -396,7 +397,6 @@ input {
 }
 
 #slider-container {
-  margin: -45px 0px;
 }
 
 .slider-block {
@@ -998,15 +998,15 @@ ul.slidesjs-pagination {
       text-align: center;
       padding: 10px 0px;
     }
-    .payment-methods{
+    .payment-methods {
       background-size: cover;
       margin: 15px 0px 30px 25%;
       width: 50%;
     }
-    .product-name{
+    .product-name {
       font-size: 18px;
     }
-    .product-price{
+    .product-price {
       font-size: 26px;
     }
 

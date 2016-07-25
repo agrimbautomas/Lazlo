@@ -1,0 +1,1125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+/*
+ *  Author     : Borba Jr
+
+/*--------------------------------------------------------
+ *Resets
+ *--------------------------------------------------------
+*/
+/* line 22, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+html, body {
+  height: 100% !important;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* line 28, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+/* line 36, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 40, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+a {
+  text-decoration: none;
+  color: dimgrey;
+}
+/* line 43, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+a:visited {
+  color: dimgrey;
+}
+
+/* line 48, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+body {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* line 53, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.header {
+  background-color: #3E3E3E;
+  background-size: cover;
+  height: 45px;
+  width: 100%;
+  display: inline-block;
+  position: fixed;
+  z-index: 12000;
+  left: 0px;
+  top: 0px;
+}
+/* line 63, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.header .grilla {
+  margin-top: 20px;
+}
+
+/* line 68, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.log {
+  width: 50%;
+  text-align: left;
+  display: inline-block;
+  float: left;
+  margin-top: -8px;
+}
+
+/* line 76, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.car {
+  width: 50%;
+  text-align: right;
+  display: inline-block;
+  float: right;
+  margin-top: -7px;
+}
+
+/* line 84, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.icons {
+  background-color: whitesmoke;
+  height: auto;
+  width: 100%;
+  color: dimgrey;
+  padding: 28px 0px 8px;
+}
+/* line 90, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.icons.icons-footer {
+  position: fixed;
+  box-shadow: 0px 0px 12px #6F6F6F;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  height: 50px;
+  display: none;
+  z-index: 12000;
+  padding: 0px 0;
+}
+/* line 100, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.icons.icons-footer .nav-icon {
+  width: 20%;
+  margin: 10px 0px 0px;
+}
+/* line 103, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.icons.icons-footer .nav-icon img {
+  max-width: 34px;
+  max-height: 28px;
+  height: 100vh;
+}
+/* line 108, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.icons.icons-footer .nav-icon.macain-icon img {
+  max-width: 60px;
+  max-height: 60px;
+  margin-top: -26px;
+}
+
+/* line 117, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.grilla {
+  width: 1000px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 2.5% 0px;
+  max-width: 95%;
+  position: relative;
+}
+
+/* line 126, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.product-container {
+  padding: 40px 0px 0px 0px;
+}
+
+/* line 132, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.blured {
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
+
+/* line 140, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.product-container .image-container img {
+  width: auto;
+  max-width: 100%;
+}
+
+/* line 145, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.nav-icon {
+  width: 25%;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+/* line 153, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.nav-icon img {
+  height: auto;
+}
+
+/* line 158, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+h4 {
+  font-size: 20px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+/* line 164, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.product-containerclock {
+  height: 720px;
+  background-color: white;
+  margin-left: -186px;
+}
+
+/* line 170, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.arrow {
+  height: 100px;
+  cursor: pointer;
+}
+/* line 173, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.arrow a {
+  height: 65px;
+  width: 65px;
+  border: grey 3px solid;
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: url("/assets/flecha.png") no-repeat center;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* line 186, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.arrow a:hover {
+  background-color: #D6D6D6;
+}
+
+/* line 192, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+h3 {
+  font-size: 36px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: bold;
+}
+
+/* line 198, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.social {
+  width: 50%;
+  background-color: dimgrey;
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  height: 100vh;
+  position: relative;
+}
+
+/* line 208, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.contact {
+  width: 50%;
+  float: right;
+}
+
+/* line 213, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.links {
+  width: 50%;
+}
+
+/* line 217, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.zero {
+  width: 200px;
+  background-color: dimgrey;
+  height: 800px;
+}
+
+/* line 223, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.soc {
+  width: 50%;
+  text-align: center;
+  float: left;
+  height: 800px;
+}
+
+/* line 230, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.social-block {
+  height: 33vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  /* Align center inline elements */
+  font: 0/0 a;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+/* line 244, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.social-block:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+/* line 250, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.social-block img {
+  vertical-align: middle;
+  display: inline-block;
+}
+/* line 254, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.social-block.face {
+  top: 33%;
+}
+/* line 257, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.social-block.ins {
+  top: 66%;
+}
+/* line 260, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.social-block.ml:hover {
+  background: #FFF059;
+}
+/* line 263, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.social-block.face:hover {
+  background: #4c66a4;
+}
+/* line 266, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.social-block.ins:hover {
+  background: #3f729b;
+}
+
+/* line 271, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.mail {
+  width: 80%;
+  float: right;
+  height: auto;
+  color: dimgrey;
+  line-height: 2;
+  margin: 110px 10% 40px;
+}
+/* line 278, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.mail h4 {
+  font-size: 20px;
+  font-style: italic;
+}
+/* line 282, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.mail h5 a {
+  font-size: 17px;
+  font-style: italic;
+  color: dimgrey;
+}
+/* line 287, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.mail .nom {
+  margin-left: 4px;
+  margin-bottom: 20px;
+  margin-top: 112px;
+}
+/* line 292, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.mail .tel, .mail .em, .mail .cons {
+  margin-left: 4px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+/* line 299, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+input {
+  border: none;
+  border-bottom: 1px solid #4d4d4d;
+  outline: none;
+  padding: 2px 0px 2px 7px;
+  font-size: 15px;
+  color: #4d4d4d;
+  background: none;
+  display: block;
+  width: 100%;
+  margin: 40px auto 0px;
+  box-shadow: none;
+  outline: none;
+}
+/* line 312, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+input[type='submit'].but {
+  background: none;
+  border-radius: 0px;
+  text-shadow: none;
+  border: 2px solid rgba(77, 77, 77, 0.7);
+  outline: none;
+  padding: 12px 0px;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #4d4d4d;
+  display: block;
+  width: 125px;
+  margin: 40px auto 0px;
+  font-weight: lighter;
+  float: right;
+  box-shadow: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* line 333, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+input[type='submit'].but:focus, input[type='submit'].but:hover {
+  background-image: none;
+  background-color: #CACACA;
+}
+
+/* line 340, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.icon-list {
+  width: 55px;
+  position: fixed;
+  bottom: 74px;
+  background-size: cover;
+  background-position: center;
+  right: 30px;
+  top: 35%;
+  text-align: center;
+  z-index: 10;
+  z-index: 10000;
+}
+/* line 351, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.icon-list li {
+  list-style: none;
+  height: 55px;
+}
+/* line 354, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.icon-list li div, .icon-list li a {
+  width: 80%;
+  display: inline-block;
+  margin-top: 10px;
+}
+/* line 361, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.icon-list div img {
+  width: 100%;
+}
+/* line 364, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.icon-list div.circle-list img {
+  width: auto;
+}
+
+/* line 370, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.det-list {
+  margin-bottom: 13px;
+}
+/* line 372, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.det-list img {
+  width: auto;
+  max-height: 41px;
+  max-width: 42px;
+  -moz-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+  -webkit-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+  -moz-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+  -o-transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out, left 0.5s ease-in-out;
+}
+
+/* line 384, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.active .det-list img {
+  max-height: 51px;
+  max-width: 52px;
+  margin: -3px;
+}
+
+/* line 390, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.circle-list {
+  margin: 8px 0px;
+  border: #A2A2A2 1px solid;
+  width: 7px;
+  height: 7px;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/* line 402, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.slider-block {
+  background: white;
+  margin: 10px 0px -10px;
+  position: relative;
+}
+/* line 406, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.slider-block.odd {
+  background: whitesmoke;
+  overflow: hidden;
+}
+/* line 410, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.slider-block.landing-block {
+  z-index: 11000;
+}
+
+/* line 415, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.slide-img-container {
+  height: 80%;
+  max-height: 80%;
+}
+
+/* line 420, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.bx-wrapper {
+  width: 100%;
+  height: 700px;
+}
+
+/* line 425, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.bx-controls {
+  margin: 20px auto 20px auto;
+  position: relative;
+  z-index: 99999;
+}
+
+/* line 431, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.landing-slides-container {
+  margin: 20px auto 15px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 900px;
+}
+
+/* line 439, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.slide-home {
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  display: none;
+  opacity: 0;
+  left: 0px;
+  z-index: 10000;
+}
+/* line 448, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.slide-home.active {
+  display: inline-block;
+  opacity: 1;
+}
+
+/* line 454, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.landing-slides-container img {
+  height: 100%;
+}
+
+/* line 458, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+ul.slidesjs-pagination {
+  display: inline-block;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* line 464, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.slidesjs-pagination-item {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 3px 6px;
+  position: relative;
+}
+/* line 470, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.slidesjs-pagination-item a {
+  border: grey 2px solid;
+  height: 100%;
+  width: 100%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 1px;
+  text-indent: -9999;
+  /* margin: 0px 2px; */
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+/* line 484, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.slidesjs-pagination-item a.active, .slidesjs-pagination-item a:hover {
+  background: grey;
+}
+
+/* line 490, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.slidesjs-control, .slidesjs-container {
+  max-height: 600px;
+}
+
+/* line 494, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.hide-in-desktop {
+  display: none !important;
+}
+
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+/*************************** Tracking *********************************************/
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+/* line 507, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.full-container {
+  width: 100%;
+}
+
+/* line 511, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.buyers-data {
+  margin-top: 70px;
+}
+/* line 513, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.buyers-data h1 {
+  margin: 20px auto 20px;
+  display: inline-block;
+  font-size: 22px;
+  color: #F48789;
+}
+
+/* line 521, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.status-blocks-container {
+  width: 100%;
+  margin: 25px 3% 0px -3%;
+}
+
+/* line 526, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.status-block {
+  width: 19%;
+  float: left;
+  position: relative;
+}
+/* line 530, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.status-block.status-inactive {
+  -webkit-filter: grayscale(1);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: url(#greyscale);
+  filter: gray;
+}
+/* line 537, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.status-block .logo-container, .status-block p, .status-block label {
+  width: 40%;
+  text-align: center;
+  float: right;
+  margin: 0px 0px 0px 60%;
+}
+/* line 543, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.status-block .logo-container img {
+  max-width: 80px;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+/* line 549, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.status-block p {
+  margin-top: 10px;
+}
+/* line 552, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.status-block label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  height: 20px;
+}
+/* line 557, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.status-block.status-inactive p {
+  margin-top: 10px;
+  color: grey;
+}
+/* line 561, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.status-block .status-line {
+  background: #70CACE;
+  height: 16px;
+  position: absolute;
+  width: 100%;
+  top: 62px;
+  left: -10%;
+}
+/* line 569, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.status-block:first-child .status-line {
+  display: none;
+}
+
+/* line 576, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.product-image img {
+  max-width: 100%;
+}
+
+/************************************************************************************/
+/************************************************************************************/
+/***************************** Boxes Javascript *************************************/
+/************************************************************************************/
+/************************************************************************************/
+/* line 586, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container {
+  background: #DEDEDE;
+  position: relative;
+  width: 100%;
+  padding: 45px 0px 0px;
+  text-align: center;
+}
+/* line 593, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container h1 {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 35px;
+  color: #3E3E3E;
+  padding: 40px 0px;
+}
+/* line 600, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container .inner-container {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  margin: -70px auto 10px;
+  max-width: 1100px;
+  position: relative;
+}
+/* line 609, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container .products-white-container {
+  background: white;
+  margin: 70px 0px;
+}
+/* line 616, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container.tables-box-container-detail .text-detail-container {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  margin: 60px auto;
+  line-height: 24px;
+}
+/* line 624, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container.tables-box-container-detail .products-white-container {
+  margin: 10px 0px;
+}
+/* line 628, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container.tables-box-container-detail .inner-container {
+  max-width: 1000px;
+}
+/* line 632, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container.tables-box-container-detail .product-name {
+  text-transform: uppercase;
+  font-size: 22px;
+}
+/* line 636, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container.tables-box-container-detail .product-description {
+  font-size: 14px;
+}
+/* line 640, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container.tables-box-container-detail .product-price {
+  font-size: 36px;
+  line-height: 50px;
+  font-style: italic;
+  margin: 10px auto;
+  color: #3E3E3E;
+}
+/* line 647, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container.tables-box-container-detail .product-buy-button {
+  font-size: 15px;
+  background: #3E3E3E;
+  padding: 10px 20px;
+  margin: 20px auto;
+  color: #DEDEDE;
+  display: inline-block;
+  cursor: pointer;
+}
+/* line 655, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container.tables-box-container-detail .product-buy-button:hover {
+  background: #807D7D;
+}
+/* line 660, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.tables-box-container.tables-box-container-detail .payment-methods {
+  background: url("/assets/MP-payButton-logos.png");
+  height: 28px;
+  width: 164px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: 0px -26px;
+}
+
+/* line 671, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.table-box {
+  background-color: white;
+  border: 1px solid black;
+  overflow: hidden;
+  float: left;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: cover;
+  background-size: center center;
+  color: #5E6469;
+  position: absolute;
+  -webkit-transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  -moz-transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  -ms-transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  -o-transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  transition: all 300ms cubic-bezier(1, 0, 0, 1);
+  /* easeInOutExpo */
+  -webkit-transition-property: left, right, top;
+  -moz-transition-property: left, right, top;
+  -ms-transition-property: left, right, top;
+  -o-transition-property: left, right, top;
+  transition-property: left, right, top;
+}
+/* line 696, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.table-box .hidden-info {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 90%;
+  padding: 5%;
+  width: 90%;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* line 714, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.table-box.small-box h2 {
+  font-size: 14px;
+  color: #99abff;
+  line-height: 22px;
+}
+/* line 720, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.table-box.small-box .price {
+  float: right;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  font-size: 16px;
+  color: white;
+}
+/* line 730, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.table-box.small-box.big-box h2 {
+  font-size: 20px;
+  line-height: 34px;
+}
+/* line 735, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.table-box.small-box.big-box .price {
+  font-size: 22px;
+}
+/* line 741, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.table-box img {
+  width: 100%;
+}
+/* line 745, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.table-box.small-box {
+  width: 20%;
+  height: 20%;
+}
+/* line 750, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.table-box.big-box {
+  width: 40%;
+  height: 40%;
+}
+/* line 755, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.table-box:hover .hidden-info {
+  opacity: 1;
+}
+
+/************************************************************************************/
+/*************************** DETAIL PAGE ********************************************/
+/************************************************************************************/
+/* line 770, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.half-container {
+  width: 50%;
+}
+/* line 773, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.half-container.half-container-left {
+  float: left;
+  width: 60%;
+}
+/* line 778, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.half-container.half-container-right {
+  float: right;
+  width: 40%;
+}
+
+/* line 784, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.image-detail-container {
+  display: inline-block;
+  width: 100%;
+}
+/* line 788, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+.image-detail-container img {
+  width: 100%;
+}
+
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+/*************************** RESPONSIVE *********************************************/
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+@media screen and (max-width: 900px) {
+  /* line 802, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .status-blocks-container {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    margin: 10% 2% 0px 0px;
+    width: 20%;
+    height: 90%;
+  }
+
+  /* line 810, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .status-block {
+    width: 100%;
+    height: 20%;
+  }
+  /* line 815, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .status-block label {
+    float: left;
+    width: 55%;
+    margin: 0px 0px 0px 0px;
+    text-align: right;
+  }
+  /* line 821, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .status-block p {
+    margin: -5px 0px 0px 0px;
+    float: left;
+    font-size: 12px;
+    text-align: right;
+    width: 55%;
+  }
+  /* line 828, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .status-block .logo-container {
+    float: right;
+    margin: 0px;
+    width: 30%;
+  }
+  /* line 833, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .status-block .status-line {
+    height: 100%;
+    width: 7%;
+    bottom: 95%;
+    right: 12%;
+    left: inherit;
+    top: inherit;
+  }
+  /* line 841, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .status-block.status-inactive p {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 700px) {
+  /* line 848, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .social, .contact {
+    width: 100%;
+    height: 50vh;
+  }
+
+  /* line 852, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .social {
+    height: 50px;
+    display: inline-block;
+  }
+
+  /* line 858, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .social-block {
+    height: 100%;
+    position: relative;
+    width: 33.3%;
+    display: inline-block;
+    float: left;
+    top: 0px !important;
+    margin: 0px 0px;
+  }
+  /* line 866, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .social-block img {
+    max-height: 25px;
+    max-width: 50%;
+    margin: 8px 0px;
+  }
+
+  /* line 872, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .grilla-social {
+    margin: 0px;
+    max-width: 100%;
+    margin: 25px 0px 0px;
+  }
+
+  /* line 877, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .icons {
+    height: auto;
+    padding: 36px 0px 0px;
+  }
+
+  /* line 881, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .nav-icon {
+    margin: 10px 0%;
+  }
+
+  /* line 884, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .landing-slides-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* line 888, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .hide-in-mobile, .arrow, .icon-list {
+    display: none !important;
+  }
+
+  /* line 891, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .hide-in-desktop {
+    display: inline-block !important;
+  }
+
+  /* line 894, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .icons.icons-footer {
+    display: block !important;
+  }
+
+  /* line 897, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  h3 {
+    font-size: 22px;
+  }
+
+  /* line 900, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  h4 {
+    font-size: 12px;
+  }
+
+  /* line 903, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  h5 {
+    font-size: 11px;
+  }
+
+  /* line 906, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .mail {
+    margin: 10px 10% 40px;
+  }
+  /* line 908, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .mail h4 {
+    line-height: 20px;
+    font-size: 17px;
+  }
+  /* line 912, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .mail h5 a {
+    font-size: 15px;
+  }
+  /* line 915, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .mail input {
+    margin: 25px 0px auto 0px;
+  }
+
+  /* line 919, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  input[type='submit'].but {
+    width: 100%;
+    margin: 20px auto 0px;
+    padding: 10px 0px;
+  }
+
+  /* line 925, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .social-block.ml {
+    background: #FFF059;
+  }
+  /* line 928, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .social-block.face {
+    background: #4c66a4;
+  }
+  /* line 931, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .social-block.ins {
+    background: #3f729b;
+  }
+
+  /* line 935, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .status-blocks-container {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    margin: 15% 2% -15% 0px;
+    width: 35%;
+    height: 95%;
+    top: inherit;
+  }
+
+  /* line 944, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .tracking-container {
+    width: 55%;
+    margin: 40px 0px 0px 5%;
+    display: inline-block;
+    float: left;
+  }
+
+  /* line 951, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .status-block p {
+    font-size: 10px;
+  }
+  /* line 954, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .status-block label {
+    margin-top: -10px;
+    font-size: 10px;
+  }
+
+  /* line 959, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .buyers-data h1 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 966, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .tables-box-container h1 {
+    padding: 25px 0px;
+    font-size: 25px;
+  }
+
+  /* line 971, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .table-box.small-box.big-box h2,
+  .table-box.small-box h2 {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  /* line 977, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .table-box.small-box.big-box .price,
+  .table-box.small-box .price {
+    width: 100%;
+    right: 0px;
+    bottom: 10px;
+    font-size: 12px;
+  }
+
+  /* line 985, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .half-container.half-container-left,
+  .half-container.half-container-right {
+    width: 100%;
+  }
+
+  /* line 991, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .tables-box-container.tables-box-container-detail .text-detail-container {
+    width: 95%;
+    margin: 0px 2.5%;
+  }
+  /* line 995, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .tables-box-container.tables-box-container-detail .product-buy-button {
+    margin: 40px 0px 0px 25%;
+    width: 50%;
+    text-align: center;
+    padding: 10px 0px;
+  }
+  /* line 1001, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .tables-box-container.tables-box-container-detail .payment-methods {
+    background-size: cover;
+    margin: 15px 0px 30px 25%;
+    width: 50%;
+  }
+  /* line 1006, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .tables-box-container.tables-box-container-detail .product-name {
+    font-size: 18px;
+  }
+  /* line 1009, /home/tomasusr/rubyProyects/macain-web-rails/app/assets/stylesheets/application.scss */
+  .tables-box-container.tables-box-container-detail .product-price {
+    font-size: 26px;
+  }
+}

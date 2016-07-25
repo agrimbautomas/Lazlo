@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get '/mesas' => 'products#tables'
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
+  get '/cotizador' => 'home#cotizador'
+
+
   root 'home#index'
 
 

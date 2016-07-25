@@ -40,6 +40,8 @@ gem 'cancan'
 
 gem 'responsive_active_admin'
 
+gem 'simple_form'
+
 #MercadoPago https://github.com/mercadopago/sdk-ruby
 gem 'mercadopago-sdk'
 
