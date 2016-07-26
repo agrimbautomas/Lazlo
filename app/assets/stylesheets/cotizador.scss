@@ -20,25 +20,53 @@
       padding: 10px 2.5%;
       outline: none;
       text-align: center;
+      border-color: #6C6CF1;
+      border-radius: 3px;
+
+      font-family: 'PT Sans Narrow', sans-serif;
+      color: #3E3E3E;
+    }
+
+    select,
+    input {
+      margin-bottom: 15px;
     }
 
     select {
       text-align: left;
+      background: white;
+      color: #6C6CF1;
     }
 
-    button {
-      width: 60%;
+    .result-box {
+      width: 100%;
       display: inline-block;
-      font-size: 21px;
-      padding: 15px 2.5%;
-      outline: none;
-      margin: 35px 0px 0px;
-      border-radius: 3px;
-      border: none;
-      background: #6C6CF1;
-      text-shadow: none;
-      &:hover{
-        background: #597ef1;
+      font-size: 40px;
+      color: #6C6CF1;
+      margin: 10px auto;
+    }
+
+    form{
+      margin-bottom: 50px;
+    }
+  }
+
+  .show-circular {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cotizador-white-container {
+
+    .inner-container {
+
+      input,
+      label,
+      select {
+        width: 90%;
+        padding: 10px 2.5%;
+        margin: 0px 2.5%;
       }
     }
   }

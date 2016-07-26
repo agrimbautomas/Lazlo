@@ -11,22 +11,40 @@
 
     <%= form_tag do %>
 
-        <label>Ancho</label>
-        <input name="width_size" type="number" max="10000" min="0">
+        <div class="show-rectangular">
+          <label>Ancho (cm)</label>
+          <input name="width_size" value="0" type="number" max="10000" min="0">
 
-        <label>Alto</label>
-        <input name="heigth_size" type="number" max="10000" min="0">
+          <label>Alto (cm)</label>
+          <input name="height_size" value="0" type="number" max="10000" min="0">
+        </div>
+
+        <div class="show-circular">
+          <label>Diámetro</label>
+          <input name="diameter_size" value="0" type="number" max="10000" min="0">
+        </div>
+
 
         <label>Material</label>
         <% if @marvels.present? %>
-            <select>
+            <select name="material">
               <% @marvels.each_with_index do |marvel, i| %>
-                  <option value="<%= marvel.id %>"><%= marvel.name %></option>
+                  <option value="<%= marvel.price %>"><%= marvel.name %></option>
               <% end %>
             </select>
         <% end %>
 
-        <button id="calculate-price">Calcular Precio</button>
+
+        <label>Tipo</label>
+        <select name="shape">
+          <option value="rectangular">Rectangular/Cuadrada</option>
+          <option value="circular">Circular</option>
+        </select>
+
+
+        <div class="result-box">
+          $<span>0</span>
+        </div>
     <% end %>
 
 
