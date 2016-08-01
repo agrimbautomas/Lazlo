@@ -64,8 +64,8 @@ function toggleByType() {
 }
 
 function calculateRectangularPrice() {
-    var sizeSum = widthVal * heigthVal;
-    var result = (sizeSum * materialPrice) / 10000;
+    var sizeSum = parseInt(widthVal) + parseInt(heigthVal);
+    var result = (sizeSum / 100 ) * materialPrice;
     showResult(result);
 }
 
