@@ -11,7 +11,7 @@ var heigthVal;
 var diameterVal;
 var materialPrice;
 var $resultBox;
-var DIAMETER_EXTRA_RATE = 1.5439;
+var DIAMETER_EXTRA_PRICE_RATE = 1.5439;
 
 $(document).ready(function () {
 
@@ -64,14 +64,14 @@ function toggleByType() {
 }
 
 function calculateRectangularPrice() {
-    var sizeSum = parseInt(widthVal) + parseInt(heigthVal);
+    var sizeSum = ( parseInt(widthVal) + parseInt(heigthVal) ) / 2;
     var result = (sizeSum / 100 ) * materialPrice;
     showResult(result);
 }
 
 
 function calculateCircularPrice() {
-    var diameterMaterialPrice = materialPrice * DIAMETER_EXTRA_RATE;
+    var diameterMaterialPrice = materialPrice * DIAMETER_EXTRA_PRICE_RATE;
     var result = (diameterVal * diameterMaterialPrice) / 100;
     showResult(result);
 }
