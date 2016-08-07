@@ -1,7 +1,7 @@
 ActiveAdmin.register Order do
   menu priority: 2
 
-  permit_params :buyer_id, :product_id, :code, :detail, :order_status_id, :tracking_title, :payment
+  permit_params :buyer_id, :product_id, :code, :detail, :order_status_id, :tracking_title, :payment, :color
 
   config.per_page = 20
 
@@ -47,6 +47,10 @@ ActiveAdmin.register Order do
       p order.product.name
     end
 
+    column :color do |order|
+      p order.color
+    end
+
     column 'Estado', :class => 'status' do |order|
       OrderStatus.find(order.order_status_id).name unless order.order_status_id.nil?
     end
@@ -84,6 +88,7 @@ ActiveAdmin.register Order do
       f.input :product
       f.input :order_status_id, :as => :select, include_blank: false,
               collection: OrderStatus.all, :label => 'Estado'
+      f.input :color, :as => :string
       f.input :detail, :hint => 'Algun tipo de detalle para la producción'
       f.input :payment, :input_html => {:min => 0, :step => 100} if current_admin_user.has_role? :full_admin
       f.input :tracking_title, :hint => 'Titulo para mostrar en la página de trackeo',
@@ -99,6 +104,7 @@ ActiveAdmin.register Order do
     attributes_table_for order do
       row :buyer
       row :product
+      row :color
 
       row 'Tracking Link' do
         href = request.base_url + tracking_order_by_code_path(order.code)
