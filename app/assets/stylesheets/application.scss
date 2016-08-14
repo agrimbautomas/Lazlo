@@ -51,18 +51,7 @@ body {
 }
 
 .header {
-  background-color: #3E3E3E;
-  background-size: cover;
-  height: 45px;
-  width: 100%;
-  display: inline-block;
-  position: fixed;
-  z-index: 12000;
-  left: 0px;
-  top: 0px;
-  .grilla {
-    margin-top: 20px;
-  }
+
 }
 
 .log {
@@ -583,7 +572,7 @@ ul.slidesjs-pagination {
 /************************************************************************************/
 /************************************************************************************/
 
-.tables-box-container {
+.products-box-container {
   background: #DEDEDE;
   position: relative;
   width: 100%;
@@ -611,7 +600,7 @@ ul.slidesjs-pagination {
     margin: 70px 0px;
   }
 
-  &.tables-box-container-detail {
+  &.products-box-container-detail {
 
     .text-detail-container {
       display: inline-block;
@@ -668,7 +657,7 @@ ul.slidesjs-pagination {
   }
 }
 
-.table-box {
+.product-box {
   background-color: white;
   border: 1px solid black;
   overflow: hidden;
@@ -963,19 +952,19 @@ ul.slidesjs-pagination {
 
 @media screen and (max-width: 500px) {
 
-  .tables-box-container h1 {
+  .products-box-container h1 {
     padding: 25px 0px;
     font-size: 25px;
   }
 
-  .table-box.small-box.big-box h2,
-  .table-box.small-box h2 {
+  .product-box.small-box.big-box h2,
+  .product-box.small-box h2 {
     font-size: 10px;
     line-height: 14px;
   }
 
-  .table-box.small-box.big-box .price,
-  .table-box.small-box .price {
+  .product-box.small-box.big-box .price,
+  .product-box.small-box .price {
     width: 100%;
     right: 0px;
     bottom: 10px;
@@ -987,7 +976,7 @@ ul.slidesjs-pagination {
     width: 100%;
   }
 
-  .tables-box-container.tables-box-container-detail {
+  .products-box-container.products-box-container-detail {
     .text-detail-container {
       width: 95%;
       margin: 0px 2.5%;

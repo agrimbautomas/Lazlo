@@ -1,4 +1,4 @@
-var $tablesContainer, containerWidth, smallBoxesWidth, bigBoxesWidth;
+var $productsContainer, containerWidth, smallBoxesWidth, bigBoxesWidth;
 
 var counter = 0;
 var topPointer = 0;
@@ -14,8 +14,8 @@ $(document).on('ready page:load', function(event) {
 });
 
 function setupResponsiveBoxes() {
-    $tablesContainer = $('.tables-box-container .inner-container');
-    containerWidth = $tablesContainer.width();
+    $productsContainer = $('.products-box-container .inner-container');
+    containerWidth = $productsContainer.width();
 
     setSmallBoxes();
     setBigBoxes();
@@ -24,10 +24,10 @@ function setupResponsiveBoxes() {
 }
 
 function setBoxesContainer() {
-    var doubleRowsCount = Math.ceil($('.table-box').length / 7);
+    var doubleRowsCount = Math.ceil($('.product-box').length / 7);
     var containerHeight = doubleRowsCount * bigBoxesWidth;
 
-    $tablesContainer.height(containerHeight)
+    $productsContainer.height(containerHeight)
 }
 
 function setSmallBoxes() {
@@ -58,7 +58,7 @@ function setPositions() {
     featuredBoxIndexes = [1,3,5,7];
     randomNum = Math.floor(Math.random() * featuredBoxIndexes.length) + 0;
 
-    $('.table-box').each(function () {
+    $('.product-box').each(function () {
         counter++;
 
         if ((counter % featuredBoxIndexes[randomNum] == 0) && !featuredBoxDisplayed) {

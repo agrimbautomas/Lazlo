@@ -1,2 +1,28 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<%= render :partial => 'home/fixed_top_nav' %>
+
+
+
+<div class="products-box-container">
+  <h1>Mesas Macain</h1>
+
+  <div class="products-white-container">
+    <div class="inner-container">
+
+      <% @products.each_with_index do |product, i| %>
+          <a class="product-box small-box"
+             href="<%= product_path(product) %>"
+             style="background-image: url('<%= product.image.url(:big) %>');">
+            <div class="hidden-info">
+              <h2><%= product.name %></h2>
+
+              <p class="price">$<%= product.price.to_i %></p>
+
+            </div>
+          </a>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-
+    @categories = ProductType.all
   end
 
   def show
@@ -21,4 +21,5 @@ class HomeController < ApplicationController
   def contact_params
     params.permit(:name, :tel, :email, :message)
   end
+
 end
