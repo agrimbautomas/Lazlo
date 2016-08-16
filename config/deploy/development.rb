@@ -8,6 +8,10 @@ role :app, %w{deploy@macain.com.ar}
 role :web, %w{deploy@macain.com.ar}
 role :db,  %w{deploy@macain.com.ar}
 
+
+# Default deploy_to directory is /var/www/my_app_name
+set :deploy_to, '/srv/rails/macain-beta-web'
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the
