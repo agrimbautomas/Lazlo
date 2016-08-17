@@ -3,47 +3,10 @@ var elementsHeight;
 
 $(document).on('ready page:load', function (event) {
 
-    //setupPager();
-    setupSlider();
     setupResize();
     adjustStyles();
-
 });
 
-function setupPager() {
-    var $sliderContainer = $('#slider-container');
-    if ($sliderContainer.length) {
-        $sliderContainer.fullpage({
-
-            scrollBar: true,
-            paddingTop: '45px',
-
-            //Navigation
-            //menu: '#sidebar-nav',
-            anchors: ['productos', 'ajedrez', 'mesas', 'caballos', 'relojes', 'contacto'],
-            menu: '#sidebar-nav',
-
-            //Slides
-            slidesNavigation: true,
-            fitToSection: true,
-            //Custom selectors
-            sectionSelector: '.slider-block'
-        });
-    }else{
-        $sliderContainer = null;
-        console.log('NOT Settef');
-    }
-}
-
-function setupSlider() {
-    $('.landing-slides-container .slide-home').each(function () {
-        $(this).click(function () {
-        });
-    })
-
-    $('.landing-slides-container .slide-home:first-child').addClass('active')
-
-}
 
 
 function setupResize() {

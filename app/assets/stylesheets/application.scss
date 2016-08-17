@@ -51,6 +51,8 @@ body {
 }
 
 .header {
+  margin: 50px auto 5px;
+  display: inline-block;
 
 }
 
@@ -573,7 +575,6 @@ ul.slidesjs-pagination {
 /************************************************************************************/
 
 .products-box-container {
-  background: #DEDEDE;
   position: relative;
   width: 100%;
   padding: 45px 0px 0px;

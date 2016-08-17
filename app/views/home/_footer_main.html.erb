@@ -1,46 +1,22 @@
 <!-- Start Footer -->
-<div class="footer">
+<footer class="footer">
   <div class="grilla">
 
     <div class="footer-block instagram">
-      <h6>INSTAGRAM</h6>
+      <h6>
+        SEGUINOS EN
+        <a href="https://www.instagram.com/<%= @instagram_client.user.username %>" target="_blank">
+          @<%= @instagram_client.user.username %>
+        </a>
+      </h6>
 
       <div class="instagram-fotos">
-
-
-        <div class="inst-foto">
-          <a href="https:/www.instagram.com/p/BIX9voeAC1C/?taken-by=alo_macain"><img src="images/ratona.png"></a>
-        </div>
-
-        <div class="inst-foto">
-          <a href="https://www.instagram.com/p/BDYhNtOC92p/?taken-by=alo_macain"><img src="images/chezz.png"
-                                                                                      height="66"
-                                                                                      width="66"></a>
-        </div>
-
-        <div class="inst-foto">
-          <a href="https://www.instagram.com/p/BHSeq0TAUl-/?taken-by=alo_macain"><img src="images/marmol.png"
-                                                                                      height="66"
-                                                                                      width="66"></a>
-        </div>
-
-        <div class="inst-foto">
-          <a href="https://www.instagram.com/p/BGUoyg1i98A/?taken-by=alo_macain"><img src="images/silla.jpg"
-                                                                                      height="66"
-                                                                                      width="66"></a>
-        </div>
-
-        <div class="inst-foto">
-          <a href="https://www.instagram.com/p/BGH2NsZi91g/?taken-by=alo_macain"><img src="images/mesa.jpg"
-                                                                                      height="66"
-                                                                                      width="66"></a>
-        </div>
-
-        <div class="inst-foto">
-          <a href="https://www.instagram.com/p/BHzj1adAezn/?taken-by=alo_macain"><img src="images/clocks.jpg"
-                                                                                      height="66"
-                                                                                      width="66"></a>
-        </div>
+        <% @instagram_client.user_recent_media.each_with_index do |media_item, i| %>
+            <% break if i == 8 %>
+            <a href="<%= media_item.link %>" target="_blank">
+              <img src="<%= media_item.images.thumbnail.url %>">
+            </a>
+        <% end %>
       </div>
 
     </div>
@@ -73,46 +49,11 @@
 
 
   </div>
-</div>
+</footer>
 <!-- End Footer-->
 
-<!--Start mail --->
-<div class="pre-contact">
 
-  <div class="contact-left">
 
-  </div>
-
-  <div class="contact">
-    <h5>Consultá por los productos</h5>
-
-    <p>alo@macain.com.ar</p>
-
-    <div class="name">
-      <input type="text" id="name" size="55" placeholder="Nombre"/>
-    </div>
-
-    <div class="phone">
-      <input type="text" id="subject" size="55" placeholder="Teléfono"/>
-    </div>
-
-    <div class="mail">
-      <input type="email" id="mail" size="55" placeholder="e-mail"/>
-    </div>
-
-    <div class="message">
-      <textarea placeholder="Consulta"></textarea>
-    </div>
-
-    <div class="send">
-      <a href="#send">Enviar</a>
-    </div>
-  </div>
-
-  <div class="contact-right">
-
-  </div>
-</div>
 
 <!-- End Mail --->
 

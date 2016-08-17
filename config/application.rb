@@ -9,6 +9,10 @@ client_id = '2261800553682324'
 secret_id = 'NCuO2sg66M3oiEbfiwwUs255e1ScHMgO'
 $mp_client = MercadoPago.new(client_id, secret_id)
 
+#Instragram
+INSTRAGRAM_ACCESS_TOKEN = '1306280758.4380181.5860f08a664646629c71d3de82357ea9'
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
