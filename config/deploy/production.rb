@@ -8,6 +8,10 @@ role :app, %w{deploy@macain.com.ar}
 role :web, %w{deploy@macain.com.ar}
 role :db,  %w{deploy@macain.com.ar}
 
+
+set :deploy_to, '/srv/rails/macain-web'
+
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the
@@ -16,7 +20,7 @@ role :db,  %w{deploy@macain.com.ar}
 
 server 'macain.com.ar', user: 'deploy', roles: %w{web app}, my_property: :my_value
 set :rails_env, 'production'
-set :branch, 'development_deploy'
+set :branch, 'production_deploy'
 
 set :rvm_custom_path, '/home/ubuntu/.rvm'  # only needed if not detected
 
