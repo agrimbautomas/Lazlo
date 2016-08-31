@@ -3,56 +3,9 @@ var elementsHeight;
 
 $(document).on('ready page:load', function (event) {
 
-    setupResize();
-    adjustStyles();
 });
 
 
-
-function setupResize() {
-    win = $(this); //this = window
-
-    $(window).on('resize', function () {
-        adjustStyles();
-    });
-}
-
-function adjustStyles() {
-    elementsHeight = $('.icons').height() + $('.header').height() + $('.arrow').height() + 40; //40 for margins
-
-
-    $('.landing-slides-container').css('height', win.height() - elementsHeight);
-
-    //If is not mobile
-    if (win.width() > 700) {
-
-        $('.image-container img').css({
-            height: win.height() / 1.4,
-            width: 'auto'
-        });
-        $('.arrow a').css({
-            height: win.height() / 12,
-            width: win.height() / 12
-        });
-
-        $('h3').css({
-            'font-size': win.height() / 30
-        });
-
-        $('h4').css({
-            'font-size': win.height() / 40
-        });
-
-        $('h5').css({
-            'font-size': win.height() / 65
-        });
-
-        $('.nav-icon img').css({
-            height: win.height() / 25
-        });
-
-    }
-}
 
 
 // To hide navigation bar
