@@ -1,7 +1,7 @@
 ActiveAdmin.register AdminUser  do
   menu priority: 8
 
-  permit_params :email, :password, :password_confirmation
+  permit_params :email, :password, :password_confirmation, :role_ids
 
 
   filter :email
@@ -12,7 +12,7 @@ ActiveAdmin.register AdminUser  do
     column :id
     column :email
     column 'Rol' do |adminUser|
-      adminUser.roles.map(&:name).join("<br />").humanize
+      adminUser.roles.map(&:name).join(" - ").humanize
     end
     column :current_sign_in_at
 
@@ -33,7 +33,9 @@ ActiveAdmin.register AdminUser  do
   show do |buyer|
     attributes_table_for buyer do
       row :email
-      row :current_sign_in_at
+      row 'Rol' do |adminUser|
+        adminUser.roles.map(&:name).join("<br />").humanize
+        end
       row :sign_in_count
     end
 
