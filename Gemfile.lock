@@ -209,6 +209,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (4.0.9)
+      i18n (~> 0.7)
+      railties (~> 4.0)
     rails_config (0.99.0)
       config (>= 1.0.0.beta1)
     railties (4.2.1)
@@ -330,6 +333,7 @@ DEPENDENCIES
   mysql2 (~> 0.3.18)
   paperclip (~> 4.3)
   rails (= 4.2.1)
+  rails-i18n (~> 4.0.0)
   rails_config
   responsive_active_admin
   rocket_pants (~> 1.0)
