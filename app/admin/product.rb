@@ -1,5 +1,7 @@
 ActiveAdmin.register Product do
-  menu priority: 1
+  menu priority: 1, parent: I18n.t('activerecord.models.product.other')
+
+
 
   permit_params :name, :description, :price, :product_type_id, :image
   config.sort_order = 'name_asc'

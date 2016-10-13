@@ -244,6 +244,9 @@ es:
         buyer:
           one: Comprador
           other: Compradores
+        user:
+          one: 'Usuario'
+          other: 'Usuarios'
         admin_user:
           one: Administrador
           other: Administradores
