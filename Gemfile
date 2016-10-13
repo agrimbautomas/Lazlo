@@ -17,6 +17,9 @@ gem 'unicorn'
 gem 'rails_config'
 
 gem 'devise'
+gem 'devise-encryptable'
+gem 'devise-i18n'
+gem 'doorkeeper'
 gem 'activeadmin', github: 'activeadmin'
 gem 'mysql2', '~> 0.3.18'
 
@@ -27,7 +30,6 @@ gem 'rolify'
 gem 'cancan'
 
 gem 'responsive_active_admin'
-
 gem 'simple_form'
 
 #MercadoPago https://github.com/mercadopago/sdk-ruby
