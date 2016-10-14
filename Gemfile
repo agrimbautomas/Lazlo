@@ -20,7 +20,9 @@ gem 'devise'
 gem 'devise-encryptable'
 gem 'devise-i18n'
 gem 'doorkeeper'
+gem 'omniauth-facebook'
 gem 'activeadmin', github: 'activeadmin'
+
 gem 'mysql2', '~> 0.3.18'
 
 gem 'rails-i18n', '~> 4.0.0'
