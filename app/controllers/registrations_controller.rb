@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
 #        set_flash_message :notice, :signed_up if is_navigational_format?
         sign_up(resource_name, resource)
         DeviseMailer.welcome(resource).deliver_now unless resource.invalid?
-        return render :json => {:success => true, user: {first_name: resource.first_name, last_name: resource.last_name, antenna: resource.antenna?}}
+        return render :json => {:success => true, user: {name: resource.name, email: resource.email} }
       else
 #        set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
         expire_session_data_after_sign_in!
@@ -27,7 +27,7 @@ class RegistrationsController < Devise::RegistrationsController
     user.attributes = edit_user_params
     puts "attributes"
     puts user.attributes
-    respond_to do |format|
+    respond_to do
       if user.valid? and resource.save
         return render :json => {:success => true}
       else
@@ -42,6 +42,7 @@ class RegistrationsController < Devise::RegistrationsController
     sign_in(resource_name, resource)
   end
 
+  private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :email, :password,
                                  :email_confirmation, :password_confirmation, :conditions,

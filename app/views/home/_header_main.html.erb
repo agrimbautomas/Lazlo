@@ -23,6 +23,20 @@
       <a href="#promo">Promociones</a>
     </div>
 
+
+
+    <% if user_signed_in? %>
+        <div class="menu-btn">
+          <a href=""><%= current_user.email %></a>
+          <%= link_to 'Salir', destroy_user_session_path, :method => :delete %>
+        </div>
+    <% else %>
+        <div class="menu-btn">
+          <%= link_to 'Ingresar / Registrate', new_user_session_path %>
+        </div>
+    <% end %>
+
+
   </div>
 
 
