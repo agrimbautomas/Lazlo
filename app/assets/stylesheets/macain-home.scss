@@ -30,9 +30,9 @@ h6 {
 }
 
 .log {
-  width: 15%;
+  width: 22%;
   float: left;
-  background-color: #69CACA;
+  min-width: 200px;
   img {
     width: 65%;
     margin-top: 7px;
@@ -166,12 +166,13 @@ a.home-category-block {
       &:hover{
         background: #69CACA;
       }
-      h5 {
+      a {
         text-align: center;
         color: white;
         margin: 0px;
         display: inline-block;
         font-weight: normal;
+        text-decoration: none;
       }
     }
   }
