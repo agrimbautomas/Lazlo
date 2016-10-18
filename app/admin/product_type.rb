@@ -1,5 +1,5 @@
 ActiveAdmin.register ProductType do
-  menu priority: 5
+  menu parent: I18n.t('activerecord.models.product.other')
 
   permit_params :name, :image
 

@@ -1,8 +1,32 @@
 Rails.application.routes.draw do
 
+  use_doorkeeper
+  devise_for :users, skip: [:sessions, :registrations, :passwords],
+             :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   ActiveAdmin.routes(self)
+
+  # Usuarios
+  as :user do
+    # Passwords
+    get 'signup' => 'registrations#new', :as => :new_user_registration
+    get 'account/edit' => 'registrations#edit', :as => :edit_user_registration
+    post 'signup' => 'registrations#create', :as => :user_registration
+    patch 'account/edit' => 'registrations#update'
+    put 'account/edit' => 'registrations#update'
+
+    # Sessions
+    get 'signin' => 'sessions#new', :as => :new_user_session
+    post 'signin' => 'sessions#create', :as => :user_session
+    delete 'signout' => 'sessions#destroy', :as => :destroy_user_session
+
+    # Passwords
+    get 'user/password/new' => 'devise/passwords#new', :as => :new_user_password
+    get 'user/password/edit' => 'devise/passwords#edit', :as => :edit_user_password
+    post 'user/password' => 'devise/passwords#create', :as => :user_password
+    put 'user/password' => 'devise/passwords#update'
+  end
 
   resources :products do
     get 'purchased', to: 'products#purchase'
