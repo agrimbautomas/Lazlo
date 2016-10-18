@@ -20,7 +20,8 @@ set :deploy_to, '/srv/rails/macain-web'
 
 server 'macain.com.ar', user: 'deploy', roles: %w{web app}, my_property: :my_value
 set :rails_env, 'production'
-set :branch, 'production_deploy'
+
+set :branch, 'production'
 
 set :rvm_custom_path, '/home/ubuntu/.rvm'  # only needed if not detected
 

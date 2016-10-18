@@ -2,7 +2,6 @@ class UserMailer < ApplicationMailer
   default from: 'website@macain.com.ar'
 
   def contact_email params
-    puts params.inspect
     @name = params[:name]
     @tel = params[:tel]
     @email = params[:email]

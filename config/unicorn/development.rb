@@ -1,10 +1,10 @@
 # paths
-app_path = "/srv/rails/macain-web"
+app_path = "/srv/rails/macain-beta-web"
 working_directory "#{app_path}/current"
 pid               "#{app_path}/current/tmp/pids/unicorn.pid"
 
 # listen
-listen "/tmp/unicorn.macain-web.sock", :backlog => 64
+listen "/tmp/unicorn.macain-beta-web.sock", :backlog => 64
 
 # logging
 stderr_path "#{app_path}/current/log/unicorn.stderr.log"
