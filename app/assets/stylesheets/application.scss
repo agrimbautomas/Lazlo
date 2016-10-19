@@ -19,50 +19,6 @@
  *Resets
  *--------------------------------------------------------
 */
-html, body {
-  height: 100% !important;
-  text-align: center;
-  overflow-x: hidden;
-}
-
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-a {
-  text-decoration: none;
-  color: dimgrey;
-  &:visited {
-    color: dimgrey;
-  }
-}
-
-body {
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-}
-
-.header {
-  margin: 50px auto 5px;
-  display: inline-block;
-
-}
-
-.log {
-  width: 50%;
-  text-align: left;
-  display: inline-block;
-  float: left;
-  margin-top: -8px;
-}
 
 .car {
   width: 50%;
@@ -216,47 +172,6 @@ h3 {
   text-align: center;
   float: left;
   height: 800px;
-}
-
-.social-block {
-  height: 33vh;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  /* Align center inline elements */
-  font: 0/0 a;
-  -webkit-transition: all 0.6s ease-in-out;
-  -moz-transition: all 0.6s ease-in-out;
-  -o-transition: all 0.6s ease-in-out;
-  transition: all 0.6s ease-in-out;
-  &:before {
-    content: ' ';
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%;
-  }
-  img {
-    vertical-align: middle;
-    display: inline-block;
-  }
-  &.face {
-    top: 33%;
-  }
-  &.ins {
-    top: 66%;
-  }
-  &.ml:hover {
-    background: #FFF059;
-  }
-  &.face:hover {
-    background: #4c66a4;
-  }
-  &.ins:hover {
-    background: #3f729b;
-  }
 }
 
 .mail {

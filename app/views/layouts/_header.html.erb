@@ -1,0 +1,56 @@
+<header>
+
+  <div class="social-nav-container">
+    <div class="social-nav ">
+
+      <div class="grilla">
+
+        <div class="social-block social-block-left">
+          <a class="social-icons" target="_blank" href="https://www.facebook.com/allomacain">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+
+          <a class="social-icons" target="_blank" href="https:///www.instagram.com/alo_macain">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+
+          <a class="social-icons" target="_blank" href="http://listado.mercadolibre.com.ar/_CustId_130206835">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="social-block social-block-right">
+          <% if user_signed_in? %>
+              <a href=""><%= current_user.email %></a>
+              <%= link_to 'Salir', destroy_user_session_path, :method => :delete %>
+          <% else %>
+              <%= link_to 'Ingresar / Registrate', new_user_session_path %>
+          <% end %>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="grilla">
+    <a class="logo" href="<%= root_path %>">
+      <%= image_tag('logo-macain-300.png') %>
+    </a>
+  </div>
+
+  <nav>
+    <div class="grilla">
+
+      <% @categories.each do |category| %>
+          <a class="<%= active_class(category_path(category)) %>"
+             href="<%= category_path category %>"><%= category.name %></a>
+      <% end %>
+
+    </div>
+  </nav>
+
+
+</header>
+
