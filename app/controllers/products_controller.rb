@@ -10,20 +10,6 @@ class ProductsController < ApplicationController
 
   end
 
-  def by_slug
-    @product_type = ProductType.friendly.find(params[:product_type_slug])
-    @products = Product.where(product_type_id: @product_type)
-
-    #Todo persist in app
-    @instagram_client = Instagram.client(:access_token => INSTRAGRAM_ACCESS_TOKEN)
-
-    render 'index'
-  end
-
-  def tables
-    @tables = Product.all
-  end
-
 
   def purchase
     @product = Product.find(params[:id])

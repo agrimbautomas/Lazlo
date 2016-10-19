@@ -24,7 +24,7 @@
                     end
 
     %>
-        <a class="home-category-block <%= block_class %> <%= index %> <%= index % 2 == 1 ? 'even' : '' %>" href="<%= product_type_path category %>"
+        <a class="home-category-block <%= block_class %> <%= index %> <%= index % 2 == 1 ? 'even' : '' %>" href="<%= category_path category %>"
            style="background-image: url('<%= category.image.url(:medium) %>')">
           <h2 class="transition "><%= category.name %></h2>
         </a>

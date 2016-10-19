@@ -6,6 +6,6 @@ class AddAttachmentImageToProductTypes < ActiveRecord::Migration
   end
 
   def self.down
-    remove_attachment :product_types, :image
+    remove_attachment :categories, :image
   end
 end

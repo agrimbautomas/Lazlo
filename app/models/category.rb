@@ -1,4 +1,4 @@
-class ProductType < ActiveRecord::Base
+class Category < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
   extend FriendlyId

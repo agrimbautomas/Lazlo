@@ -3,7 +3,7 @@ ActiveAdmin.register Product do
 
 
 
-  permit_params :name, :description, :price, :product_type_id, :image
+  permit_params :name, :description, :price, :category_id, :image
   config.sort_order = 'name_asc'
   config.per_page = 20
 
@@ -22,8 +22,8 @@ ActiveAdmin.register Product do
     column :price do |product|
       '$' + product.price.to_s
     end
-    column 'Tipo de Producto' do |product|
-      ProductType.find(product.product_type_id).name
+    column 'Categoria' do |product|
+      Category.find(product.category_id).name unless product.category_id.nil?
     end
     column :image do |product|
       image_tag(product.image.url(:thumb), :class => 'product-thumb')
@@ -38,8 +38,8 @@ ActiveAdmin.register Product do
       f.input :name
       f.input :description
       f.input :price
-      f.input :product_type_id, :as => :select, include_blank: false,
-              collection: ProductType.all, label: 'Tipo de producto'
+      f.input :category_id, :as => :select, include_blank: false,
+              collection: Category.all, label: 'Tipo de producto'
       f.input :image, :as => :file, :hint => image_tag(f.object.image.url(:thumb))
     end
 
@@ -53,7 +53,7 @@ ActiveAdmin.register Product do
       row :description
       row :price
       row 'Tipo de producto' do
-        ProductType.find(product.product_type_id).name
+        Category.find(product.category_id).name
       end
       row :image do
         image_tag(product.image.url(:medium))

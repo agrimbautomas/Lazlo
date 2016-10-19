@@ -1,9 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @categories = ProductType.all
-    #Todo persist in app
-    @instagram_client = Instagram.client(:access_token => INSTRAGRAM_ACCESS_TOKEN)
-
+    @categories = Category.all
   end
 
   def show

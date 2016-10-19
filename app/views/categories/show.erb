@@ -6,12 +6,12 @@
 
 
   <div class="products-box-container">
-    <h1><%= @product_type.name %></h1>
+    <h1><%= @category.name %></h1>
 
     <div class="products-white-container">
       <div class="inner-container">
 
-        <% @products.each_with_index do |product, i| %>
+        <% @products.each do |product| %>
             <a class="product-box small-box"
                href="<%= product_path(product) %>"
                style="background-image: url('<%= product.image.url(:big) %>');">

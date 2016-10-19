@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014034317) do
+ActiveRecord::Schema.define(version: 20161019181803) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 20161014034317) do
     t.datetime "updated_at",             null: false
     t.string   "phone",      limit: 255
     t.string   "address",    limit: 255
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",               limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+    t.string   "slug",               limit: 255
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -149,17 +160,6 @@ ActiveRecord::Schema.define(version: 20161014034317) do
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
   add_index "orders", ["product_id"], name: "index_orders_on_product_id", using: :btree
 
-  create_table "product_types", force: :cascade do |t|
-    t.string   "name",               limit: 255
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
-    t.integer  "image_file_size",    limit: 4
-    t.datetime "image_updated_at"
-    t.string   "slug",               limit: 255
-  end
-
   create_table "products", force: :cascade do |t|
     t.string   "name",               limit: 255
     t.text     "description",        limit: 65535
@@ -170,11 +170,11 @@ ActiveRecord::Schema.define(version: 20161014034317) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
-    t.integer  "product_type_id",    limit: 4
     t.string   "slug",               limit: 255
+    t.integer  "category_id",        limit: 4
   end
 
-  add_index "products", ["product_type_id"], name: "index_products_on_product_type_id", using: :btree
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -212,5 +212,5 @@ ActiveRecord::Schema.define(version: 20161014034317) do
   add_foreign_key "orders", "buyers"
   add_foreign_key "orders", "order_statuses"
   add_foreign_key "orders", "products"
-  add_foreign_key "products", "product_types"
+  add_foreign_key "products", "categories"
 end

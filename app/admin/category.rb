@@ -1,4 +1,4 @@
-ActiveAdmin.register ProductType do
+ActiveAdmin.register Category do
   menu parent: I18n.t('activerecord.models.product.other')
 
   permit_params :name, :image
@@ -16,8 +16,8 @@ ActiveAdmin.register ProductType do
     column :name
     column :slug
     column :updated_at
-    column :image do |product_type|
-      image_tag(product_type.image.url(:thumb), :class => 'product-thumb')
+    column :image do |category|
+      image_tag(category.image.url(:thumb), :class => 'product-thumb')
     end
 
     actions
@@ -33,11 +33,11 @@ ActiveAdmin.register ProductType do
     actions
   end
 
-  show do |product_type|
-    attributes_table_for product_type do
+  show do |category|
+    attributes_table_for category do
       row :name
       row :image do
-        image_tag(product_type.image.url(:medium))
+        image_tag(category.image.url(:medium))
       end
     end
   end

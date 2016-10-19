@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     put 'user/password' => 'devise/passwords#update'
   end
 
-  resources :product_types
+  resources :categories
   resources :products do
     get 'purchased', to: 'products#purchase'
     get 'purchase-data', to: 'api#purchase_product_data'

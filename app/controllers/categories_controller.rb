@@ -1,11 +1,9 @@
-class ProductTypesController < ApplicationController
+class CategoriesController < ApplicationController
   before_filter :set_request
 
   def show
-    @product_type = ProductType.friendly.find(params[:id])
-    @products = Product.where(product_type_id: @product_type)
-
-
+    @category = Category.friendly.find(params[:id])
+    @products = Product.where(category_id: @category)
   end
 
 

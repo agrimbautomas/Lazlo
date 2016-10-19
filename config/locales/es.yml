@@ -235,7 +235,7 @@ es:
         product:
           one: Producto
           other: Productos
-        product_type:
+        category:
           one: Categoria de Producto
           other: Categorias de Productos
         order:
