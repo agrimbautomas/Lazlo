@@ -10,13 +10,15 @@ Rails.application.routes.draw do
     get 'checkout', to: 'products#purchase'
   end
 
+
+  get '/cotizador' => 'home#cotizador'
+
   post '/contact_email' => 'home#contact_email'
 
   get '/:product_type_slug' => 'products#by_slug'
   get '/mesas' => 'products#tables'
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
-  get '/cotizador' => 'home#cotizador'
 
 
   root 'home#index'
