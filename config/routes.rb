@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+
+  root 'home#index'
+
   # Usuarios
   as :user do
     # Passwords
@@ -28,6 +31,7 @@ Rails.application.routes.draw do
     put 'user/password' => 'devise/passwords#update'
   end
 
+  resources :product_types
   resources :products do
     get 'purchased', to: 'products#purchase'
     get 'purchase-data', to: 'api#purchase_product_data'
@@ -36,14 +40,11 @@ Rails.application.routes.draw do
 
   post '/contact_email' => 'home#contact_email'
 
-  get '/:product_type_slug' => 'products#by_slug'
-  get '/mesas' => 'products#tables'
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
   get '/cotizador' => 'home#cotizador'
 
 
-  root 'home#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

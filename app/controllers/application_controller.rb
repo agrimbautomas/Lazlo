@@ -4,4 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
 
+  before_filter :set_instagram
+
+  def set_instagram
+    @instagram_client = Instagram.client(:access_token => INSTRAGRAM_ACCESS_TOKEN)
+  end
+
 end
