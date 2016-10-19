@@ -10,7 +10,7 @@
   <!-- Start articulos -->
   <div class="articulos">
 
-    <% @categories.each_with_index do |category, index = 1|
+    <% @page_categories.each_with_index do |category, index = 1|
 
       block_class = if index % 5 == 0
                       'violet'

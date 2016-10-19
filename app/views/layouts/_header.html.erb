@@ -43,7 +43,7 @@
   <nav>
     <div class="grilla">
 
-      <% @categories.each do |category| %>
+      <% @page_categories.each do |category| %>
           <a class="<%= active_class(category_path(category)) %>"
              href="<%= category_path category %>"><%= category.name %></a>
       <% end %>
