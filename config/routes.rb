@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount LetsencryptPlugin::Engine, at: '/'  # It must be at root level
+
   use_doorkeeper
   devise_for :users, skip: [:sessions, :registrations, :passwords],
              :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}

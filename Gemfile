@@ -36,6 +36,7 @@ gem 'simple_form'
 
 #MercadoPago https://github.com/mercadopago/sdk-ruby
 gem 'mercadopago-sdk'
+gem 'letsencrypt_plugin'
 
 gem 'friendly_id', '~> 5.1.0'
 gem 'rocket_pants', '~> 1.0'
