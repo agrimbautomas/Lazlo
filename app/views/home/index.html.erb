@@ -5,16 +5,16 @@
 
 
 
+<% if @home_page.present? and @home_page.page_images.present? %>
+    <!-- Start Slider -->
+    <ul class="bx-wrapper">
 
-<ul class="bx-wrapper">
-  <li><img src="<%= image_path 'slider-1.png' %>"/></li>
-  <li><img src="<%= image_path 'slider-2.png' %>"/></li>
-</ul>
-
-
-
-
-
+      <% @home_page.page_images.each do |image| %>
+          <li><img src="<%= image.picture.url(:slider) %>"/></li>
+      <% end %>
+    </ul>
+    <!-- End Slider -->
+<% end %>
 
 <div class="grilla">
 

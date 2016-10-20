@@ -253,6 +253,12 @@ es:
         marvel:
           one: Mármol
           other: Mármoles
+        page:
+          one: Página
+          other: Páginas
+        page_image:
+          one: Imágen
+          other: Imágenes
       attributes:
         product:
           title: Título
