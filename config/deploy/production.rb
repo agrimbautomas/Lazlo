@@ -21,7 +21,6 @@ server 'macain.com.ar', user: 'deploy', roles: %w{web app}, my_property: :my_val
 set :rails_env, 'production'
 set :branch, 'production'
 
-set :rvm_custom_path, '/home/ubuntu/.rvm'  # only needed if not detected
 
 
 # Custom SSH Options

@@ -190,6 +190,24 @@ ActiveRecord::Schema.define(version: 20161020172252) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "page_images", force: :cascade do |t|
+    t.string   "caption"
+    t.integer  "page_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name",               limit: 255
     t.text     "description",        limit: 65535
