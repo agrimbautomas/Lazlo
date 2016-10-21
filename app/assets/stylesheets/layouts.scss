@@ -51,20 +51,93 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 30px;
+}
+
 h2 {
-  width: 100%;
-  height: 100%;
-  font-size: 53px;
-  line-height: 1;
-  text-align: left;
-  margin: 10px 10px;
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 15px;
 }
 
 h6 {
+  font-size: 12px;
+}
+
+
+input {
+  border: 1px solid #5d8686;
+  outline: none;
+  padding: 12px 2%;
   font-size: 15px;
-  text-align: left;
-  color: white;
-  font-weight: 400;
+  color: #5d8686;
+  background: none;
+  display: block;
+  width: 96%;
+  width: calc(96% - 2px);
+  margin: 10px auto;
+  box-shadow: none;
+
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+
+  &:focus{
+    border-color: #e4c6f1;
+  }
+
+  &[type="submit"]{
+    background: #c9afd4;
+    border-color: #c9afd4;
+    width: 100%;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+
+    &:hover{
+      background: #e4c6f1;
+    }
+  }
+
+  &[type="checkbox"]{
+    width: auto;
+    float: left;
+  }
+}
+
+.medium-border-radious{
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.small-border-radious{
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.smooth-transition{
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 /******* Header *******/
