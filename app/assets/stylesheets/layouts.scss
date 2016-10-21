@@ -23,6 +23,8 @@
 Resets
 --------------------------------------------------------*/
 
+$margin_medium: 30px;
+
 html, body {
   height: 100% !important;
   text-align: center;
@@ -138,6 +140,14 @@ input {
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+.margin-top-medium{
+  margin-top: $margin_medium;
+}
+
+.margin-bottom-medium{
+  margin-bottom: $margin_medium;
 }
 
 /******* Header *******/
