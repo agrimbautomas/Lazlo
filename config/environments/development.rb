@@ -27,8 +27,8 @@ Rails.application.configure do
       :authentication       => "plain"
   }
 
-  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
-  host = 'localhost:3000'
+  Rails.application.routes.default_url_options[:host] = 'macain.com.ar'
+  host = 'macain.com.ar'
   config.action_mailer.default_url_options = { host: host }
 
   config.action_mailer.default_options = {from: 'no-reply@example.com'}
