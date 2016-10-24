@@ -27,11 +27,11 @@ Rails.application.configure do
       :authentication       => "plain"
   }
 
-  Rails.application.routes.default_url_options[:host] = 'macain.com.ar'
-  host = 'macain.com.ar'
+  host = request.host || 'macain.com.ar'
+  Rails.application.routes.default_url_options[:host] = host
   config.action_mailer.default_url_options = { host: host }
 
-  config.action_mailer.default_options = {from: 'no-reply@example.com'}
+  config.action_mailer.default_options = {from: 'no-reply@macain.com.ar'}
 
 
   #Paper Clip
