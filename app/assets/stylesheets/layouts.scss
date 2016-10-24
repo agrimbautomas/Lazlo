@@ -24,6 +24,7 @@ Resets
 --------------------------------------------------------*/
 
 $margin_medium: 30px;
+$red_macain: #f38385;
 
 html, body {
   height: 100% !important;
@@ -82,7 +83,6 @@ h6 {
   font-size: 12px;
 }
 
-
 input {
   border: 1px solid #5d8686;
   outline: none;
@@ -100,11 +100,11 @@ input {
   -moz-border-radius: 3px;
   border-radius: 3px;
 
-  &:focus{
+  &:focus {
     border-color: #e4c6f1;
   }
 
-  &[type="submit"]{
+  &[type="submit"] {
     background: #69caca;
     border-color: #69caca;
     width: 100%;
@@ -112,41 +112,41 @@ input {
     color: white;
     font-weight: bold;
 
-    &:hover{
+    &:hover {
       background: #62bdbd;
     }
   }
 
-  &[type="checkbox"]{
+  &[type="checkbox"] {
     width: auto;
     float: left;
   }
 }
 
-.medium-border-radious{
+.medium-border-radious {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
 
-.small-border-radious{
+.small-border-radious {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
 
-.smooth-transition{
+.smooth-transition {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
-.margin-top-medium{
+.margin-top-medium {
   margin-top: $margin_medium;
 }
 
-.margin-bottom-medium{
+.margin-bottom-medium {
   margin-bottom: $margin_medium;
 }
 
@@ -250,9 +250,19 @@ header {
 
 }
 
-.notification-bar{
-  p{
+.notification-bar {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  background: #69ca8d;
+  line-height: 51px;
+  color: white;
+  font-weight: bolder;
+  border-bottom: 1px solid white;
+  top: -1px;
 
+  &.alert {
+    background: $red_macain;
   }
 }
 
