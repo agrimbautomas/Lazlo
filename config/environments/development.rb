@@ -1,4 +1,7 @@
 Rails.application.configure do
+
+  host = 'beta.macain.com.ar'
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -27,11 +30,9 @@ Rails.application.configure do
       :authentication       => "plain"
   }
 
-  Rails.application.routes.default_url_options[:host] = 'macain.com.ar'
-  host = 'macain.com.ar'
+  Rails.application.routes.default_url_options[:host] = host
   config.action_mailer.default_url_options = { host: host }
-
-  config.action_mailer.default_options = {from: 'no-reply@example.com'}
+  config.action_mailer.default_options = {from: 'no-reply@' + host }
 
 
   #Paper Clip
