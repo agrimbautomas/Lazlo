@@ -1,4 +1,7 @@
 Rails.application.configure do
+
+  host = 'beta.macain.com.ar'
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -19,20 +22,17 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   ActionMailer::Base.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => "587",
-      :domain               => "gmail.com",
-      :user_name            => "macainsite@gmail.com",
-      :password             => "mi4queridoh",
-      :authentication       => "plain"
+      :address => "smtp.gmail.com",
+      :port => "587",
+      :domain => "gmail.com",
+      :user_name => "macainsite@gmail.com",
+      :password => "mi4queridoh",
+      :authentication => "plain"
   }
 
-  host = request.host || 'macain.com.ar'
   Rails.application.routes.default_url_options[:host] = host
-  config.action_mailer.default_url_options = { host: host }
-
-  config.action_mailer.default_options = {from: 'no-reply@macain.com.ar'}
-
+  config.action_mailer.default_url_options = {host: host}
+  config.action_mailer.default_options = {from: 'no-reply@' + host}
 
   #Paper Clip
   Paperclip.options[:command_path] = "/usr/bin/"
