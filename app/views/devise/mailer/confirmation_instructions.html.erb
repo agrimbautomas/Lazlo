@@ -1,5 +1,60 @@
-<p>Welcome <%= @email %>!</p>
+<div style="width: 100%; text-align: center; padding: 50px 0px 70px; ">
 
-<p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+  <img src="<%= @images[:logo] %>" style="width: 50%; max-width: 150px; margin: 0px 25%;">
+
+
+  <div style="border: #69caca 1px solid;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          max-width: 600px;
+          width: 96%;
+          display: inline-block;">
+
+    <div style="background: url(<%= @images[:background] %>);">
+
+      <div style="background: #69CACA;
+              margin-top: 36px;
+              display: inline-block;
+              width: 100%;
+              color: white;
+              border-top: 1px solid white;
+              font-family: cursive,sans-serif;
+              font-size: 16px;
+              padding: 6px 0px;">Bienvenido <%= @email %>!
+      </div>
+    </div>
+
+
+    <div style="width: 90%; padding: 20px 5%;">
+
+      <img src="<%= @images[:account_icon] %>" style="width: 50%; max-width: 150px; margin: 40px 25% 40px;">
+
+      <h1 style="font-family: cursive,sans-serif;
+              font-size: 24px; color: black;">Podés confirmar tu cuenta en el siguiente link
+      </h1>
+
+
+      <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>" style="    background: #69caca;
+              color: white;
+              border-radius: 5px;
+              padding: 20px 0px;
+              font-weight: bold;
+              font-size: 18px;
+              font-family: cursive,sans-serif;
+              text-decoration: none;
+              width: 80%;
+              margin: 30px auto 40px;
+              display: inline-block;">
+
+        Confirmar cuenta
+      </a>
+
+      <p style="color: black; text-align: left; margin: 40px 0px 0px;">Saludos!</p>
+
+      <p style="color: black; text-align: left; margin: 10px 0px 20px; font-weight: bold;">Equipo de Macain</p>
+
+    </div>
+  </div>
+</div>
