@@ -34,7 +34,7 @@ class UserMailer < Devise::Mailer
 
   private
   def asset_absolute_path asset_name
-    ActionController::Base.helpers.asset_path(asset_name)
+    'http:' + ActionController::Base.helpers.asset_path(asset_name)
   end
 
 end
