@@ -233,6 +233,7 @@ header {
     background: white;
     position: relative;
 
+
     a {
       text-decoration: none;
       color: #5d8686;
@@ -261,14 +262,34 @@ header {
   font-weight: bolder;
   border-bottom: 1px solid white;
   top: -1px;
+  overflow: hidden;
 
+  &.hidden-bar{
+    display: none;
+  }
+  
   &.alert {
     background: $red_macain;
   }
 
+  p{
+    width: 92%;
+    margin: 0px 4%;
+  }
+
   i{
     float: right;
-    color: blue;
+    position: absolute;
+    right: 0px;
+    padding: 0% 13px;
+    bottom: 0px;
+    height: 100%;
+    cursor: pointer;
+    line-height: 52px;
+
+    &:hover{
+      color: #eaeaea
+    }
   }
 }
 

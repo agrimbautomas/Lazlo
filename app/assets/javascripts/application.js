@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).on('ready page:load', function (event) {
+
+    setupAlertButtons();
+
+
+
+    function setupAlertButtons(){
+        $('.notification-bar i.fa').each( function(){
+            $(this).click(function(){
+                console.log("Clicked!");
+                $(this).parent().hide();
+            });
+        });
+    }
+
+});
+

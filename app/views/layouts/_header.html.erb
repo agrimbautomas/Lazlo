@@ -1,12 +1,16 @@
 <header>
 
   <!-- Notifications -->
-  <div class="notification-bar notice">
-    <p>A notice!<%= notice %></p>
+  <div class="notification-bar notice
+    <% if notice.nil? %> hidden-bar
+    <% end %>">
+    <p><%= notice %></p>
     <i class="fa fa-times-circle" aria-hidden="true"></i>
   </div>
 
-  <div class="notification-bar alert">
+  <div class="notification-bar alert
+    <% if alert.nil? %> hidden-bar
+    <% end %>">
     <p><%= alert %></p>
     <i class="fa fa-times-circle" aria-hidden="true"></i>
   </div>
