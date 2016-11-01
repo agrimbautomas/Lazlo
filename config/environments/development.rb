@@ -30,12 +30,15 @@ Rails.application.configure do
       :authentication => "plain"
   }
 
+
   Rails.application.routes.default_url_options[:host] = host
   config.action_mailer.default_url_options = {host: host}
   config.action_mailer.default_options = {from: 'no-reply@' + host}
 
-  config.action_controller.asset_host = host #Or your domain
+  #config.action_controller.asset_host = host #Or your domain
+  config.action_controller.asset_host = host
   config.action_mailer.asset_host = config.action_controller.asset_host
+
 
   Rails.application.routes.url_helpers
   #Paper Clip
