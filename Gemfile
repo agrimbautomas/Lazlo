@@ -43,7 +43,7 @@ gem 'rocket_pants', '~> 1.0'
 gem 'instagram'
 
 
-group :development, :test do
+group :development, :staging do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'

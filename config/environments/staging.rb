@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  host = 'http://localhost:3000'
+  host = 'beta.macain.com.ar'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -38,6 +38,8 @@ Rails.application.configure do
   config.action_controller.asset_host = host #Or your domain
   config.action_mailer.asset_host = config.action_controller.asset_host
 
+  # Web console
+  config.web_console.development_only = false
 
   Rails.application.routes.url_helpers
   #Paper Clip
