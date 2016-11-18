@@ -41,7 +41,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= image_path('macain-icon.jpg') %>"/>
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= image_path('macain-icon.jpg') %>"/>
 
-  <meta name="google-site-verification" content="XP29LHLHcmZezQn5MVOCt-45hOQqfQeM7CfulY6MjrI" />
+  <meta name="google-site-verification" content="XP29LHLHcmZezQn5MVOCt-45hOQqfQeM7CfulY6MjrI"/>
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Roboto:400,700" rel="stylesheet">
   <script src="https://use.fontawesome.com/6a67088dda.js"></script>
 
@@ -71,8 +71,28 @@
 <body>
 
 
-
 <%= yield %>
+
+<div class="contact-form ">
+  <i class="fa fa-times smooth-transition close-contact-form" aria-hidden="true"></i>
+
+  <div class="contact-form-inner">
+
+    <%= form_tag('/contact_email', :method => 'POST', :class => 'contact') do %>
+        <h5>alo@macain.com.ar</h5>
+
+        <input type="text" name="macain_name" placeholder="Nombre" required/>
+
+        <input type="email" name="macain_email" placeholder="E-mail" required/>
+
+        <input type="text" name="macain_message" placeholder="Consulta" required/>
+
+        <%= submit_tag('Enviar', :class => 'smooth-transition') %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <audio id="audio-up" src="<%= audio_url('audio-up.mp3') %>" preload="auto"></audio>
 </body>
 </html>

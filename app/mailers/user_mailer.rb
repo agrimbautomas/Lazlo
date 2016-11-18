@@ -24,10 +24,9 @@ class UserMailer < Devise::Mailer
   end
 
   def contact_email params
-    @name = params[:name]
-    @tel = params[:tel]
-    @email = params[:email]
-    @message = params[:message]
+    @name = params[:macain_name]
+    @email = params[:macain_email]
+    @message = params[:macain_message]
     @url = 'http://macain.com.ar/'
     mail(to: 'alo@macain.com.ar, tomas@macain.com.ar', subject: 'Siranushen Alert :) - Message from: ' + @name)
   end

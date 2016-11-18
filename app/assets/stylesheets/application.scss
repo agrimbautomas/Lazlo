@@ -97,25 +97,6 @@
   position: relative;
 }
 
-.product-container {
-  padding: 40px 0px 0px 0px;
-  .image-container {
-  }
-}
-
-.blured {
-  -webkit-filter: blur(10px);
-  -moz-filter: blur(10px);
-  -o-filter: blur(10px);
-  -ms-filter: blur(10px);
-  filter: blur(10px);
-}
-
-.product-container .image-container img {
-  width: auto;
-  max-width: 100%;
-}
-
 .nav-icon {
   width: 25%;
   text-align: center;
@@ -135,34 +116,6 @@ h4 {
 
 }
 
-.product-containerclock {
-  height: 720px;
-  background-color: white;
-  margin-left: -186px;
-}
-
-.arrow {
-  height: 100px;
-  cursor: pointer;
-  a {
-    height: 65px;
-    width: 65px;
-    border: grey 3px solid;
-    display: inline-block;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    background: url("/assets/flecha.png") no-repeat center;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      background-color: #D6D6D6;
-    }
-  }
-}
-
 h3 {
   font-size: 36px;
   font-family: 'PT Sans Narrow', sans-serif;
@@ -179,10 +132,6 @@ h3 {
   position: relative;
 }
 
-.contact {
-  width: 50%;
-  float: right;
-}
 
 .links {
   width: 50%;
@@ -201,33 +150,6 @@ h3 {
   height: 800px;
 }
 
-.mail {
-  width: 80%;
-  float: right;
-  height: auto;
-  color: dimgrey;
-  line-height: 2;
-  margin: 110px 10% 40px;
-  h4 {
-    font-size: 20px;
-    font-style: italic;
-  }
-  h5 a {
-    font-size: 17px;
-    font-style: italic;
-    color: dimgrey;
-  }
-  .nom {
-    margin-left: 4px;
-    margin-bottom: 20px;
-    margin-top: 112px;
-  }
-  .tel, .em, .cons {
-    margin-left: 4px;
-    margin-bottom: 20px;
-    margin-top: 15px;
-  }
-}
 
 
 .icon-list {
@@ -676,8 +598,6 @@ h3 {
     height: 50px;
     display: inline-block;
   }
-  .contact {
-  }
   .social-block {
     height: 100%;
     position: relative;
@@ -726,24 +646,7 @@ h3 {
   h5 {
     font-size: 11px;
   }
-  .mail {
-    margin: 10px 10% 40px;
-    h4 {
-      line-height: 20px;
-      font-size: 17px;
-    }
-    h5 a {
-      font-size: 15px;
-    }
-    input {
-      margin: 25px 0px auto 0px;
-    }
-  }
-  input[type='submit'].but {
-    width: 100%;
-    margin: 20px auto 0px;
-    padding: 10px 0px;
-  }
+
   .social-block {
     &.ml {
       background: #FFF059;

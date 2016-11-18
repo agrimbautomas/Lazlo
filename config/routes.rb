@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get 'checkout', to: 'products#purchase'
   end
 
-  post '/contact_email' => 'home#contact_email'
+  post '/contact_email' => 'application#contact_email'
 
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 

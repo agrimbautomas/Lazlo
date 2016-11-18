@@ -21,17 +21,21 @@
 
       <div class="grilla">
 
-        <div class="social-block social-block-left">
+        <div class="social-block social-block-left smooth-transition">
           <a class="social-icons" target="_blank" href="https://www.facebook.com/allomacain">
             <i class="fa fa-facebook" aria-hidden="true"></i>
           </a>
 
-          <a class="social-icons" target="_blank" href="https:///www.instagram.com/alo_macain">
+          <a class="social-icons smooth-transition" target="_blank" href="https:///www.instagram.com/alo_macain">
             <i class="fa fa-instagram" aria-hidden="true"></i>
           </a>
 
-          <a class="social-icons" target="_blank" href="http://listado.mercadolibre.com.ar/_CustId_130206835">
+          <a class="social-icons smooth-transition" target="_blank" href="http://listado.mercadolibre.com.ar/_CustId_130206835">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          </a>
+
+          <a class="social-icons smooth-transition contact-form-button">
+            <i class="fa fa-at" aria-hidden="true"></i>
           </a>
         </div>
 
@@ -60,7 +64,7 @@
     <div class="grilla">
 
       <% @page_categories.each do |category| %>
-          <a class="<%= active_class(category_path(category)) %>"
+          <a class="<%= active_class(category_path(category)) %> smooth-transition"
              href="<%= category_path category %>"><%= category.name %></a>
       <% end %>
 
