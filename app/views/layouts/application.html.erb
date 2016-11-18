@@ -16,9 +16,8 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=10">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=10">
 
   <meta property="og:url" content="http://macain.com.ar"/>
   <meta property="og:image" content="<%= image_path('macain-icon.png') %>"/>
@@ -43,7 +42,6 @@
 
   <meta name="google-site-verification" content="XP29LHLHcmZezQn5MVOCt-45hOQqfQeM7CfulY6MjrI"/>
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Roboto:400,700" rel="stylesheet">
-  <script src="https://use.fontawesome.com/6a67088dda.js"></script>
 
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -85,7 +83,7 @@
 
         <input type="email" name="macain_email" placeholder="E-mail" required/>
 
-        <input type="text" name="macain_message" placeholder="Consulta" required/>
+        <textarea name="macain_message" placeholder="Consulta" ></textarea>
 
         <%= submit_tag('Enviar', :class => 'smooth-transition') %>
       </div>
