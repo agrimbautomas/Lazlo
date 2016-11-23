@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
 
-  before_filter :load_page_categories, :set_instagram
+  before_filter :load_page_categories, :set_instagram, :set_original_url
 
   def set_instagram
     @instagram_client = Instagram.client(:access_token => INSTRAGRAM_ACCESS_TOKEN)
@@ -37,4 +37,7 @@ class ApplicationController < ActionController::Base
     ActionController::Base.helpers.asset_path(asset_name)
   end
 
+  def set_original_url
+    @current_url = request.original_url
+  end
 end
