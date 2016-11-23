@@ -5,8 +5,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @table = Product.friendly.find(params[:id])
-    @image_uri = URI.join(request.url, @table.image.url)
+    @product = Product.friendly.find(params[:id])
+    @image_uri = URI.join(request.url, @product.image.url)
 
   end
 

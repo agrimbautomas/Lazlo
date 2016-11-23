@@ -3,51 +3,60 @@
 <!-- End Header -->
 
 
-<div class="grilla">
-
-
-<div class="tables-box-container tables-box-container-detail">
-  <h1>Mesas Macain</h1>
-
-  <div class="products-white-container">
-    <div class="inner-container">
-
-      <div class="half-container half-container-left">
-        <div class="image-detail-container">
-          <%= image_tag @table.image.url(:big) %>
-        </div>
-      </div>
-
-      <div class="half-container half-container-right">
-        <div class="text-detail-container">
-
-          <div class="product-name">
-            <%= @table.name %>
-          </div>
-          <div class="product-price">
-            $<%= @table.price.to_i %>
-          </div>
-          <div class="product-description">
-            <%= simple_format(@table.description) %>
-          </div>
-          <!--
-          <div class="product-quantity" data-request-path="<%= product_purchase_data_path @table %>">
-            <%= number_field_tag 'quantity', 1, min: 1 %>
-          </div>
-            -->
-          <a href="<%= @table.payment['response']['init_point'] %>" name="MP-Checkout" class="product-buy-button">
-            COMPRAR
-          </a>
-          <span class="payment-methods"></span>
-          <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>
-        </div>
-      </div>
-
-    </div>
+<div class="grilla margin-top-medium">
+  <div class="breadcrumbs">
+    <a href="<%= root_path %>">Macain</a>
+    <span>/</span>
+    <a href="<%= products_path %>">Productos</a>
+    <span>/</span>
+    <a href="<%= product_path %>" class="active"><%= @product.name %></a>
   </div>
 </div>
 
+<div class="grilla product-detail-section">
 
+  <div class="tables-box-container tables-box-container-detail">
+
+
+    <div class="products-white-container">
+      <div class="inner-container">
+
+        <div class="half-container half-container-left">
+          <div class="image-detail-container">
+            <%= image_tag @product.image.url(:big) %>
+          </div>
+        </div>
+
+        <div class="half-container half-container-right">
+          <h1><%= @product.name %></h1>
+
+          <div class="text-detail-container">
+
+            <div class="product-price-box">
+              <div class="product-price">$<%= @product.price.to_i %></div>
+              <label>PROMOCIÓN ONLINE</label>
+            </div>
+
+            <div class="product-description">
+              <%= simple_format(@product.description) %>
+            </div>
+            <!--
+          <div class="product-quantity" data-request-path="<%= product_purchase_data_path @product %>">
+            <%= number_field_tag 'quantity', 1, min: 1 %>
+          </div>
+            -->
+            <a href="<%= @product.payment['response']['init_point'] %>" name="MP-Checkout" class="product-buy-button green-button smooth-transition">
+              COMPRAR
+            </a>
+
+            <span class="payment-methods"></span>
+            <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
 </div>

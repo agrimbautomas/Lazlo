@@ -25,6 +25,9 @@ Resets
 
 $margin_medium: 30px;
 $red_macain: #f38385;
+$purple_macain: #c9afd4;
+$green_macain: #69caca;
+$black_footer: #222222;
 
 html, body {
   height: 100% !important;
@@ -46,7 +49,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 a {
   text-decoration: none;
-  color: #5d8686;
+  color: $green_macain;
 }
 
 body {
@@ -291,6 +294,73 @@ header {
     &:hover {
       color: #eaeaea
     }
+  }
+}
+
+
+/******* Containers *******/
+.half-container {
+  width: 50%;
+
+  &.half-container-left {
+    float: left;
+  }
+
+  &.half-container-right {
+    float: right;
+  }
+}
+
+.image-detail-container {
+  display: inline-block;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+
+
+/******* Buttons *******/
+
+.green-button{
+  color: #ffffff;
+  background: #69caca;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: bolder;
+  border: 1px solid $green_macain;
+
+  &:hover{
+    color: $green_macain;
+    background: white;
+  }
+}
+
+
+/******* Breadcrumbs *******/
+.breadcrumbs {
+  display: block;
+  text-align: left;
+  color: $black_footer;
+
+  a {
+    display: inline-block;
+    color: $black_footer;
+    font-family: 'Josefin Sans', sans-serif;
+
+    &.active {
+      font-weight: bolder;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  i{
+    font-size: 10px;
+    margin: 0px 5px 0px;
   }
 }
 
@@ -539,7 +609,7 @@ header {
 @media screen and (max-width: 450px) {
 
   header {
-    .logo img{
+    .logo img {
       max-width: 150px;
       margin-bottom: -37px;
     }
@@ -553,7 +623,7 @@ header {
     }
 
     nav {
-      .grilla{
+      .grilla {
         margin: 0px;
         max-width: 100%;
       }
@@ -576,6 +646,10 @@ header {
   .contact-form {
     padding-bottom: 40px;
 
+    font-size: 32px;
+  }
+
+  .contact-form {
     .fa-times {
       font-size: 40px;
       right: 5%;
