@@ -21,54 +21,26 @@ Rails.application.configure do
 
 
   ActionMailer::Base.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => "587",
-      :domain               => "gmail.com",
-      :user_name            => "macainsite@gmail.com",
-      :password             => "mi4queridoh",
-      :authentication       => "plain"
+      :address => "smtp.gmail.com",
+      :port => "587",
+      :domain => "gmail.com",
+      :user_name => "macainsite@gmail.com",
+      :password => "mi4queridoh",
+      :authentication => "plain"
   }
 
   Rails.application.routes.default_url_options[:host] = host
-  config.action_mailer.default_url_options = { host: host }
-  config.action_mailer.default_options = {from: 'no-reply@' + host }
+  config.action_mailer.default_url_options = {host: host}
+  config.action_mailer.default_options = {from: 'no-reply@' + host}
 
-
-
-  #Paper Clip
-  Paperclip.options[:command_path] = "/usr/bin/"
-
-  # Print deprecation notices to the Rails logger.
-  config.active_support.deprecation = :log
-
-  # Raise an error on page load if there are pending migrations.
-  config.active_record.migration_error = :page_load
-
-  # Enable Rack::Cache to put a simple HTTP cache in front of your application
-  # Add `rack-cache` to your Gemfile before enabling this.
-  # For large-scale production use, consider using a caching reverse proxy like
-  # NGINX, varnish or squid.
-  # config.action_dispatch.rack_cache = true
-
-
-  ActionMailer::Base.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => "587",
-      :domain               => "gmail.com",
-      :user_name            => "macainsite@gmail.com",
-      :password             => "mi4queridoh",
-      :authentication       => "plain"
-  }
-
-  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
-  host = 'localhost:3000'
-  config.action_mailer.default_url_options = { host: host }
-
-  config.action_mailer.default_options = {from: 'no-reply@macain.com.ar'}
-
+  config.action_controller.asset_host = host #Or your domain
+  config.action_mailer.asset_host = config.action_controller.asset_host
 
   #Paper Clip
   Paperclip.options[:command_path] = "/usr/bin/"
+
+  #Helpers
+  Rails.application.routes.url_helpers
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

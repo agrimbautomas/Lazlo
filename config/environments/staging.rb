@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  host = 'beta.macain.com.ar'
+  host = 'http://beta.macain.com.ar'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -41,9 +41,11 @@ Rails.application.configure do
   # Web console
   config.web_console.development_only = false
 
-  Rails.application.routes.url_helpers
   #Paper Clip
   Paperclip.options[:command_path] = "/usr/bin/"
+
+  #Helpers
+  Rails.application.routes.url_helpers
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
