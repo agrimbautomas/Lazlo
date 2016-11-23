@@ -1,5 +1,5 @@
-ActiveAdmin.register AdminUser  do
-  menu priority: 8
+ActiveAdmin.register AdminUser do
+  menu parent: I18n.t('activerecord.models.user.other')
 
   permit_params :email, :password, :password_confirmation, :role_ids
 
@@ -35,7 +35,7 @@ ActiveAdmin.register AdminUser  do
       row :email
       row 'Rol' do |adminUser|
         adminUser.roles.map(&:name).join("<br />").humanize
-        end
+      end
       row :sign_in_count
     end
 

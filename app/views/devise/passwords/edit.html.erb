@@ -1,0 +1,41 @@
+<div class="register-section grilla">
+
+
+  <a class="logo" href="<%= root_path %>">
+    <%= image_tag('logo-macain-300.png') %>
+  </a>
+
+  <div class="register-box grilla medium-border-radious">
+
+    <div class="register-nav-container">
+      <div class="register-nav ">
+        <h3>Cambiar Contraseña</h3>
+      </div>
+    </div>
+
+    <div class="register-inner-container">
+
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f| %>
+
+          <%= f.input :reset_password_token, as: :hidden %>
+          <%= f.full_error :reset_password_token %>
+
+          <div class="form-inputs">
+            <%= f.input :password, label: "Nueva contraseña", required: true, autofocus: true, hint: ("#{@minimum_password_length} caracteres mínimo" if @minimum_password_length) %>
+            <%= f.input :password_confirmation, label: "Confirmar contraseña", required: true %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Cambiar constraseña" %>
+          </div>
+      <% end %>
+
+      <%- if controller_name != 'sessions' %>
+          <%= link_to "<< Volver", new_session_path(resource_name), class: 'create-account smooth-transition' %>
+      <% end -%>
+
+    </div>
+  </div>
+</div>
+
+

@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  has_one :product_type
+  has_one :category
   has_many :orders
 
   validates :name, presence: true
@@ -31,12 +31,6 @@ class Product < ActiveRecord::Base
             'failure' => product_purchased_path(self)
         }
     }
-
-    #collection_id=1196139
-    # &collection_status=approved
-    # &preference_id=130206835-9b5612a0-23f7-4a65-bd35-2eb50c1ed4bd
-    # &external_reference=null&payment_type=credit_card&merchant_order_id=null
-
 
     $mp_client.create_preference(preference_data)
   end

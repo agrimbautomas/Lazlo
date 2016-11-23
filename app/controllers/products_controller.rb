@@ -5,23 +5,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @table = Product.friendly.find(params[:id])
-    @image_uri = URI.join(request.url, @table.image.url)
-
-  end
-
-  def by_slug
-    @product_type = ProductType.friendly.find(params[:product_type_slug])
-    @products = Product.where(product_type_id: @product_type)
-
-    #Todo persist in app
-    @instagram_client = Instagram.client(:access_token => INSTRAGRAM_ACCESS_TOKEN)
-
-    render 'index'
-  end
-
-  def tables
-    @tables = Product.all
+    @product = Product.friendly.find(params[:id])
+    @image_uri = URI.join(request.url, @product.image.url)
+    @category = Category.friendly.find(@product.category_id)
   end
 
 

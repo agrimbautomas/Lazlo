@@ -1,0 +1,49 @@
+<!-- Start Header -->
+<%= render :partial => 'layouts/header' %>
+<!-- End Header -->
+
+
+<div class="grilla margin-top-medium">
+  <div class="breadcrumbs">
+    <a href="<%= root_path %>">Macain</a>
+    <span>/</span>
+    <a href="<%= category_path @category %>"><%= @category.name %></a>
+  </div>
+</div>
+
+<div class="grilla">
+
+  <div class="products-box-container">
+    <h1><%= @category.name %></h1>
+
+    <div class="products-white-container">
+      <div class="inner-container">
+
+        <% @products.each do |product| %>
+            <a class="product-box small-box"
+               href="<%= product_path(product) %>"
+               style="background-image: url('<%= product.image.url(:big) %>');">
+              <div class="hidden-info">
+                <h2><%= product.name %></h2>
+
+                <p class="price">$<%= product.price.to_i %></p>
+
+              </div>
+            </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+<!-- Start Footer -->
+<%= render :partial => 'layouts/footer' %>
+<!-- End Footer -->
+
+

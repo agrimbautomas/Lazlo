@@ -1,0 +1,174 @@
+.register-section {
+  padding: 10px 0px 70px;
+
+  .logo {
+    width: 100%;
+    img {
+      width: 15%;
+      max-width: 300px;
+      min-width: 80px;
+    }
+  }
+
+  .register-box {
+
+    border: #5d8686 1px solid;
+    max-width: 400px;
+    width: 96%;
+    display: block;
+    margin: auto;
+    text-align: left;
+
+    .register-nav-container {
+      background: url(fondo-colores.png);
+
+      .register-nav {
+        background: #69CACA;
+        margin-top: 40px;
+        display: inline-block;
+        width: 100%;
+        border-top: 1px solid white;
+
+      }
+    }
+
+    h3 {
+      color: white;
+      padding: 10px 5%;
+    }
+
+    .register-inner-container {
+      padding: 5%;
+      width: 90%;
+    }
+  }
+
+  .input {
+    margin: 30px 0px 10px;
+
+    &:first-child {
+      margin: 0px 0px 10px;
+    }
+  }
+
+  .forgot-password {
+    float: right;
+    color: #0066c0;
+    font-size: 13px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .user_remember_me {
+    width: 100%;
+    margin: -20px 0px 30px;
+
+    input {
+      margin: 3px 5px;
+    }
+
+    label {
+      font-size: 12px;
+    }
+  }
+
+  .register-fb {
+    background: #3b5998 url("facebook-icon.png") left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: white;
+    width: 100%;
+    display: inline-block;
+    padding: 12px 0px;
+    text-align: center;
+
+    &:hover {
+      background-color: #5076c5;
+    }
+  }
+
+  .letter-div {
+    color: #b7b7b7;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin: 20px 0px 0px;
+    font-size: 32px;
+
+  }
+
+  .new-label {
+    color: #969696;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin: 20px 0px 3px;
+    font-size: 13px;
+
+  }
+
+  .create-account {
+    color: #69caca;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    font-weight: bold;
+    margin: 6px 0px;
+    font-size: 16px;
+
+    &:hover {
+      color: #539e9e;
+    }
+  }
+
+  .forgot-form{
+  }
+
+}
+
+
+.error_notification{
+  color: #ff2121;
+  margin: 10px 0px;
+  font-size: 14px;
+}
+
+span.error{
+  color: #ff2121;
+  text-align: right;
+  display: inline-block;
+  width: 100%;
+  font-size: 14px;
+
+  &.notice,
+  &.alert{
+    text-align: center;
+  }
+}
+
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+/*************************** RESPONSIVE *********************************************/
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+
+@media screen and (max-width: 750px) {
+
+}
+
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+/*************************** RESPONSIVE 2*********************************************/
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+
+@media screen and (max-width: 450px) {
+
+}

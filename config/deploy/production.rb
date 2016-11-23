@@ -8,9 +8,7 @@ role :app, %w{deploy@macain.com.ar}
 role :web, %w{deploy@macain.com.ar}
 role :db,  %w{deploy@macain.com.ar}
 
-
 set :deploy_to, '/srv/rails/macain-web'
-
 
 # Extended Server Syntax
 # ======================
@@ -23,7 +21,6 @@ set :rails_env, 'production'
 
 set :branch, 'production'
 
-set :rvm_custom_path, '/home/ubuntu/.rvm'  # only needed if not detected
 
 
 # Custom SSH Options

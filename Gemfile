@@ -17,7 +17,12 @@ gem 'unicorn'
 gem 'rails_config'
 
 gem 'devise'
+gem 'devise-encryptable'
+gem 'devise-i18n'
+gem 'doorkeeper'
+gem 'omniauth-facebook'
 gem 'activeadmin', github: 'activeadmin'
+
 gem 'mysql2', '~> 0.3.18'
 
 gem 'rails-i18n', '~> 4.0.0'
@@ -27,18 +32,18 @@ gem 'rolify'
 gem 'cancan'
 
 gem 'responsive_active_admin'
-
 gem 'simple_form'
 
 #MercadoPago https://github.com/mercadopago/sdk-ruby
 gem 'mercadopago-sdk'
+#gem 'letsencrypt_plugin'
 
 gem 'friendly_id', '~> 5.1.0'
 gem 'rocket_pants', '~> 1.0'
 gem 'instagram'
 
 
-group :development, :test do
+group :development, :staging do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'

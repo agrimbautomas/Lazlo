@@ -16,9 +16,8 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=10">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=10">
 
   <meta property="og:url" content="http://macain.com.ar"/>
   <meta property="og:image" content="<%= image_path('macain-icon.png') %>"/>
@@ -41,10 +40,8 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= image_path('macain-icon.jpg') %>"/>
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= image_path('macain-icon.jpg') %>"/>
 
-  <meta name="google-site-verification" content="XP29LHLHcmZezQn5MVOCt-45hOQqfQeM7CfulY6MjrI" />
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,100' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
-  <script src="https://use.fontawesome.com/6a67088dda.js"></script>
+  <meta name="google-site-verification" content="XP29LHLHcmZezQn5MVOCt-45hOQqfQeM7CfulY6MjrI"/>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Roboto:400,700" rel="stylesheet">
 
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -71,7 +68,29 @@
 </head>
 <body>
 
+
 <%= yield %>
+
+<div class="contact-form ">
+  <i class="fa fa-times smooth-transition close-contact-form" aria-hidden="true"></i>
+
+  <div class="contact-form-inner">
+
+    <%= form_tag('/contact_email', :method => 'POST', :class => 'contact') do %>
+        <h5>alo@macain.com.ar</h5>
+
+        <input type="text" name="macain_name" placeholder="Nombre" required/>
+
+        <input type="email" name="macain_email" placeholder="E-mail" required/>
+
+        <textarea name="macain_message" placeholder="Consulta" ></textarea>
+
+        <%= submit_tag('Enviar', :class => 'smooth-transition') %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <audio id="audio-up" src="<%= audio_url('audio-up.mp3') %>" preload="auto"></audio>
 </body>
 </html>

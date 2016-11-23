@@ -235,7 +235,7 @@ es:
         product:
           one: Producto
           other: Productos
-        product_type:
+        category:
           one: Categoria de Producto
           other: Categorias de Productos
         order:
@@ -244,12 +244,21 @@ es:
         buyer:
           one: Comprador
           other: Compradores
+        user:
+          one: 'Usuario'
+          other: 'Usuarios'
         admin_user:
           one: Administrador
           other: Administradores
         marvel:
           one: Mármol
           other: Mármoles
+        page:
+          one: Página
+          other: Páginas
+        page_image:
+          one: Imágen
+          other: Imágenes
       attributes:
         product:
           title: Título

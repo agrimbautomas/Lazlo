@@ -1,27 +1,33 @@
 Rails.application.routes.draw do
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  #mount LetsencryptPlugin::Engine, at: '/'  # It must be at root level
+
+  use_doorkeeper
 
   ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
 
+  devise_for :users
+
+
+
+  root 'home#index'
+
+  resources :categories
   resources :products do
     get 'purchased', to: 'products#purchase'
     get 'purchase-data', to: 'api#purchase_product_data'
     get 'checkout', to: 'products#purchase'
   end
 
-
   get '/cotizador' => 'home#cotizador'
 
-  post '/contact_email' => 'home#contact_email'
+  post '/contact_email' => 'application#contact_email'
 
-  get '/:product_type_slug' => 'products#by_slug'
-  get '/mesas' => 'products#tables'
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
 
 
-  root 'home#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
