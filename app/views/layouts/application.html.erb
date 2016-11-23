@@ -20,9 +20,10 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=10">
 
   <meta property="og:url" content="http://macain.com.ar"/>
-  <meta property="og:image" content="<%= image_path('macain-icon.png') %>"/>
-  <meta property="og:title" content="Macain - Productos de Diseño"/>
-  <meta property="og:description" content="Mostramos nuestras ideas creando objetos divertidos. Mesas de mármol, caballitos mecedores, juegos de ajedrez, relojes de mesa."/>
+  <meta property="og:title" content="<%= @og_title.present? ? @og_title : 'Macain - Productos de Diseño' %>"/>
+  <meta property="og:description" content="<%= @og_description.present? ? @og_description : 'Mostramos nuestras ideas creando objetos divertidos.
+                                    Mesas de mármol, caballitos mecedores, juegos de ajedrez, relojes de mesa.' %>"/>
+  <meta property="og:image" content="<%= @og_image.present? ? @og_image : image_path('macain-icon.png') %>"/>
 
   <meta name="HandheldFriendly" content="true"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -83,12 +84,12 @@
 
         <input type="email" name="macain_email" placeholder="E-mail" required/>
 
-        <textarea name="macain_message" placeholder="Consulta" ></textarea>
+        <textarea name="macain_message" placeholder="Consulta"></textarea>
 
         <%= submit_tag('Enviar', :class => 'smooth-transition') %>
-      </div>
+        </div>
     <% end %>
-  </div>
+    </div>
 </div>
 
 <audio id="audio-up" src="<%= audio_url('audio-up.mp3') %>" preload="auto"></audio>

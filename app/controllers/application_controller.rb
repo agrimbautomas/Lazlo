@@ -27,5 +27,14 @@ class ApplicationController < ActionController::Base
     params.permit(:macain_name, :macain_email, :macain_message)
   end
 
+  def set_og_tags title=nil, description=nil, image=nil
+    @og_title = title + '|| Macain'
+    @og_description = description
+    @og_image = image
+  end
+
+  def resource_absolute_path asset_name
+    ActionController::Base.helpers.asset_path(asset_name)
+  end
 
 end
