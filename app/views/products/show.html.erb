@@ -7,7 +7,7 @@
   <div class="breadcrumbs">
     <a href="<%= root_path %>">Macain</a>
     <span>/</span>
-    <a href="<%= products_path %>">Productos</a>
+    <a href="<%= category_path @category %>"><%= @category.name %></a>
     <span>/</span>
     <a href="<%= product_path %>" class="active"><%= @product.name %></a>
   </div>

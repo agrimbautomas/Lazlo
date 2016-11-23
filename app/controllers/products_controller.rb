@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.friendly.find(params[:id])
     @image_uri = URI.join(request.url, @product.image.url)
-
+    @category = Category.friendly.find(@product.category_id)
   end
 
 
