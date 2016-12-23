@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
 
     data = access_token.extra.raw_info
     if user = User.where(:email => data.email).first
-      byebug
       user
     else # Create a user with a stub password.
       user = User.new(:email => data.email, :password => Devise.friendly_token[0, 20])

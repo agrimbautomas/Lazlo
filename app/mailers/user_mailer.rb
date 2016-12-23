@@ -31,6 +31,14 @@ class UserMailer < Devise::Mailer
     mail(to: 'alo@macain.com.ar, tomas@macain.com.ar', subject: 'Siranushen Alert :) - Message from: ' + @name)
   end
 
+  def purchase_product params
+    @user = params[:user]
+    @product_name = params[:product_name]
+    @message = params[:message]
+    @url = 'http://macain.com.ar/'
+    mail(to: 'tomas@macain.com.ar', subject: 'Papin! Papin! ' + @user[:email] + ' ' + @message  + ' la compra de una ' + @product_name)
+  end
+
   private
   def asset_absolute_path asset_name
     'http:' + ActionController::Base.helpers.asset_path(asset_name)

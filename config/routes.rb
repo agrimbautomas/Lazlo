@@ -15,7 +15,10 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :products do
-    get 'purchased', to: 'products#purchase'
+    get 'purchase-success', to: 'purchase#purchase_success'
+    get 'purchase-pending', to: 'purchase#purchase_pending'
+    get 'purchase-failure', to: 'purchase#purchase_failure'
+
     get 'purchase-data', to: 'api#purchase_product_data'
     get 'checkout', to: 'products#purchase'
   end

@@ -44,10 +44,23 @@
           <div class="product-quantity" data-request-path="<%= product_purchase_data_path @product %>">
             <%= number_field_tag 'quantity', 1, min: 1 %>
           </div>
+
+
+
+            Set @product.payment['response']['sandbox_init_point'] for debug
             -->
-            <a href="<%= @product.payment['response']['init_point'] %>" name="MP-Checkout" class="product-buy-button green-button smooth-transition">
-              COMPRAR
-            </a>
+
+
+
+            <% if user_signed_in? %>
+                <a href="<%= @product.payment['response']['sandbox_init_point'] %>" name="MP-Checkout" class="product-buy-button green-button smooth-transition">
+                  COMPRAR
+                </a>
+            <% else %>
+                <a href="<%= new_user_session_path %>" class="product-buy-button green-button smooth-transition">
+                  REGISTRATE PARA COMPRAR
+                </a>
+            <% end %>
 
             <span class="payment-methods"></span>
             <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>
