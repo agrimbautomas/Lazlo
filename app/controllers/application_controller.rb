@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
 
   def contact_email
-    UserMailer.contact_email(contact_params).deliver_now
+    AdminMailer.contact_email(contact_params).deliver_now
     flash[:notice] = 'Se envió el mensaje, en breve nos vamos a estar contactando. Gracias!'
     redirect_to root_path
   end
