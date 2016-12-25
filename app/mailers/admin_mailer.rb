@@ -12,6 +12,7 @@ class AdminMailer < AppMailer
     @user = params[:user]
     @product = params[:product]
     @image = params[:image]
+    @order = params[:order]
     @message = params[:message]
     @url = 'http://macain.com.ar/'
     mail(to: 'tomas@macain.com.ar', subject: 'Papin! Papin! ' + @user[:email] + ' ' + @message  + ' la compra de una ' + @product.name)

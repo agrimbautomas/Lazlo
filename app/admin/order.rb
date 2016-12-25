@@ -110,7 +110,7 @@ ActiveAdmin.register Order do
         href = request.base_url + tracking_order_by_code_path(order.code)
         link_to href, href, target: '_blank'
       end
-      row 'Status' do
+      row 'Status' do |order|
         OrderStatus.find(order.order_status_id).name
       end
       row :payment do |order|
