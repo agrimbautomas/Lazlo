@@ -13,7 +13,7 @@ ActiveAdmin.register User  do
     column :email
 
     column 'Última vez conectado' do |user|
-      user.last_sign_in_at.strftime('%H:%M %d/%m/%Y')
+      user.last_sign_in_at.strftime('%H:%M %d/%m/%Y') unless user.last_sign_in_at.nil?
     end
 
     column 'Registro' do |user|
