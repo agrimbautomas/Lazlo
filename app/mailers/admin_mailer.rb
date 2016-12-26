@@ -5,7 +5,7 @@ class AdminMailer < AppMailer
     @email = params[:macain_email]
     @message = params[:macain_message]
     @url = 'http://macain.com.ar/'
-    mail(to: 'alo@macain.com.ar, tomas@macain.com.ar', subject: 'Siranushen Alert :) - Message from: ' + @name)
+    mail(to: 'alo@macain.com.ar, tomas@theamalgama.com', subject: 'Siranushen Alert :) - Message from: ' + @name)
   end
 
   def purchase_product_admin_notification params
@@ -16,8 +16,7 @@ class AdminMailer < AppMailer
     @message = params[:message]
     @url = 'http://macain.com.ar/'
 
-    #TODO Add Foca's email
-    mail(to: 'tomas@macain.com.ar', subject: 'Papin! Papin! ' +
+    mail(to: 'alo@macain.com.ar, tomas@theamalgama.com', subject: 'Papin! Papin! ' +
         @user.email + ' ' + @message  + ' la compra de una ' + @product.name)
   end
 
