@@ -128,6 +128,10 @@ textarea {
   }
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 .medium-border-radious {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

@@ -15,7 +15,10 @@ class AdminMailer < AppMailer
     @order = params[:order]
     @message = params[:message]
     @url = 'http://macain.com.ar/'
-    mail(to: 'tomas@macain.com.ar', subject: 'Papin! Papin! ' + @user[:email] + ' ' + @message  + ' la compra de una ' + @product.name)
+
+    #TODO Add Foca's email
+    mail(to: 'tomas@macain.com.ar', subject: 'Papin! Papin! ' +
+        @user.email + ' ' + @message  + ' la compra de una ' + @product.name)
   end
 
 end

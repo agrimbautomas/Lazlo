@@ -7,11 +7,11 @@
 <body>
 <h2 style="color: #FD6E6E; width: 100%; text-align: center;">|| Pophensen Email ||</h2>
 
-<h3 style="">Papinissss! <%= @user[:email] %> <%= @message %> la compra de una <%= @product[:product_name] %>,</h3>
+<h3 style="">Beguette! Se <%= @message %> la compra del producto <%= @product.name %>,</h3>
 
-<p>El usuario que compró es <strong><%= @user[:email] %></strong></p>
+<p>el usuario que compró es <strong><%= @user.email %></strong></p>
 
-<p>Ya se genero la Orden de compra y la podes ver <a href="<%= admin_order_path(@order) %>">ESTE LINK</a></p>
+<p>Ya se genero la Orden de compra y la podés ver desde <a href="<%= admin_order_url @order %>">ESTE LINK</a></p>
 
 <p>Te paso los detalles abajo...</p>
 

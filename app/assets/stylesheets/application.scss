@@ -264,64 +264,6 @@ h3 {
   }
 }
 
-.status-blocks-container {
-  width: 100%;
-  margin: 25px 3% 0px -3%;
-}
-
-.status-block {
-  width: 19%;
-  float: left;
-  position: relative;
-  &.status-inactive {
-    -webkit-filter: grayscale(1);
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter: url(#greyscale);
-    filter: gray;
-  }
-  .logo-container, p, label {
-    width: 40%;
-    text-align: center;
-    float: right;
-    margin: 0px 0px 0px 60%;
-  }
-  .logo-container img {
-    max-width: 80px;
-    position: relative;
-    z-index: 10;
-    width: 100%;
-  }
-  p {
-    margin-top: 10px;
-  }
-  label {
-    margin-bottom: 10px;
-    font-size: 14px;
-    height: 20px;
-  }
-  &.status-inactive p {
-    margin-top: 10px;
-    color: grey;
-  }
-  .status-line {
-    background: #70CACE;
-    height: 16px;
-    position: absolute;
-    width: 100%;
-    top: 62px;
-    left: -10%;
-  }
-  &:first-child .status-line {
-    display: none;
-  }
-  &.status-inactive .status-line {
-  }
-}
-
-.product-image img {
-  max-width: 100%;
-}
 
 
 
