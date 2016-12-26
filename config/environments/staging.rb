@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  host = 'http://beta.macain.com.ar'
+  host = 'beta.macain.com.ar'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
