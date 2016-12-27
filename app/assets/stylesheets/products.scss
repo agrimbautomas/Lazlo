@@ -202,11 +202,18 @@
   }
 
   .half-container {
+    width: 49%;
+    margin-top: 16px;
+  }
 
+  .half-container-left {
+    text-align: left;
+    margin-right: 1%;
   }
 
   .half-container-right {
     text-align: left;
+    margin-left: 1%;
   }
 
   .product-price-box {
@@ -264,11 +271,7 @@
   float: left;
   position: relative;
   &.status-inactive {
-    -webkit-filter: grayscale(1);
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter: url(#greyscale);
-    filter: gray;
+    opacity: 0.5;
   }
   .logo-container, p, label {
     width: 40%;

@@ -55,7 +55,7 @@ class PurchaseController < ApplicationController
   def create_order
     buyer = Buyer.create!(:name => current_user.email, :email => current_user.email)
     @order = Order.create!(:buyer => buyer, :product => @product, :payment => 0, :tracking_title => @product[:name],
-        :order_status_id => OrderStatus.first.id, :detail => 'Producto comprado dedes la Web')
+        :order_status_id => OrderStatus.find_by_priority(1).id, :detail => 'Producto comprado dedes la Web')
   end
 
 end
