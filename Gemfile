@@ -41,6 +41,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'rocket_pants', '~> 1.0'
 gem 'instagram'
 
+gem 'letsencrypt_plugin'
+
 
 group :development, :staging do
   gem 'byebug'

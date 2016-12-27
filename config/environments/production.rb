@@ -66,4 +66,10 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.i18n.available_locales = :es
+
+  MacainWeb::Application.configure do
+    config.force_ssl = true
+  end
+
+
 end

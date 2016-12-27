@@ -4,7 +4,8 @@ class AppMailer < Devise::Mailer
 
   private
   def asset_absolute_path asset_name
-    'http:' + ActionController::Base.helpers.asset_path(asset_name)
+    protocol = Rails.env.production? ? 'https:' : 'http:'
+    protocol + ActionController::Base.helpers.asset_path(asset_name)
   end
 
 end
