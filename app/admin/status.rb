@@ -2,11 +2,12 @@ ActiveAdmin.register OrderStatus do
 
   menu false
 
-  permit_params :name, :image
+  permit_params :name, :image, :priority
 
   form do |f|
     f.inputs do
       f.input :name
+      f.input :priority
       f.input :image, :as => :file, :hint => image_tag(f.object.image.url(:thumb))
     end
 
@@ -17,6 +18,7 @@ ActiveAdmin.register OrderStatus do
     selectable_column
 
     column :name
+    column :priority
     column :image do |order_status|
       image_tag(order_status.image.url(:thumb))
     end
@@ -27,6 +29,7 @@ ActiveAdmin.register OrderStatus do
 
     attributes_table_for order_status do
       row :name
+      row :priority
       row :image do
         image_tag(order_status.image.url(:thumb))
       end

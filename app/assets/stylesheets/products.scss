@@ -264,11 +264,7 @@
   float: left;
   position: relative;
   &.status-inactive {
-    -webkit-filter: grayscale(1);
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter: url(#greyscale);
-    filter: gray;
+    opacity: 0.5;
   }
   .logo-container, p, label {
     width: 40%;
