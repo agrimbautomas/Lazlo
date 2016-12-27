@@ -41,9 +41,11 @@ Rails.application.configure do
   # Web console
   config.web_console.development_only = false
 
-  Rails.application.routes.url_helpers
   #Paper Clip
   Paperclip.options[:command_path] = "/usr/bin/"
+
+  #Helpers
+  Rails.application.routes.url_helpers
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

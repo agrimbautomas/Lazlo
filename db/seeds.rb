@@ -17,8 +17,8 @@ order_status_image = File.new(File.join(Rails.root, 'app/assets/images/logos/log
 OrderStatus.create!(name: 'Encargada', image: order_status_image)
 
 
-admin = AdminUser.create!(email: 'tomas@theamalgama.com', password: 'sinclair2955', password_confirmation: 'sinclair2955')
-admin.add_role :full_admin
+admin1 = AdminUser.create!(email: 'tomas@theamalgama.com', password: 'sinclair2955', password_confirmation: 'sinclair2955')
+admin1.add_role :full_admin
 
-AdminUser.create!(email: 'tomas@macain.com.ar', password: 'sinclair2955', password_confirmation: 'sinclair2955')
-admin.add_role :full_admin
+admin2 = AdminUser.create!(email: 'tomas@macain.com.ar', password: 'sinclair2955', password_confirmation: 'sinclair2955')
+admin2.add_role :full_admin

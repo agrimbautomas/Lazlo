@@ -26,9 +26,9 @@ class Product < ActiveRecord::Base
             'picture_url' => self.image_uri
         ],
         'back_urls' => {
-            'pending' => product_purchased_path(self),
-            'success' => product_purchased_path(self),
-            'failure' => product_purchased_path(self)
+            'pending' => product_purchase_success_url(self),
+            'success' => product_purchase_pending_url(self),
+            'failure' => product_purchase_failure_url(self)
         }
     }
 

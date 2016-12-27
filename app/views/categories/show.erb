@@ -3,8 +3,15 @@
 <!-- End Header -->
 
 
-<div class="grilla">
+<div class="grilla margin-top-medium">
+  <div class="breadcrumbs">
+    <a href="<%= root_path %>">Macain</a>
+    <span>/</span>
+    <a href="<%= category_path @category %>"><%= @category.name %></a>
+  </div>
+</div>
 
+<div class="grilla">
 
   <div class="products-box-container">
     <h1><%= @category.name %></h1>

@@ -1,25 +1,30 @@
 class ProductsController < ApplicationController
+
   before_filter :set_request
+  before_action :set_product, :set_meta_data
 
   def index
   end
 
   def show
-    @table = Product.friendly.find(params[:id])
-    @image_uri = URI.join(request.url, @table.image.url)
-
+    @image_uri = URI.join(request.url, @product.image.url)
+    @category = Category.friendly.find(@product.category_id)
   end
-
-
-  def purchase
-    @product = Product.find(params[:id])
-
-    Order.create(product: params[:id])
-  end
-
 
   def set_request
     $request = request
   end
+
+  private
+  def set_product
+    @product = Product.friendly.find(params[:id])
+  end
+
+  def set_meta_data
+    set_og_tags @product.name,
+                @product.description.squish,
+                resource_absolute_path(@product.image.url(:medium))
+  end
+
 
 end

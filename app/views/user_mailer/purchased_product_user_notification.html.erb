@@ -1,0 +1,75 @@
+<div style="width: 100%; text-align: center; padding: 50px 0px 70px; ">
+
+
+  <img src="<%= @images[:logo] %>" style="width: 50%; max-width: 150px; margin: 0px 25%;">
+
+
+  <div style="border: #69caca 1px solid;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          max-width: 600px;
+          width: 96%;
+          display: inline-block;">
+
+    <div style="background: url(<%= @images[:background] %>);">
+
+      <div style="background: #69CACA;
+              margin-top: 36px;
+              display: inline-block;
+              width: 100%;
+              color: white;
+              border-top: 1px solid white;
+              font-family: 'Tahoma',sans-serif;
+              font-size: 14px;
+              padding: 6px 0px;">Compra de Producto
+      </div>
+    </div>
+
+
+    <div style="width: 90%; padding: 20px 5%;">
+
+      <img src="<%= @images[:product] %>" style="width: 50%; max-width: 150px; margin: 40px 25% 40px;">
+
+      <h1 style="font-family: 'Tahoma',sans-serif;
+              font-size: 20px; color: black;">
+        Gracias por comprar el producto <%= @product[:name] %> en Macain!
+        <br>
+
+      </h1>
+
+      <p style="font-size: 13px; color: black;
+              line-height: 20px;
+              margin: 40px auto 0px;">En breve nos vamos a estar contactando para coordinar la entrega.</p>
+
+      <h1 style="font-family: 'Tahoma',sans-serif;
+              font-size: 20px; color: black;">Podés hacer el seguimiento de tú producto desde el siguiente link
+      </h1>
+
+      <a href="<%= tracking_order_by_code_url @order.code %>" style="background: #69caca;
+              color: white;
+              border-radius: 5px;
+              padding: 20px 0px;
+              font-weight: bold;
+              font-size: 16px;
+              font-family: 'Tahoma',sans-serif;
+              text-decoration: none;
+              width: 80%;
+              margin: 30px auto 40px;
+              display: inline-block;">
+        TRACKING LINK
+      </a>
+
+
+
+      <p style="color: #757474;">Sino funciona el link podés acceder copiando la siguiente URL: <%= tracking_order_by_code_url @order.code %></p>
+
+      <p style="color: #757474;">Si nunca realizaste esta compra por favor contactate para cancelar la orden.</p>
+
+      <p style="color: black; text-align: left; margin: 40px 0px 0px;">Saludos!</p>
+
+      <p style="color: black; text-align: left; margin: 10px 0px 20px; font-weight: bold;">Equipo de Macain</p>
+
+    </div>
+  </div>
+</div>

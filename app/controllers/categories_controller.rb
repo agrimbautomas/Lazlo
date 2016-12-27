@@ -1,21 +1,23 @@
 class CategoriesController < ApplicationController
-  before_filter :set_request
+
+  before_action :set_request, :set_category, :set_meta_data
 
   def show
-    @category = Category.friendly.find(params[:id])
     @products = Product.where(category_id: @category)
   end
-
-
-  def purchase
-    @product = Product.find(params[:id])
-
-    Order.create(product: params[:id])
-  end
-
 
   def set_request
     $request = request
   end
+
+  private
+  def set_category
+    @category = Category.friendly.find(params[:id])
+  end
+
+  def set_meta_data
+    set_og_tags @category.name, nil, resource_absolute_path(@category.image.url(:medium))
+  end
+
 
 end

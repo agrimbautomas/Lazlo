@@ -11,7 +11,18 @@ ActiveAdmin.register User  do
 
     column :id
     column :email
-    column :current_sign_in_at
+
+    column 'Última vez conectado' do |user|
+      user.last_sign_in_at.strftime('%H:%M %d/%m/%Y') unless user.last_sign_in_at.nil?
+    end
+
+    column 'Registro' do |user|
+      user.confirmation_token.nil? ? 'Facebook' : 'Página'
+    end
+
+    column 'Fecha de creación' do |user|
+      user.created_at.strftime('%H:%M %d/%m/%Y')
+    end
 
     actions
   end
