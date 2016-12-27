@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Macain || Productos de Diseño</title>
+  <title><%= @og_title.present? ? @og_title + ' || Macain ' : 'Macain || Productos de Diseño' %>"</title>
   <meta name="keywords" content="mesa, marmol, reloj, ajedrez, caballito medecedor, laqueada, juego, auxiliar, ratona, acero, damera, carrara, travertino, arabescato, desert brown."/>
   <meta name="description"
-        content="Mostramos nuestras ideas creando objetos divertidos. Mesas de mármol, caballitos mecedores, juegos de ajedrez, relojes de mesa."/>
+        content="<%= @og_description.present? ? @og_description : 'Mostramos nuestras ideas creando objetos divertidos.
+                                    Mesas de mármol, caballitos mecedores, juegos de ajedrez, relojes de mesa.'%>"/>
   <meta name="canonical" content="http://macain.com.ar"/>
   <meta name="robots" content="INDEX, FOLLOW"/>
   <meta name="author" content="theamalgama.com"/>
