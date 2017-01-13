@@ -326,6 +326,28 @@ header {
 
 
 
+/******* 404 Page *******/
+.not-found-container{
+  width: 100%;
+
+  .not-found-image{
+    margin: 40px auto;
+    max-width: 100%;
+  }
+
+  h1{
+    font-size: 40px;
+    margin: 0px auto 50px;
+  }
+
+  h2{
+    font-size: 48px;
+    margin: 0px auto 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
 /******* Buttons *******/
 
 .green-button{

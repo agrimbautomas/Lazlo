@@ -1,0 +1,26 @@
+<!-- Start Header -->
+<%= render :partial => 'layouts/header' %>
+<!-- End Header -->
+
+
+<div class="grilla">
+    <div class="not-found-container">
+      <%= image_tag('404-image.png', class: 'not-found-image') %>
+
+      <h2>Uppppss!</h2>
+      <h1>Beto no pudo encontrar la página que estabas buscando</h1>
+
+      <a href="<%= root_path %>" class="green-button smooth-transition">
+        VOLVER A LA HOME
+      </a>
+    </div>
+</div>
+
+
+<!-- Start Footer -->
+<%= render :partial => 'layouts/footer' %>
+
+<!-- End Footer -->
+
+
+

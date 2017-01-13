@@ -73,5 +73,7 @@ Rails.application.configure do
     config.force_ssl = true
   end
 
+  # Route exceptions to the application router vs. default
+  config.exceptions_app = self.routes
 
 end
