@@ -247,6 +247,9 @@ es:
         user:
           one: 'Usuario'
           other: 'Usuarios'
+        user_contact:
+          one: 'Usuario Contactado'
+          other: 'Usuarios Contactados'
         admin_user:
           one: Administrador
           other: Administradores
