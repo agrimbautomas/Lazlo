@@ -174,6 +174,8 @@ jQuery.fn.extend({
 /**************************/
 
 function setImagesGallery(){
+    //Todo Check gallery
+    //http://www.elevateweb.co.uk/image-zoom/configuration
     $('#zoom_01').elevateZoom({
         zoomType: "inner",
         responsive: true,

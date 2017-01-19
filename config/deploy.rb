@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.7.1'
 
 set :application, 'macain-web'
 set :repo_url, 'git@bitbucket.org:agrimbautomas/macain-web-rails.git'
