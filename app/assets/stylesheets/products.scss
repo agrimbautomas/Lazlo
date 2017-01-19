@@ -18,6 +18,12 @@
  *--------------------------------------------------------
 */
 
+$margin_medium: 30px;
+$red_macain: #f38385;
+$purple_macain: #c9afd4;
+$green_macain: #69caca;
+$black_footer: #222222;
+
 /************************************************************************************/
 /************************************************************************************/
 /***************************** Boxes Javascript *************************************/
@@ -197,6 +203,28 @@
 
 .product-detail-section {
 
+  .image-detail-container {
+    display: inline-block;
+    width: 100%;
+    border: 1px solid $green_macain;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 33px;
+      height: 33px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: url(zoom-corner-icon.png);
+    }
+  }
+
   h1 {
 
   }
@@ -218,7 +246,7 @@
 
   .product-price-box {
 
-    border: 1px solid #69caca;
+    border: 1px solid $green_macain;
     text-align: center;
     width: 50%;
     min-width: 220px;
@@ -230,13 +258,13 @@
       margin: 6px auto;
       width: 100%;
       display: block;
-      color: #69caca;
+      color: $green_macain;
       font-weight: bold;
     }
 
     label {
       color: #ffffff;
-      background: #69caca;
+      background: $green_macain;
       width: 100%;
       display: inline-block;
       font-size: 15px;
@@ -316,3 +344,24 @@
   max-width: 100%;
 }
 
+@media screen and (max-width: 700px) {
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .product-detail-section {
+
+    .text-detail-container {
+      text-align: center;
+    }
+
+    .product-price-box {
+      min-width: 220px;
+      margin: 12px 20% 20px;
+
+    }
+
+  }
+
+}

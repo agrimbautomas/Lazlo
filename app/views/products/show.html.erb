@@ -23,7 +23,8 @@
 
         <div class="half-container half-container-left">
           <div class="image-detail-container">
-            <%= image_tag @product.image.url(:big) %>
+
+            <img id="zoom_01" src='<%= @product.image.url(:big) %>' data-zoom-image="<%= @product.image.url(:big) %>"/>
           </div>
         </div>
 

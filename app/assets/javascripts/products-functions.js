@@ -11,6 +11,8 @@ $(document).on('ready page:load', function(event) {
 
     setupResponsiveBoxes();
   //  setProductQuantity();
+
+    setImagesGallery();
 });
 
 function setupResponsiveBoxes() {
@@ -163,3 +165,20 @@ jQuery.fn.extend({
 
 
 });
+
+
+/**************************/
+/**************************/
+/****  Product Detail  ****/
+/**************************/
+/**************************/
+
+function setImagesGallery(){
+    $('#zoom_01').elevateZoom({
+        zoomType: "inner",
+        responsive: true,
+        cursor: "crosshair",
+        zoomWindowFadeIn: 500,
+        zoomWindowFadeOut: 750
+    });
+}
