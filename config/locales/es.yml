@@ -235,6 +235,9 @@ es:
         product:
           one: Producto
           other: Productos
+        product_image:
+          one: Imágen del producto
+          other: Imágenes del producto
         category:
           one: Categoria de Producto
           other: Categorias de Productos
@@ -267,7 +270,10 @@ es:
           title: Título
           name: Nombre
           price: Precio
-          image: Imagen
+          description: Descripción
+          image: Imagen destacada
+        product_image:
+          picture: Imágen de la galería
         order:
           buyer: Comprador
           product: Producto

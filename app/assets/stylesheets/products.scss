@@ -23,7 +23,7 @@ $red_macain: #f38385;
 $purple_macain: #c9afd4;
 $green_macain: #69caca;
 $black_footer: #222222;
-
+$thumb_size: 60px;
 /************************************************************************************/
 /************************************************************************************/
 /***************************** Boxes Javascript *************************************/
@@ -203,14 +203,60 @@ $black_footer: #222222;
 
 .product-detail-section {
 
+  .product-images-gallery {
+    float: left;
+    width: 13%;
+
+    a {
+      display: block;
+      overflow: hidden;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      width: $thumb_size;
+      height: $thumb_size;
+      border: 1px solid $green_macain;
+      margin-bottom: 10px;
+      position: relative;
+
+      img {
+        overflow: hidden;
+        width: 100%;
+        min-height: 100%;
+      }
+
+      .thumb-filter {
+        position: absolute;
+        background: rgba(105, 202, 202, 0.8);
+        z-index: 9;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        opacity: 0;
+      }
+
+      &.active .thumb-filter {
+        opacity: 1;
+      }
+    }
+  }
+
   .image-detail-container {
     display: inline-block;
-    width: 100%;
+    width: 86%;
     border: 1px solid $green_macain;
     position: relative;
 
     img {
       width: 100%;
+    }
+
+    .active img {
+      border: 2px solid #333 !important;
     }
 
     &:after {
@@ -237,11 +283,13 @@ $black_footer: #222222;
   .half-container-left {
     text-align: left;
     margin-right: 1%;
+    width: 59%;
   }
 
   .half-container-right {
     text-align: left;
     margin-left: 1%;
+    width: 39%;
   }
 
   .product-price-box {
@@ -344,21 +392,38 @@ $black_footer: #222222;
   max-width: 100%;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
 
+  .product-detail-section {
+
+    .product-images-gallery {
+      width: 100%;
+
+      a {
+        display: inline-block;
+      }
+    }
+    .image-detail-container{
+      width: 98%;
+    }
+  }
 }
 
 @media screen and (max-width: 500px) {
 
   .product-detail-section {
 
+    .half-container{
+      text-align: center;
+    }
+
     .text-detail-container {
       text-align: center;
     }
 
     .product-price-box {
-      min-width: 220px;
-      margin: 12px 20% 20px;
+      min-width: initial;
+      margin: 24px 25% 20px;
 
     }
 

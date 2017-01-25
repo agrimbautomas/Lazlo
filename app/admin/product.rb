@@ -1,9 +1,7 @@
 ActiveAdmin.register Product do
   menu priority: 1, parent: I18n.t('activerecord.models.product.other')
 
-
-
-  permit_params :name, :description, :price, :category_id, :image
+  permit_params :name, :description, :price, :category_id, :image, product_images_attributes: [:id, :picture, :_destroy]
   config.sort_order = 'name_asc'
   config.per_page = 20
 
@@ -34,13 +32,21 @@ ActiveAdmin.register Product do
 
 
   form do |f|
-    f.inputs do
+    f.inputs I18n.t('activerecord.attributes.product.description') do
       f.input :name
       f.input :description
       f.input :price
       f.input :category_id, :as => :select, include_blank: false,
               collection: Category.all, label: 'Tipo de producto'
       f.input :image, :as => :file, :hint => image_tag(f.object.image.url(:thumb))
+    end
+
+    inputs 'Galería de Imágenes' do
+      f.has_many :product_images, new_record: true do |product_image|
+        hint = (product_image.object.picture.file? ? image_tag(product_image.object.picture.url(:medium)) : 'De por lo menos 500x500 px así se ven bien Flannn!')
+        product_image.input :picture, :hint => hint
+        product_image.input :_destroy, :as => :boolean, :required => false, :label => 'Borrar Imagen'
+      end
     end
 
     actions
@@ -58,6 +64,16 @@ ActiveAdmin.register Product do
       row :image do
         image_tag(product.image.url(:medium))
       end
+
+      paginated_collection(product.product_images.order('created_at DESC').page(params[:page]).per(10)) do
+        table_for(collection, sortable: false) do
+          column 'Imágenes de la Galería' do |product_image|
+            image_tag(product_image.picture.url(:medium))
+          end
+        end
+      end
+
+      div raw('&nbsp;')
 
     end
   end
