@@ -174,9 +174,9 @@ jQuery.fn.extend({
 /**************************/
 
 function setImagesGallery() {
-    //Todo Check gallery
-    //http://www.elevateweb.co.uk/image-zoom/configuration
-    $('#zoom_01').elevateZoom({
+    $("#product-detail-zoom").elevateZoom({
+        gallery: 'product-images-gallery',
+        galleryActiveClass: 'active',
         zoomType: "inner",
         responsive: true,
         cursor: "crosshair",

@@ -22,11 +22,32 @@
       <div class="inner-container">
 
         <div class="half-container half-container-left">
+
+          <% if @product.product_images.present? %>
+              <div id="product-images-gallery" class="product-images-gallery">
+
+                <a href="#" class="active" data-image="<%= @product.image.url(:big) %>" data-zoom-image="<%= @product.image.url(:big) %>">
+                  <img id="img_01" src="<%= @product.image.url(:thumb) %>"/>
+                  <span class="thumb-filter smooth-transition"></span>
+                </a>
+
+                <% @product.product_images.each do |image| %>
+                    <a href="#" data-image="<%= image.picture.url(:big) %>" data-zoom-image="<%= image.picture.url(:big) %>">
+                      <img id="img_01" src="<%= image.picture.url(:thumb) %>"/>
+                      <span class="thumb-filter smooth-transition"></span>
+                    </a>
+                <% end %>
+
+              </div>
+          <% end %>
+
+
           <div class="image-detail-container">
 
-            <img id="zoom_01" src='<%= @product.image.url(:big) %>' data-zoom-image="<%= @product.image.url(:big) %>"/>
+            <img id="product-detail-zoom" src='<%= @product.image.url(:big) %>' data-zoom-image="<%= @product.image.url(:big) %>"/>
           </div>
         </div>
+
 
         <div class="half-container half-container-right">
           <h1><%= @product.name %></h1>
