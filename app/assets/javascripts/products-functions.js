@@ -7,10 +7,10 @@ var goToTop = false;
 var doubleRowCounter = 0;
 var randomNum, featuredBoxIndexes, featuredBoxDisplayed;
 
-$(document).on('ready page:load', function(event) {
+$(document).on('ready page:load', function (event) {
 
     setupResponsiveBoxes();
-  //  setProductQuantity();
+    //  setProductQuantity();
 
     setImagesGallery();
 });
@@ -57,7 +57,7 @@ function setPositions() {
     leftPointer = 0;
     featuredBoxDisplayed = false;
 
-    featuredBoxIndexes = [1,3,5,7];
+    featuredBoxIndexes = [1, 3, 5, 7];
     randomNum = Math.floor(Math.random() * featuredBoxIndexes.length) + 0;
 
     $('.product-box').each(function () {
@@ -79,7 +79,7 @@ function setPositions() {
             }
 
             if (featuredBoxDisplayed && !$(this).hasClass('big-box')) {
-                if (counter % 2 != 0 )
+                if (counter % 2 != 0)
                     leftPointer += smallBoxesWidth;
             }
         }
@@ -90,9 +90,9 @@ function setPositions() {
     });
 }
 
-function resetValues(){
+function resetValues() {
 
-    if ( counter % 7 == 0) {
+    if (counter % 7 == 0) {
 
         leftPointer = 0;
         counter = 0;
@@ -107,7 +107,7 @@ function topPointerPosition() {
     return doubleRowHeight * doubleRowCounter;
 }
 
-function setProductQuantity(){
+function setProductQuantity() {
 
     $(".product-quantity input").bind('keyup mouseup', function () {
         var inputValue = $(this).val();
@@ -120,13 +120,13 @@ function setProductQuantity(){
             url: inputUrl,
             context: document.body,
             data: { quantity: inputValue }
-        }).done(function(data) {
+        }).done(function (data) {
             updatePaymentButton(data.response.response);
         });
     });
 }
 
-function updatePaymentButton(responseData){
+function updatePaymentButton(responseData) {
     console.log('responseData.sandbox', responseData.init_point)
     $('.product-buy-button').attr('href', responseData.init_point);
 }
@@ -173,7 +173,7 @@ jQuery.fn.extend({
 /**************************/
 /**************************/
 
-function setImagesGallery(){
+function setImagesGallery() {
     //Todo Check gallery
     //http://www.elevateweb.co.uk/image-zoom/configuration
     $('#zoom_01').elevateZoom({
