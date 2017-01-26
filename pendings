@@ -1,3 +1,6 @@
 Add tests to check if cotizator and tracking work propertly
 Cookies
 Cart
+Fix sessions duration time
+Add users section
+Add recomendations widget
