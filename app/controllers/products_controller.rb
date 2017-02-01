@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
   private
   def set_product
     @product = Product.friendly.find(params[:id])
+    @product.update_attribute(:views, @product.views + 1)
   end
 
   def set_meta_data
