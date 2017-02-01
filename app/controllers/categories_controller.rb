@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
   private
   def set_category
     @category = Category.friendly.find(params[:id])
+    @category.update_attribute(:views, @category.views + 1)
   end
 
   def set_meta_data

@@ -1,7 +1,8 @@
 ActiveAdmin.register Product do
   menu priority: 1, parent: I18n.t('activerecord.models.product.other')
 
-  permit_params :name, :description, :price, :category_id, :image, product_images_attributes: [:id, :picture, :_destroy]
+  permit_params :name, :slug, :description, :price, :category_id, :image, product_images_attributes: [:id, :picture, :_destroy]
+
   config.sort_order = 'name_asc'
   config.per_page = 20
 
@@ -27,6 +28,7 @@ ActiveAdmin.register Product do
       image_tag(product.image.url(:thumb), :class => 'product-thumb')
     end
 
+    column :views
     actions
   end
 
@@ -34,6 +36,7 @@ ActiveAdmin.register Product do
   form do |f|
     f.inputs I18n.t('activerecord.attributes.product.description') do
       f.input :name
+      f.input :slug, :label => 'Link del producto ', :hint => 'Actual: ' + product_url
       f.input :description
       f.input :price
       f.input :category_id, :as => :select, include_blank: false,
@@ -56,11 +59,15 @@ ActiveAdmin.register Product do
 
     attributes_table_for product do
       row :name
+      row 'Link' do
+        link_to product_url, product_path
+      end
       row :description
       row :price
       row 'Tipo de producto' do
         Category.find(product.category_id).name
       end
+      row :views
       row :image do
         image_tag(product.image.url(:medium))
       end
