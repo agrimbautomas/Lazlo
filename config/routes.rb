@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   mount LetsencryptPlugin::Engine, at: '/'  # It must be at root level
 
-  use_doorkeeper
-
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
 

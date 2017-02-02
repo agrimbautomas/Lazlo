@@ -19,7 +19,7 @@ gem 'rails_config'
 gem 'devise'
 gem 'devise-encryptable'
 gem 'devise-i18n'
-gem 'doorkeeper'
+
 gem 'omniauth-facebook'
 
 gem 'mysql2', '~> 0.3.18'
