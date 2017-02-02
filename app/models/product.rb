@@ -12,6 +12,8 @@ class Product < ActiveRecord::Base
 
   validates :name, presence: true
 
+  before_save :parse_slug
+
   has_attached_file :image,
                     styles: {big: "800x800>", medium: "300x300>", thumb: "100x100>"},
                     default_url: "/images/:style/missing.png", :preserve_files => true
@@ -58,5 +60,10 @@ class Product < ActiveRecord::Base
     hash[:image] = self.image.url(:thumb) unless self.image.nil?
     hash
   end
+
+  def parse_slug
+    self.slug = self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  end
+
 
 end

@@ -35,7 +35,8 @@ ActiveAdmin.register Product do
   form do |f|
     f.inputs I18n.t('activerecord.attributes.product.description') do
       f.input :name
-      f.input :slug, :label => 'Link del producto ', :hint => 'Actual: ' + product_url
+      #hint = f.object.new_record? ? 'Ejemplo: ' + products_url + '/nombre-del-producto' : 'Actual: ' + product_url
+      #f.input :slug, :label => 'Link del producto ', :hint => hint
       f.input :description
       f.input :price
       f.input :category_id, :as => :select, include_blank: false,
