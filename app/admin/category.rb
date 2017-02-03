@@ -26,7 +26,8 @@ ActiveAdmin.register Category do
   form do |f|
     f.inputs do
       f.input :name
-      f.input :slug, :label => 'Link de la categoría', :hint => 'Actual: ' + product_url
+      #hint = f.object.new_record? ? 'Ejemplo: ' + categories_url + '/nombre-de-la-categoria' : 'Actual: ' + category_url
+      #f.input :slug, :label => 'Link de la categoría', :hint => hint
       f.input :image, :as => :file, :hint => image_tag(f.object.image.url(:thumb))
     end
 

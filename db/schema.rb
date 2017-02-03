@@ -12,9 +12,16 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170202222552) do
 =======
 ActiveRecord::Schema.define(version: 20170125050156) do
+>>>>>>> production
+=======
+ActiveRecord::Schema.define(version: 20170125050156) do
+=======
+ActiveRecord::Schema.define(version: 20170202222552) do
+>>>>>>> 13-ta-add_user_section
 >>>>>>> production
 
   create_table "active_admin_comments", force: :cascade do |t|

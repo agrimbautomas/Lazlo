@@ -2,7 +2,11 @@ class Category < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
   extend FriendlyId
+
   friendly_id :name, use: :slugged
+
+  before_save :parse_slug
+
 
   belongs_to :product
 
@@ -11,5 +15,9 @@ class Category < ActiveRecord::Base
                     default_url: "/images/:style/missing.png", :preserve_files => true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
+
+  def parse_slug
+    self.slug = self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  end
 
 end
