@@ -2,6 +2,7 @@ ActiveAdmin.register Product do
   menu priority: 1, parent: I18n.t('activerecord.models.product.other')
 
   permit_params :name, :slug, :description, :price, :category_id, :image, product_images_attributes: [:id, :picture, :_destroy]
+
   config.sort_order = 'name_asc'
   config.per_page = 20
 
