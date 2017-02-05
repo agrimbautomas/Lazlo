@@ -1,0 +1,20 @@
+<% if @featured_products.present? %>
+
+
+    <div class="featured-block">
+      <h2 class="section-title">PRODUCTOS DESTACADOS</h2>
+
+      <% @featured_products.each do |featured_product| %>
+          <a class="featured-product "
+             href="<%= product_path featured_product %>"
+             style="background-image: url(<%= featured_product.image.url(:medium) %>);">
+            <div class="description smooth-transition">
+              <h1><%= featured_product.name %></h1>
+              <h4><%= featured_product.price %></h4>
+              <span class="see-more">VER MÁS</span>
+            </div>
+          </a>
+      <% end %>
+
+    </div>
+<% end %>

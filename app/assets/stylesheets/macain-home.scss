@@ -23,6 +23,11 @@
 Resets
 --------------------------------------------------------*/
 
+$margin_medium: 30px;
+$red_macain: #f38385;
+$purple_macain: #c9afd4;
+$green_macain: #69caca;
+$black_footer: #222222;
 
 .articulos {
   display: inline-block;
@@ -67,15 +72,80 @@ a.home-category-block {
   }
 
   &.green h2:hover {
-    background: rgba(119,214,176,0.8);
+    background: rgba(119, 214, 176, 0.8);
   }
 
   &.red h2:hover {
-    background: rgba(235,111,128,0.8);
+    background: rgba(235, 111, 128, 0.8);
   }
 
 }
 
+.featured-block {
+  width: 100%;
+  margin: 70px 0px 90px;
+
+  h2.section-title {
+    background: $red_macain;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px 0px 5px;
+    margin: 0px 0px 15px;
+  }
+
+  .featured-product {
+    float: left;
+    width: 15.56%;
+    width: calc(15.56% - 2px);
+    border: 1px solid $red_macain;
+
+    height: 300px;
+    position: relative;
+    margin: 10px 0.5%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    .description {
+      background: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      bottom: 3%;
+      height: 94%;
+      left: 5%;
+      width: 90%;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.8);
+      }
+    }
+
+    h1 {
+      color: white;
+      font-size: 18px;
+      line-height: 26px;
+      width: 96%;
+      margin: 14px 2% 0px;
+    }
+    h4 {
+      float: right;
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .see-more {
+      background: #ffffff;
+      color: black;
+      padding: 5px 0px;
+      font-size: 12px;
+      font-weight: bold;
+      position: absolute;
+      bottom: 7%;
+      width: 54%;
+      margin: 0px 23%;
+    }
+  }
+
+}
 
 /************************************************************************************/
 /************************************************************************************/
@@ -87,10 +157,20 @@ a.home-category-block {
 /************************************************************************************/
 
 @media screen and (max-width: 650px) {
-  a.home-category-block{
+  a.home-category-block {
     width: 100%;
   }
 
+  .featured-block {
+    margin: 30px 0px 40px;
+
+    .featured-product {
+      width: 48%;
+      width: calc(48% - 2px);
+
+      margin: 10px 1%;
+    }
+  }
 }
 
 /************************************************************************************/
@@ -103,5 +183,10 @@ a.home-category-block {
 /************************************************************************************/
 
 @media screen and (max-width: 450px) {
+
+
+  .featured-block {
+    margin: 10px 0px 20px;
+  }
 
 }

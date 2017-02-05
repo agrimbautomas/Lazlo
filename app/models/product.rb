@@ -62,7 +62,8 @@ class Product < ActiveRecord::Base
   end
 
   def parse_slug
-    self.slug = self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+    self.slug = self.name.downcase.strip.gsub(' ', '-').gsub('ñ', 'n').gsub(/[^\w-]/, '')
+    self.slug = self.slug + rand(0..9999).to_s if Product.find_by_slug(self.slug).present?
   end
 
 
