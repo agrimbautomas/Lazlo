@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
 
   validates :name, presence: true
 
-  before_save :parse_slug
+  before_save :parse_slug, :if => :name_changed?
 
   has_attached_file :image,
                     styles: {big: "800x800>", medium: "300x300>", thumb: "100x100>"},
