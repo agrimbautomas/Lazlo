@@ -1,3 +1,11 @@
+
+$margin_medium: 30px;
+$red_macain: #f38385;
+$purple_macain: #c9afd4;
+$green_macain: #69caca;
+$black_footer: #222222;
+
+
 .register-section {
   padding: 10px 0px 70px;
 
@@ -144,6 +152,55 @@ span.error{
   &.notice,
   &.alert{
     text-align: center;
+  }
+}
+
+
+/************************************************************************************/
+/************************************************************************************/
+/*************************** CART *********************************************/
+/************************************************************************************/
+/************************************************************************************/
+
+.user-cart{
+
+  margin: 20px auto 0px;
+
+  .cart-product-row{
+    width: 100%;
+    display: table;
+
+    .fa-times,
+    .cart-product-image,
+    .cart-product-price,
+    h2{
+      width: 20%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .cart-product-image{
+      width: 10%;
+      min-width: 100px;
+    }
+
+    .fa-times{
+      color: $black_footer;
+      width: 5%;
+      font-size: 20px;
+    }
+
+    h2{
+      text-align: left;
+      width: 20%;
+    }
+
+    .cart-product-price{
+      width: 16%;
+      font-size: 26px;
+      text-align: right;
+      padding-right: 4%;
+    }
   }
 }
 

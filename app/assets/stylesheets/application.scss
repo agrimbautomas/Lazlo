@@ -81,17 +81,7 @@
   }
 }
 
-h4 {
-  font-size: 20px;
-  font-family: 'PT Sans Narrow', sans-serif;
 
-}
-
-h3 {
-  font-size: 36px;
-  font-family: 'PT Sans Narrow', sans-serif;
-  font-weight: bold;
-}
 
 .social {
   width: 50%;
@@ -101,66 +91,6 @@ h3 {
   float: left;
   height: 100vh;
   position: relative;
-}
-
-
-
-
-.icon-list {
-  width: 55px;
-  position: fixed;
-  bottom: 74px;
-  background-size: cover;
-  background-position: center;
-  right: 30px;
-  top: 35%;
-  text-align: center;
-  z-index: 10000;
-  li {
-    list-style: none;
-    height: 55px;
-    div, a {
-      width: 80%;
-      display: inline-block;
-      margin-top: 10px;
-    }
-  }
-  div {
-    img {
-      width: 100%;
-    }
-    &.circle-list img {
-      width: auto;
-    }
-  }
-}
-
-
-.slider-block {
-  background: white;
-  margin: 10px 0px -10px;
-  position: relative;
-  &.odd {
-    background: whitesmoke;
-    overflow: hidden;
-  }
-  &.landing-block {
-    z-index: 11000;
-  }
-}
-
-.slide-img-container {
-  height: 80%;
-  max-height: 80%;
-}
-
-
-.landing-slides-container {
-  margin: 20px auto 15px;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  height: 900px;
 }
 
 

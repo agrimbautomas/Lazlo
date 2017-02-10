@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-  mount LetsencryptPlugin::Engine, at: '/'  # It must be at root level
+  mount LetsencryptPlugin::Engine, at: '/' # It must be at root level
 
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users, :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
-
 
 
   root 'home#index'
@@ -23,11 +22,11 @@ Rails.application.routes.draw do
 
   get '/cotizador' => 'home#cotizador'
 
+  get '/cart' => 'users#cart'
+
   post '/contact_email' => 'application#contact_email'
 
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
-
-
 
 
   # error pages
