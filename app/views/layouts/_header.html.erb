@@ -30,10 +30,6 @@
             <i class="fa fa-instagram" aria-hidden="true"></i>
           </a>
 
-          <a class="social-icons smooth-transition" target="_blank" href="http://listado.mercadolibre.com.ar/_CustId_130206835">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          </a>
-
           <a class="social-icons smooth-transition contact-form-button">
             <i class="fa fa-at" aria-hidden="true"></i>
           </a>
@@ -41,8 +37,11 @@
 
         <div class="social-block social-block-right">
           <% if user_signed_in? %>
-              <a href=""><%= current_user.email %></a>
-              <%= link_to 'Salir', destroy_user_session_path, :method => :delete %>
+              <a class="header-user-name" href="<%= cart_path %>"><%= current_user.email %></a>
+              <a class="social-icons smooth-transition" target="_blank" href="<%= cart_path %>">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+
           <% else %>
               <%= link_to 'Ingresar / Registrate', new_user_session_path %>
           <% end %>
