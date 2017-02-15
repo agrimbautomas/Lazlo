@@ -42,8 +42,10 @@
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               </a>
 
+              <!-- <%= link_to 'Salir', destroy_user_session_path, :method => :delete %> -->
+
           <% else %>
-              <%= link_to 'Ingresar / Registrate', new_user_session_path %>
+              <%= link_to 'Ingresar / Registrate', new_user_session_path, :class => 'header-user-name' %>
           <% end %>
         </div>
 

@@ -78,6 +78,9 @@
                 <a href="<%= @product.payment['response']['init_point'] %>" name="MP-Checkout" class="product-buy-button green-button smooth-transition">
                   COMPRAR
                 </a>
+                <a href="<%= product_add_to_wish_path @product %>">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </a>
             <% else %>
                 <a href="<%= new_user_session_path %>" class="product-buy-button green-button smooth-transition">
                   REGISTRATE PARA COMPRAR

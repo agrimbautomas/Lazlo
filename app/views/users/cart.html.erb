@@ -5,20 +5,22 @@
 
 
 <div class="grilla user-cart">
-  <h3>MI CARRITO</h3>
+  <h3>FAVORITOS</h3>
 
 
   <% if @user_products.present? %>
       <% @user_products.each do |product| %>
           <div class="cart-product-row">
 
-            <i class="fa fa-times" aria-hidden="true"></i>
+            <i class="fa fa-times smooth-transition" aria-hidden="true"></i>
 
             <div class="cart-product-image">
               <img src="<%= product.image.url(:thumb) %>"/>
             </div>
 
-            <h2><%= product.name %></h2>
+            <h2>
+              <a href="<%= product_path product %>" class="smooth-transition"><%= product.name %></a>
+            </h2>
 
             <span class="cart-product-price">
               <%= '$' + product.price.to_i.to_s unless product.price.nil? %>
@@ -26,8 +28,6 @@
           </div>
       <% end %>
   <% end %>
-  <%= link_to 'Salir', destroy_user_session_path, :method => :delete %>
-
 </div>
 
 
