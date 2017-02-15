@@ -5,14 +5,19 @@ class UsersController < ApplicationController
   before_action :set_product, only: [:add_product_to_wish_list]
 
   def cart
-    @user_products = Product.all
+    #@user_products = Product.all
+
+    @user_products_list = current_user.products_list
   end
 
   def add_product_to_wish_list
-    current_user.wish_list = WishList.create unless current_user.wish_list.present?
-    byebug
-    current_user.wish_list.products << @product
-    current_user.wish_list.save!
+    current_user.products_list = ProductsList.create(:user => current_user) unless current_user.products_list.present?
+
+    product_row = ProductRow.create(:product => @product)
+    current_user.products_list.save_product_row product_row
+    current_user.save!
+
+    redirect_to cart_path
   end
 
   private

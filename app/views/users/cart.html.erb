@@ -8,25 +8,27 @@
   <h3>FAVORITOS</h3>
 
 
-  <% if @user_products.present? %>
-      <% @user_products.each do |product| %>
+  <% if @user_products_list.present? %>
+      <% @user_products_list.product_rows.each do |product_row| %>
           <div class="cart-product-row">
 
             <i class="fa fa-times smooth-transition" aria-hidden="true"></i>
 
             <div class="cart-product-image">
-              <img src="<%= product.image.url(:thumb) %>"/>
+              <img src="<%= product_row.product.image.url(:thumb) %>"/>
             </div>
 
             <h2>
-              <a href="<%= product_path product %>" class="smooth-transition"><%= product.name %></a>
+              <a href="<%= product_path product_row.product %>" class="smooth-transition"><%= product_row.product.name %></a>
             </h2>
 
             <span class="cart-product-price">
-              <%= '$' + product.price.to_i.to_s unless product.price.nil? %>
+              <%= '$' + product_row.product.price.to_i.to_s unless product_row.product.price.nil? %>
             </span>
           </div>
       <% end %>
+  <% else %>
+      <h2>No tiene productos en tu lista</h2>
   <% end %>
 </div>
 

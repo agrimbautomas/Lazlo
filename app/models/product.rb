@@ -6,8 +6,8 @@ class Product < ActiveRecord::Base
 
   has_one :category
   has_many :orders
-  has_and_belongs_to_many :wish_lists
   has_many :product_images, :dependent => :destroy
+  has_many :product_rows
 
   accepts_nested_attributes_for :product_images, :allow_destroy => true
 
