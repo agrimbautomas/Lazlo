@@ -45,7 +45,7 @@ gem 'instagram'
 gem 'letsencrypt_plugin'
 
 
-group :development, :staging do
+group :development, :staging, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
@@ -56,6 +56,10 @@ group :development, :staging do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rvm'
+
+  #TDD
+  gem 'simplecov', :require => false, :group => :test
+  gem 'rubycritic', :require => false
 
 end
 
