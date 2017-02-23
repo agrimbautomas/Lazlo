@@ -5,7 +5,7 @@ class ProductsList < ActiveRecord::Base
 
   validates :category, presence: true
 
-  enum category: {I18n.t('favourites') => 1, I18n.t('history') => 2}
+  enum category: {I18n.t('favourites') => 1, I18n.t('checkout') => 2, I18n.t('purchased') => 3}
 
   def save_product_row product
     product_row = ProductRow.create(:product => product)
