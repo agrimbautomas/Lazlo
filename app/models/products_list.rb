@@ -3,9 +3,9 @@ class ProductsList < ActiveRecord::Base
   has_many :product_rows, :dependent => :destroy
   belongs_to :user
 
-  validates :type, presence: true
+  validates :category, presence: true
 
-  enum type: {I18n.t('favourites') => 1, I18n.t('history') => 2}
+  enum category: {I18n.t('favourites') => 1, I18n.t('history') => 2}
 
   def save_product_row product
     product_row = ProductRow.create(:product => product)

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def add_product_to_wish_list
-    current_user.products_list = ProductsList.create(:user => current_user, :type => 1) unless current_user.products_list.present?
+    current_user.products_list = ProductsList.create(:user => current_user, :category => 1) unless current_user.products_list.present?
 
     current_user.products_list.save_product_row @product
     current_user.save!

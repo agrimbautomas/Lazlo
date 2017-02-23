@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(version: 20170222034349) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "type"
+    t.integer  "category"
   end
 
   create_table "roles", force: :cascade do |t|
