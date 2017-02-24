@@ -29,6 +29,10 @@ Rails.application.routes.draw do
 
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
+  api version: 1, module: "api/v1" do
+    #get 'cart/:product_id', to: 'cart#remove_product', :as => :remove_cart_product
+    delete 'user/:user_id/cart/:product_id', to: 'cart#remove_product', :as => :remove_cart_product
+  end
 
   # error pages
   %w( 404 422 500 503 ).each do |code|

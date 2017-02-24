@@ -1,6 +1,7 @@
 Rails.application.configure do
 
   host = 'macain.com.ar'
+  config.API_VERSION = 1
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

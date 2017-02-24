@@ -1,6 +1,7 @@
 Rails.application.configure do
 
   host = 'http://localhost:3000'
+  config.API_VERSION = 1
 
   # Settings specified here will take precedence over those in config/application.rb.
 

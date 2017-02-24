@@ -38,7 +38,7 @@
         <div class="social-block social-block-right">
           <% if user_signed_in? %>
               <a class="header-user-name" href="<%= cart_path %>"><%= current_user.email %></a>
-              <a class="social-icons smooth-transition" target="_blank" href="<%= cart_path %>">
+              <a class="social-icons smooth-transition" href="<%= cart_path %>">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               </a>
 

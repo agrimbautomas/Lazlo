@@ -67,15 +67,11 @@
             <%= number_field_tag 'quantity', 1, min: 1 %>
           </div>
 
-
-
-            Set @product.payment['response']['sandbox_init_point'] for debug
             -->
 
-
-
             <% if user_signed_in? %>
-                <a href="<%= @product.payment['response']['init_point'] %>" name="MP-Checkout" class="product-buy-button green-button smooth-transition">
+                <% product_link = Rails.env.development? ? @product.payment['response']['sandbox_init_point'] : @product.payment['response']['init_point'] %>
+                <a href="<%= product_link %>" name="MP-Checkout" class="product-buy-button green-button smooth-transition">
                   COMPRAR
                 </a>
                 <a href="<%= product_add_to_wish_path @product %>">
