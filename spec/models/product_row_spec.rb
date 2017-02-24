@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe ProductRow, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it { should respond_to (:product) }
+  it { should respond_to (:products_list) }
+
+  it { should belong_to (:product) }
+  it { should belong_to (:products_list) }
+
 end

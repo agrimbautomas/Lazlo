@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe ProductsList, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it { should respond_to (:user) }
+  it { should respond_to (:product_rows) }
+  it { should respond_to (:category) }
+
+  it { should have_many(:product_rows) }
+  it { should belong_to(:user) }
+
+  it { should validate_presence_of(:category) }
+
 end

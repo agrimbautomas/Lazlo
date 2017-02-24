@@ -22,3 +22,6 @@
 public/system/
 /public/system/
 Capfile.lock
+
+#Tests
+/test_output/
