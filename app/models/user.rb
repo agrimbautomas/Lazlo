@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :confirmable, :omniauth_providers => [:facebook]
 
+
+  has_many :products_lists, :dependent => :destroy
+  attr_accessor :favourites_list, :chechkout_list, :purchased_list
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
     if user = User.where(:email => data.email).first
@@ -15,6 +19,10 @@ class User < ActiveRecord::Base
       user.save!
       user
     end
+  end
+
+  def favourites_list
+    self.products_lists.find_by_category(1)
   end
 
 end

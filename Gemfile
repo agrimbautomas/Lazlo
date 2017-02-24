@@ -44,18 +44,29 @@ gem 'instagram'
 
 gem 'letsencrypt_plugin'
 
+#TDD
+gem 'simplecov', :require => false, :group => :test
+gem 'rubycritic', :require => false
 
-group :development, :staging do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
+group :development, :test do
   gem 'spring'
-
   gem 'rspec-rails'
   gem 'fuubar'
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rvm'
-
 end
 
+group :development do
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+end
+
+group :production do
+
+end

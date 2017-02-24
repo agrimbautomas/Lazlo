@@ -7,12 +7,13 @@ class Product < ActiveRecord::Base
   has_one :category
   has_many :orders
   has_many :product_images, :dependent => :destroy
+  has_many :product_rows
 
   accepts_nested_attributes_for :product_images, :allow_destroy => true
 
   validates :name, presence: true
 
-  before_save :parse_slug
+  before_save :parse_slug, :if => :name_changed?
 
   has_attached_file :image,
                     styles: {big: "800x800#", medium: "300x300#", thumb: "100x100#"},

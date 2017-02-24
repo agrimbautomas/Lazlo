@@ -1,4 +1,5 @@
-class ApiController < RocketPants::Base
+class  Api::V1::ApiController < RocketPants::Base
+  version 1
 
   def purchase_product_data
     @table = Product.friendly.find(params[:product_id])
