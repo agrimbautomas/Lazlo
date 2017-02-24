@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe OrderStatus, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it { should respond_to (:name) }
+  it { should respond_to (:priority) }
+
+  it { should validate_uniqueness_of(:name) }
+  it { should validate_uniqueness_of(:priority) }
+
 end

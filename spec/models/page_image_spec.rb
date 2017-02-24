@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe PageImage, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it { should respond_to (:page) }
+  it { should respond_to (:picture) }
+
+  it { should belong_to (:page) }
+
 end

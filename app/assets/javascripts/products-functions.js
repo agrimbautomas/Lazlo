@@ -15,6 +15,39 @@ $(document).on('ready page:load', function (event) {
     setImagesGallery();
 });
 
+function setProductQuantity() {
+
+    $(".product-quantity input").bind('keyup mouseup', function () {
+        var inputValue = $(this).val();
+        var inputUrl = $(".product-quantity").data('request-path');
+
+        console.log("changed", inputValue);
+        console.log("inputUrl", inputUrl);
+
+        $.ajax({
+            url: inputUrl,
+            context: document.body,
+            data: { quantity: inputValue }
+        }).done(function (data) {
+            updatePaymentButton(data.response.response);
+        });
+    });
+}
+
+
+
+/**************************/
+/**************************/
+/** Products Categories  **/
+/**************************/
+/**************************/
+
+function updatePaymentButton(responseData) {
+    console.log('responseData.sandbox', responseData.init_point)
+    $('.product-buy-button').attr('href', responseData.init_point);
+}
+
+
 function setupResponsiveBoxes() {
     $productsContainer = $('.products-box-container .inner-container');
     containerWidth = $productsContainer.width();
@@ -107,29 +140,6 @@ function topPointerPosition() {
     return doubleRowHeight * doubleRowCounter;
 }
 
-function setProductQuantity() {
-
-    $(".product-quantity input").bind('keyup mouseup', function () {
-        var inputValue = $(this).val();
-        var inputUrl = $(".product-quantity").data('request-path');
-
-        console.log("changed", inputValue);
-        console.log("inputUrl", inputUrl);
-
-        $.ajax({
-            url: inputUrl,
-            context: document.body,
-            data: { quantity: inputValue }
-        }).done(function (data) {
-            updatePaymentButton(data.response.response);
-        });
-    });
-}
-
-function updatePaymentButton(responseData) {
-    console.log('responseData.sandbox', responseData.init_point)
-    $('.product-buy-button').attr('href', responseData.init_point);
-}
 
 jQuery.fn.extend({
     setSmallBox: function () {

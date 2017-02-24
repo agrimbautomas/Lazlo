@@ -4,6 +4,7 @@ $red_macain: #f38385;
 $purple_macain: #c9afd4;
 $green_macain: #69caca;
 $black_footer: #222222;
+$grey_hover: #828282;
 
 
 .register-section {
@@ -173,10 +174,24 @@ span.error{
     .fa-times,
     .cart-product-image,
     .cart-product-price,
+<<<<<<< HEAD
     h2{
       width: 20%;
       display: table-cell;
       vertical-align: middle;
+=======
+    h2,
+    h2 a{
+      width: 20%;
+      display: table-cell;
+      vertical-align: middle;
+      color: $black_footer;
+      font-size: 20px;
+
+      &:hover{
+        color: $grey_hover;
+      }
+>>>>>>> 14-ta-add_testing_tools
     }
 
     .cart-product-image{
@@ -187,7 +202,16 @@ span.error{
     .fa-times{
       color: $black_footer;
       width: 5%;
+<<<<<<< HEAD
       font-size: 20px;
+=======
+      cursor: pointer;
+      font-size: 20px;
+
+      &:hover{
+        color: $grey_hover;
+      }
+>>>>>>> 14-ta-add_testing_tools
     }
 
     h2{
