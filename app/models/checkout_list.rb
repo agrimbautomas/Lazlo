@@ -1,0 +1,4 @@
+class CheckoutList < UserList
+
+
+end

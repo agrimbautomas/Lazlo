@@ -22,7 +22,7 @@ ActiveAdmin.register Product do
       '$' + product.price.to_s
     end
     column 'Categoria' do |product|
-      Category.find(product.category_id).name unless product.category_id.nil?
+      product.category
     end
     column :image do |product|
       image_tag(product.image.url(:thumb), :class => 'product-thumb')
@@ -36,8 +36,7 @@ ActiveAdmin.register Product do
   form do |f|
     f.inputs I18n.t('activerecord.attributes.product.description') do
       f.input :name
-      #hint = f.object.new_record? ? 'Ejemplo: ' + products_url + '/nombre-del-producto' : 'Actual: ' + product_url
-      #f.input :slug, :label => 'Link del producto ', :hint => hint
+
       f.input :description
       f.input :price
       f.input :category_id, :as => :select, include_blank: false,

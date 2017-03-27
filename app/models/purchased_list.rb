@@ -1,0 +1,4 @@
+class PurchasedList < UserList
+
+
+end

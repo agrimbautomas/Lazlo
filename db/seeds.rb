@@ -21,3 +21,14 @@ admin1.add_role :full_admin
 
 admin2 = AdminUser.create!(email: 'tomas@macain.com.ar', password: 'sinclair2955', password_confirmation: 'sinclair2955')
 admin2.add_role :full_admin
+
+Buyer.create!(name: 'John Buyer', email: 'john@buyer.com')
+
+category1 = Category.create!(name: 'Mesa Ratona')
+category2 = Category.create!(name: 'Mesa Comedor')
+
+Product.create!(name: 'A fake Product', description: 'Some random description, some random description',
+price: 2000, category: category1)
+
+Product.create!(name: 'Another fake Product', description: 'Some random description, some random description',
+price: 5000, category: category1)

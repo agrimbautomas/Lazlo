@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222034349) do
+ActiveRecord::Schema.define(version: 20170215220414) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -72,6 +72,18 @@ ActiveRecord::Schema.define(version: 20170222034349) do
     t.datetime "image_updated_at"
     t.string   "slug"
     t.integer  "views",              default: 0
+  end
+
+  create_table "checkout_lists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favourites_lists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -163,14 +175,18 @@ ActiveRecord::Schema.define(version: 20170222034349) do
   end
 
   create_table "product_rows", force: :cascade do |t|
-    t.integer  "quantity",         default: 1
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "quantity",           default: 1
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "product_id"
-    t.integer  "products_list_id"
+    t.integer  "favourites_list_id"
+    t.integer  "checkout_list_id"
+    t.integer  "purchased_list_id"
   end
 
-  add_index "product_rows", ["products_list_id"], name: "index_product_rows_on_products_list_id"
+  add_index "product_rows", ["checkout_list_id"], name: "index_product_rows_on_checkout_list_id"
+  add_index "product_rows", ["favourites_list_id"], name: "index_product_rows_on_favourites_list_id"
+  add_index "product_rows", ["purchased_list_id"], name: "index_product_rows_on_purchased_list_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -189,11 +205,10 @@ ActiveRecord::Schema.define(version: 20170222034349) do
 
   add_index "products", ["category_id"], name: "index_products_on_category_id"
 
-  create_table "products_lists", force: :cascade do |t|
+  create_table "purchased_lists", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "category"
   end
 
   create_table "roles", force: :cascade do |t|

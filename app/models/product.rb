@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  has_one :category
+  belongs_to :category
   has_many :orders
   has_many :product_images, :dependent => :destroy
   has_many :product_rows
