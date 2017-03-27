@@ -1,6 +1,6 @@
 class PurchaseController < ApplicationController
 
-  before_action :authenticate_user!, :set_product
+  before_action :authenticate_user!
 
   def purchase_success
     create_order

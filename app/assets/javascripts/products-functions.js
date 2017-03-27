@@ -13,40 +13,14 @@ $(document).on('ready page:load', function (event) {
     //  setProductQuantity();
 
     setImagesGallery();
+    setFuvoriteBtn();
 });
-
-function setProductQuantity() {
-
-    $(".product-quantity input").bind('keyup mouseup', function () {
-        var inputValue = $(this).val();
-        var inputUrl = $(".product-quantity").data('request-path');
-
-        console.log("changed", inputValue);
-        console.log("inputUrl", inputUrl);
-
-        $.ajax({
-            url: inputUrl,
-            context: document.body,
-            data: { quantity: inputValue }
-        }).done(function (data) {
-            updatePaymentButton(data.response.response);
-        });
-    });
-}
-
-
 
 /**************************/
 /**************************/
 /** Products Categories  **/
 /**************************/
 /**************************/
-
-function updatePaymentButton(responseData) {
-    console.log('responseData.sandbox', responseData.init_point)
-    $('.product-buy-button').attr('href', responseData.init_point);
-}
-
 
 function setupResponsiveBoxes() {
     $productsContainer = $('.products-box-container .inner-container');
@@ -192,5 +166,25 @@ function setImagesGallery() {
         cursor: "crosshair",
         zoomWindowFadeIn: 500,
         zoomWindowFadeOut: 750
+    });
+}
+
+function setFuvoriteBtn() {
+    $(".add-favourites-btn").click( function(e){
+        e.preventDefault();
+        var url = $(this).attr('href');
+        console.log(url);
+
+        $.ajax({
+            url: url,
+            context: document.body,
+            type: 'POST',
+            data: {
+                quantity: 1
+            }
+        }).done(function (data) {
+            console.log('Done!', data);
+        });
+
     });
 }

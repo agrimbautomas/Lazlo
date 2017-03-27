@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get 'purchase-pending', to: 'purchase#purchase_pending'
     get 'purchase-failure', to: 'purchase#purchase_failure'
 
-    get 'add-to-wish', to: 'users#add_product_to_wish_list'
+    post 'add-to-fauvorites', to: 'users#add_product_to_wish_list'
     get 'purchase-data', to: 'api#purchase_product_data'
     get 'checkout', to: 'products#purchase'
   end
@@ -29,9 +29,8 @@ Rails.application.routes.draw do
 
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
-  api version: 1, module: "api/v1" do
-    #get 'cart/:product_id', to: 'cart#remove_product', :as => :remove_cart_product
-    delete 'user/:user_id/cart/:product_id', to: 'cart#remove_product', :as => :remove_cart_product
+  api version: 1, module: 'api/v1' do
+    delete 'user/cart/:product_row_id', to: 'cart#remove_product_row', :as => :remove_cart_product
   end
 
   # error pages

@@ -8,13 +8,8 @@ function setupCartFunctions() {
 
     $('.cart-product-row i').each(function(){
         $(this).click(function(){
-            console.log(this);
-
-
             var productUrl = $(this).parent('.cart-product-row').data('remove-path')
-
-            console.log("productUrl", productUrl);
-
+            var $row =  $(this).parent('.cart-product-row');
             $.ajax({
                 url: productUrl,
                 context: document.body,
@@ -23,7 +18,8 @@ function setupCartFunctions() {
                     quantity: 1
                 }
             }).done(function (data) {
-                console.log('Done!', data.response);
+                if(data.response == 'success')
+                    $row.remove();
             });
 
         });
