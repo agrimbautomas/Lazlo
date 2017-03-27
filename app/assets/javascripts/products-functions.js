@@ -13,7 +13,7 @@ $(document).on('ready page:load', function (event) {
     //  setProductQuantity();
 
     setImagesGallery();
-    setFuvoriteBtn();
+    setFauvoriteBtn();
 });
 
 /**************************/
@@ -169,7 +169,7 @@ function setImagesGallery() {
     });
 }
 
-function setFuvoriteBtn() {
+function setFauvoriteBtn() {
     $(".add-favourites-btn").click( function(e){
         e.preventDefault();
         var url = $(this).attr('href');

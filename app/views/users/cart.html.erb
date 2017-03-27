@@ -8,7 +8,11 @@
   <h3>FAVORITOS</h3>
 
 
-  <% if current_user.favourites_list.present? %>
+  <%
+     no_favourites_display = 'block'
+     if current_user.favourites_list.present? and current_user.favourites_list.product_rows.present?
+     no_favourites_display = 'none'
+  %>
       <% current_user.favourites_list.product_rows.each do |product_row|
         remove_path_hash = {:product_row_id => product_row.id,
                             :version => Rails.application.config.API_VERSION}
@@ -30,9 +34,8 @@
             </span>
           </div>
       <% end %>
-  <% else %>
-      <h2>No tiene productos en tu lista</h2>
   <% end %>
+  <h2 class="no-products-message" style="display: <%= no_favourites_display %>">No hay productos en esta lista</h2>
 </div>
 
 
