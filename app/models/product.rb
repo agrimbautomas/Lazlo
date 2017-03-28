@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  has_one :category
+  belongs_to :category
   has_many :orders
   has_many :product_images, :dependent => :destroy
   has_many :product_rows
@@ -66,6 +66,7 @@ class Product < ActiveRecord::Base
     self.slug = self.name.downcase.strip.gsub(' ', '-').gsub('ñ', 'n').gsub(/[^\w-]/, '')
     self.slug = self.slug + rand(0..9999).to_s if Product.find_by_slug(self.slug).present?
   end
+
 
 
 end

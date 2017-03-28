@@ -9,13 +9,16 @@
   <h3>FAVORITOS</h3>
 
 
-  <% if @user_products_list.present? %>
-      <% @user_products_list.product_rows.each do |product_row|
-        remove_path_hash = {:user_id => current_user.id,
-                            :product_id => product_row.product.id,
+  <%
+     no_favourites_display = 'block'
+     if current_user.favourites_list.present? and current_user.favourites_list.product_rows.present?
+     no_favourites_display = 'none'
+  %>
+      <% current_user.favourites_list.product_rows.each do |product_row|
+        product_hash = {:product_id => product_row.product.id,
                             :version => Rails.application.config.API_VERSION}
       %>
-          <div class="cart-product-row" data-remove-path="<%= remove_cart_product_path(remove_path_hash) %>">
+          <div class="cart-product-row" data-remove-path="<%= remove_cart_product_url product_hash %>">
 
             <i class="fa fa-times smooth-transition" aria-hidden="true"></i>
 
@@ -32,9 +35,8 @@
             </span>
           </div>
       <% end %>
-  <% else %>
-      <h2>No tiene productos en tu lista</h2>
   <% end %>
+  <h2 class="no-products-message" style="display: <%= no_favourites_display %>">No hay productos en esta lista</h2>
 </div>
 
 

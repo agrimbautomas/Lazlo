@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
          :omniauthable, :confirmable, :omniauth_providers => [:facebook]
 
 
-  has_many :products_lists, :dependent => :destroy
-  attr_accessor :favourites_list, :chechkout_list, :purchased_list
+  has_one :favourites_list, :dependent => :destroy
+  has_one :checkout_list, :dependent => :destroy
+  has_one :purchased_list, :dependent => :destroy
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
@@ -21,8 +22,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def favourites_list
-    self.products_lists.find_by_category(1)
+  def has_product_as_favourite? product
+    self.favourites_list.product_rows.where(:product => product).exists?
   end
 
 end

@@ -1,20 +1,15 @@
-
 $(document).on('ready page:load', function (event) {
 
+    $noProductsMessage = $('.no-products-message');
     setupCartFunctions();
 });
 
 function setupCartFunctions() {
 
-    $('.cart-product-row i').each(function(){
-        $(this).click(function(){
-            console.log(this);
-
-
+    $('.cart-product-row i').each(function () {
+        $(this).click(function () {
             var productUrl = $(this).parent('.cart-product-row').data('remove-path')
-
-            console.log("productUrl", productUrl);
-
+            var $row = $(this).parent('.cart-product-row');
             $.ajax({
                 url: productUrl,
                 context: document.body,
@@ -23,9 +18,20 @@ function setupCartFunctions() {
                     quantity: 1
                 }
             }).done(function (data) {
-                console.log('Done!', data.response);
+                if (data.response == 'success')
+                    $row.remove();
+                checkIfListIsEmpty();
             });
 
         });
     });
+}
+
+
+function checkIfListIsEmpty() {
+    if ($('.cart-product-row').length == 0 )
+        $noProductsMessage.show();
+    else
+        $noProductsMessage.hide();
+
 }

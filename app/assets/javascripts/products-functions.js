@@ -13,40 +13,14 @@ $(document).on('ready page:load', function (event) {
     //  setProductQuantity();
 
     setImagesGallery();
+    setToggleFauvoriteBtn();
 });
-
-function setProductQuantity() {
-
-    $(".product-quantity input").bind('keyup mouseup', function () {
-        var inputValue = $(this).val();
-        var inputUrl = $(".product-quantity").data('request-path');
-
-        console.log("changed", inputValue);
-        console.log("inputUrl", inputUrl);
-
-        $.ajax({
-            url: inputUrl,
-            context: document.body,
-            data: { quantity: inputValue }
-        }).done(function (data) {
-            updatePaymentButton(data.response.response);
-        });
-    });
-}
-
-
 
 /**************************/
 /**************************/
 /** Products Categories  **/
 /**************************/
 /**************************/
-
-function updatePaymentButton(responseData) {
-    console.log('responseData.sandbox', responseData.init_point)
-    $('.product-buy-button').attr('href', responseData.init_point);
-}
-
 
 function setupResponsiveBoxes() {
     $productsContainer = $('.products-box-container .inner-container');
@@ -193,4 +167,67 @@ function setImagesGallery() {
         zoomWindowFadeIn: 500,
         zoomWindowFadeOut: 750
     });
+}
+
+function setToggleFauvoriteBtn() {
+    $(".add-favourites-btn").click(function (e) {
+        e.preventDefault();
+
+        if ($(this).hasClass('favourite'))
+            unsetFauvorite($(this));
+        else
+            setFauvorite($(this));
+
+    })
+
+}
+
+function setFauvorite($btn) {
+
+    var url = $btn.attr('href');
+
+
+    $.ajax({
+        url: url,
+        context: document.body,
+        type: 'POST',
+        data: {
+            quantity: 1
+        }
+    }).done(function (data) {
+        if (data.response == 'success')
+            setFauvoriteStyles($btn);
+    });
+
+}
+
+function unsetFauvorite($btn) {
+
+    var url = $btn.data('rm-href');
+    console.log('url', url);
+
+    $.ajax({
+        url: url,
+        context: document.body,
+        type: 'DELETE',
+        data: {
+            quantity: 1
+        }
+    }).done(function (data) {
+        if (data.response == 'success')
+            unsetFauvoriteStyles($btn);
+
+    });
+
+}
+
+
+function setFauvoriteStyles($btn) {
+    $btn.addClass('favourite').addClass('green-button')
+        .removeClass('transparent-button').html('Guardado en Favoritos!');
+}
+
+function unsetFauvoriteStyles($btn) {
+    $btn.removeClass('favourite').removeClass('green-button')
+        .addClass('transparent-button').html('Agregar a Mis Favoritos');
 }
