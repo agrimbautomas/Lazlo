@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_product_as_favourite? product
+    self.favourites_list.product_rows.where(:product => product).exists?
+  end
+
 end

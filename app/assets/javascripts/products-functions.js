@@ -13,7 +13,7 @@ $(document).on('ready page:load', function (event) {
     //  setProductQuantity();
 
     setImagesGallery();
-    setFauvoriteBtn();
+    setToggleFauvoriteBtn();
 });
 
 /**************************/
@@ -169,22 +169,65 @@ function setImagesGallery() {
     });
 }
 
-function setFauvoriteBtn() {
-    $(".add-favourites-btn").click( function(e){
+function setToggleFauvoriteBtn() {
+    $(".add-favourites-btn").click(function (e) {
         e.preventDefault();
-        var url = $(this).attr('href');
-        console.log(url);
 
-        $.ajax({
-            url: url,
-            context: document.body,
-            type: 'POST',
-            data: {
-                quantity: 1
-            }
-        }).done(function (data) {
-            console.log('Done!', data);
-        });
+        if ($(this).hasClass('favourite'))
+            unsetFauvorite($(this));
+        else
+            setFauvorite($(this));
+
+    })
+
+}
+
+function setFauvorite($btn) {
+
+    var url = $btn.attr('href');
+
+
+    $.ajax({
+        url: url,
+        context: document.body,
+        type: 'POST',
+        data: {
+            quantity: 1
+        }
+    }).done(function (data) {
+        if (data.response == 'success')
+            setFauvoriteStyles($btn);
+    });
+
+}
+
+function unsetFauvorite($btn) {
+
+    var url = $btn.data('rm-href');
+    console.log('url', url);
+
+    $.ajax({
+        url: url,
+        context: document.body,
+        type: 'DELETE',
+        data: {
+            quantity: 1
+        }
+    }).done(function (data) {
+        if (data.response == 'success')
+            unsetFauvoriteStyles($btn);
 
     });
+
+}
+
+
+function setFauvoriteStyles($btn) {
+    $btn.addClass('favourite').addClass('green-button')
+        .removeClass('transparent-button').html('Guardado en Favoritos!');
+}
+
+function unsetFauvoriteStyles($btn) {
+    $btn.removeClass('favourite').removeClass('green-button')
+        .addClass('transparent-button').html('Agregar a Mis Favoritos');
 }

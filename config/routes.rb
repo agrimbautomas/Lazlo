@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   api version: 1, module: 'api/v1' do
     post 'user/fauvorites/:product_id', to: 'cart#add_product_to_wish_list', :as => :add_product_to_fauvorites
-    delete 'user/cart/:product_row_id', to: 'cart#remove_product_row', :as => :remove_cart_product
+    delete 'user/cart/:product_id', to: 'cart#remove_product_row', :as => :remove_cart_product
   end
 
   # error pages

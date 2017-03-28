@@ -1,9 +1,9 @@
 class Api::V1::CartController < Api::V1::ApiController
 
-  before_action :set_product, only: [:add_product_to_wish_list]
+  before_action :set_product, only: [:add_product_to_wish_list, :remove_product_row]
 
   def remove_product_row
-    ProductRow.find(params[:product_row_id]).destroy!
+    ProductRow.find_by(:product => params[:product_id], :favourites_list_id => current_user.favourites_list).destroy!
     render json: {:response => 'success'}
   end
 
