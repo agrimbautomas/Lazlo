@@ -15,7 +15,7 @@
 
     <div class="register-inner-container">
 
-      <%= link_to "Crear cuenta con Facebook", user_omniauth_authorize_path(:facebook), class: 'register-fb smooth-transition small-border-radious' %>
+      <%= link_to "Crear cuenta con Facebook", user_facebook_omniauth_authorize_path, class: 'register-fb smooth-transition small-border-radious' %>
       <span class="letter-div">ó</span>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

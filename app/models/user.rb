@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def has_product_as_favourite? product
-    self.favourites_list.product_rows.where(:product => product).exists?
+    favourites_list.present? and favourites_list.product_rows.present? and favourites_list.product_rows.where(:product => product).exists?
   end
 
 end
