@@ -1,4 +1,4 @@
-class CheckoutList < UserList
+class CheckoutList < ActiveRecord::Base
 
 
 end

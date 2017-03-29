@@ -1,4 +1,4 @@
-class PurchasedList < UserList
+class PurchasedList < ActiveRecord::Base
 
 
 end
