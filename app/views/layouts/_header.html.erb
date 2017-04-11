@@ -39,15 +39,21 @@
           <% if user_signed_in? %>
               <a class="header-user-name" href="<%= cart_path %>"><%= current_user.email %></a>
 
-              <a class="social-icons smooth-transition" href="<%= cart_path %>">
+              <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+                <% if current_user.cart_count.present? and current_user.cart_count != 0 %>
+                    <span class="notification-number"><%= current_user.cart_count %></span>
+                <% end %>
               </a>
 
               <!-- <%= link_to 'Salir', destroy_user_session_path, :method => :delete %> -->
 
-              >>>>>>> 14-ta-add_testing_tools
           <% else %>
               <%= link_to 'Ingresar / Registrate', new_user_session_path, :class => 'header-user-name' %>
+              <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
           <% end %>
         </div>
 

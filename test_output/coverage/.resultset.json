@@ -1033,7 +1033,6 @@
         null,
         1,
         1,
-        1,
         null,
         null,
         1,
@@ -1045,8 +1044,11 @@
         1,
         null,
         1,
-        null,
         1,
+        1,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -1277,6 +1279,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "/Users/smacagno/agrimbau/rubyProjects/macain-web-rails/app/models/order_status.rb": [
@@ -1304,6 +1307,7 @@
         null,
         1,
         1,
+        1,
         null,
         1,
         0,
@@ -1315,6 +1319,14 @@
         0,
         0,
         null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         1,
@@ -1463,42 +1475,6 @@
         null,
         null
       ],
-      "/Users/smacagno/agrimbau/rubyProjects/macain-web-rails/spec/models/products_list_spec.rb": [
-        1,
-        null,
-        1,
-        null,
-        2,
-        2,
-        2,
-        null,
-        2,
-        2,
-        null,
-        2,
-        null,
-        null
-      ],
-      "/Users/smacagno/agrimbau/rubyProjects/macain-web-rails/app/models/products_list.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null
-      ],
       "/Users/smacagno/agrimbau/rubyProjects/macain-web-rails/spec/models/role_spec.rb": [
         1,
         null,
@@ -1607,6 +1583,6 @@
         null
       ]
     },
-    "timestamp": 1489975491
+    "timestamp": 1491893407
   }
 }

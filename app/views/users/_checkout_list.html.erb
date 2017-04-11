@@ -1,0 +1,34 @@
+<h3>MI CARRITO</h3>
+
+<%
+   no_checkout_display = 'block'
+   if current_user.checkout_list.present? and current_user.checkout_list.product_rows.present?
+     no_checkout_display = 'none'
+%>
+    <% current_user.checkout_list.product_rows.each do |product_row|
+      product_hash = {:product_id => product_row.product.id,
+                      :version => Rails.application.config.API_VERSION}
+    %>
+        <div class="cart-product-row" data-remove-path="<%= remove_cart_product_row_url product_hash %>">
+
+          <i class="fa fa-times smooth-transition" aria-hidden="true"></i>
+
+          <div class="cart-product-image">
+            <img src="<%= product_row.product.image.url(:thumb) %>"/>
+          </div>
+
+          <h2>
+            <a href="<%= product_path product_row.product %>" class="smooth-transition"><%= product_row.product.name %></a>
+          </h2>
+
+            <span class="cart-product-price">
+              <%= '$' + product_row.product.price.to_i.to_s unless product_row.product.price.nil? %>
+            </span>
+        </div>
+    <% end %>
+<% end %>
+
+
+<h2 class="no-products-message" style="display: <%= no_checkout_display %>">No hay productos en esta lista</h2>
+
+

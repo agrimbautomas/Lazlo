@@ -81,14 +81,13 @@
                 </a>
 
 
-                <% is_favourite = current_user.has_product_as_favourite?(@product) ? true : false %>
-                    <a class="add-favourites-btn macain-button
-                    <%= is_favourite ? 'green-button favourite' : 'transparent-button' %>"
-                       href="<%= add_product_to_fauvorites_url(product_hash) %>"
-                       data-rm-href="<%= remove_cart_product_url(product_hash) %>"
-                    >
-                      <%= is_favourite ? 'Guardado en Favoritos!' : 'Agregar a Mis Favoritos' %>
-                    </a>
+                <% is_in_cart = current_user.has_product_in_cart?(@product) ? true : false %>
+                <a class="add-to-cart-btn macain-button
+                    <%= is_in_cart ? 'green-button in_cart' : 'transparent-button' %>"
+                   href="<%= add_product_to_cart_url(product_hash) %>"
+                   data-rm-href="<%= remove_cart_product_row_url(product_hash) %>">
+                  <%= is_in_cart ? 'Guardado en el Carrito!' : 'Agregar al Carrito' %>
+                </a>
 
             <% else %>
                 <a href="<%= new_user_session_path %>" class="product-buy-button macain-button red-button smooth-transition">

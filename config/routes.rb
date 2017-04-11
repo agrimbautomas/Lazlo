@@ -29,8 +29,11 @@ Rails.application.routes.draw do
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
   api version: 1, module: 'api/v1' do
-    post 'user/fauvorites/:product_id', to: 'cart#add_product_to_wish_list', :as => :add_product_to_fauvorites
-    delete 'user/cart/:product_id', to: 'cart#remove_product_row', :as => :remove_cart_product
+    post 'user/checkout/:product_id', to: 'cart#add_product_to_cart', :as => :add_product_to_cart
+    delete 'user/cart/:product_id', to: 'cart#remove_cart_product_row', :as => :remove_cart_product_row
+
+    #post 'user/fauvorites/:product_id', to: 'cart#add_product_to_wish_list', :as => :add_product_to_fauvorites
+    #delete 'user/cart/:product_id', to: 'cart#remove_product_row', :as => :remove_cart_product
   end
 
   # error pages

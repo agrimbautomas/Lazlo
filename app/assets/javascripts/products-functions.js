@@ -13,7 +13,7 @@ $(document).on('ready page:load', function (event) {
     //  setProductQuantity();
 
     setImagesGallery();
-    setToggleFauvoriteBtn();
+    setToggleCartBtn();
 });
 
 /**************************/
@@ -169,20 +169,20 @@ function setImagesGallery() {
     });
 }
 
-function setToggleFauvoriteBtn() {
-    $(".add-favourites-btn").click(function (e) {
+function setToggleCartBtn() {
+    $(".add-to-cart-btn").click(function (e) {
         e.preventDefault();
 
-        if ($(this).hasClass('favourite'))
-            unsetFauvorite($(this));
+        if ($(this).hasClass('in_cart'))
+            removeFromCart($(this));
         else
-            setFauvorite($(this));
+            addToCart($(this));
 
     })
 
 }
 
-function setFauvorite($btn) {
+function addToCart($btn) {
 
     var url = $btn.attr('href');
 
@@ -196,15 +196,14 @@ function setFauvorite($btn) {
         }
     }).done(function (data) {
         if (data.response == 'success')
-            setFauvoriteStyles($btn);
+            addToCartStyles($btn);
     });
 
 }
 
-function unsetFauvorite($btn) {
+function removeFromCart($btn) {
 
     var url = $btn.data('rm-href');
-    console.log('url', url);
 
     $.ajax({
         url: url,
@@ -215,19 +214,19 @@ function unsetFauvorite($btn) {
         }
     }).done(function (data) {
         if (data.response == 'success')
-            unsetFauvoriteStyles($btn);
+            removeFromCartStyles($btn);
 
     });
 
 }
 
 
-function setFauvoriteStyles($btn) {
-    $btn.addClass('favourite').addClass('green-button')
-        .removeClass('transparent-button').html('Guardado en Favoritos!');
+function addToCartStyles($btn) {
+    $btn.addClass('in_cart').addClass('green-button')
+        .removeClass('transparent-button').html('Guardado en el Carrito!');
 }
 
-function unsetFauvoriteStyles($btn) {
-    $btn.removeClass('favourite').removeClass('green-button')
-        .addClass('transparent-button').html('Agregar a Mis Favoritos');
+function removeFromCartStyles($btn) {
+    $btn.removeClass('in_cart').removeClass('green-button')
+        .addClass('transparent-button').html('Agregar al Carrito');
 }

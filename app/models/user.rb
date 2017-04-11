@@ -22,8 +22,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_product_in_cart? product
+    checkout_list.present? and checkout_list.product_rows.present? and checkout_list.product_rows.where(:product => product).exists?
+  end
+
   def has_product_as_favourite? product
     favourites_list.present? and favourites_list.product_rows.present? and favourites_list.product_rows.where(:product => product).exists?
+  end
+
+  def cart_count
+    checkout_list.present? ? checkout_list.product_rows.count : nil
   end
 
 end

@@ -170,6 +170,16 @@ input:-webkit-autofill {
   margin-bottom: $margin_medium;
 }
 
+
+.grilla {
+  width: 1000px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 2.5% 0px;
+  max-width: 95%;
+  position: relative;
+}
+
 /******* Header *******/
 
 header {
@@ -224,6 +234,25 @@ header {
 
           &:hover {
             background: #5d8686;
+          }
+        }
+
+        .cart-block{
+          position: relative;
+
+          .notification-number{
+            background: #ff0e12;
+            position: absolute;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            height: 18px;
+            width: 18px;
+            text-align: center;
+            top: 2px;
+            right: 2px;
+            font-size: 12px;
+            line-height: 18px;
           }
         }
 
