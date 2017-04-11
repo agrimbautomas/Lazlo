@@ -21,9 +21,25 @@
             <a href="<%= product_path product_row.product %>" class="smooth-transition"><%= product_row.product.name %></a>
           </h2>
 
-            <span class="cart-product-price">
+
+          <div class="cart-product-quantity">
+
+            <div class="quantity-message">
+              x<span>1</span>
+            </div>
+
+            <div class="quantity-controls">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              <i class="fa fa-minus-circle" aria-hidden="true"></i>
+            </div>
+          </div>
+
+
+          <span class="cart-product-price">
               <%= '$' + product_row.product.price.to_i.to_s unless product_row.product.price.nil? %>
-            </span>
+          </span>
+
+
         </div>
     <% end %>
 <% end %>

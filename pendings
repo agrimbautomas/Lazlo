@@ -4,4 +4,6 @@ Cart
 Fix sessions duration time
 Add users section
 Add recomendations widget
-Agregar cada tres meses CronJob con 'rake letsencrypt_plugin' para actualizar certificados
+Agregar cada tres meses CronJob con 'rake letsencrypt_plugin' para actualizar certificados<
+Agregar opcion para mostrar/ocultar productos en el admin
+Arreglar casos de ajax cuando se abren mas de una pestaña
