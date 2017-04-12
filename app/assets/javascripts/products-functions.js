@@ -183,23 +183,11 @@ function setToggleCartBtn() {
 }
 
 function addToCart($btn) {
-
     var url = $btn.attr('href');
 
-
-    $.ajax({
-        url: url,
-        context: document.body,
-        type: 'POST',
-        data: {
-            quantity: 1
-        }
-    }).done(function (data) {
-        if (data.response == 'success')
-            addToCartStyles($btn);
-    });
-
+    requestProductRow('POST', url, 1, addToCartStyles($btn));
 }
+
 
 function removeFromCart($btn) {
 
@@ -229,4 +217,25 @@ function addToCartStyles($btn) {
 function removeFromCartStyles($btn) {
     $btn.removeClass('in_cart').removeClass('green-button')
         .addClass('transparent-button').html('Agregar al Carrito');
+}
+
+
+/**************************/
+/**************************/
+/*****  AJAX Methods *****/
+/**************************/
+/**************************/
+
+function requestProductRow(method, url, quantity, callback) {
+    $.ajax({
+        url: url,
+        context: document.body,
+        type: method,
+        data: {
+            quantity: quantity
+        }
+    }).done(function (data) {
+        if (data.response == 'success')
+            callback;
+    });
 }

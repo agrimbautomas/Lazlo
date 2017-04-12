@@ -1,17 +1,20 @@
 <h3>MI CARRITO</h3>
 
 <%
-   no_checkout_display = 'block'
-   if current_user.checkout_list.present? and current_user.checkout_list.product_rows.present?
-     no_checkout_display = 'none'
+  api_version = Rails.application.config.API_VERSION
+  no_checkout_display = 'block'
+  if current_user.checkout_list.present? and current_user.checkout_list.product_rows.present?
+    no_checkout_display = 'none'
 %>
     <% current_user.checkout_list.product_rows.each do |product_row|
-      product_hash = {:product_id => product_row.product.id,
-                      :version => Rails.application.config.API_VERSION}
+      product_hash = {:product_id => product_row.product.id, :version => api_version}
+      product_row_hash = {:product_row_id => product_row.id, :version => api_version}
     %>
-        <div class="cart-product-row" data-remove-path="<%= remove_cart_product_row_url product_hash %>">
+        <div class="cart-product-row"
+             data-remove-path="<%= remove_cart_product_row_url product_hash %>"
+             data-put-path="<%= edit_checkout_row_url(product_row_hash) %>">
 
-          <i class="fa fa-times smooth-transition" aria-hidden="true"></i>
+          <i class="fa fa-times remove-row smooth-transition" aria-hidden="true"></i>
 
           <div class="cart-product-image">
             <img src="<%= product_row.product.image.url(:thumb) %>"/>
@@ -25,11 +28,11 @@
           <div class="cart-product-quantity">
 
             <div class="quantity-message">
-              x<span>1</span>
+              x<span><%= product_row.quantity %></span>
             </div>
 
-            <div class="quantity-controls">
-              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            <div class="quantity-controls" >
+              <i class="fa fa-plus-circle" aria-hidden="true" ></i>
               <i class="fa fa-minus-circle" aria-hidden="true"></i>
             </div>
           </div>

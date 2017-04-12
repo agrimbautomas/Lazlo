@@ -1,6 +1,7 @@
 class Api::V1::CartController < Api::V1::ApiController
 
-  before_action :set_product
+  before_action :set_product, except: [:edit_checkout_product_row]
+  before_action :set_product_row, only: [:edit_checkout_product_row]
 
   def remove_cart_product_row
     ProductRow.find_by(:product => params[:product_id], :checkout_list_id => current_user.checkout_list).destroy!
@@ -16,21 +17,21 @@ class Api::V1::CartController < Api::V1::ApiController
     render json: {:response => 'success'}
   end
 
-  #Pending - Add favourites
-  def add_product_to_wish_list
-    current_user.favourites_list = FavouritesList.create(:user => current_user) unless current_user.favourites_list.present?
-
-    current_user.favourites_list.save_product_row @product
-    current_user.save!
-
+  def edit_checkout_product_row
     render json: {:response => 'success'}
+    #render json: {:response => @product_row.to_json }
   end
-
 
   private
   def set_product
     @product = Product.friendly.find(params[:product_id])
   end
+
+  def set_product_row
+    @product_row = ProductRow.find(params[:product_row_id])
+  end
+
+
 
 
 end

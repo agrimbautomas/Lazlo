@@ -1,8 +1,18 @@
 $margin_medium: 30px;
+
+$margin_medium: 30px;
 $red_macain: #f38385;
+$red_macain_hover: #f5999b;
+
 $purple_macain: #c9afd4;
+$purple_macain_hover: #bb98d4;
+
 $green_macain: #69caca;
+$green_macain_hover: #6edcdc;
+
 $black_footer: #222222;
+$black_footer_hover: #eaeaea;
+
 $grey_hover: #828282;
 
 .register-section {
@@ -202,12 +212,16 @@ span.error {
 
     h2 {
       text-align: left;
-      width: 20%;
+      width: 13%;
     }
 
     .cart-product-quantity {
       font-size: 26px;
       width: 6%;
+
+      &:hover {
+        color: $black_footer;
+      }
 
       .quantity-message {
         display: table-cell;
@@ -221,17 +235,20 @@ span.error {
 
         i {
           display: block;
-          color: #f38385;
+          color: $purple_macain;
           cursor: pointer;
           margin: 3px 0px;
+
+          &:active {
+            color: $purple_macain_hover;
+          }
         }
       }
     }
     .cart-product-price {
-      width: 10%;
+      width: 17%;
       font-size: 26px;
-      text-align: right;
-      padding-right: 4%;
+      text-align: center;
     }
   }
 
@@ -240,7 +257,7 @@ span.error {
     display: inline-block;
     width: 92%;
     text-align: right;
-    color: #6a6aea;
+    color: $purple_macain;
     font-size: 34px;
     padding: 10px 4% 0px;
     margin: 14px 0% 0px;

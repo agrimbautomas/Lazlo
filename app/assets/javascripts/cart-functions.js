@@ -7,37 +7,53 @@ $(document).on('ready page:load', function (event) {
 });
 
 function setupCartFunctions() {
+    $('.cart-product-row').each(function () {
+        setupRemoveButton($(this));
+        setQuantityControls($(this));
+    });
+}
 
-    $('.cart-product-row i').each(function () {
-        $(this).click(function () {
-            var productUrl = $(this).parent('.cart-product-row').data('remove-path')
-            var $row = $(this).parent('.cart-product-row');
-            $.ajax({
-                url: productUrl,
-                context: document.body,
-                type: 'DELETE',
-                data: {
-                    quantity: 1
-                }
-            }).done(function (data) {
-                if (data.response == 'success')
-                    $row.remove();
-                checkIfListIsEmpty();
-                updateTotalPrice();
-            });
+function setupRemoveButton($productRow) {
+    $productRow.children('i.remove-row').click(function () {
+        var productUrl = $productRow.data('remove-path');
 
+        $.ajax({
+            url: productUrl,
+            context: document.body,
+            type: 'DELETE',
+            data: {
+                quantity: 1
+            }
+        }).done(function (data) {
+            if (data.response == 'success')
+                $productRow.remove();
+            checkIfListIsEmpty();
+            updateTotalPrice();
         });
+
     });
 }
 
 
-function setQuantityControls() {
-    $('.cart-product-row').each(function () {
-        $(this).children('.fa-plus-circle').click(function () {
-            //TODO
-        })
-        $(this).children('.fa-minus-circle')
+function setQuantityControls($productRow) {
+    var url = $productRow.data('put-path');
+    var $quantityTag = $productRow.find('.quantity-message span');
+
+    $productRow.find('.fa-plus-circle').click(function () {
+        //Todo - Check this URL is not working
+        quantity = parseInt($quantityTag.text());
+        $quantityTag.text(++quantity);
+        requestProductRow('PUT', url, 8, updateTotalPrice())
     })
+    $productRow.find('.fa-minus-circle').click(function () {
+        //Todo - Check this URL is not working
+        quantity = parseInt($quantityTag.text());
+        if (quantity > 1) {
+            $quantityTag.text(--quantity);
+            requestProductRow('PUT', url, 8, updateTotalPrice())
+        }
+    })
+
 }
 
 function checkIfListIsEmpty() {
