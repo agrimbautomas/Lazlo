@@ -1046,6 +1046,7 @@
         1,
         1,
         1,
+        1,
         null,
         null,
         null,
@@ -1441,15 +1442,12 @@
         1,
         null,
         2,
-        2,
         null,
-        2,
         2,
         null,
         null
       ],
       "/Users/smacagno/agrimbau/rubyProjects/macain-web-rails/app/models/product_row.rb": [
-        1,
         1,
         1,
         null,
@@ -1529,6 +1527,8 @@
         2,
         null,
         2,
+        2,
+        2,
         null,
         null,
         null,
@@ -1581,8 +1581,50 @@
         1,
         null,
         null
+      ],
+      "/Users/smacagno/agrimbau/rubyProjects/macain-web-rails/app/models/favourites_list.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/smacagno/agrimbau/rubyProjects/macain-web-rails/app/models/checkout_list.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/smacagno/agrimbau/rubyProjects/macain-web-rails/app/models/purchased_list.rb": [
+        1,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1491893407
+    "timestamp": 1493173124
   }
 }

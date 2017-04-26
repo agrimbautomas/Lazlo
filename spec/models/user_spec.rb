@@ -12,7 +12,9 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of(:password) }
   it { should validate_confirmation_of(:password) }
 
-  it { should have_many(:products_lists) }
+  it { should have_one(:favourites_list) }
+  it { should have_one(:checkout_list) }
+  it { should have_one(:purchased_list) }
 
 
 
