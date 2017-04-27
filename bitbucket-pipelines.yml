@@ -8,7 +8,9 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          - apt-get install nodejs
+          - apt-get install curl
+          - curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
+          - apt-get install -y nodejs
           - bundler --version
           - bundle install
           - bundle exec rake db:create db:migrate
