@@ -11,5 +11,4 @@ pipelines:
           - bundler --version
           - bundle install
           - mkdir -p test_output
-          - bundle exec rubycritic -p "test_output/critic"
           - bundle exec rspec spec/
