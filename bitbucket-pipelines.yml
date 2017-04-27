@@ -3,11 +3,12 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: ruby:2.3.0
+image: ubuntu
 pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
+          - node --version
           - bundler --version
           - bundle install
           - mkdir -p test_output
