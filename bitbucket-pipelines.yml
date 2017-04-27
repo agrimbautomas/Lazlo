@@ -8,7 +8,6 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          - node --version
           - bundler --version
           - bundle install
           - mkdir -p test_output
