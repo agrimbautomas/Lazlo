@@ -10,7 +10,6 @@ pipelines:
         script: # Modify the commands below to build your repository.
           - bundler --version
           - bundle install
-          - bundle exec rake db:create db:migrate
           - mkdir -p test_output
           - bundle exec rubycritic -p "test_output/critic"
           - bundle exec rspec spec/
