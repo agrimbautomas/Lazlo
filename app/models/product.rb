@@ -21,6 +21,8 @@ class Product < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
 
+  scope :featured, -> { limit(6).order('featured desc, views desc') }
+
   def payment
     preference_data = {
         'items' => [
@@ -62,6 +64,7 @@ class Product < ActiveRecord::Base
     hash
   end
 
+  private
   def parse_slug
     self.slug = self.name.downcase.strip.gsub(' ', '-').gsub('ñ', 'n').gsub(/[^\w-]/, '')
     self.slug = self.slug + rand(0..9999).to_s if Product.find_by_slug(self.slug).present?

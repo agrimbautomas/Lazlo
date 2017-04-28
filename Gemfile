@@ -48,6 +48,7 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'fuubar'
+  gem 'byebug'
 
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
@@ -61,7 +62,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'byebug'
   gem 'web-console', '~> 2.0'
 end
 

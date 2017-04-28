@@ -272,6 +272,7 @@ es:
           price: Precio
           description: Descripción
           image: Imagen destacada
+          featured: Destacado
         product_image:
           picture: Imágen de la galería
         order:
