@@ -25,4 +25,4 @@ public/system/
 Capfile.lock
 
 #Tests
-/test_output/
+/test_output/*
