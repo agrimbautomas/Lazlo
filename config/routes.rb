@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     get 'purchase-pending', to: 'purchase#purchase_pending'
     get 'purchase-failure', to: 'purchase#purchase_failure'
 
-    get 'purchase-data', to: 'api#purchase_product_data'
     get 'checkout', to: 'products#purchase'
   end
 

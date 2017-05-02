@@ -43,25 +43,8 @@ class Product < ActiveRecord::Base
     $mp_client.create_preference(preference_data)
   end
 
-  def set_quantity quantity
-    @quantity = quantity
-  end
-
   def image_uri
     URI.join($request.url, self.image.url)
-  end
-
-
-  def serializable_hash(*args)
-    hash = super(*args)
-    hash.delete("image_file_name")
-    hash.delete("image_content_type")
-    hash.delete("image_file_size")
-    hash.delete("image_updated_at")
-    hash[:image] = self.image.url(:big) unless self.image.nil?
-    hash[:image] = self.image.url(:medium) unless self.image.nil?
-    hash[:image] = self.image.url(:thumb) unless self.image.nil?
-    hash
   end
 
   private

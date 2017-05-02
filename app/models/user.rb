@@ -22,6 +22,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def add_product_to_cart product
+    self.checkout_list = CheckoutList.create(:user => self) unless self.checkout_list.present?
+    self.checkout_list.save_product_row product
+    self.save!
+  end
+
   def has_product_in_cart? product
     checkout_list.present? and checkout_list.product_rows.present? and checkout_list.product_rows.where(:product => product).exists?
   end

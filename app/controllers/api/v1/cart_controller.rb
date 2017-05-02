@@ -9,10 +9,7 @@ class Api::V1::CartController < Api::V1::ApiController
   end
 
   def add_product_to_cart
-    current_user.checkout_list = CheckoutList.create(:user => current_user) unless current_user.checkout_list.present?
-
-    current_user.checkout_list.save_product_row @product
-    current_user.save!
+    current_user.add_product_to_cart @product
 
     render json: {:response => 'success'}
   end
