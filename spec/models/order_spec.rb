@@ -10,7 +10,7 @@ RSpec.describe Order, type: :model do
 
   let (:one_order) { Order.create! buyer: Buyer.create(:name => 'SomeBuyer'), product: Product.create(:name => 'One product') }
 
-  context "on Create" do
+  context 'on Create' do
     it 'should have code after created' do
       expect(one_order.code).to be_present
     end

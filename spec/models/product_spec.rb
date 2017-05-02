@@ -40,7 +40,7 @@ RSpec.describe Product, type: :model do
   end
 
   describe 'When file is uploaded' do
-    it 'Should have an absolute uri' do
+    it 'Should have an attachment' do
       a_product.image = File.new("#{Rails.root}/spec/fixtures/images/logo-green.png")
 
       expect(a_product.image ).to be_a(Paperclip::Attachment)

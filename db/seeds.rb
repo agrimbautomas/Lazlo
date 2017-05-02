@@ -28,7 +28,10 @@ category1 = Category.create!(name: 'Mesa Ratona')
 category2 = Category.create!(name: 'Mesa Comedor')
 
 Product.create!(name: 'A fake Product', description: 'Some random description, some random description',
-price: 2000, category: category1)
+                price: 2000, category: category1)
 
 Product.create!(name: 'Another fake Product', description: 'Some random description, some random description',
-price: 5000, category: category1)
+                price: 5000, category: category1)
+
+Product.create!(name: 'Product Of some other kind', description: 'Some random description, some random description',
+                price: 5000, category: category2)
