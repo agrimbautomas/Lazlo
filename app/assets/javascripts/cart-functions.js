@@ -26,14 +26,18 @@ function setupRemoveButton($productRow) {
             }
         }).done(function (data) {
             if (data.response == 'success')
-                $productRow.remove();
-            checkIfListIsEmpty();
-            updateTotalPrice();
+                removeProductFromCart($productRow)
         });
 
     });
 }
 
+function removeProductFromCart($productRow){
+    $productRow.remove();
+    checkIfListIsEmpty();
+    updateTotalPrice();
+    decrementCartNumber();
+}
 
 function setQuantityControls($productRow) {
     var url = $productRow.data('put-path');

@@ -185,7 +185,7 @@ function setToggleCartBtn() {
 function addToCart($btn) {
     var url = $btn.attr('href');
 
-    requestProductRow('POST', url, 1, addToCartStyles($btn));
+    requestProductRow('POST', url, 1, addToCartCallback($btn));
 }
 
 
@@ -202,10 +202,19 @@ function removeFromCart($btn) {
         }
     }).done(function (data) {
         if (data.response == 'success')
-            removeFromCartStyles($btn);
-
+            removeFromCartCallback($btn);
     });
 
+}
+
+function addToCartCallback($btn){
+    incrementCartNumber();
+    addToCartStyles($btn);
+}
+
+function removeFromCartCallback($btn){
+    decrementCartNumber();
+    removeFromCartStyles($btn);
 }
 
 
