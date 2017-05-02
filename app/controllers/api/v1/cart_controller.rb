@@ -2,6 +2,7 @@ class Api::V1::CartController < Api::V1::ApiController
 
   before_action :set_product, except: [:edit_checkout_product_row]
   before_action :set_product_row, only: [:edit_checkout_product_row]
+  before_action :set_quantity, only: [:edit_checkout_product_row]
 
   def remove_cart_product_row
     ProductRow.find_by(:product => params[:product_id], :checkout_list_id => current_user.checkout_list).destroy!
@@ -15,8 +16,11 @@ class Api::V1::CartController < Api::V1::ApiController
   end
 
   def edit_checkout_product_row
-    render json: {:response => 'success'}
-    #render json: {:response => @product_row.to_json }
+
+    if @quantity.present?
+      @product_row.update_attribute(:quantity, @quantity)
+      render json: {:response => 'success'}
+    end
   end
 
   private
@@ -28,7 +32,9 @@ class Api::V1::CartController < Api::V1::ApiController
     @product_row = ProductRow.find(params[:product_row_id])
   end
 
-
+  def set_quantity
+    @quantity = params[:quantity].present? ? params[:quantity] : nil
+  end
 
 
 end

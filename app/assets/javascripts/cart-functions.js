@@ -32,7 +32,7 @@ function setupRemoveButton($productRow) {
     });
 }
 
-function removeProductFromCart($productRow){
+function removeProductFromCart($productRow) {
     $productRow.remove();
     checkIfListIsEmpty();
     updateTotalPrice();
@@ -42,22 +42,31 @@ function removeProductFromCart($productRow){
 function setQuantityControls($productRow) {
     var url = $productRow.data('put-path');
     var $quantityTag = $productRow.find('.quantity-message span');
+    var $priceBox = $productRow.find('.cart-product-price');
 
     $productRow.find('.fa-plus-circle').click(function () {
-        //Todo - Check this URL is not working
+        //Todo - Refactorize
         quantity = parseInt($quantityTag.text());
         $quantityTag.text(++quantity);
-        requestProductRow('PUT', url, 8, updateTotalPrice())
+        updateRowPrice($priceBox, quantity);
+        requestProductRow('PUT', url, quantity, updateTotalPrice())
     })
     $productRow.find('.fa-minus-circle').click(function () {
-        //Todo - Check this URL is not working
+        //Todo - Bug in here whe substract
+        //Todo - Refactorize
         quantity = parseInt($quantityTag.text());
         if (quantity > 1) {
             $quantityTag.text(--quantity);
-            requestProductRow('PUT', url, 8, updateTotalPrice())
+            requestProductRow('PUT', url, quantity, updateTotalPrice())
         }
+        updateRowPrice($priceBox, quantity);
     })
 
+}
+
+function updateRowPrice($priceBox, quantity) {
+    var productPrice = $priceBox.data('product-price');
+    $priceBox.html('$' + productPrice * quantity);
 }
 
 function checkIfListIsEmpty() {

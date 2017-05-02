@@ -1,10 +1,10 @@
 <h3>MI CARRITO</h3>
 
 <%
-  api_version = Rails.application.config.API_VERSION
-  no_checkout_display = 'block'
-  if current_user.checkout_list.present? and current_user.checkout_list.product_rows.present?
-    no_checkout_display = 'none'
+   api_version = Rails.application.config.API_VERSION
+   no_checkout_display = 'block'
+   if current_user.checkout_list.present? and current_user.checkout_list.product_rows.present?
+     no_checkout_display = 'none'
 %>
     <% current_user.checkout_list.product_rows.each do |product_row|
       product_hash = {:product_id => product_row.product.id, :version => api_version}
@@ -31,17 +31,18 @@
               x<span><%= product_row.quantity %></span>
             </div>
 
-            <div class="quantity-controls" >
-              <i class="fa fa-plus-circle" aria-hidden="true" ></i>
+            <div class="quantity-controls">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
               <i class="fa fa-minus-circle" aria-hidden="true"></i>
             </div>
           </div>
 
-
-          <span class="cart-product-price">
-              <%= '$' + product_row.product.price.to_i.to_s unless product_row.product.price.nil? %>
+          <% if product_row.product.price.present?
+            total_price = product_row.quantity * product_row.product.price.to_i %>
+          <span class="cart-product-price" data-product-price="<%= product_row.product.price.to_i %>">
+              <%= '$' + total_price.to_s %>
           </span>
-
+          <% end %>
 
         </div>
     <% end %>

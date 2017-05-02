@@ -236,6 +236,7 @@ function removeFromCartStyles($btn) {
 /**************************/
 
 function requestProductRow(method, url, quantity, callback) {
+
     $.ajax({
         url: url,
         context: document.body,
