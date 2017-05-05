@@ -197,6 +197,7 @@ span.error {
     .cart-product-image {
       width: 10%;
       min-width: 100px;
+
     }
 
     .fa-times {
@@ -249,6 +250,9 @@ span.error {
       width: 17%;
       font-size: 26px;
       text-align: center;
+      &:hover{
+        color: inherit;
+      }
     }
   }
 

@@ -2,8 +2,7 @@ $(document).on('ready page:load', function (event) {
 
     $noProductsMessage = $('.no-products-message');
     setupCartFunctions();
-
-    updateTotalPrice();
+    updateRowPrices();
 });
 
 function setupCartFunctions() {
@@ -35,38 +34,15 @@ function setupRemoveButton($productRow) {
 function removeProductFromCart($productRow) {
     $productRow.remove();
     checkIfListIsEmpty();
-    updateTotalPrice();
+    updateRowPrices();
     decrementCartNumber();
 }
 
 function setQuantityControls($productRow) {
     var url = $productRow.data('put-path');
-    var $quantityTag = $productRow.find('.quantity-message span');
-    var $priceBox = $productRow.find('.cart-product-price');
 
-    $productRow.find('.fa-plus-circle').click(function () {
-        //Todo - Refactorize
-        quantity = parseInt($quantityTag.text());
-        $quantityTag.text(++quantity);
-        updateRowPrice($priceBox, quantity);
-        requestProductRow('PUT', url, quantity, updateTotalPrice())
-    })
-    $productRow.find('.fa-minus-circle').click(function () {
-        //Todo - Bug in here whe substract
-        //Todo - Refactorize
-        quantity = parseInt($quantityTag.text());
-        if (quantity > 1) {
-            $quantityTag.text(--quantity);
-            requestProductRow('PUT', url, quantity, updateTotalPrice())
-        }
-        updateRowPrice($priceBox, quantity);
-    })
-
-}
-
-function updateRowPrice($priceBox, quantity) {
-    var productPrice = $priceBox.data('product-price');
-    $priceBox.html('$' + productPrice * quantity);
+    setSumEvents($productRow, url);
+    setSubstracEvents($productRow, url);
 }
 
 function checkIfListIsEmpty() {
@@ -76,20 +52,80 @@ function checkIfListIsEmpty() {
         $noProductsMessage.hide();
 }
 
-function updateTotalPrice() {
-    $('.total-sum span').html(getCheckoutTotal());
-}
-
-function getCheckoutTotal() {
+function updateRowPrices() {
     var totalPrice = 0;
     $('.cart-product-row').each(function () {
-        totalPrice += getPriceByRow($(this));
-    })
 
-    return totalPrice;
+        var $priceBox = $(this).find('.cart-product-price');
+        var rowTotal = getRowProductPrice($priceBox) * getRowQuantity($(this));
+
+        $priceBox.html('$' + rowTotal);
+        totalPrice += rowTotal;
+    });
+
+    setCheckoutTotal(totalPrice);
 }
 
-function getPriceByRow($row) {
-    var strPrice = $row.children('.cart-product-price').html();
-    return parseInt(strPrice.replace('$', ''));
+/**
+ * Rows Methods
+ */
+function setCheckoutTotal(totalPrice) {
+    $('.total-sum span').html(totalPrice);
+}
+
+/**
+ *
+ * @param $row
+ * @returns {Number}
+ */
+function getRowQuantity($row) {
+    var $quantityTag = $row.find('.quantity-message span');
+    return parseInt($quantityTag.text());
+}
+
+/**
+ *
+ * @param quantity
+ * @param $row
+ */
+function setRowQuantity(quantity, $row) {
+    var $quantityTag = $row.find('.quantity-message span');
+    $quantityTag.text(quantity);
+}
+
+/**
+ *
+ * @param $row
+ * @param url
+ */
+function setSumEvents($row, url) {
+    $row.find('.fa-plus-circle').click(function () {
+        var quantity = getRowQuantity($row);
+        setRowQuantity(++quantity, $row);
+        requestProductRow('PUT', url, quantity, updateRowPrices())
+    })
+}
+
+/**
+ *
+ * @param $row
+ * @param url
+ */
+function setSubstracEvents($row, url) {
+    $row.find('.fa-minus-circle').click(function () {
+        var quantity = getRowQuantity($row);
+        if (quantity > 1) {
+            setRowQuantity(--quantity, $row);
+            requestProductRow('PUT', url, quantity, updateRowPrices())
+        }
+    })
+}
+
+/**
+ *
+ * @param $priceBox
+ * @returns {Number}
+ */
+function getRowProductPrice($priceBox) {
+    return $priceBox.data('product-price');
 }
