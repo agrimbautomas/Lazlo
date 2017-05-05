@@ -76,10 +76,11 @@
                  }
             %>
                 <% product_link = Rails.env.development? ? @product.payment['response']['sandbox_init_point'] : @product.payment['response']['init_point'] %>
+
                 <a href="<%= product_link %>" name="MP-Checkout" class="product-buy-button macain-button red-button smooth-transition">
                   Comprar
                 </a>
-
+                <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>
 
                 <% is_in_cart = current_user.has_product_in_cart?(@product) ? true : false %>
                 <a class="add-to-cart-btn macain-button
@@ -95,8 +96,6 @@
                 </a>
             <% end %>
 
-            <span class="payment-methods"></span>
-            <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>
           </div>
         </div>
 

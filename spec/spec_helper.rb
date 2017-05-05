@@ -15,7 +15,7 @@ RSpec.configure do |config|
   config.include RocketPants::TestHelper, type: :controller
   config.include RocketPants::RSpecMatchers, type: :controller
   config.include Paperclip::Shoulda::Matchers
-
+  config.include Devise::Test::ControllerHelpers, type: :controller
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

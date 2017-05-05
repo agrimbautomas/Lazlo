@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  include ApplicationHelper
 
   def index
     @home_page = Page.find_by_name 'Home'

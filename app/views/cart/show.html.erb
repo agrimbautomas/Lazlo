@@ -7,15 +7,21 @@
 <div class="grilla user-cart">
 
   <!-- Checkout Block -->
-  <%= render :partial => 'users/checkout_list' %>
+  <%= render :partial => 'cart/checkout_list' %>
   <!-- End Checkout Block -->
 
 
   <div class="total-row">
 
-    <div class="total-sum">
-      $<span>0</span>
+    <div class="total-sum-container">
+      <div class="total-sum">
+        $<span>0</span>
+      </div>
     </div>
+
+    <a href="<%= cart_checkout_url %>" class="checkout-button macain-button green-button smooth-transition">
+      Checkout
+    </a>
 
   </div>
 

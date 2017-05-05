@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 
   get '/cotizador' => 'home#cotizador'
 
-  get '/cart' => 'users#cart'
+  get '/cart' => 'cart#show', :as => :cart
+  get '/cart/checkout' => 'cart#checkout', :as => :cart_checkout
 
   post '/contact_email' => 'application#contact_email'
 
