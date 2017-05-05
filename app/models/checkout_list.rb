@@ -8,9 +8,8 @@ class CheckoutList < ActiveRecord::Base
   def save_product_row product
     product_row = ProductRow.create(:product => product)
 
-    self.product_rows << product_row
-    self.save!
+    product_rows << product_row
+    save!
   end
-
 
 end
