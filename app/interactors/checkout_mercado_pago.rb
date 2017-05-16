@@ -1,7 +1,8 @@
 class CheckoutMercadoPago < Interactor
+  include Rails.application.routes.url_helpers
 
   attr_accessor :link
-  1
+
 
   def initialize(arguments)
     super
@@ -10,10 +11,12 @@ class CheckoutMercadoPago < Interactor
     payment_link
   end
 
-  def
-
   def payment_link
-    preference_data = {
+    $mp_client.create_preference(preference_data)
+  end
+
+  def preference_data
+    {
         'items' => payment_items,
         'back_urls' => {
             'pending' => product_purchase_success_url(self),
@@ -21,13 +24,11 @@ class CheckoutMercadoPago < Interactor
             'failure' => product_purchase_failure_url(self)
         }
     }
-
-    $mp_client.create_preference(preference_data)
   end
 
   def payment_items
     items =[]
-    @payment_rows.each do |product_row|
+    @product_rows.each do |product_row|
       items << [
           'title' => product_row.product.name,
           'description' => product_row.product.description,

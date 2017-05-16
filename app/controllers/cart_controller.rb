@@ -8,8 +8,10 @@ class CartController < ApplicationController
 
 
   def checkout
-    params[:product_rows]= current_user.checkout_list.product_rows
-    CheckoutMercadoPago.(parameters: params, delegate: self)
+    params[:product_rows] = current_user.checkout_list.product_rows
+    checkoutMp = CheckoutMercadoPago.(parameters: params, delegate: self)
+    checkoutMp
+    byebug
   end
 
 
