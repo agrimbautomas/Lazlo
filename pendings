@@ -9,3 +9,19 @@ Agregar opcion para mostrar/ocultar productos en el admin
 Arreglar casos de ajax cuando se abren mas de una pestaña
 
 Agregar Latitude
+
+
+
+
+
+Para configurar tomar los cambios del letsencrypt plugin:
+
+sudo dpkg-reconfigure ca-certificates
+That should give you a list where you can deselect CAs.
+
+The list of CAs is stored in the file /etc/ca-certificates.conf. If you edit this file manually you need to run
+
+sudo update-ca-certificates
+to update the actual certificates in /etc/ssl/certs/ (if you use dpkg-reconfigure that is done automatically).
+
+See /usr/share/doc/ca-certificates/README.Debian for more information.
