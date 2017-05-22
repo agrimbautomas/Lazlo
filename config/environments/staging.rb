@@ -72,4 +72,6 @@ Rails.application.configure do
   # Route exceptions to the application router vs. default
   config.exceptions_app = self.routes
 
+  # Set to :debug to see everything in the log.
+  config.log_level = :debug
 end
