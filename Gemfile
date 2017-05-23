@@ -13,7 +13,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'unicorn'
+gem 'puma'
 gem 'rails_config'
 
 gem 'devise'
@@ -52,13 +52,9 @@ group :development, :test do
 
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano3-unicorn'
   gem 'capistrano-rvm'
+  gem 'capistrano3-puma', require: false
 
-
-  #Tests
-  gem 'simplecov'
-  gem 'rubycritic'
 end
 
 group :development do
@@ -66,6 +62,8 @@ group :development do
 end
 
 group :test do
+  gem 'simplecov'
+  gem 'rubycritic'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'rspec-collection_matchers'
 end

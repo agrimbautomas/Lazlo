@@ -27,31 +27,5 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets',
                                                'vendor/bundle', 'public/system', 'key', 'certificates', 'challenge')
 
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :keep_releases, 2
 
-# Default value for keep_releases is 5
-# set :keep_releases, 5
-
-
-
-namespace :deploy do
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      invoke 'unicorn:restart'
-    end
-  end
-
-  after :publishing, :restart
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      # end
-    end
-  end
-
-end
