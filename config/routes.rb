@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get '/cart' => 'cart#show', :as => :cart
   get '/cart/checkout' => 'cart#checkout', :as => :cart_checkout
 
-  post '/contact_email' => 'application#contact_email'
+  post '/contact_email' => 'api/v1/api#contact_email'
 
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
