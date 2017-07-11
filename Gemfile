@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'fuubar'
   gem 'byebug'
+  gem 'pry'
 
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'

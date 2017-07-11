@@ -31,6 +31,8 @@
 
           <input type="text" name="message" placeholder="Consulta" required/>
 
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
           <%= submit_tag('Enviar', :class => 'but') %>
         </div>
     <% end %>
