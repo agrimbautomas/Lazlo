@@ -37,7 +37,7 @@
 
         <div class="social-block social-block-right">
           <% if user_signed_in? %>
-              <a class="header-user-name" href="<%= cart_url %>"><%= current_user.email %></a>
+              <a class="header-user-name" href="<%= profile_url %>"><%= current_user.email %></a>
 
               <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -46,8 +46,6 @@
                     <span class="notification-number"><%= current_user.cart_count %></span>
                 <% end %>
               </a>
-
-              <!-- <%= link_to 'Salir', destroy_user_session_path, :method => :delete %> -->
 
           <% else %>
               <%= link_to 'Ingresar / Registrate', new_user_session_path, :class => 'header-user-name' %>

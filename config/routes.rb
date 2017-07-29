@@ -12,16 +12,18 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :products do
-    get 'purchase-success', to: 'purchase#purchase_success'
-    get 'purchase-pending', to: 'purchase#purchase_pending'
-    get 'purchase-failure', to: 'purchase#purchase_failure'
+	 get 'purchase-success', to: 'purchase#purchase_success'
+	 get 'purchase-pending', to: 'purchase#purchase_pending'
+	 get 'purchase-failure', to: 'purchase#purchase_failure'
 
-    get 'checkout', to: 'products#purchase'
+	 get 'checkout', to: 'products#purchase'
   end
 
   get '/cotizador' => 'home#cotizador'
 
   get '/cart' => 'cart#show', :as => :cart
+  get '/me' => 'users#profile', :as => :profile
+
   get '/cart/checkout' => 'cart#checkout', :as => :cart_checkout
 
   post '/contact_email' => 'application#contact_email'
@@ -29,17 +31,17 @@ Rails.application.routes.draw do
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
   api version: 1, module: 'api/v1' do
-    post 'user/checkout/:product_id', to: 'cart#add_product_to_cart', :as => :add_product_to_cart
-    put 'user/checkout_row/:product_row_id', to: 'cart#edit_checkout_product_row', :as => :edit_checkout_row
-    delete 'user/cart/:product_id', to: 'cart#remove_cart_product_row', :as => :remove_cart_product_row
+	 post 'user/checkout/:product_id', to: 'cart#add_product_to_cart', :as => :add_product_to_cart
+	 put 'user/checkout_row/:product_row_id', to: 'cart#edit_checkout_product_row', :as => :edit_checkout_row
+	 delete 'user/cart/:product_id', to: 'cart#remove_cart_product_row', :as => :remove_cart_product_row
 
-    #post 'user/fauvorites/:product_id', to: 'cart#add_product_to_wish_list', :as => :add_product_to_fauvorites
-    #delete 'user/cart/:product_id', to: 'cart#remove_product_row', :as => :remove_cart_product
+	 #post 'user/fauvorites/:product_id', to: 'cart#add_product_to_wish_list', :as => :add_product_to_fauvorites
+	 #delete 'user/cart/:product_id', to: 'cart#remove_product_row', :as => :remove_cart_product
   end
 
   # error pages
   %w( 404 422 500 503 ).each do |code|
-    get code, :to => 'errors#show', :code => code
+	 get code, :to => 'errors#show', :code => code
   end
 
 

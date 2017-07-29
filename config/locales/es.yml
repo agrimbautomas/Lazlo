@@ -292,3 +292,4 @@ es:
         admin_user:
           current_sign_in_at: Última vez conectado
           sign_in_count: Cantidad de veces conectado
+  checkout_purchase_title: Compra en Macain
