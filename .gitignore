@@ -21,6 +21,7 @@
 /.idea
 .idea/
 public/system/
+public/assets/
 /public/system/
 Capfile.lock
 

@@ -3,10 +3,6 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!
 
-  def cart
-
-  end
-
   def profile
 
   end
