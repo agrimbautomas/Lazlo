@@ -3,27 +3,20 @@ class CheckoutMercadoPago < Interactor
 
   attr_accessor :link
 
-
   def initialize(arguments)
 	 super
 	 parameters = arguments.fetch :parameters
-	 @product_rows = parameters['product_rows']
-
+	 @user = parameters['user']
+	 @product_rows = @user.checkout_list.product_rows
   end
 
   def payment_link
-	 request_data_preferences
 	 mp_response = $mp_client.create_preference(preference_data)
 	 Rails.env.development? ? mp_response['response']['sandbox_init_point'] : mp_response['response']['init_point']
   end
 
-  def request_data_preferences
-	 $mp = MercadoPago.new(Rails.application.secrets.mercado_pago_api)
-	 $mp.post("/v1/payments", preference_data)
-  end
-
   def preference_data
-	 {'items' => payment_items_json, 'back_urls' => back_urls_json}
+	 {'items' => payment_items_json, 'back_urls' => back_urls_json, 'payer' => payer_data}
   end
 
   def payment_items_json
@@ -43,11 +36,17 @@ class CheckoutMercadoPago < Interactor
 	 items
   end
 
+  def payer_data
+	 {
+		  'name' => @user.name,
+		  'email' => @user.email
+	 }
+  end
+
   def purchase_title items
 	 items_title = items.map {|item| "#{item['quantity']} x #{item['title']}"}.join(', ')
 	 I18n.t('checkout_purchase_title') + items_title
   end
-
 
   def back_urls_json
 	 product_row = @product_rows.first
@@ -57,6 +56,5 @@ class CheckoutMercadoPago < Interactor
 		  'failure' => product_purchase_failure_url(product_row.product)
 	 }
   end
-
 
 end
