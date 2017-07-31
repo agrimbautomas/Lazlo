@@ -35,6 +35,10 @@ gem 'responsive_active_admin'
 gem 'active_admin_theme'
 gem 'simple_form'
 
+
+# Auto schema in models, url: https://github.com/ctran/annotate_models
+gem 'annotate'
+
 #MercadoPago https://github.com/mercadopago/sdk-ruby
 gem 'mercadopago-sdk'
 
@@ -45,8 +49,6 @@ gem 'instagram'
 gem 'letsencrypt_plugin'
 
 group :development, :test do
-  gem 'spring'
-  gem 'rspec-rails'
   gem 'fuubar'
   gem 'byebug'
   gem 'pry'
@@ -56,21 +58,20 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'capistrano-rvm'
 
-
-  #Tests
-  gem 'simplecov'
-  gem 'rubycritic'
-end
-
-group :development do
-  gem 'web-console', '~> 2.0'
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'rspec-collection_matchers'
-end
 
-group :production do
-
+  gem 'rspec-rails'
+  gem 'rspec-mocks'
+  gem 'rubycritic'
+  gem 'simplecov'
+  gem 'factory_girl_rails', '~> 4.0'
 end

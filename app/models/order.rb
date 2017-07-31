@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id              :integer          not null, primary key
+#  buyer_id        :integer
+#  product_id      :integer
+#  code            :string
+#  detail          :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  order_status_id :integer
+#  tracking_title  :string
+#  payment         :integer
+#  color           :string
+#
+
 class Order < ActiveRecord::Base
   belongs_to :buyer
   belongs_to :product

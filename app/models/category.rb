@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id                 :integer          not null, primary key
+#  name               :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  image_file_name    :string
+#  image_content_type :string
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#  slug               :string
+#  views              :integer          default(0)
+#
+
 class Category < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
