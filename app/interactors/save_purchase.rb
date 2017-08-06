@@ -14,20 +14,29 @@ class SavePurchase
   def self.for user, purchase_params
 	 @user = user
 	 @purchase_params = purchase_params
-	 update_mercadopago_purchase
+	 create_mercado_pago_purchase
 	 create_order
   end
 
   private
 
-  def self.update_mercadopago_purchase
-	 byebug
+  def self.create_mercado_pago_purchase
+	 @mp_purchase = @user.mercado_pago_purchases.last
+	 @mp_purchase.update_by_mp_response(@purchase_params) unless @mp_purchase.nil?
   end
 
-  def create_order
-	 buyer = Buyer.create!(:name => current_user.email, :email => current_user.email)
-	 @order = Order.create!(:buyer => buyer, :product => @product, :payment => 0, :tracking_title => @product[:name],
-									:order_status_id => OrderStatus.find_by_priority(1).id, :detail => 'Producto comprado dedes la Web')
+  def self.create_order
+	 buyer = Buyer.create!(:name => @user.email, :email => @user.email)
+	 byebug
+	 @order = Order.create!(:buyer => buyer,
+									:product => @product,
+									# Todo Change product for checkout list and save
+									#:product => @product,
+									:mercado_pago_purchase => @mp_purchase,
+									:payment => 0,
+									:tracking_title => @product[:name],
+									:order_status_id => OrderStatus.find_by_priority(1).id,
+									:detail => 'Producto comprado dedes la Web')
 	 send_success_email
   end
 
