@@ -11,8 +11,10 @@ class SavePurchase
 	 end
   end
 
-  def self.for user
+  def self.for user, purchase_params
+	 byebug
 	 @user = user
+	 @purchase_params = purchase_params
 	 create_order
   end
 

@@ -5,7 +5,7 @@ class PurchaseController < ApplicationController
   def purchase_success
 
 	 #Todo Create MpPurchase to save response data (coming in params)
-	 SavePurchase.for current_user
+	 SavePurchase.for(current_user, purchase_params)
 
 	 flash[:notice] = 'Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega. Gracias!'
 	 redirect_to product_path @product
@@ -31,16 +31,12 @@ class PurchaseController < ApplicationController
 
   private
   def set_product
-	 byebug
 	 @product = Product.friendly.find(params[:product_id])
   end
 
   def purchase_params
-	 {
-		  :user => current_user,
-		  :product => @product,
-		  :image => URI.join(request.url, @product.image.url(:big))
-	 }
+	 #Todo autorizar mercado pago params
+	 #autorizar collection_id preference_id payment_type collection_status
   end
 
   def send_admin_email purchase_params

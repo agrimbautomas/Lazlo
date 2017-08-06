@@ -6,11 +6,9 @@ class CartController < ApplicationController
 
   end
 
-
   def checkout
-    params[:user] = current_user
-    @checkout_link = CheckoutMercadoPago.(parameters: params, delegate: self).payment_link
+	 params[:user] = current_user
+	 @checkout_link = CheckoutMercadoPago.(parameters: params, delegate: self).payment_link
   end
-
 
 end

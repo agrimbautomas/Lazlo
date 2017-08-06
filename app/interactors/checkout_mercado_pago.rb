@@ -8,11 +8,11 @@ class CheckoutMercadoPago < Interactor
 	 parameters = arguments.fetch :parameters
 	 @user = parameters['user']
 	 @product_rows = @user.checkout_list.product_rows
+	 MercadoPagoPurchase.find_or_create_by(:user => @user, :checkout_list => @user.checkout_list)
   end
 
   def payment_link
 	 mp_response = $mp_client.create_preference(preference_data)
-	 byebug
 	 Rails.env.development? ? mp_response['response']['sandbox_init_point'] : mp_response['response']['init_point']
   end
 

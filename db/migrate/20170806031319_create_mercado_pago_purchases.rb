@@ -6,9 +6,9 @@ class CreateMercadoPagoPurchases < ActiveRecord::Migration
 		t.references :checkout_list, null: false, index: true
 
 		t.string :collection_id
-		t.string :prefrence_id
+		t.string :preference_id
 		t.string :payment_type
-		t.string :status
+		t.string :status, null: false, default: 'initial'
 
 		t.timestamps null: false
 	 end

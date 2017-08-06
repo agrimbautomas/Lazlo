@@ -119,14 +119,14 @@ ActiveRecord::Schema.define(version: 20170806031319) do
   end
 
   create_table "mercado_pago_purchases", force: :cascade do |t|
-    t.integer  "user_id",          null: false
-    t.integer  "checkout_list_id", null: false
+    t.integer  "user_id",                              null: false
+    t.integer  "checkout_list_id",                     null: false
     t.string   "collection_id"
-    t.string   "prefrence_id"
+    t.string   "preference_id"
     t.string   "payment_type"
-    t.string   "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "status",           default: "initial", null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "mercado_pago_purchases", ["checkout_list_id"], name: "index_mercado_pago_purchases_on_checkout_list_id"
