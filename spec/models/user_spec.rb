@@ -44,9 +44,17 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of(:password) }
   it { should validate_confirmation_of(:password) }
 
+  it { should respond_to(:favourites_list) }
   it { should have_one(:favourites_list) }
+
+  it { should respond_to(:checkout_list) }
   it { should have_one(:checkout_list) }
+
+  it { should respond_to(:purchased_list) }
   it { should have_one(:purchased_list) }
+
+  it { should respond_to(:mercado_pago_purchases) }
+  it { should have_many(:mercado_pago_purchases) }
 
 
   context "on Create" do

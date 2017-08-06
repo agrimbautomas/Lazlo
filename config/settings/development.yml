@@ -1,0 +1,4 @@
+urls:
+  base: http://localhost:3000/
+admin:
+  emails: tomas@amalgama.co

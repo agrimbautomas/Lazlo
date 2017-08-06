@@ -12,10 +12,16 @@ class SavePurchase
   end
 
   def self.for user, purchase_params
-	 byebug
 	 @user = user
 	 @purchase_params = purchase_params
+	 update_mercadopago_purchase
 	 create_order
+  end
+
+  private
+
+  def self.update_mercadopago_purchase
+	 byebug
   end
 
   def create_order
@@ -34,9 +40,6 @@ class SavePurchase
 	 send_admin_email params
   end
 
-
-
-  private
   def estimation_for distance:, duration:, time_of_day:
 	 travel_cost = @trip_cost_calculator.calculate distance, time_of_day
 	 Estimation.new(distance, duration, travel_cost[:minimum_rate], travel_cost[:maximum_rate])

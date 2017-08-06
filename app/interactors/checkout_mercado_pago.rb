@@ -8,7 +8,7 @@ class CheckoutMercadoPago < Interactor
 	 parameters = arguments.fetch :parameters
 	 @user = parameters['user']
 	 @product_rows = @user.checkout_list.product_rows
-	 MercadoPagoPurchase.find_or_create_by(:user => @user, :checkout_list => @user.checkout_list)
+	 create_mercadopago_purchase
   end
 
   def payment_link
@@ -16,8 +16,10 @@ class CheckoutMercadoPago < Interactor
 	 Rails.env.development? ? mp_response['response']['sandbox_init_point'] : mp_response['response']['init_point']
   end
 
+  private
+
   def preference_data
-	 {'items' => payment_items_json, 'back_urls' => back_urls_json, 'payer' => payer_data, 'additional_info' => 'tokee' }
+	 {'items' => payment_items_json, 'back_urls' => back_urls_json, 'payer' => payer_data, 'additional_info' => 'tokee'}
   end
 
   def payment_items_json
@@ -56,6 +58,12 @@ class CheckoutMercadoPago < Interactor
 		  'success' => product_purchase_pending_url(product_row.product),
 		  'failure' => product_purchase_failure_url(product_row.product)
 	 }
+  end
+
+  def create_mercadopago_purchase
+	 MercadoPagoPurchase.find_or_create_by(:user => @user,
+														:checkout_list => @user.checkout_list,
+														:status => MercadoPagoPurchase.statuses[:initial])
   end
 
 end

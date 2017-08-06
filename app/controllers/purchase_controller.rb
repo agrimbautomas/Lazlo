@@ -35,8 +35,7 @@ class PurchaseController < ApplicationController
   end
 
   def purchase_params
-	 #Todo autorizar mercado pago params
-	 #autorizar collection_id preference_id payment_type collection_status
+	 params.permit(:collection_id, :preference_id, :payment_type, :collection_status)
   end
 
   def send_admin_email purchase_params
