@@ -12,11 +12,12 @@ class CheckoutMercadoPago < Interactor
 
   def payment_link
 	 mp_response = $mp_client.create_preference(preference_data)
+	 byebug
 	 Rails.env.development? ? mp_response['response']['sandbox_init_point'] : mp_response['response']['init_point']
   end
 
   def preference_data
-	 {'items' => payment_items_json, 'back_urls' => back_urls_json, 'payer' => payer_data}
+	 {'items' => payment_items_json, 'back_urls' => back_urls_json, 'payer' => payer_data, 'additional_info' => 'tokee' }
   end
 
   def payment_items_json

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428225820) do
+ActiveRecord::Schema.define(version: 20170806031319) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -117,6 +117,20 @@ ActiveRecord::Schema.define(version: 20170428225820) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "mercado_pago_purchases", force: :cascade do |t|
+    t.integer  "user_id",          null: false
+    t.integer  "checkout_list_id", null: false
+    t.string   "collection_id"
+    t.string   "prefrence_id"
+    t.string   "payment_type"
+    t.string   "status"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "mercado_pago_purchases", ["checkout_list_id"], name: "index_mercado_pago_purchases_on_checkout_list_id"
+  add_index "mercado_pago_purchases", ["user_id"], name: "index_mercado_pago_purchases_on_user_id"
 
   create_table "order_statuses", force: :cascade do |t|
     t.string   "name"
