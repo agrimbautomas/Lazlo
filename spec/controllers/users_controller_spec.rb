@@ -8,7 +8,7 @@ RSpec.describe UsersController, type: :controller do
 	 it 'index renders the show cart template' do
 		sign_in
 		get :profile
-		expect(response).to render_template('show')
+		expect(response).to render_template('profile')
 	 end
 
 	 it 'index renders the show cart template' do

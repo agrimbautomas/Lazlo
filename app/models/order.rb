@@ -25,12 +25,12 @@ class Order < ActiveRecord::Base
   validates :product, presence: true
 
   def set_code
-    code = (0...8).map { (65 + rand(26)).chr }.join
-    if Order.find_by(code: code).blank?
-      self.code = code
-    else
-      self.set_code
-    end
+	 code = (0...8).map {(65 + rand(26)).chr}.join
+	 if Order.find_by(code: code).blank?
+		self.code = code
+	 else
+		self.set_code
+	 end
   end
 
 end
