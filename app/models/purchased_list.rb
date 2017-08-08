@@ -10,6 +10,7 @@
 
 class PurchasedList < ActiveRecord::Base
 
+  # Todo make user have multiple Purchased Lists
   belongs_to :user
   belongs_to :order
   has_many :product_rows, :dependent => :destroy

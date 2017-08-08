@@ -73,8 +73,10 @@ class User < ActiveRecord::Base
   end
 
   def store_checkout_list
+	 create_purchased_list
+	 checkout_list.product_rows.each { |row| purchased_list.product_rows << row }
+	 purchased_list.save!
 	 byebug
-	 self.checkout_list
-
+	 #checkout_list.product_rows.destroy_all
   end
 end

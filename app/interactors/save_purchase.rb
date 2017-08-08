@@ -28,15 +28,16 @@ class SavePurchase
   def self.create_order
 
 	 @user.store_checkout_list
+	 byebug
 	 @order = Order.create!(:user => @user,
 									:product => @product,
-									:checkout_list => @user.purchase_list,
+									:checkout_list => @user.purchased_list,
 									:mercado_pago_purchase => @mp_purchase,
 									:payment => 0,
-									:tracking_title => @product[:name],
+									:tracking_title => @mp_purchase.title,
 									:order_status_id => OrderStatus.find_by_priority(1).id,
 									:detail => 'Producto comprado dedes la Web')
-	 
+
 	 send_success_email
   end
 

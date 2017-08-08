@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808031830) do
+ActiveRecord::Schema.define(version: 20170808032453) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 20170808031830) do
     t.string   "status",           limit: 255, default: "initial", null: false
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
+    t.string   "title",            limit: 255
   end
 
   add_index "mercado_pago_purchases", ["checkout_list_id"], name: "index_mercado_pago_purchases_on_checkout_list_id", using: :btree

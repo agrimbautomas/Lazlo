@@ -47,8 +47,8 @@ class CheckoutMercadoPago < Interactor
   end
 
   def purchase_title items
-	 items_title = items.map {|item| "#{item['quantity']} x #{item['title']}"}.join(', ')
-	 I18n.t('checkout_purchase_title') + items_title
+	 items_title = items.map { |item| "#{item['quantity']} x #{item['title']}" }.join(', ')
+	 @purchase_title = I18n.t('checkout_purchase_title') + items_title
   end
 
   def back_urls_json
@@ -61,9 +61,12 @@ class CheckoutMercadoPago < Interactor
   end
 
   def create_mercadopago_purchase
-	 MercadoPagoPurchase.find_or_create_by(:user => @user,
-														:checkout_list => @user.checkout_list,
-														:status => MercadoPagoPurchase.statuses[:initial])
+	 MercadoPagoPurchase.find_or_create_by(
+		  :user => @user,
+		  :checkout_list => @user.checkout_list,
+		  :status => MercadoPagoPurchase.statuses[:initial],
+		  :title => @purchase_title
+	 )
   end
 
 end
