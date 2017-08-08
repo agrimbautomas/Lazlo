@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808023208) do
+ActiveRecord::Schema.define(version: 20170808031830) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -76,9 +76,8 @@ ActiveRecord::Schema.define(version: 20170808023208) do
 
   create_table "checkout_lists", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.boolean  "sold",       limit: 1, default: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "favourites_lists", force: :cascade do |t|
@@ -156,16 +155,16 @@ ActiveRecord::Schema.define(version: 20170808023208) do
     t.integer  "payment",                  limit: 4
     t.string   "color",                    limit: 255
     t.integer  "mercado_pago_purchase_id", limit: 4
-    t.integer  "checkout_lists_id",        limit: 4
-    t.integer  "checkout_list_id",         limit: 4
+    t.integer  "purchased_list_id",        limit: 4
+    t.integer  "user_id",                  limit: 4
   end
 
   add_index "orders", ["buyer_id"], name: "index_orders_on_buyer_id", using: :btree
-  add_index "orders", ["checkout_list_id"], name: "index_orders_on_checkout_list_id", using: :btree
-  add_index "orders", ["checkout_lists_id"], name: "index_orders_on_checkout_lists_id", using: :btree
   add_index "orders", ["mercado_pago_purchase_id"], name: "index_orders_on_mercado_pago_purchase_id", using: :btree
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
   add_index "orders", ["product_id"], name: "index_orders_on_product_id", using: :btree
+  add_index "orders", ["purchased_list_id"], name: "index_orders_on_purchased_list_id", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "page_images", force: :cascade do |t|
     t.string   "caption",              limit: 255

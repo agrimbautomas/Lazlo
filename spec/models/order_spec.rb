@@ -2,17 +2,20 @@
 #
 # Table name: orders
 #
-#  id              :integer          not null, primary key
-#  buyer_id        :integer
-#  product_id      :integer
-#  code            :string
-#  detail          :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  order_status_id :integer
-#  tracking_title  :string
-#  payment         :integer
-#  color           :string
+#  id                       :integer          not null, primary key
+#  buyer_id                 :integer
+#  product_id               :integer
+#  code                     :string(255)
+#  detail                   :string(255)
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  order_status_id          :integer
+#  tracking_title           :string(255)
+#  payment                  :integer
+#  color                    :string(255)
+#  mercado_pago_purchase_id :integer
+#  purchased_list_id        :integer
+#  user_id                  :integer
 #
 
 require 'rails_helper'
