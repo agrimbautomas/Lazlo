@@ -6,27 +6,37 @@ class AdminMailer < AppMailer
   @url = Settings.urls.base
 
   def contact_email params
-    @name = params[:macain_name]
-    @email = params[:macain_email]
-    @message = params[:macain_message]
-
-    mail(to: @receivers, subject: 'Siranushen Alert :) - Message from: ' + @name)
+	 @name = params[:macain_name]
+	 @email = params[:macain_email]
+	 @message = params[:macain_message]
+	 mail(to: @receivers, subject: 'Siranushen Alert :) - Message from: ' + @name)
   end
 
-  def purchase_product_admin_notification params
-    @user = params[:user]
-    @product = params[:product]
-    @image = params[:image]
-    @order = params[:order]
-    @message = params[:message]
+  def purchase_product_admin_email params
+	 @user = params[:user]
+	 @product = params[:product]
+	 @image = params[:image]
+	 @order = params[:order]
+	 @message = params[:message]
 
-    mail(to: @receivers, subject: 'Papin! Papin! ' +
-        @user.email + ' ' + @message  + ' la compra de una ' + @product.name)
+	 mail(to: @receivers, subject: 'Papin! Papin! ' +
+									@user.email + ' ' + @message + ' la compra de una ' + @product.name)
+  end
+
+  def cancelled_product_admin_email params
+	 @user = params[:user]
+	 @product = params[:product]
+	 @image = params[:image]
+	 @order = params[:order]
+	 @message = params[:message]
+
+	 mail(to: @receivers, subject: 'Papin! Papin! ' +
+									@user.email + ' ' + @message + ' la compra de una ' + @product.name)
   end
 
   private
   def save_email_contact
-    UserContact.create(:name => @name, :email => @email, :message => @message)
+	 UserContact.create(:name => @name, :email => @email, :message => @message)
   end
 
 end

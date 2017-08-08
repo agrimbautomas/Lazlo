@@ -19,6 +19,7 @@ class Order < ActiveRecord::Base
   belongs_to :buyer
   belongs_to :product
   has_one :mercado_pago_purchase
+  has_one :checkout_list
 
   before_create :set_code
 

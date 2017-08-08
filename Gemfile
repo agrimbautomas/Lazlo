@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'unicorn'
 gem 'rails_config'
+gem 'config'
 
 gem 'devise'
 gem 'devise-encryptable'

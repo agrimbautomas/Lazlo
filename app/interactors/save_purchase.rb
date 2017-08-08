@@ -30,8 +30,7 @@ class SavePurchase
 	 byebug
 	 @order = Order.create!(:buyer => buyer,
 									:product => @product,
-									# Todo Change product for checkout list and save
-									#:product => @product,
+									:checkout_list => nil,
 									:mercado_pago_purchase => @mp_purchase,
 									:payment => 0,
 									:tracking_title => @product[:name],
@@ -45,8 +44,7 @@ class SavePurchase
 	 params[:order] = @order
 	 params[:message] = 'concretó'
 
-	 UserMailer.purchased_product_user_notification(params).deliver_now
-	 send_admin_email params
+	 UserMailer.purchase_product_admin_email(params).deliver_now
   end
 
   def estimation_for distance:, duration:, time_of_day:

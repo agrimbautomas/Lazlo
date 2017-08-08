@@ -476,6 +476,7 @@ DEPENDENCIES
   capistrano-rvm
   capistrano3-unicorn
   coffee-rails (~> 4.1.0)
+  config
   debbie
   devise
   devise-encryptable
@@ -517,4 +518,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.6
+   1.15.3
