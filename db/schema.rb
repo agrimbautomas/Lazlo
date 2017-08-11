@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811040105) do
+ActiveRecord::Schema.define(version: 20170811041857) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -144,7 +144,6 @@ ActiveRecord::Schema.define(version: 20170811040105) do
     t.integer  "payment"
     t.string   "color"
     t.integer  "mercado_pago_purchase_id"
-    t.integer  "purchased_list_id"
     t.integer  "user_id"
   end
 
@@ -152,7 +151,6 @@ ActiveRecord::Schema.define(version: 20170811040105) do
   add_index "orders", ["mercado_pago_purchase_id"], name: "index_orders_on_mercado_pago_purchase_id"
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
   add_index "orders", ["product_id"], name: "index_orders_on_product_id"
-  add_index "orders", ["purchased_list_id"], name: "index_orders_on_purchased_list_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "page_images", force: :cascade do |t|
@@ -184,18 +182,14 @@ ActiveRecord::Schema.define(version: 20170811040105) do
   end
 
   create_table "product_rows", force: :cascade do |t|
-    t.integer  "quantity",           default: 1
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.integer  "quantity",         default: 1
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "product_id"
-    t.integer  "favourites_list_id"
-    t.integer  "checkout_list_id"
-    t.integer  "purchased_list_id"
+    t.integer  "products_list_id"
   end
 
-  add_index "product_rows", ["checkout_list_id"], name: "index_product_rows_on_checkout_list_id"
-  add_index "product_rows", ["favourites_list_id"], name: "index_product_rows_on_favourites_list_id"
-  add_index "product_rows", ["purchased_list_id"], name: "index_product_rows_on_purchased_list_id"
+  add_index "product_rows", ["products_list_id"], name: "index_product_rows_on_products_list_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

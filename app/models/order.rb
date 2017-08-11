@@ -14,7 +14,6 @@
 #  payment                  :integer
 #  color                    :string
 #  mercado_pago_purchase_id :integer
-#  purchased_list_id        :integer
 #  user_id                  :integer
 #
 

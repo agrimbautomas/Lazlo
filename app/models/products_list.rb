@@ -15,4 +15,9 @@ class ProductsList < ActiveRecord::Base
   belongs_to :order
   has_many :product_rows, :dependent => :destroy
 
+  def save_product_row product
+	 product_rows << ProductRow.create(:product => product)
+	 save!
+  end
+
 end
