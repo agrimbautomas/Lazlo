@@ -5,12 +5,13 @@
 #  id               :integer          not null, primary key
 #  user_id          :integer          not null
 #  checkout_list_id :integer          not null
-#  collection_id    :string(255)
-#  preference_id    :string(255)
-#  payment_type     :string(255)
-#  status           :string(255)      default("initial"), not null
+#  collection_id    :string
+#  preference_id    :string
+#  payment_type     :string
+#  status           :string           default("initial"), not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  title            :string
 #
 
 class MercadoPagoPurchase < ActiveRecord::Base

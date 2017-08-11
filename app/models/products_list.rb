@@ -9,6 +9,10 @@
 #  updated_at :datetime         not null
 #
 
-class FavouritesList < ProductsList
+class ProductsList < ActiveRecord::Base
+
+  belongs_to :user
+  belongs_to :order
+  has_many :product_rows, :dependent => :destroy
 
 end
