@@ -27,17 +27,19 @@ class SavePurchase
 
   def self.create_order
 
-	 @user.store_checkout_list
-	 byebug
-	 @order = Order.create!(:user => @user,
-									:product => @product,
-									:checkout_list => @user.purchased_list,
-									:mercado_pago_purchase => @mp_purchase,
-									:payment => 0,
-									:tracking_title => @mp_purchase.title,
-									:order_status_id => OrderStatus.find_by_priority(1).id,
-									:detail => 'Producto comprado dedes la Web')
+	 @order = Order.new(
+		  #:user => @user,
+		  :product => nil,
+		  #:products_list => @user.checkout_list,
+		  #:mercado_pago_purchase => @mp_purchase,
+		  :payment => 0,
+		  #:tracking_title => @mp_purchase.title,
+		  #:order_status_id => OrderStatus.find_by_priority(1).id,
+		  :detail => 'Producto comprado dedes la Web'
+	 )
 
+	 byebug
+	 @user.store_checkout_list
 	 send_success_email
   end
 

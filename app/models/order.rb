@@ -15,6 +15,7 @@
 #  color                    :string
 #  mercado_pago_purchase_id :integer
 #  user_id                  :integer
+#  products_list_id         :integer
 #
 
 class Order < ActiveRecord::Base
@@ -23,7 +24,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :product
   has_one :mercado_pago_purchase
-  has_one :purchase_list
+  has_one :products_list
 
   before_create :set_code
 

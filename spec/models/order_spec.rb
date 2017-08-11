@@ -15,6 +15,7 @@
 #  color                    :string
 #  mercado_pago_purchase_id :integer
 #  user_id                  :integer
+#  products_list_id         :integer
 #
 
 require 'rails_helper'

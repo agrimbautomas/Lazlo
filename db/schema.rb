@@ -108,7 +108,6 @@ ActiveRecord::Schema.define(version: 20170811041857) do
 
   create_table "mercado_pago_purchases", force: :cascade do |t|
     t.integer  "user_id",                              null: false
-    t.integer  "checkout_list_id",                     null: false
     t.string   "collection_id"
     t.string   "preference_id"
     t.string   "payment_type"
@@ -116,9 +115,10 @@ ActiveRecord::Schema.define(version: 20170811041857) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.string   "title"
+    t.integer  "products_list_id"
   end
 
-  add_index "mercado_pago_purchases", ["checkout_list_id"], name: "index_mercado_pago_purchases_on_checkout_list_id"
+  add_index "mercado_pago_purchases", ["products_list_id"], name: "index_mercado_pago_purchases_on_products_list_id"
   add_index "mercado_pago_purchases", ["user_id"], name: "index_mercado_pago_purchases_on_user_id"
 
   create_table "order_statuses", force: :cascade do |t|
@@ -145,12 +145,14 @@ ActiveRecord::Schema.define(version: 20170811041857) do
     t.string   "color"
     t.integer  "mercado_pago_purchase_id"
     t.integer  "user_id"
+    t.integer  "products_list_id"
   end
 
   add_index "orders", ["buyer_id"], name: "index_orders_on_buyer_id"
   add_index "orders", ["mercado_pago_purchase_id"], name: "index_orders_on_mercado_pago_purchase_id"
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
   add_index "orders", ["product_id"], name: "index_orders_on_product_id"
+  add_index "orders", ["products_list_id"], name: "index_orders_on_products_list_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "page_images", force: :cascade do |t|
