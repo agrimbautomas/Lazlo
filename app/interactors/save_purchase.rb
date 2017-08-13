@@ -23,23 +23,35 @@ class SavePurchase
 
   private
 
-  def self.create_mercado_pago_purchase
-	 @mp_purchase = @user.mercado_pago_purchases.last
-	 @mp_purchase.update_by_mp_response(@purchase_params) unless @mp_purchase.nil?
-  end
-
   def self.create_order
 	 @order = Order.create(
 		  :user => @user,
-		  :product => nil,
 		  :products_list => @user.checkout_list,
-		  :mercado_pago_purchase => @mp_purchase,
+		  :mercado_pago_purchase => @mercado_pago_purchase,
 		  :payment => 0,
-		  :tracking_title => @mp_purchase.title,
+		  :tracking_title => preferences['title'],
 		  :order_status_id => OrderStatus.find_by_priority(1).id,
 		  :detail => 'Producto comprado dedes la Web'
 	 )
 	 @user.store_checkout_list
+  end
+
+
+  def self.create_mercado_pago_purchase
+
+	 @mercado_pago_purchase = MercadoPagoPurchase.create!(
+		  :user => @user,
+		  :products_list => @user.checkout_list,
+		  :status => MercadoPagoPurchase.statuses[:initial],
+		  :title => preferences['title']
+	 )
+	 @mercado_pago_purchase.update_by_mp_response(@purchase_params)
+  end
+
+  private
+  def self.preferences
+	 @preferences = @preferences || $mp_client.get_preference(@purchase_params['preference_id'])
+	 JSON.parse(@preferences['response']['additional_info']) || nil
   end
 
   def self.send_success_email
@@ -50,13 +62,4 @@ class SavePurchase
 	 UserMailer.purchase_product_admin_email(params).deliver_now
   end
 
-  def estimation_for distance:, duration:, time_of_day:
-	 travel_cost = @trip_cost_calculator.calculate distance, time_of_day
-	 Estimation.new(distance, duration, travel_cost[:minimum_rate], travel_cost[:maximum_rate])
-  end
-
-  def validate_address from:, to:
-	 raise InvalidFromAddress if from.nil? || from[:text].blank?
-	 raise InvalidToAddress if to.blank? || to[:text].blank?
-  end
 end

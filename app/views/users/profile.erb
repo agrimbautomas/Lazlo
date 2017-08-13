@@ -2,6 +2,15 @@
 <%= render :partial => 'layouts/header' %>
 <!-- End Header -->
 
+<%
+  if current_user.orders.any? %>
+    <% current_user.orders.each do |order|
+      @order = order
+    %>
+        <%= render :partial => 'users/orders/order_row' %>
+    <% end %>
+<% end
+%>
 
 
 <%= link_to 'Salir', destroy_user_session_path, :method => :delete %>

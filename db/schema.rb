@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811041857) do
+ActiveRecord::Schema.define(version: 20170813033953) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -146,12 +146,14 @@ ActiveRecord::Schema.define(version: 20170811041857) do
     t.integer  "mercado_pago_purchase_id"
     t.integer  "user_id"
     t.integer  "products_list_id"
+    t.integer  "products_id"
   end
 
   add_index "orders", ["buyer_id"], name: "index_orders_on_buyer_id"
   add_index "orders", ["mercado_pago_purchase_id"], name: "index_orders_on_mercado_pago_purchase_id"
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
   add_index "orders", ["product_id"], name: "index_orders_on_product_id"
+  add_index "orders", ["products_id"], name: "index_orders_on_products_id"
   add_index "orders", ["products_list_id"], name: "index_orders_on_products_list_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 

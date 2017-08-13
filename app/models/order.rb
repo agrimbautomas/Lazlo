@@ -22,7 +22,6 @@ class Order < ActiveRecord::Base
 
   belongs_to :buyer
   belongs_to :user
-  belongs_to :product
   belongs_to :mercado_pago_purchase
   belongs_to :products_list
 
@@ -30,7 +29,7 @@ class Order < ActiveRecord::Base
 
   # Todo validate if, or validate by type
   #validates :buyer, presence: true
-  #validates :product, presence: true
+  validates :products_list, presence: true
 
   def set_code
 	 code = (0...8).map {(65 + rand(26)).chr}.join
@@ -40,5 +39,11 @@ class Order < ActiveRecord::Base
 		self.set_code
 	 end
   end
+
+  def for_single product:
+
+  end
+
+
 
 end

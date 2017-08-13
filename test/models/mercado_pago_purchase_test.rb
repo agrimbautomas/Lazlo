@@ -4,7 +4,6 @@
 #
 #  id               :integer          not null, primary key
 #  user_id          :integer          not null
-#  checkout_list_id :integer          not null
 #  collection_id    :string
 #  preference_id    :string
 #  payment_type     :string
@@ -12,6 +11,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  title            :string
+#  products_list_id :integer
 #
 
 require 'test_helper'

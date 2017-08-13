@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
   has_one :favourites_list, :dependent => :destroy
   has_one :checkout_list, :dependent => :destroy
   has_one :purchased_list, :dependent => :destroy
+  has_many :orders
+
   has_many :mercado_pago_purchases, :dependent => :destroy
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
@@ -74,7 +76,7 @@ class User < ActiveRecord::Base
 
   def store_checkout_list
 	 create_purchased_list if create_purchased_list.nil?
-	 checkout_list.product_rows.each { |row| purchased_list.product_rows << row }
+	 checkout_list.product_rows.each {|row| purchased_list.product_rows << row}
 	 purchased_list.save!
 	 #checkout_list.product_rows.destroy_all
   end

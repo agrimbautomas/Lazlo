@@ -1,0 +1,37 @@
+<div class="user-purchased-item-block">
+  <h4><%= @order.tracking_title %></h4>
+  <span><%= @order.updated_at %></span>
+  <%
+    if @order.products_list.present? and @order.products_list.product_rows.any? %>
+      <%
+        @order.products_list.product_rows.each do |product_row| %>
+          <div class="product-row">
+
+            <div class="cart-product-image">
+              <img src="<%= product_row.product.image.url(:thumb) %>"/>
+            </div>
+
+            <h2>
+              <a href="<%= product_path product_row.product %>" class="smooth-transition"><%= product_row.product.name %></a>
+            </h2>
+
+
+            <div class="cart-product-quantity">
+
+              <div class="quantity-message">
+                x<span><%= product_row.quantity %></span>
+              </div>
+
+            </div>
+
+            <% if product_row.product.price.present?
+                 total_price = product_row.quantity * product_row.product.price.to_i %>
+                <span class="cart-product-price" ">
+                <%= '$' + total_price.to_s %>
+                </span>
+            <% end %>
+
+          </div>
+      <% end %>
+  <% end %>
+</div>

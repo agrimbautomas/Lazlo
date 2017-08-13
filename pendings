@@ -10,3 +10,4 @@ Arreglar casos de ajax cuando se abren mas de una pestaña
 
 Agregar Latitude
 
+Agregar soft delete - Sino borrar productos puede romper las products_lists

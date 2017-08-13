@@ -8,7 +8,6 @@ class CheckoutMercadoPago < Interactor
 	 parameters = arguments.fetch :parameters
 	 @user = parameters['user']
 	 @product_rows = @user.checkout_list.product_rows
-	 create_mercadopago_purchase
   end
 
   def payment_link
@@ -17,10 +16,6 @@ class CheckoutMercadoPago < Interactor
   end
 
   private
-
-  def preference_data
-	 {'items' => payment_items_json, 'back_urls' => back_urls_json, 'payer' => payer_data, 'additional_info' => 'tokee'}
-  end
 
   def payment_items_json
 	 items = purchase_items
@@ -44,16 +39,31 @@ class CheckoutMercadoPago < Interactor
 	 items
   end
 
+  def purchase_title items
+	 items_title = items.map {|item| "#{item['quantity']} x #{item['title']}"}.join(', ')
+	 I18n.t('checkout_purchase_title') + items_title
+  end
+
+  def preference_data
+	 {
+		  'items' => payment_items_json,
+		  'back_urls' => back_urls_json,
+		  'payer' => payer_data,
+		  'additional_info' => purchase_data
+	 }
+  end
+
+  def purchase_data
+	 {
+		  'title' => purchase_title(purchase_items)
+	 }
+  end
+
   def payer_data
 	 {
 		  'name' => @user.name,
 		  'email' => @user.email
 	 }
-  end
-
-  def purchase_title items
-	 items_title = items.map {|item| "#{item['quantity']} x #{item['title']}"}.join(', ')
-	 I18n.t('checkout_purchase_title') + items_title
   end
 
   def back_urls_json
@@ -65,13 +75,5 @@ class CheckoutMercadoPago < Interactor
 	 }
   end
 
-  def create_mercadopago_purchase
-	 MercadoPagoPurchase.find_or_create_by(
-		  :user => @user,
-		  :products_list => @user.checkout_list,
-		  :status => MercadoPagoPurchase.statuses[:initial],
-		  :title => purchase_title(purchase_items)
-	 )
-  end
 
 end
