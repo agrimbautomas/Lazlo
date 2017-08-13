@@ -76,7 +76,6 @@ class User < ActiveRecord::Base
 	 create_purchased_list if create_purchased_list.nil?
 	 checkout_list.product_rows.each { |row| purchased_list.product_rows << row }
 	 purchased_list.save!
-	 byebug
 	 #checkout_list.product_rows.destroy_all
   end
 end

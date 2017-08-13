@@ -23,6 +23,12 @@ class CheckoutMercadoPago < Interactor
   end
 
   def payment_items_json
+	 items = purchase_items
+	 items.first['title'] = purchase_title items
+	 items
+  end
+
+  def purchase_items
 	 items =[]
 	 @product_rows.each do |product_row|
 		items << {
@@ -35,7 +41,6 @@ class CheckoutMercadoPago < Interactor
 			 'picture_url' => product_row.product.image.url
 		}
 	 end
-	 items.first['title'] = purchase_title items
 	 items
   end
 
@@ -47,8 +52,8 @@ class CheckoutMercadoPago < Interactor
   end
 
   def purchase_title items
-	 items_title = items.map { |item| "#{item['quantity']} x #{item['title']}" }.join(', ')
-	 @purchase_title = I18n.t('checkout_purchase_title') + items_title
+	 items_title = items.map {|item| "#{item['quantity']} x #{item['title']}"}.join(', ')
+	 I18n.t('checkout_purchase_title') + items_title
   end
 
   def back_urls_json
@@ -63,9 +68,9 @@ class CheckoutMercadoPago < Interactor
   def create_mercadopago_purchase
 	 MercadoPagoPurchase.find_or_create_by(
 		  :user => @user,
-		  :checkout_list => @user.checkout_list,
+		  :products_list => @user.checkout_list,
 		  :status => MercadoPagoPurchase.statuses[:initial],
-		  :title => @purchase_title
+		  :title => purchase_title(purchase_items)
 	 )
   end
 

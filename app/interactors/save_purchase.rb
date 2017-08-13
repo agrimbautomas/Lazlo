@@ -14,8 +14,11 @@ class SavePurchase
   def self.for user, purchase_params
 	 @user = user
 	 @purchase_params = purchase_params
+
 	 create_mercado_pago_purchase
 	 create_order
+
+	 send_success_email
   end
 
   private
@@ -26,27 +29,23 @@ class SavePurchase
   end
 
   def self.create_order
-
-	 @order = Order.new(
-		  #:user => @user,
+	 @order = Order.create(
+		  :user => @user,
 		  :product => nil,
-		  #:products_list => @user.checkout_list,
-		  #:mercado_pago_purchase => @mp_purchase,
+		  :products_list => @user.checkout_list,
+		  :mercado_pago_purchase => @mp_purchase,
 		  :payment => 0,
-		  #:tracking_title => @mp_purchase.title,
-		  #:order_status_id => OrderStatus.find_by_priority(1).id,
+		  :tracking_title => @mp_purchase.title,
+		  :order_status_id => OrderStatus.find_by_priority(1).id,
 		  :detail => 'Producto comprado dedes la Web'
 	 )
-
-	 byebug
 	 @user.store_checkout_list
-	 send_success_email
   end
 
-  def send_success_email
-	 params = purchase_params
+  def self.send_success_email
+	 params = @purchase_params
 	 params[:order] = @order
-	 params[:message] = 'concretó'
+	 params[:user] = @user
 
 	 UserMailer.purchase_product_admin_email(params).deliver_now
   end

@@ -19,7 +19,7 @@ class UserMailer < AppMailer
     super(record, token, opts={})
   end
 
-  def purchased_product_user_notification params
+  def purchase_product_admin_email params
     @images = {
         :logo => asset_absolute_path('logo-macain-300.png'),
         :background => asset_absolute_path('fondo-colores.png'),
@@ -29,8 +29,7 @@ class UserMailer < AppMailer
     @product = params[:product]
     @order = params[:order]
     @message = params[:message]
-    @url = 'http://macain.com.ar/'
-    mail(to: @user.email, subject: 'Gracias por comprar nuestro producto ' + @product[:name])
+    mail(to: @user.email, subject: 'Gracias por comprar nuestro producto ' + @order.tracking_title)
   end
 
 end

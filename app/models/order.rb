@@ -23,13 +23,14 @@ class Order < ActiveRecord::Base
   belongs_to :buyer
   belongs_to :user
   belongs_to :product
-  has_one :mercado_pago_purchase
-  has_one :products_list
+  belongs_to :mercado_pago_purchase
+  belongs_to :products_list
 
   before_create :set_code
 
-  validates :buyer, presence: true
-  validates :product, presence: true
+  # Todo validate if, or validate by type
+  #validates :buyer, presence: true
+  #validates :product, presence: true
 
   def set_code
 	 code = (0...8).map {(65 + rand(26)).chr}.join

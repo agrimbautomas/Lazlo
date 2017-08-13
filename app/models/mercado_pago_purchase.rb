@@ -4,7 +4,7 @@
 #
 #  id               :integer          not null, primary key
 #  user_id          :integer          not null
-#  checkout_list_id :integer          not null
+#  products_list_id :integer          not null
 #  collection_id    :string
 #  preference_id    :string
 #  payment_type     :string
@@ -17,7 +17,7 @@
 class MercadoPagoPurchase < ActiveRecord::Base
 
   belongs_to :user
-  belongs_to :checkout_list
+  belongs_to :products_list
 
   enum status: [:initial, :authorized, :paused, :cancelled, :pending]
 

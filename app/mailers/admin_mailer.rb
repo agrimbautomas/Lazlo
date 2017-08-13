@@ -2,9 +2,6 @@ class AdminMailer < AppMailer
 
   after_action :save_email_contact, :only => [:contact_email]
 
-  @receivers = Settings.admin.emails
-  @url = Settings.urls.base
-
   def contact_email params
 	 @name = params[:macain_name]
 	 @email = params[:macain_email]

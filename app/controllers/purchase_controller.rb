@@ -5,7 +5,7 @@ class PurchaseController < ApplicationController
   def purchase_success
 	 SavePurchase.for(current_user, purchase_params)
 	 flash[:notice] = 'Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega. Gracias!'
-	 redirect_to product_path @product
+	 redirect_to cart_path
   end
 
   def purchase_pending
