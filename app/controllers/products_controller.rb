@@ -1,14 +1,13 @@
 class ProductsController < ApplicationController
 
-  before_filter :set_request
-  before_action :set_product, :set_meta_data
-
-  def index
-  end
+  before_action :set_request, :set_product, :set_meta_data, :set_product_hash
 
   def show
 	 @image_uri = URI.join(request.url, @product.image.url)
 	 @category = Category.friendly.find(@product.category_id)
+
+	 set_purchase_link unless current_user.nil?
+	 @is_in_cart = (current_user.has_product_in_cart?(@product) ? true : false) unless current_user.nil?
   end
 
   def set_request
@@ -25,6 +24,19 @@ class ProductsController < ApplicationController
 	 set_og_tags @product.name,
 					 @product.description.squish,
 					 resource_absolute_path(@product.image.url(:medium))
+  end
+
+  def set_purchase_link
+	 params[:user] = current_user
+	 params[:product] = @product
+	 @product_link = CheckoutMercadoPago.(parameters: params, delegate: self).single_checkout
+  end
+
+  def set_product_hash
+	 @product_hash = {
+		  :product_id => @product.id,
+		  :version => Rails.application.config.API_VERSION
+	 }
   end
 
 end

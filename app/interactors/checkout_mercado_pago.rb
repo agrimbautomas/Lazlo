@@ -5,12 +5,24 @@ class CheckoutMercadoPago < Interactor
 
   def initialize(arguments)
 	 super
-	 parameters = arguments.fetch :parameters
-	 @user = parameters['user']
-	 @product_rows = @user.checkout_list.product_rows
+	 @parameters = arguments.fetch :parameters
+	 @user = @parameters['user']
   end
 
-  def payment_link
+  def cart_checkout
+	 @product_rows = @user.checkout_list.product_rows
+	 payment_link cart_checkout_preference_data
+  end
+
+  def single_checkout
+	 @product = @parameters['product']
+	 single_product_row = ProductRow.create(product: @product, quantity: 1)
+	 @user.checkout_list.product_rows << single_product_row
+	 @product_rows = [single_product_row]
+	 payment_link cart_checkout_preference_data
+  end
+
+  def payment_link preference_data
 	 mp_response = $mp_client.create_preference(preference_data)
 	 Rails.env.development? ? mp_response['response']['sandbox_init_point'] : mp_response['response']['init_point']
   end
@@ -44,7 +56,7 @@ class CheckoutMercadoPago < Interactor
 	 I18n.t('checkout_purchase_title') + items_title
   end
 
-  def preference_data
+  def cart_checkout_preference_data
 	 {
 		  'items' => payment_items_json,
 		  'back_urls' => back_urls_json,

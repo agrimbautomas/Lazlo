@@ -69,25 +69,17 @@
 
             -->
 
-            <% if user_signed_in?
-                 product_hash = {
-                         :product_id => @product.id,
-                         :version => Rails.application.config.API_VERSION
-                 }
-            %>
-                <% product_link = Rails.env.development? ? @product.payment['response']['sandbox_init_point'] : @product.payment['response']['init_point'] %>
-
-                <a href="<%= product_link %>" name="MP-Checkout" class="product-buy-button macain-button red-button smooth-transition">
+            <% if user_signed_in? %>
+                <a href="<%= @product_link %>" name="MP-Checkout" class="product-buy-button macain-button red-button smooth-transition">
                   Comprar
                 </a>
                 <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>
 
-                <% is_in_cart = current_user.has_product_in_cart?(@product) ? true : false %>
                 <a class="add-to-cart-btn macain-button
-                    <%= is_in_cart ? 'green-button in_cart' : 'transparent-button' %>"
-                   href="<%= add_product_to_cart_url(product_hash) %>"
-                   data-rm-href="<%= remove_cart_product_row_url(product_hash) %>">
-                  <%= is_in_cart ? 'Guardado en el Carrito!' : 'Agregar al Carrito' %>
+                    <%= @is_in_cart ? 'green-button in_cart' : 'transparent-button' %>"
+                   href="<%= add_product_to_cart_url(@product_hash) %>"
+                   data-rm-href="<%= remove_cart_product_row_url(@product_hash) %>">
+                  <%= @is_in_cart ? 'Guardado en el Carrito!' : 'Agregar al Carrito' %>
                 </a>
 
             <% else %>

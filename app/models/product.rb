@@ -43,26 +43,6 @@ class Product < ActiveRecord::Base
 
   scope :featured, -> { limit(6).order('featured desc, views desc') }
 
-  def payment
-    preference_data = {
-        'items' => [
-            'title' => self.name,
-            'description' => self.description,
-            'quantity' => 1,
-            'unit_price' => self.price,
-            'currency_id' => 'ARS',
-            'picture_url' => self.image_uri
-        ],
-        'back_urls' => {
-            'pending' => product_purchase_success_url(self),
-            'success' => product_purchase_pending_url(self),
-            'failure' => product_purchase_failure_url(self)
-        }
-    }
-
-    $mp_client.create_preference(preference_data)
-  end
-
   def image_uri
     URI.join($request.url, self.image.url)
   end
