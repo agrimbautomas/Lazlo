@@ -1,23 +1,10 @@
-class CheckoutMercadoPago < Interactor
+class MercadoPagoCheckout < Interactor
   include Rails.application.routes.url_helpers
-
-  attr_accessor :link
 
   def initialize(arguments)
 	 super
 	 @parameters = arguments.fetch :parameters
 	 @user = @parameters['user']
-  end
-
-  def cart_checkout
-	 @product_rows = @user.checkout_list.product_rows
-	 payment_link cart_checkout_preference_data
-  end
-
-  def single_checkout
-	 @product = @parameters['product']
-	 @product_rows = [ProductRow.new(product: @product, quantity: 1)]
-	 payment_link cart_checkout_preference_data
   end
 
   def payment_link preference_data

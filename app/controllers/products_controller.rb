@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   def set_purchase_link
 	 params[:user] = current_user
 	 params[:product] = @product
-	 @product_link = CheckoutMercadoPago.(parameters: params, delegate: self).single_checkout
+	 @product_link = MercadoPagoSingleCheckout.(parameters: params, delegate: self).checkout
   end
 
   def set_product_hash

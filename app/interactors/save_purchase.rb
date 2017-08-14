@@ -24,6 +24,7 @@ class SavePurchase
   private
 
   def self.create_order
+	 byebug
 	 @order = Order.create(
 		  :user => @user,
 		  :products_list => @user.checkout_list,
