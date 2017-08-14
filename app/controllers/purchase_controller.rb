@@ -1,14 +1,14 @@
-class PurchaseController < ApplicationController
+class CheckoutController < ApplicationController
 
   before_action :authenticate_user!
 
-  def single_purchase_success
+  def single_checkout_success
 	 SavePurchase.for(current_user, purchase_params)
 	 flash[:notice] = 'Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega. Gracias!'
 	 redirect_to cart_path
   end
 
-  def single_purchase_pending
+  def single_checkout_pending
 	 params = purchase_params
 	 params[:message] = 'dejó pendiente'
 
@@ -17,7 +17,7 @@ class PurchaseController < ApplicationController
 	 redirect_to product_path @product
   end
 
-  def single_purchase_failure
+  def single_checkout_failure
 	 params = purchase_params
 	 params[:message] = 'canceló'
 
@@ -26,13 +26,13 @@ class PurchaseController < ApplicationController
 	 redirect_to product_path @product
   end
 
-  def cart_purchase_success
+  def cart_checkout_success
 	 SavePurchase.for(current_user, purchase_params)
 	 flash[:notice] = 'Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega. Gracias!'
 	 redirect_to cart_path
   end
 
-  def cart_purchase_pending
+  def cart_checkout_pending
 	 params = purchase_params
 	 params[:message] = 'dejó pendiente'
 
@@ -41,7 +41,7 @@ class PurchaseController < ApplicationController
 	 redirect_to product_path @product
   end
 
-  def cart_purchase_failure
+  def cart_checkout_failure
 	 params = purchase_params
 	 params[:message] = 'canceló'
 

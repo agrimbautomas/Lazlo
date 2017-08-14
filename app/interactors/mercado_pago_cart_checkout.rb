@@ -19,9 +19,9 @@ class MercadoPagoCartCheckout < MercadoPagoCheckout
   def back_urls_json
 	 product_row = @product_rows.first
 	 {
-		  'pending' => product_purchase_success_url(product_row.product),
-		  'success' => product_purchase_pending_url(product_row.product),
-		  'failure' => product_purchase_failure_url(product_row.product)
+		  'pending' => cart_checkout_success_url(product_row.product),
+		  'success' => cart_checkout_pending_url(product_row.product),
+		  'failure' => cart_checkout_purchase_failure_url(product_row.product)
 	 }
   end
 

@@ -12,14 +12,6 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :products do
-	 get 'single-purchase-success', to: 'purchase#single_purchase_success'
-	 get 'single-purchase-pending', to: 'purchase#single_purchase_pending'
-	 get 'single-purchase-failure', to: 'purchase#single_purchase_failure'
-
-	 get 'cart-purchase-success', to: 'purchase#cart_purchase_success'
-	 get 'cart-purchase-pending', to: 'purchase#cart_purchase_pending'
-	 get 'cart-purchase-failure', to: 'purchase#cart_purchase_failure'
-
 	 get 'checkout', to: 'products#purchase'
   end
 
@@ -34,6 +26,16 @@ Rails.application.routes.draw do
 
   get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
+  # Checkout
+  get 'single-checkout-success', to: 'checkout#single_checkout_success'
+  get 'single-checkout-pending', to: 'checkout#single_checkout_pending'
+  get 'single-checkout-failure', to: 'checkout#single_checkout_failure'
+
+  get 'cart-checkout-success', to: 'checkout#cart_checkout_success'
+  get 'cart-checkout-pending', to: 'checkout#cart_checkout_pending'
+  get 'cart-checkout-failure', to: 'checkout#cart_checkout_failure'
+
+  # API
   api version: 1, module: 'api/v1' do
 	 post 'user/checkout/:product_id', to: 'cart#add_product_to_cart', :as => :add_product_to_cart
 	 put 'user/checkout_row/:product_row_id', to: 'cart#edit_checkout_product_row', :as => :edit_checkout_row
