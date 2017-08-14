@@ -12,9 +12,13 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :products do
-	 get 'purchase-success', to: 'purchase#purchase_success'
-	 get 'purchase-pending', to: 'purchase#purchase_pending'
-	 get 'purchase-failure', to: 'purchase#purchase_failure'
+	 get 'single-purchase-success', to: 'purchase#single_purchase_success'
+	 get 'single-purchase-pending', to: 'purchase#single_purchase_pending'
+	 get 'single-purchase-failure', to: 'purchase#single_purchase_failure'
+
+	 get 'cart-purchase-success', to: 'purchase#cart_purchase_success'
+	 get 'cart-purchase-pending', to: 'purchase#cart_purchase_pending'
+	 get 'cart-purchase-failure', to: 'purchase#cart_purchase_failure'
 
 	 get 'checkout', to: 'products#purchase'
   end

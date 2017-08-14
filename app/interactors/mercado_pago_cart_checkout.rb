@@ -1,4 +1,4 @@
-class MercadoPagoMultipleCheckout < MercadoPagoCheckout
+class MercadoPagoCartCheckout < MercadoPagoCheckout
   include Rails.application.routes.url_helpers
 
   attr_accessor :link
