@@ -16,9 +16,7 @@ class CheckoutMercadoPago < Interactor
 
   def single_checkout
 	 @product = @parameters['product']
-	 single_product_row = ProductRow.create(product: @product, quantity: 1)
-	 @user.checkout_list.product_rows << single_product_row
-	 @product_rows = [single_product_row]
+	 @product_rows = [ProductRow.new(product: @product, quantity: 1)]
 	 payment_link cart_checkout_preference_data
   end
 

@@ -7,7 +7,7 @@
 <body>
 <h2 style="color: #FD6E6E; width: 100%; text-align: center;">|| Pophensen Email ||</h2>
 
-<h3 style="">Baguette! Se <%= @message %> la compra del producto <%= @product.name %>,</h3>
+<h3 style="">Baguette! Se <%= @message %> la compra del producto <%= @order.tracking_title %>,</h3>
 
 <p>el usuario que compró es <strong><%= @user.email %></strong></p>
 
@@ -17,19 +17,19 @@
 
 
 <div style="border: 1px solid #D0D0D0;
-        border-radius: 4px;
-        padding: 10px 35px;
-        background: #EAEAEA;
-        width: auto;
-        display: inline-block;">
+    border-radius: 4px;
+    padding: 10px 35px;
+    background: #EAEAEA;
+    width: auto;
+    display: inline-block;">
 
-  <p style="font-style: italic;"><strong>Nombre:</strong> <%= @product.name %></p>
-
-  <p style="font-style: italic;"><strong>Precio:</strong>$<%= @product.price.to_i %></p>
-
-  <p style="font-style: italic;"><strong>Descripcion:</strong> <%=  simple_format(@product.description)  %></p>
-
-  <img src="<%= @image %>" style="width: 80%">
+  <% if @user.orders.any? %>
+      <% @user.orders.each do |order|
+        @order = order
+      %>
+          <%= render :partial => 'users/orders/order_row' %>
+      <% end %>
+  <% end %>
 
 </div>
 

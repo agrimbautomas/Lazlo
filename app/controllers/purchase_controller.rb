@@ -35,12 +35,4 @@ class PurchaseController < ApplicationController
 	 params.permit(:collection_id, :preference_id, :payment_type, :collection_status)
   end
 
-  def send_purchase_product_email purchase_params
-	 AdminMailer.purchase_product_admin_email(purchase_params).deliver_now
-  end
-
-  def send_cancelled_purcharse_email purchase_params
-	 AdminMailer.purchase_product_admin_email(purchase_params).deliver_now
-  end
-
 end

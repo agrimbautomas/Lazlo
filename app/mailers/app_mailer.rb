@@ -2,8 +2,8 @@ class AppMailer < Devise::Mailer
   helper :application # gives access to all helpers defined within `application_helper`.
   include Devise::Controllers::UrlHelpers # Optional. eg. `confirmation_url`
 
-  @receivers = Settings.admin.emails
-  @url = Settings.urls.base
+  RECEIVERS = Settings.admin.emails
+  URL = Settings.urls.base
 
   private
   def asset_absolute_path asset_name

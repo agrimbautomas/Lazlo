@@ -6,7 +6,7 @@ class AdminMailer < AppMailer
 	 @name = params[:macain_name]
 	 @email = params[:macain_email]
 	 @message = params[:macain_message]
-	 mail(to: @receivers, subject: 'Siranushen Alert :) - Message from: ' + @name)
+	 mail(to: RECEIVERS, subject: "Siranushen Alert :) - Mensaje de: #{@name}")
   end
 
   def purchase_product_admin_email params
@@ -16,8 +16,7 @@ class AdminMailer < AppMailer
 	 @order = params[:order]
 	 @message = params[:message]
 
-	 mail(to: @receivers, subject: 'Papin! Papin! ' +
-									@user.email + ' ' + @message + ' la compra de una ' + @product.name)
+	 mail(to: RECEIVERS, subject: "Papin! Papin! #{@user.email}  #{@message} la compra de una #{@order.tracking_title}")
   end
 
   def cancelled_product_admin_email params
@@ -27,8 +26,7 @@ class AdminMailer < AppMailer
 	 @order = params[:order]
 	 @message = params[:message]
 
-	 mail(to: @receivers, subject: 'Papin! Papin! ' +
-									@user.email + ' ' + @message + ' la compra de una ' + @product.name)
+	 mail(to: RECEIVERS, subject: "Papin! Papin! #{@user.email} #{@message} la compra de una #{@product.name}")
   end
 
   private
