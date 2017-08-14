@@ -23,7 +23,6 @@ class SavePurchase
 	 @mercado_pago_purchase.update_by_mp_response(@purchase_params)
   end
 
-  private
   def self.preferences
 	 @preferences = @preferences || $mp_client.get_preference(@purchase_params['preference_id'])
 	 JSON.parse(@preferences['response']['additional_info']) || nil

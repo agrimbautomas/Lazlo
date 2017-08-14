@@ -52,6 +52,10 @@ class User < ActiveRecord::Base
 	 end
   end
 
+  def name
+	 email.gsub(/.+@([^.]+).+/, '\0');
+  end
+
   def add_product_to_cart product
 	 self.checkout_list = CheckoutList.create(:user => self) unless self.checkout_list.present?
 	 self.checkout_list.save_product_row product
@@ -76,7 +80,7 @@ class User < ActiveRecord::Base
 
   def store_checkout_list
 	 create_purchased_list if create_purchased_list.nil?
-	 checkout_list.product_rows.each {|row| purchased_list.product_rows << row}
+	 checkout_list.product_rows.each { |row| purchased_list.product_rows << row }
 	 purchased_list.save!
 	 #checkout_list.product_rows.destroy_all
   end

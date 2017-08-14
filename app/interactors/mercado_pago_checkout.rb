@@ -12,49 +12,21 @@ class MercadoPagoCheckout < Interactor
 	 Rails.env.development? ? mp_response['response']['sandbox_init_point'] : mp_response['response']['init_point']
   end
 
+  def checkout
+	 payment_link(checkout_preference_data)
+  end
+
   private
 
-  def payment_items_json
-	 items = purchase_items
-	 items.first['title'] = purchase_title items
-	 items
-  end
-
-  def purchase_items
-	 items =[]
-	 @product_rows.each do |product_row|
-		items << {
-			 'id' => product_row.product.slug,
-			 'title' => product_row.product.name,
-			 'description' => product_row.product.description,
-			 'quantity' => product_row.quantity,
-			 'unit_price' => product_row.product.price,
-			 'currency_id' => 'ARS',
-			 'picture_url' => product_row.product.image.url
-		}
-	 end
-	 items
-  end
-
-  def purchase_title items
-	 items_title = items.map {|item| "#{item['quantity']} x #{item['title']}"}.join(', ')
-	 I18n.t('checkout_purchase_title') + items_title
-  end
-
-  def cart_checkout_preference_data
+  def checkout_preference_data
 	 {
-		  'items' => payment_items_json,
+		  'items' => items_to_json,
 		  'back_urls' => back_urls_json,
 		  'payer' => payer_data,
 		  'additional_info' => purchase_data
 	 }
   end
 
-  def purchase_data
-	 {
-		  'title' => purchase_title(purchase_items)
-	 }
-  end
 
   def payer_data
 	 {
@@ -62,15 +34,5 @@ class MercadoPagoCheckout < Interactor
 		  'email' => @user.email
 	 }
   end
-
-  def back_urls_json
-	 product_row = @product_rows.first
-	 {
-		  'pending' => product_purchase_success_url(product_row.product),
-		  'success' => product_purchase_pending_url(product_row.product),
-		  'failure' => product_purchase_failure_url(product_row.product)
-	 }
-  end
-
 
 end

@@ -1,5 +1,4 @@
 class MercadoPagoSingleCheckout < MercadoPagoCheckout
-  include Rails.application.routes.url_helpers
 
   attr_accessor :link
 
@@ -8,24 +7,38 @@ class MercadoPagoSingleCheckout < MercadoPagoCheckout
 	 @parameters = arguments.fetch :parameters
 	 @user = @parameters['user']
 	 @product = @parameters['product']
-	# byebug
-  end
-
-  def checkout
-	 @product_rows = [ProductRow.new(product: @product, quantity: 1)]
-	 payment_link cart_checkout_preference_data
   end
 
   private
 
+  def items_to_json
+	 [{
+			'id' => @product.slug,
+			'title' => @product.name,
+			'description' => @product.description,
+			'quantity' => 1,
+			'unit_price' => @product.price,
+			'currency_id' => 'ARS',
+			'picture_url' => @product.image.url
+	  }]
+  end
+
+  def purchase_title
+	 @product.name
+  end
+
   def back_urls_json
-	 product_row = @product_rows.first
 	 {
-		  'pending' => single_checkout_success_url(product_row.product),
-		  'success' => single_checkout_pending_url(product_row.product),
-		  'failure' => single_checkout_failure_url(product_row.product)
+		  'pending' => single_checkout_success_url(@product),
+		  'success' => single_checkout_pending_url(@product),
+		  'failure' => single_checkout_failure_url(@product)
 	 }
   end
 
+  def purchase_data
+	 {
+		  'product' => @product.to_json
+	 }
+  end
 
 end
