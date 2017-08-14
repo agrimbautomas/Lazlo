@@ -1,15 +1,4 @@
 class SavePurchase
-  class InvalidPaymentMethod < MacainError
-	 def initialize
-		super "invalid_payment_method", "The payment method is invalid"
-	 end
-  end
-
-  class InvalidAmount < MacainError
-	 def initialize
-		super "invalid_amount", "The amount to pay is invalid"
-	 end
-  end
 
   def self.for user, purchase_params
 	 @user = user
@@ -22,21 +11,6 @@ class SavePurchase
   end
 
   private
-
-  def self.create_order
-	 byebug
-	 @order = Order.create(
-		  :user => @user,
-		  :products_list => @user.checkout_list,
-		  :mercado_pago_purchase => @mercado_pago_purchase,
-		  :payment => 0,
-		  :tracking_title => preferences['title'],
-		  :order_status_id => OrderStatus.find_by_priority(1).id,
-		  :detail => 'Producto comprado dedes la Web'
-	 )
-	 @user.store_checkout_list
-  end
-
 
   def self.create_mercado_pago_purchase
 
