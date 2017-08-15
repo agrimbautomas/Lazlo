@@ -11,4 +11,5 @@ pipelines:
           - bundler --version
           - bundle install
           - mkdir -p test_output
+          - gem install uglifier
           - bundle exec rspec spec/
