@@ -12,6 +12,7 @@
 #  updated_at       :datetime         not null
 #  title            :string
 #  products_list_id :integer
+#  order_id         :integer
 #
 
 require 'test_helper'

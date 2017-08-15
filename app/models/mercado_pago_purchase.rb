@@ -12,12 +12,13 @@
 #  updated_at       :datetime         not null
 #  title            :string
 #  products_list_id :integer
+#  order_id         :integer
 #
 
 class MercadoPagoPurchase < ActiveRecord::Base
 
   belongs_to :user
-  belongs_to :products_list
+  belongs_to :order
 
   enum status: [:initial, :authorized, :paused, :cancelled, :pending]
 
