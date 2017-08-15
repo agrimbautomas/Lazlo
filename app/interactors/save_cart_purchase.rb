@@ -2,6 +2,7 @@ class SaveCartPurchase < SavePurchase
 
   private
 
+
   def self.create_order
 	 @order = Order.create(
 		  :user => @user,

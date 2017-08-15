@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813033953) do
+ActiveRecord::Schema.define(version: 20170815002005) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -133,6 +133,12 @@ ActiveRecord::Schema.define(version: 20170813033953) do
   add_index "mercado_pago_purchases", ["products_list_id"], name: "index_mercado_pago_purchases_on_products_list_id", using: :btree
   add_index "mercado_pago_purchases", ["user_id"], name: "index_mercado_pago_purchases_on_user_id", using: :btree
 
+  create_table "order_products_lists", force: :cascade do |t|
+    t.integer  "order_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "order_statuses", force: :cascade do |t|
     t.string   "name",               limit: 255
     t.datetime "created_at",                     null: false
@@ -196,13 +202,15 @@ ActiveRecord::Schema.define(version: 20170813033953) do
   end
 
   create_table "product_rows", force: :cascade do |t|
-    t.integer  "quantity",         limit: 4, default: 1
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.integer  "product_id",       limit: 4
-    t.integer  "products_list_id", limit: 4
+    t.integer  "quantity",                limit: 4, default: 1
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "product_id",              limit: 4
+    t.integer  "order_products_lists_id", limit: 4
+    t.integer  "products_list_id",        limit: 4
   end
 
+  add_index "product_rows", ["order_products_lists_id"], name: "index_product_rows_on_order_products_lists_id", using: :btree
   add_index "product_rows", ["product_id"], name: "fk_rails_cf1216850a", using: :btree
   add_index "product_rows", ["products_list_id"], name: "index_product_rows_on_products_list_id", using: :btree
 
