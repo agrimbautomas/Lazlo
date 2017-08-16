@@ -13,7 +13,6 @@ class OrderProductsList < ActiveRecord::Base
   has_many :order_products_rows
 
   def self.create_from_list products_list
-	 byebug
 	 new_list = OrderProductsList.create
 	 products_list.product_rows.each do |product_row|
 		new_list.order_products_rows << OrderProductsRow.from_product_row(product_row)

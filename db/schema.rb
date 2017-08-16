@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 20170816015631) do
     t.string   "status",        limit: 255, default: "initial", null: false
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
-    t.integer  "order_id",      limit: 4,                       null: false
+    t.integer  "order_id",      limit: 4
   end
 
   add_index "mercado_pago_purchases", ["order_id"], name: "index_mercado_pago_purchases_on_order_id", using: :btree

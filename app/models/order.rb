@@ -26,10 +26,7 @@ class Order < ActiveRecord::Base
   belongs_to :order_products_list
 
   before_create :set_code
-
-  # Todo validate if, or validate by type
-  #validates :buyer, presence: true
-  validates :products_list, presence: true
+  validates :order_products_list, presence: true
 
   def set_code
 	 code = (0...8).map {(65 + rand(26)).chr}.join
