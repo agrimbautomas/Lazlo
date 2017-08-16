@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816011401) do
+ActiveRecord::Schema.define(version: 20170816015631) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -170,7 +170,6 @@ ActiveRecord::Schema.define(version: 20170816011401) do
     t.string   "color",                    limit: 255
     t.integer  "mercado_pago_purchase_id", limit: 4
     t.integer  "user_id",                  limit: 4
-    t.integer  "products_list_id",         limit: 4
     t.integer  "order_products_list_id",   limit: 4
   end
 
@@ -179,7 +178,6 @@ ActiveRecord::Schema.define(version: 20170816011401) do
   add_index "orders", ["order_products_list_id"], name: "index_orders_on_order_products_list_id", using: :btree
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
   add_index "orders", ["product_id"], name: "index_orders_on_product_id", using: :btree
-  add_index "orders", ["products_list_id"], name: "index_orders_on_products_list_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "page_images", force: :cascade do |t|

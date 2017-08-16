@@ -4,27 +4,34 @@ class SavePurchase
 	 @user = user
 	 @purchase_params = purchase_params
 
-	 create_mercado_pago_purchase
 	 create_order
-
 	 send_success_email
+  end
+
+
+  def self.create_order
+	 @order = Order.create(
+		  :user => @user,
+		  :products_list => OrderProductsList.create_from_list(@user.checkout_list),
+		  :mercado_pago_purchase => MercadoPagoPurchase.create_from_preferences(additional_info),
+		  :payment => 0,
+		  :title => additional_info['title'],
+		  :order_status_id => OrderStatus.find_by_priority(1).id,
+		  :detail => 'Producto comprado dedes la Web'
+	 )
+	 byebug
+	 @user.store_checkout_list
   end
 
   private
 
-  def self.create_mercado_pago_purchase
-	 @mercado_pago_purchase = MercadoPagoPurchase.create!(
-		  :user => @user,
-		  :products_list => OrderProductsList.create_from_list(@user.checkout_list),
-		  :status => MercadoPagoPurchase.statuses[:initial],
-		  :title => preferences['title']
-	 )
-	 @mercado_pago_purchase.update_by_mp_response(@purchase_params)
-  end
-
   def self.preferences
 	 @preferences = @preferences || $mp_client.get_preference(@purchase_params['preference_id'])
-	 JSON.parse(@preferences['response']['additional_info']) || nil
+	 JSON.parse(@preferences['response']) || nil
+  end
+
+  def self.additional_info
+	 preferences['response']['additional_info'] || nil
   end
 
   def self.send_success_email

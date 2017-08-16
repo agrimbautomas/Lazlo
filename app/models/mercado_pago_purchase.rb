@@ -26,4 +26,14 @@ class MercadoPagoPurchase < ActiveRecord::Base
 		  :status => params["collection_status"]
 	 )
   end
+
+  def self.create_from_preferences preferences
+	 byebug
+	 MercadoPagoPurchase.create!(
+		  :title => preferences['title'],
+		  :status => MercadoPagoPurchase.statuses[:initial],
+	 )
+	 @mercado_pago_purchase.update_by_mp_response(@purchase_params)
+  end
+
 end
