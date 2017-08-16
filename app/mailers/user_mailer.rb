@@ -29,7 +29,7 @@ class UserMailer < AppMailer
     @product = params[:product]
     @order = params[:order]
     @message = params[:message]
-    mail(to: @user.email, subject: "Gracias por comprar nuestro producto #{@order.tracking_title}")
+    mail(to: @user.email, subject: "Gracias por comprar nuestro producto #{@order.title}")
   end
 
 end

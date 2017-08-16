@@ -1,5 +1,5 @@
 <div class="user-purchased-item-block">
-  <h4><%= @order.tracking_title %></h4>
+  <h4><%= @order.title %></h4>
   <span><%= @order.updated_at %></span>
   <%
     if @order.products_list.present? and @order.products_list.product_rows.any? %>

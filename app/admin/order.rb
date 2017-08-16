@@ -1,7 +1,7 @@
 ActiveAdmin.register Order do
   menu priority: 2
 
-  permit_params :buyer_id, :product_id, :code, :detail, :order_status_id, :tracking_title, :payment, :color
+  permit_params :buyer_id, :product_id, :code, :detail, :order_status_id, :title, :payment, :color
 
   config.per_page = 20
 
@@ -91,7 +91,7 @@ ActiveAdmin.register Order do
       f.input :color, :as => :string
       f.input :detail, :hint => 'Algun tipo de detalle para la producción'
       f.input :payment, :input_html => {:min => 0, :step => 100} if current_admin_user.has_role? :full_admin
-      f.input :tracking_title, :hint => 'Titulo para mostrar en la página de trackeo',
+      f.input :title, :hint => 'Titulo para mostrar en la página de trackeo',
               :label => 'Titulo para el tracking' if current_admin_user.has_role? :full_admin
     end
 
@@ -118,7 +118,7 @@ ActiveAdmin.register Order do
       end if current_admin_user.has_role? :full_admin
       row :detail
       row 'Título para Tracking' do
-        order.tracking_title
+        order.title
       end if current_admin_user.has_role? :full_admin
 
       row 'Imagen' do

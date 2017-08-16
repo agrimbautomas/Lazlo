@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815002005) do
+ActiveRecord::Schema.define(version: 20170816011401) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -119,19 +119,16 @@ ActiveRecord::Schema.define(version: 20170815002005) do
   end
 
   create_table "mercado_pago_purchases", force: :cascade do |t|
-    t.integer  "user_id",          limit: 4,                       null: false
-    t.string   "collection_id",    limit: 255
-    t.string   "preference_id",    limit: 255
-    t.string   "payment_type",     limit: 255
-    t.string   "status",           limit: 255, default: "initial", null: false
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
-    t.string   "title",            limit: 255
-    t.integer  "products_list_id", limit: 4
+    t.string   "collection_id", limit: 255
+    t.string   "preference_id", limit: 255
+    t.string   "payment_type",  limit: 255
+    t.string   "status",        limit: 255, default: "initial", null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "order_id",      limit: 4,                       null: false
   end
 
-  add_index "mercado_pago_purchases", ["products_list_id"], name: "index_mercado_pago_purchases_on_products_list_id", using: :btree
-  add_index "mercado_pago_purchases", ["user_id"], name: "index_mercado_pago_purchases_on_user_id", using: :btree
+  add_index "mercado_pago_purchases", ["order_id"], name: "index_mercado_pago_purchases_on_order_id", using: :btree
 
   create_table "order_products_lists", force: :cascade do |t|
     t.integer  "order_id",   limit: 4
@@ -158,7 +155,7 @@ ActiveRecord::Schema.define(version: 20170815002005) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.integer  "order_status_id",          limit: 4
-    t.string   "tracking_title",           limit: 255
+    t.string   "title",                    limit: 255
     t.integer  "payment",                  limit: 4
     t.string   "color",                    limit: 255
     t.integer  "mercado_pago_purchase_id", limit: 4
@@ -202,15 +199,13 @@ ActiveRecord::Schema.define(version: 20170815002005) do
   end
 
   create_table "product_rows", force: :cascade do |t|
-    t.integer  "quantity",                limit: 4, default: 1
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-    t.integer  "product_id",              limit: 4
-    t.integer  "order_products_lists_id", limit: 4
-    t.integer  "products_list_id",        limit: 4
+    t.integer  "quantity",         limit: 4, default: 1
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "product_id",       limit: 4
+    t.integer  "products_list_id", limit: 4
   end
 
-  add_index "product_rows", ["order_products_lists_id"], name: "index_product_rows_on_order_products_lists_id", using: :btree
   add_index "product_rows", ["product_id"], name: "fk_rails_cf1216850a", using: :btree
   add_index "product_rows", ["products_list_id"], name: "index_product_rows_on_products_list_id", using: :btree
 

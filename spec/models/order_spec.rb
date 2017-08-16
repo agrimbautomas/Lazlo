@@ -5,14 +5,14 @@
 #  id                       :integer          not null, primary key
 #  buyer_id                 :integer
 #  product_id               :integer
-#  code                     :string
-#  detail                   :string
+#  code                     :string(255)
+#  detail                   :string(255)
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  order_status_id          :integer
-#  tracking_title           :string
+#  title                    :string(255)
 #  payment                  :integer
-#  color                    :string
+#  color                    :string(255)
 #  mercado_pago_purchase_id :integer
 #  user_id                  :integer
 #  products_list_id         :integer
