@@ -12,6 +12,7 @@
 #  order_id      :integer          not null
 #
 
+
 require 'test_helper'
 
 class MercadoPagoPurchaseTest < ActiveSupport::TestCase

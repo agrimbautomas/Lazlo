@@ -10,5 +10,14 @@
 
 class OrderProductsList < ActiveRecord::Base
   belongs_to :order
-  has_many :product_rows
+  has_many :order_products_rows
+
+  def self.create_from_list products_list
+	 new_list = OrderProductsList.create
+	 products_list.product_rows.each do |product_row|
+		new_list.order_products_rows << OrderProductsRow.from_product_row(product_row)
+	 end
+	 new_list
+  end
+
 end

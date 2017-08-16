@@ -136,6 +136,16 @@ ActiveRecord::Schema.define(version: 20170816011401) do
     t.datetime "updated_at",           null: false
   end
 
+  create_table "order_products_rows", force: :cascade do |t|
+    t.integer  "order_products_list_id", limit: 4
+    t.integer  "product_id",             limit: 4
+    t.integer  "quantity",               limit: 4
+    t.string   "product_name",           limit: 255
+    t.float    "product_price",          limit: 24
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
   create_table "order_statuses", force: :cascade do |t|
     t.string   "name",               limit: 255
     t.datetime "created_at",                     null: false
@@ -161,10 +171,12 @@ ActiveRecord::Schema.define(version: 20170816011401) do
     t.integer  "mercado_pago_purchase_id", limit: 4
     t.integer  "user_id",                  limit: 4
     t.integer  "products_list_id",         limit: 4
+    t.integer  "order_products_list_id",   limit: 4
   end
 
   add_index "orders", ["buyer_id"], name: "index_orders_on_buyer_id", using: :btree
   add_index "orders", ["mercado_pago_purchase_id"], name: "index_orders_on_mercado_pago_purchase_id", using: :btree
+  add_index "orders", ["order_products_list_id"], name: "index_orders_on_order_products_list_id", using: :btree
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
   add_index "orders", ["product_id"], name: "index_orders_on_product_id", using: :btree
   add_index "orders", ["products_list_id"], name: "index_orders_on_products_list_id", using: :btree
@@ -287,7 +299,9 @@ ActiveRecord::Schema.define(version: 20170816011401) do
 
   add_foreign_key "orders", "buyers"
   add_foreign_key "orders", "mercado_pago_purchases"
+  add_foreign_key "orders", "order_products_lists"
   add_foreign_key "orders", "order_statuses"
+  add_foreign_key "orders", "products"
   add_foreign_key "product_rows", "products"
   add_foreign_key "product_rows", "products_lists"
   add_foreign_key "products", "categories"

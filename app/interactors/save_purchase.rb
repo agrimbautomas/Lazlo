@@ -13,20 +13,13 @@ class SavePurchase
   private
 
   def self.create_mercado_pago_purchase
-	 byebug
 	 @mercado_pago_purchase = MercadoPagoPurchase.create!(
 		  :user => @user,
-		  :products_list => create_new_list_from(@user.checkout_list),
+		  :products_list => OrderProductsList.create_from_list(@user.checkout_list),
 		  :status => MercadoPagoPurchase.statuses[:initial],
 		  :title => preferences['title']
 	 )
 	 @mercado_pago_purchase.update_by_mp_response(@purchase_params)
-  end
-
-  def self.create_new_list_from checkout_list
-	 # Todo Create order product list and store
-	 OrderProductsLists.create(user: @user, )
-
   end
 
   def self.preferences
