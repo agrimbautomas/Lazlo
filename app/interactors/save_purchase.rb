@@ -1,3 +1,4 @@
+# Create and save purchase data
 class SavePurchase
 
   def self.for user, purchase_params

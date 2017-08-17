@@ -19,6 +19,7 @@
 /tmp
 /vendor/*
 1
+rubocop.html
 
 /.idea
 .idea/

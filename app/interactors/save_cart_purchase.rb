@@ -1,7 +1,3 @@
+# For multiple purchase checkout
 class SaveCartPurchase < SavePurchase
-
-  private
-
-
-
 end

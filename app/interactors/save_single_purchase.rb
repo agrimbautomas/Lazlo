@@ -1,5 +1,3 @@
+# For one product purchase
 class SaveSinglePurchase < SavePurchase
-
-  private
-
 end
