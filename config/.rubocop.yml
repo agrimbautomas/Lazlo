@@ -1,0 +1,50 @@
+require: rubocop-rspec
+
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Include:
+    - 'app/**/*.rb'
+    - 'lib/**/*.rb'
+    - 'spec/**/*.rb'
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/Tab:
+  Enabled: false
+
+Style/AutoResourceCleanup:
+  Enabled: true
+
+Style/IndentationWidth:
+  Enabled: false
+
+Style/IndentHash:
+  Enabled: false
+
+Style/AccessModifierIndentation:
+  Enabled: false
+
+Style/SpaceInsideBrackets:
+  Enabled: false
+
+Style/SpaceInsideParens:
+  Enabled: false
+
+Style/SpaceInsideRangeLiteral:
+  Enabled: false
+
+Style/SpaceAroundBlockParameters:
+  Enabled: false
+
+Style/LambdaCall:
+  Enabled: false
+
+Style/CaseIndentation:
+  Enabled: false
+
+RSpec/ExampleWording:
+  Enabled: false

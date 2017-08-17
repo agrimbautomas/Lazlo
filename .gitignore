@@ -17,6 +17,8 @@
 /log/*
 !/log/.keep
 /tmp
+/vendor/*
+1
 
 /.idea
 .idea/

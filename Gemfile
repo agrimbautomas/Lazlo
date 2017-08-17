@@ -53,6 +53,10 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
 
+  # Replaces the standard Rails error page with a much better and more useful error page
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
   # Better rails console, url: https://github.com/goodpeople/debbie
   gem 'debbie'
   # Pry console, url: https://github.com/rweng/pry-rails
@@ -64,6 +68,10 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rvm'
+
+
+  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rubocop-rspec'
 
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
