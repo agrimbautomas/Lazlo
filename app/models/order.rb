@@ -24,6 +24,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :mercado_pago_purchase
   belongs_to :order_products_list
+  belongs_to :order_status
 
   before_create :set_code
   validates :order_products_list, presence: true

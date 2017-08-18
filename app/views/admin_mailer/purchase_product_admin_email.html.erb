@@ -23,13 +23,7 @@
     width: auto;
     display: inline-block;">
 
-  <% if @user.orders.any? %>
-      <% @user.orders.each do |order|
-        @order = order
-      %>
-          <%= render :partial => 'users/orders/order_row' %>
-      <% end %>
-  <% end %>
+  <%= render :partial => 'admin_mailer/orders/order_row' %>
 
 </div>
 

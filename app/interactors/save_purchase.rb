@@ -11,12 +11,13 @@ class SavePurchase
 
 
   def self.create_order
+	 # Todo - Add total to order & type
 	 @order = Order.create(
 		  :user => @user,
 		  :order_products_list => OrderProductsList.create_from_list(@user.checkout_list),
 		  :payment => 0,
 		  :title => additional_info['title'],
-		  :order_status_id => OrderStatus.find_by_priority(1).id,
+		  :order_status => OrderStatus.find_or_create_by(name: @purchase_params['collection_status']),
 		  :detail => 'Producto comprado dedes la Web'
 	 )
 	 create_mercado_pago_order
@@ -40,7 +41,7 @@ class SavePurchase
   end
 
   def self.additional_info
-	 preferences['response']['additional_info'] || nil
+	 JSON.parse(preferences['response']['additional_info']) || nil
   end
 
   def self.send_success_email
