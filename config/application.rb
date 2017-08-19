@@ -2,17 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-#MercadoPago
-require 'mercadopago.rb'
-
-client_id = Rails.application.secrets.client_id
-secret_id = Rails.application.secrets.secret_id
-$mp_client = MercadoPago.new(client_id, secret_id)
-
-#Instragram
-INSTRAGRAM_ACCESS_TOKEN = Rails.application.secrets.instagram_token
-
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

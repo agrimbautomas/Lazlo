@@ -23,10 +23,22 @@ class MercadoPagoCheckout < Interactor
 		  'items' => items_to_json,
 		  'back_urls' => back_urls_json,
 		  'payer' => payer_data,
-		  'additional_info' => purchase_data
+		  'additional_info' => purchase_data,
+		  'client_id' => Rails.application.secrets[:mercado_pago_client_id]
+		  # Todo - Limit payment methods only to cards
+		  # 'payment_methods' => payment_methods
 	 }
   end
 
+  def payment_methods
+	 {
+		  'excluded_payment_methods' => '',
+		  'excluded_payment_types' => '',
+		  'default_payment_method_id' => '',
+		  'installments' => '',
+		  'default_installments' => ''
+	 }
+  end
 
   def payer_data
 	 {

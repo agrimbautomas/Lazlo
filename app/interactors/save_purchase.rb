@@ -11,11 +11,11 @@ class SavePurchase
 
 
   def self.create_order
-	 # Todo - Add total to order & type
+	 # Todo - Add total to order & payment type
 	 @order = Order.create(
 		  :user => @user,
-		  :order_products_list => OrderProductsList.create_from_list(@user.checkout_list),
-		  :payment => 0,
+		  :order_products_list => order_products_list = OrderProductsList.create_from_list(@user.checkout_list),
+		  :payment => order_products_list.total,
 		  :title => additional_info['title'],
 		  :order_status => OrderStatus.find_or_create_by(name: @purchase_params['collection_status']),
 		  :detail => 'Producto comprado dedes la Web'

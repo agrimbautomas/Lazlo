@@ -20,4 +20,15 @@ class OrderProductsList < ActiveRecord::Base
 	 new_list
   end
 
+  def total
+	 total = 0
+	 order_products_rows.each {|products_row| total += products_row.total}
+	 total
+  end
+
+  def formatted_total
+	 '$' + total.to_s
+  end
+
+
 end

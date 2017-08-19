@@ -1,7 +1,6 @@
 <div class="user-purchased-item-block">
 
   <div class="order-info-row">
-    <h4><%= @order.title %></h4>
     <span><%= @order.updated_at.strftime('%d %b %y') %></span>
   </div>
 
@@ -24,10 +23,15 @@
             </div>
 
             <span class="cart-product-price">
-                <%= @order.formatted_total %>
+                <%= product_row.formatted_total %>
             </span>
 
           </div>
       <% end %>
+
+      <div class="total-row">
+        <h6>Total</h6>
+        <span><%= @order.order_products_list.formatted_total %></span>
+      </div>
   <% end %>
 </div>
