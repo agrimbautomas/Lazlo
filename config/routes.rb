@@ -29,11 +29,11 @@ Rails.application.routes.draw do
   # Checkout
   get 'single-checkout-success', to: 'checkout#single_checkout_success'
   get 'single-checkout-pending', to: 'checkout#single_checkout_pending'
-  get 'single-checkout-failure', to: 'checkout#single_checkout_failure'
+  get 'single-checkout-cancelled', to: 'checkout#single_checkout_cancelled'
 
   get 'cart-checkout-success', to: 'checkout#cart_checkout_success'
   get 'cart-checkout-pending', to: 'checkout#cart_checkout_pending'
-  get 'cart-checkout-failure', to: 'checkout#cart_checkout_failure'
+  get 'cart-checkout-cancelled', to: 'checkout#cart_checkout_cancelled'
 
   # API
   api version: 1, module: 'api/v1' do

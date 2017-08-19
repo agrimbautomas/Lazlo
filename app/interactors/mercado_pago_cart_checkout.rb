@@ -24,7 +24,7 @@ class MercadoPagoCartCheckout < MercadoPagoCheckout
 	 {
 		  'pending' => cart_checkout_success_url(product_row.product),
 		  'success' => cart_checkout_pending_url(product_row.product),
-		  'failure' => cart_checkout_failure_url(product_row.product)
+		  'failure' => cart_checkout_cancelled_url(product_row.product)
 	 }
   end
 

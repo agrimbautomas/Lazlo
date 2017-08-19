@@ -31,7 +31,7 @@ class MercadoPagoSingleCheckout < MercadoPagoCheckout
 	 {
 		  'pending' => single_checkout_success_url(@product),
 		  'success' => single_checkout_pending_url(@product),
-		  'failure' => single_checkout_failure_url(@product)
+		  'failure' => single_checkout_cancelled_url(@product)
 	 }
   end
 

@@ -25,15 +25,6 @@ class CheckoutController < ApplicationController
 	 redirect_to product_path @product
   end
 
-  def single_checkout_failure
-	 params = purchase_params
-	 params[:message] = 'canceló'
-
-	 send_cancelled_purcharse_email params
-	 flash[:notice] = 'Su compra ha sido cancelada. Gracias.'
-	 redirect_to product_path @product
-  end
-
   def cart_checkout_pending
 	 params = purchase_params
 	 params[:message] = 'dejó pendiente'
@@ -43,14 +34,24 @@ class CheckoutController < ApplicationController
 	 redirect_to product_path @product
   end
 
-  def cart_checkout_failure
+  # Cancelled
+
+  def single_checkout_cancelled
 	 params = purchase_params
 	 params[:message] = 'canceló'
 
 	 send_cancelled_purcharse_email params
 	 flash[:notice] = 'Su compra ha sido cancelada. Gracias.'
-	 redirect_to product_path @product
+
+	 EmailSinglePurchaseCancellation.for(current_user, purchase_params)
+	 redirect_to_product @product, 'Su compra ha sido cancelada. Gracias.'
+
   end
+
+  def cart_checkout_cancelled
+	 EmailCartePurchaseCancellation.for(current_user, purchase_params)
+	 redirect_to_cart 'Su compra ha sido cancelada. Gracias.'
+	end
 
   private
   def set_product
@@ -65,4 +66,15 @@ class CheckoutController < ApplicationController
 	 flash[:notice] = message unless message.nil?
 	 redirect_to profile_path
   end
+
+  def redirect_to_product product, message = nil
+	 flash[:notice] = message unless message.nil?
+	 redirect_to product_path product
+  end
+
+  def redirect_to_cart message = nil
+	 flash[:notice] = message unless message.nil?
+	 redirect_to cart_path
+  end
+
 end
