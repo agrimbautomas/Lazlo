@@ -28,4 +28,14 @@ class OrderProductsRow < ActiveRecord::Base
 	 )
   end
 
+  def total
+	 if product_price.present?
+		quantity * product_price
+	 end
+  end
+
+  def formatted_total
+	 '$' + total.to_s
+  end
+
 end

@@ -23,12 +23,9 @@
 
             </div>
 
-            <% if product_row.product.price.present?
-                 total_price = product_row.quantity * product_row.product.price.to_i %>
-                <span class="cart-product-price">
-                <%= '$' + total_price.to_s %>
-                </span>
-            <% end %>
+            <span class="cart-product-price">
+                <%= @order.formatted_total %>
+            </span>
 
           </div>
       <% end %>

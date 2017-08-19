@@ -5,12 +5,12 @@ require 'rails/all'
 #MercadoPago
 require 'mercadopago.rb'
 
-client_id = '2261800553682324'
-secret_id = 'NCuO2sg66M3oiEbfiwwUs255e1ScHMgO'
+client_id = Rails.application.secrets.client_id
+secret_id = Rails.application.secrets.secret_id
 $mp_client = MercadoPago.new(client_id, secret_id)
 
 #Instragram
-INSTRAGRAM_ACCESS_TOKEN = '1306280758.4380181.5860f08a664646629c71d3de82357ea9'
+INSTRAGRAM_ACCESS_TOKEN = Rails.application.secrets.instagram_token
 
 
 # Require the gems listed in Gemfile, including any gems
@@ -19,21 +19,21 @@ Bundler.require(*Rails.groups)
 
 module MacainWeb
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+	 # Settings in config/environments/* take precedence over those specified here.
+	 # Application configuration should go into files in config/initializers
+	 # -- all .rb files in that directory are automatically loaded.
 
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
-    config.time_zone = 'America/Argentina/Buenos_Aires'
+	 # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+	 # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
+	 # config.time_zone = 'Central Time (US & Canada)'
+	 config.time_zone = 'America/Argentina/Buenos_Aires'
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :es
+	 # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+	 # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+	 config.i18n.default_locale = :es
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+	 # Do not swallow errors in after_commit/after_rollback callbacks.
+	 config.active_record.raise_in_transactional_callbacks = true
 
   end
 end
