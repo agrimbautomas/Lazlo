@@ -48,12 +48,14 @@ class SavePurchase
   end
 
   def self.send_success_email
-	 params = @purchase_params
-	 params[:order] = @order
-	 params[:user] = @user
+	 BackgroundJob.run_block do
+		params = @purchase_params
+		params[:order] = @order
+		params[:user] = @user
 
-	 UserMailer.purchase_product_user_email(params).deliver_now
-	 AdminMailer.purchase_product_admin_email(params).deliver_now
+		UserMailer.purchase_product_user_email(params).deliver_now
+		AdminMailer.purchase_product_admin_email(params).deliver_now
+	 end
   end
 
 end

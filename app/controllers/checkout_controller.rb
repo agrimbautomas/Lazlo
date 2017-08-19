@@ -5,15 +5,14 @@ class CheckoutController < ApplicationController
   # Success
   def single_checkout_success
 	 SaveSinglePurchase.for(current_user, purchase_params)
-	 flash[:notice] = I18n.t('checkout_success_message')
-	 redirect_to profile_path
+	 redirect_to_profile I18n.t('checkout_success_message')
   end
 
   def cart_checkout_success
 	 SaveCartPurchase.for(current_user, purchase_params)
-	 flash[:notice] = I18n.t('checkout_success_message')
-	 redirect_to profile_path
+	 redirect_to_profile I18n.t('checkout_success_message')
   end
+
 
   # Pending
 
@@ -62,4 +61,8 @@ class CheckoutController < ApplicationController
 	 params.permit(:collection_id, :preference_id, :payment_type, :collection_status)
   end
 
+  def redirect_to_profile message = nil
+	 flash[:notice] = message unless message.nil?
+	 redirect_to profile_path
+  end
 end
