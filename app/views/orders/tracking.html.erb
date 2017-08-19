@@ -5,22 +5,28 @@
 <div class="full-container tracking-container">
 
   <div class="buyers-data">
-    <h1><%= @locals[:order].title %></h1>
+    <h1><%= @order.title %></h1>
 
-    <div class="product-image">
-      <%= image_tag @locals[:order].product.image.url(:medium) %>
-    </div>
+    <%
+      # Todo - Check if product was delivered, then dont show
+      if @order.order_products_list.present? and @order.order_products_list.order_products_rows.any? %>
+        <% @order.order_products_list.order_products_rows.each do |product_row| %>
+            <div class="product-image">
+              <%= image_tag product_row.product.image.url(:medium) %>
+            </div>
+        <% end %>
+    <% end %>
   </div>
 
   <%
-     status_class = 'status-active'
-     date_created = @locals[:order].created_at.strftime('%m/%d')
-     week_later = (@locals[:order].created_at + 15.days).strftime('%m/%d')
+    status_class = 'status-active'
+    date_created = @order.created_at.strftime('%m/%d')
+    week_later = (@order.created_at + 15.days).strftime('%m/%d')
   %>
   <div class="status-blocks-container">
-    <% @locals[:statuses].each_with_index do |product_status, i|
+    <% @statuses.each_with_index do |product_status, i|
       start_date = (i == 0) ? date_created : ''
-      deliver_date = (i == (@locals[:statuses].size - 1)) ? week_later : ''
+      deliver_date = (i == (@statuses.size - 1)) ? week_later : ''
     %>
 
         <div class="status-block <%= status_class %>">
@@ -37,9 +43,9 @@
         </div>
 
         <%
-           if (status_class == 'status-active') and (product_status.name == @locals[:status].name)
-             status_class = 'status-inactive'
-           end
+          if (status_class == 'status-active') and (product_status.name == @status.name)
+            status_class = 'status-inactive'
+          end
         %>
     <% end %>
   </div>

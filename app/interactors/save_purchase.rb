@@ -11,6 +11,7 @@ class SavePurchase
 
 
   def self.create_order
+	 byebug
 	 # Todo - Add total to order & payment type
 	 @order = Order.create(
 		  :user => @user,
@@ -23,6 +24,7 @@ class SavePurchase
 	 create_mercado_pago_order
 	 @order.save!
 	 @user.checkout_list.product_rows.destroy_all
+	 flash[:notice] = 'Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega. Gracias!'
   end
 
   private

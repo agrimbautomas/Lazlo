@@ -200,6 +200,9 @@ span.error {
         width: 50%;
         text-align: left;
         font-size: 18px;
+        a:hover{
+          color: $green_macain_hover;
+        }
       }
 
       .cart-product-quantity {

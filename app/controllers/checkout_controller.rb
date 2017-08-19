@@ -4,7 +4,6 @@ class CheckoutController < ApplicationController
 
   def single_checkout_success
 	 SaveSinglePurchase.for(current_user, purchase_params)
-	 flash[:notice] = 'Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega. Gracias!'
 	 redirect_to profile_path
   end
 
@@ -28,7 +27,6 @@ class CheckoutController < ApplicationController
 
   def cart_checkout_success
 	 SaveCartPurchase.for(current_user, purchase_params)
-	 flash[:notice] = 'Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega. Gracias!'
 	 redirect_to profile_path
   end
 
