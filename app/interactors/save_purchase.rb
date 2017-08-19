@@ -9,22 +9,23 @@ class SavePurchase
 	 send_success_email
   end
 
-
   def self.create_order
-	 byebug
-	 # Todo - Add total to order & payment type
 	 @order = Order.create(
 		  :user => @user,
-		  :order_products_list => order_products_list = OrderProductsList.create_from_list(@user.checkout_list),
-		  :payment => order_products_list.total,
-		  :title => additional_info['title'],
+		  :order_products_list => order_products_list,
+		  :payment => payment,
+		  :title => title,
+		  :payment_type => Order.payment_types[:mercado_pago],
 		  :order_status => OrderStatus.find_or_create_by(name: @purchase_params['collection_status']),
-		  :detail => 'Producto comprado dedes la Web'
+		  :detail => I18n.t('checkout_web_product_detail')
 	 )
+	 checkout
+  end
+
+  def self.checkout
 	 create_mercado_pago_order
 	 @order.save!
 	 @user.checkout_list.product_rows.destroy_all
-	 flash[:notice] = 'Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega. Gracias!'
   end
 
   private

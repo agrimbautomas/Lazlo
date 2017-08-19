@@ -5,17 +5,18 @@
 #  id                       :integer          not null, primary key
 #  buyer_id                 :integer
 #  product_id               :integer
-#  code                     :string(255)
-#  detail                   :string(255)
+#  code                     :string
+#  detail                   :string
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  order_status_id          :integer
-#  title                    :string(255)
+#  title                    :string
 #  payment                  :integer
-#  color                    :string(255)
+#  color                    :string
 #  mercado_pago_purchase_id :integer
 #  user_id                  :integer
 #  order_products_list_id   :integer
+#  payment_type             :integer          default(0), not null
 #
 
 require 'rails_helper'

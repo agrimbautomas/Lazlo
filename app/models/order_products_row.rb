@@ -6,8 +6,8 @@
 #  order_products_list_id :integer
 #  product_id             :integer
 #  quantity               :integer
-#  product_name           :string(255)
-#  product_price          :float(24)
+#  product_name           :string
+#  product_price          :float
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -25,6 +25,15 @@ class OrderProductsRow < ActiveRecord::Base
 		  product_name: product_row.product.name,
 		  product_price: product_row.product.price,
 		  quantity: product_row.quantity,
+	 )
+  end
+
+  def self.from_product product
+	 OrderProductsRow.create(
+		  product: product,
+		  product_name: product.name,
+		  product_price: product.price,
+		  quantity: 1,
 	 )
   end
 

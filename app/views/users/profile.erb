@@ -5,7 +5,7 @@
 <div class="grilla user-purchased-products">
 
   <% if current_user.orders.any? %>
-      <% current_user.orders.each do |order|
+      <% current_user.orders.order(:created_at => 'DESC').each do |order|
         @order = order
       %>
           <%= render :partial => 'users/orders/order_row' %>

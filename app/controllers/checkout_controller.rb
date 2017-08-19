@@ -2,10 +2,20 @@ class CheckoutController < ApplicationController
 
   before_action :authenticate_user!
 
+  # Success
   def single_checkout_success
 	 SaveSinglePurchase.for(current_user, purchase_params)
+	 flash[:notice] = I18n.t('checkout_success_message')
 	 redirect_to profile_path
   end
+
+  def cart_checkout_success
+	 SaveCartPurchase.for(current_user, purchase_params)
+	 flash[:notice] = I18n.t('checkout_success_message')
+	 redirect_to profile_path
+  end
+
+  # Pending
 
   def single_checkout_pending
 	 params = purchase_params
@@ -23,11 +33,6 @@ class CheckoutController < ApplicationController
 	 send_cancelled_purcharse_email params
 	 flash[:notice] = 'Su compra ha sido cancelada. Gracias.'
 	 redirect_to product_path @product
-  end
-
-  def cart_checkout_success
-	 SaveCartPurchase.for(current_user, purchase_params)
-	 redirect_to profile_path
   end
 
   def cart_checkout_pending
