@@ -37,13 +37,7 @@ class CheckoutController < ApplicationController
   # Cancelled
 
   def single_checkout_cancelled
-	 params = purchase_params
-	 params[:message] = 'canceló'
-
-	 send_cancelled_purcharse_email params
-	 flash[:notice] = 'Su compra ha sido cancelada. Gracias.'
-
-	 EmailSinglePurchaseCancellation.for(current_user, purchase_params)
+	 SaveSinglePurchase.for(current_user, purchase_params)
 	 redirect_to_product @product, 'Su compra ha sido cancelada. Gracias.'
 
   end
