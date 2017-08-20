@@ -53,8 +53,8 @@ RSpec.describe User, type: :model do
   it { should respond_to(:purchased_list) }
   it { should have_one(:purchased_list) }
 
-  it { should respond_to(:mercado_pago_purchases) }
-  it { should have_many(:mercado_pago_purchases) }
+  it { should respond_to(:orders) }
+  it { should have_many(:orders) }
 
 
   context "on Create" do

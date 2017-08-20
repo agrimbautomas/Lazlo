@@ -28,7 +28,8 @@ RSpec.describe Product, type: :model do
                             description: 'Some random description, some random description') }
 
   it { should respond_to (:name) }
-  it { should respond_to (:payment) }
+  it { should respond_to (:price) }
+  it { should respond_to (:slug) }
 
   it { should belong_to(:category) }
   it { should have_many(:orders) }
