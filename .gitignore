@@ -29,6 +29,7 @@ public/system/
 public/assets/
 /public/system/
 Capfile.lock
+Gemfile.lock
 
 #Tests
 /test_output/*
