@@ -38,8 +38,6 @@ class User < ActiveRecord::Base
   has_one :purchased_list, :dependent => :destroy
   has_many :orders
 
-  has_many :mercado_pago_purchases, :dependent => :destroy
-
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
 	 data = access_token.extra.raw_info
 	 if user = User.where(:email => data.email).first
