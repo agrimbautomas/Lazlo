@@ -13,25 +13,16 @@ class CheckoutController < ApplicationController
 	 redirect_to_profile I18n.t('checkout_success_message')
   end
 
-
   # Pending
 
   def single_checkout_pending
-	 params = purchase_params
-	 params[:message] = 'dejó pendiente'
-
-	 send_admin_email params
-	 flash[:notice] = 'Su compra NO se concretó, quedó pendiente, Gracias.'
-	 redirect_to product_path @product
+	 PendingCartPurchase.for(current_user, purchase_params)
+	 redirect_to_profile redirect_to_cart I18n.t('checkout_pending_message')
   end
 
   def cart_checkout_pending
-	 params = purchase_params
-	 params[:message] = 'dejó pendiente'
-
-	 send_admin_email params
-	 flash[:notice] = 'Su compra NO se concretó, quedó pendiente, Gracias.'
-	 redirect_to product_path @product
+	 PendingCartPurchase.for(current_user, purchase_params)
+	 redirect_to_profile redirect_to_cart I18n.t('checkout_pending_message')
   end
 
   # Cancelled
@@ -58,11 +49,6 @@ class CheckoutController < ApplicationController
   def redirect_to_profile message = nil
 	 flash[:notice] = message unless message.nil?
 	 redirect_to profile_path
-  end
-
-  def redirect_to_product product, message = nil
-	 flash[:notice] = message unless message.nil?
-	 redirect_to product_path product
   end
 
   def redirect_to_cart message = nil
