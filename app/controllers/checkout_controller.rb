@@ -37,15 +37,14 @@ class CheckoutController < ApplicationController
   # Cancelled
 
   def single_checkout_cancelled
-	 SaveSinglePurchase.for(current_user, purchase_params)
-	 redirect_to_product @product, 'Su compra ha sido cancelada. Gracias.'
-
+	 CancelSinglePurchase.for(current_user, purchase_params)
+	 redirect_to_cart I18n.t('checkout_cancelled_message')
   end
 
   def cart_checkout_cancelled
-	 EmailCartePurchaseCancellation.for(current_user, purchase_params)
-	 redirect_to_cart 'Su compra ha sido cancelada. Gracias.'
-	end
+	 CancelCartPurchase.for(current_user, purchase_params)
+	 redirect_to_cart I18n.t('checkout_cancelled_message')
+  end
 
   private
   def set_product

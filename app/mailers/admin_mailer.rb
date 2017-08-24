@@ -16,7 +16,7 @@ class AdminMailer < AppMailer
 	 @order = params[:order]
 	 @message = params[:message]
 
-	 mail(to: RECEIVERS, subject: "Papin! Papin! #{@user.email}  #{@message} la compra de una #{@order.title}")
+	 mail(to: RECEIVERS, subject: "Papin! Papin! #{@user.email}  realizó la compra de #{@order.title}")
   end
 
   def cancelled_product_admin_email params
@@ -26,7 +26,7 @@ class AdminMailer < AppMailer
 	 @order = params[:order]
 	 @message = params[:message]
 
-	 mail(to: RECEIVERS, subject: "Papin! Papin! #{@user.email} #{@message} la compra de una #{@product.name}")
+	 mail(to: RECEIVERS, subject: "Flann...! El usuario #{@user.email} cancelo la compra de #{@order.title}")
   end
 
   private

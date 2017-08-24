@@ -293,5 +293,7 @@ es:
           current_sign_in_at: Última vez conectado
           sign_in_count: Cantidad de veces conectado
   checkout_purchase_title: Compra en Macain -
-  checkout_web_product_detail: Producto comprado dedes la Web
+  checkout_web_product_detail: Compra desde la Web
+  cancelled_web_product_detail: Compra cancelada desde la Web
   checkout_success_message: Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega.
+  checkout_cancelled_message: Su compra ha sido cancelada. Gracias.
