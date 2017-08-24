@@ -16,6 +16,6 @@ class MercadoPagoPurchase < ActiveRecord::Base
 
   belongs_to :order
 
-  enum status: [:initial, :authorized, :paused, :cancelled, :pending]
+  enum status: [:initial, :authorized, :paused, :cancelled, :pending, :in_process]
 
 end

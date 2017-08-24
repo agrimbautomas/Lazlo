@@ -1,4 +1,4 @@
-class SaveSinglePurchase < SavePurchase
+class PendingSinglePurchase < SavePurchase
 
   def self.order_products_list
 	 product = Product.find(product_data['id'])
@@ -10,7 +10,7 @@ class SaveSinglePurchase < SavePurchase
   end
 
   def self.title
-	 product_data['name']
+	 additional_info['title']
   end
 
   def self.product_data

@@ -1,4 +1,4 @@
-class SaveCartPurchase < SavePurchase
+class PendingCartPurchase < CancelPurchase
 
   def self.order_products_list
 	 @order_products_list = OrderProductsList.create_from_list(@user.checkout_list)

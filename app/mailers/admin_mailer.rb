@@ -19,6 +19,17 @@ class AdminMailer < AppMailer
 	 mail(to: RECEIVERS, subject: "Papin! Papin! #{@user.email}  realizó la compra de #{@order.title}")
   end
 
+  def pending_product_admin_email params
+	 @user = params[:user]
+	 @product = params[:product]
+	 @image = params[:image]
+	 @order = params[:order]
+	 @message = params[:message]
+
+	 # Todo Check not sending email
+	 mail(to: RECEIVERS, subject: "Flann...! El usuario #{@user.email} dejo pendiente la compra de #{@order.title}")
+  end
+
   def cancelled_product_admin_email params
 	 @user = params[:user]
 	 @product = params[:product]
@@ -26,6 +37,7 @@ class AdminMailer < AppMailer
 	 @order = params[:order]
 	 @message = params[:message]
 
+	 # Todo Check not sending email
 	 mail(to: RECEIVERS, subject: "Flann...! El usuario #{@user.email} cancelo la compra de #{@order.title}")
   end
 
