@@ -20,6 +20,7 @@ class CancelPurchase < Purchase
   private
 
   def self.create_mercado_pago_order
+	 #Todo - Remove hardcoded status and add response status
 	 @order.create_mercado_pago_purchase(
 		  :status => MercadoPagoPurchase.statuses['cancelled'],
 		  :preference_id => @purchase_params['preference_id'],
