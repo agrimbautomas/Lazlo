@@ -50,7 +50,7 @@ class CancelPurchase
 		params[:order] = @order
 		params[:user] = @user
 
-		AdminMailer.cancelled_product_admin_email(params).deliver_now
+		AdminMailer.cancelled_purchase_admin_email(params).deliver_now
 	 end
   end
 

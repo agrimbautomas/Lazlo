@@ -51,7 +51,7 @@ class PendingPurchase
 		params[:order] = @order
 		params[:user] = @user
 
-		AdminMailer.pending_product_admin_email(params).deliver_now
+		AdminMailer.pending_purchase_admin_email(params).deliver_now
 	 end
   end
 

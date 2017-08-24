@@ -52,8 +52,8 @@ class SavePurchase
 		params[:order] = @order
 		params[:user] = @user
 
-		UserMailer.purchase_product_user_email(params).deliver_now
-		AdminMailer.purchase_product_admin_email(params).deliver_now
+		UserMailer.success_purchase_user_email(params).deliver_now
+		AdminMailer.purchase_purchase_admin_email(params).deliver_now
 	 end
   end
 
