@@ -9,7 +9,7 @@ class AdminMailer < AppMailer
 	 mail(to: RECEIVERS, subject: "Siranushen Alert :) - Mensaje de: #{@name}")
   end
 
-  def purchase_product_admin_email params
+  def success_purchase_admin_email params
 	 @user = params[:user]
 	 @product = params[:product]
 	 @image = params[:image]
@@ -19,7 +19,7 @@ class AdminMailer < AppMailer
 	 mail(to: RECEIVERS, subject: "Papin! Papin! #{@user.email}  realizó la compra de #{@order.title}")
   end
 
-  def pending_product_admin_email params
+  def pending_purchase_admin_email params
 	 @user = params[:user]
 	 @product = params[:product]
 	 @image = params[:image]
@@ -30,7 +30,7 @@ class AdminMailer < AppMailer
 	 mail(to: RECEIVERS, subject: "Flann...! El usuario #{@user.email} dejo pendiente la compra de #{@order.title}")
   end
 
-  def cancelled_product_admin_email params
+  def cancelled_purchase_admin_email params
 	 @user = params[:user]
 	 @product = params[:product]
 	 @image = params[:image]

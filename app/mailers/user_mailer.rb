@@ -19,7 +19,7 @@ class UserMailer < AppMailer
     super(record, token, opts={})
   end
 
-  def purchase_product_user_email params
+  def success_purchase_user_email params
     @images = {
         :logo => asset_absolute_path('logo-macain-300.png'),
         :background => asset_absolute_path('fondo-colores.png'),

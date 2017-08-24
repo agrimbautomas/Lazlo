@@ -1,4 +1,4 @@
-class SaveSinglePurchase < SavePurchase
+class SuccessSinglePurchase < SuccessPurchase
 
   def self.order_products_list
 	 product = Product.find(product_data['id'])

@@ -4,12 +4,12 @@ class CheckoutController < ApplicationController
 
   # Success
   def single_checkout_success
-	 SaveSinglePurchase.for(current_user, purchase_params)
+	 SuccessSinglePurchase.for(current_user, purchase_params)
 	 redirect_to_profile I18n.t('checkout_success_message')
   end
 
   def cart_checkout_success
-	 SaveCartPurchase.for(current_user, purchase_params)
+	 SuccessCartPurchase.for(current_user, purchase_params)
 	 redirect_to_profile I18n.t('checkout_success_message')
   end
 

@@ -1,12 +1,4 @@
-class CancelPurchase
-
-  def self.for user, purchase_params
-	 @user = user
-	 @purchase_params = purchase_params
-
-	 create_order
-	 send_cancelled_email
-  end
+class CancelPurchase < Purchase
 
   def self.create_order
 	 @order = Order.create(
@@ -25,14 +17,6 @@ class CancelPurchase
 	 @order.save!
   end
 
-  def self.preferences
-	 @preferences = @preferences || $mp_client.get_preference(@purchase_params['preference_id'])
-  end
-
-  def self.additional_info
-	 JSON.parse(preferences['response']['additional_info']) || nil
-  end
-
   private
 
   def self.create_mercado_pago_order
@@ -44,7 +28,7 @@ class CancelPurchase
 	 )
   end
 
-  def self.send_cancelled_email
+  def self.send_response_email
 	 BackgroundJob.run_block do
 		params = @purchase_params
 		params[:order] = @order

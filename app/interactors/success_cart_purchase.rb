@@ -1,4 +1,4 @@
-class SaveCartPurchase < SavePurchase
+class SuccessCartPurchase < SuccessPurchase
 
   def self.order_products_list
 	 @order_products_list = OrderProductsList.create_from_list(@user.checkout_list)
