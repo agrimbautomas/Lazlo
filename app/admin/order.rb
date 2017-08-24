@@ -40,11 +40,12 @@ ActiveAdmin.register Order do
     end
 
     column :buyer do |order|
-      p order.buyer.name
+		user = order.buyer || order.user
+      p user.name
     end
 
-    column :product do |order|
-      p order.product.name
+    column :title do |order|
+      p order.title
     end
 
     column :color do |order|
@@ -63,9 +64,9 @@ ActiveAdmin.register Order do
       (order.created_at + 15.days).strftime("%m/%d")
     end if current_admin_user.has_role? :full_admin
 
-    column 'Imagen' do |order|
-      image_tag(order.product.image.url(:thumb), :class => 'product-thumb')
-    end
+    #column 'Imagen' do |order|
+    #  image_tag(order.product.image.url(:thumb), :class => 'product-thumb')
+    #end
 
     if current_admin_user.has_role? :blacksmith
       column :actions do |order|
@@ -110,20 +111,41 @@ ActiveAdmin.register Order do
         href = request.base_url + tracking_order_by_code_path(order.code)
         link_to href, href, target: '_blank'
       end
-      row 'Status' do |order|
-        OrderStatus.find(order.order_status_id).name
+
+		row 'Status' do |order|
+        order.order_status
       end
-      row :payment do |order|
+
+		row :payment do |order|
         '$' + order.payment.to_s
       end if current_admin_user.has_role? :full_admin
       row :detail
+
       row 'Título para Tracking' do
         order.title
       end if current_admin_user.has_role? :full_admin
 
-      row 'Imagen' do
-        image_tag(order.product.image.url(:thumb))
+      #row 'Imagen' do
+        #image_tag(order.product.image.url(:thumb))
+		#end
+
+      panel t('activerecord.models.answer.other') do
+        table_for(order.order_products_list.order_products_rows) do
+          column t('title') do |order_products_row|
+            product_row.name
+          end
+
+          column I18n.t('image') do |answer|
+            image_tag(answer.image.url(:medium), class: 'medium_image_size') unless answer.image.nil?
+          end unless (question.answers_are_text_type?)
+
+          column t('activerecord.models.question.next') do |answer|
+            link_to(answer.next_question.title,
+                    admin_research_question_path(question.research, answer.next_question)) unless answer.next_question.nil?
+          end
+        end
       end
+
     end
 
   end
