@@ -177,6 +177,10 @@ span.error {
       font-style: italic;
       color: grey;
 
+      span.status{
+        font-weight: bold;
+      }
+
       h4 {
         width: 80%;
         float: left;

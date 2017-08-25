@@ -2,6 +2,7 @@
 
   <div class="order-info-row">
     <span><%= @order.updated_at.strftime('%d %b %y') %></span>
+    <span class="status"> - <%= @order.order_status.name %></span>
   </div>
 
   <% if @order.order_products_list.present? and @order.order_products_list.order_products_rows.any? %>
