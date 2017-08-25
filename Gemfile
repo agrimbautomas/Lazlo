@@ -49,7 +49,7 @@ gem 'turbolinks'
 
 gem 'uglifier', '>= 1.3.0'
 
-gem 'unicorn'
+gem 'puma'
 
 group :development, :test do
   # Replaces the standard Rails error page with a much better page
@@ -70,7 +70,7 @@ group :development do
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm'
-  gem 'capistrano3-unicorn'
+  gem 'capistrano3-puma'
 
   gem 'rubocop', '~> 0.49.1', require: false
   gem 'rubocop-rspec'
