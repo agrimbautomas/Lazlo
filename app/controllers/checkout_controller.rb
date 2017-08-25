@@ -16,24 +16,24 @@ class CheckoutController < ApplicationController
   # Pending
 
   def single_checkout_pending
-	 PendingCartPurchase.for(current_user, purchase_params)
+	 PendingPurchase.(checkout_params).single_checkout
 	 redirect_to_profile redirect_to_cart I18n.t('checkout_pending_message')
   end
 
   def cart_checkout_pending
-	 PendingCartPurchase.for(current_user, purchase_params)
+	 PendingPurchase.(checkout_params).cart_checkout
 	 redirect_to_profile redirect_to_cart I18n.t('checkout_pending_message')
   end
 
   # Cancelled
 
   def single_checkout_cancelled
-	 CancelSinglePurchase.for(current_user, purchase_params)
+	 CancelPurchase.(checkout_params).single_checkout
 	 redirect_to_cart I18n.t('checkout_cancelled_message')
   end
 
   def cart_checkout_cancelled
-	 CancelCartPurchase.for(current_user, purchase_params)
+	 CancelPurchase.(checkout_params).cart_checkout
 	 redirect_to_cart I18n.t('checkout_cancelled_message')
   end
 
