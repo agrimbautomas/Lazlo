@@ -6,22 +6,26 @@ class Purchase < Interactor
 	 @mercado_pago_params = arguments.fetch :mercado_pago_params
   end
 
-  def self.checkout
+  def checkout
 	 create_mercado_pago_order
 	 @order.save!
   end
 
-  def self.preferences
+  def preferences
 	 @preferences = @preferences || $mp_client.get_preference(@mercado_pago_params['preference_id'])
   end
 
-  def self.additional_info
+  def additional_info
 	 JSON.parse(preferences['response']['additional_info']) || nil
+  end
+
+  def product_data
+	 JSON.parse(additional_info['product']) || nil
   end
 
   private
 
-  def self.create_mercado_pago_order
+  def create_mercado_pago_order
 	 @order.create_mercado_pago_purchase(
 		  :status => @mercado_pago_params['collection_status'],
 		  :preference_id => @mercado_pago_params['preference_id'],
@@ -30,7 +34,7 @@ class Purchase < Interactor
 	 )
   end
 
-  def self.order_detail
+  def order_detail
 	 I18n.t('checkout_web_product_detail')
   end
 

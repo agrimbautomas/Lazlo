@@ -9,7 +9,7 @@ class CheckoutController < ApplicationController
   end
 
   def cart_checkout_success
-	 SuccessCartPurchase.for(current_user, purchase_params)
+	 SuccessPurchase.(checkout_params).cart_checkout
 	 redirect_to_profile I18n.t('checkout_success_message')
   end
 
