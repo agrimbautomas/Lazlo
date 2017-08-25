@@ -1,7 +1,8 @@
 ActiveAdmin.register Order do
   menu priority: 2
 
-  permit_params :buyer_id, :user_id, :code, :detail, :order_status_id, :title, :payment
+  permit_params :buyer_id, :user_id, :code, :detail, :order_status_id, :title,
+					 :payment, order_products_rows_attributes: [:id, :picture, :_destroy]
 
   config.per_page = 20
 
@@ -12,6 +13,7 @@ ActiveAdmin.register Order do
   controller do
 
 	 def scoped_collection
+		Order.includes(:order_products_rows)
 		return Order.all if current_admin_user.has_role? :full_admin
 		return Order.where(order_status_id: [2, 3]) if current_admin_user.has_role? :blacksmith
 	 end
@@ -47,7 +49,6 @@ ActiveAdmin.register Order do
 	 column :title do |order|
 		p order.title
 	 end
-
 
 	 column 'Estado del Pago' do |order|
 		I18n.t("mercado_pago_purchase.order_status.#{order.mercado_pago_purchase.status}") unless order.mercado_pago_purchase.nil?
@@ -97,7 +98,7 @@ ActiveAdmin.register Order do
 
 
   show do |order|
-
+	 h4 'Detalle de la Orden'
 	 attributes_table_for order do
 		row t('activerecord.models.buyer.one') do
 		  order.buyer.present? ? order.buyer : order.user
@@ -118,6 +119,13 @@ ActiveAdmin.register Order do
 		  order.title
 		end if current_admin_user.has_role? :full_admin
 
+	 end
+
+	 br
+	 br
+
+	 h4 'Detalle del pago de la Orden'
+	 attributes_table_for order do
 		row 'Pago: Monto' do |order|
 		  '$' + order.payment.to_s
 		end if current_admin_user.has_role? :full_admin
@@ -130,28 +138,31 @@ ActiveAdmin.register Order do
 		  I18n.t("mercado_pago_purchase.payment_type.#{order.mercado_pago_purchase.payment_type}")
 		end if current_admin_user.has_role? :full_admin
 
-		panel t('activerecord.models.product.other') do
-		  table_for(order.order_products_list.order_products_rows) do
+	 end
 
-			 column t('activerecord.models.product.one') do |order_products_row|
-				link_to order_products_row.product_name, product_path(order_products_row.product)
-			 end
+	 br
+	 br
 
-			 column t('quantity') do |order_products_row|
-				order_products_row.quantity
-			 end
+	 panel 'Productos en la orden' do
+		table_for(order.order_products_rows) do
 
-			 column t('total') do |order_products_row|
-				order_products_row.formatted_total
-			 end
-
-			 column I18n.t('activerecord.models.product_image.one') do |order_products_row|
-				image_tag(order_products_row.product.image.url(:medium)) unless order_products_row.product.image.nil?
-			 end
-
+		  column t('activerecord.models.product.one') do |order_products_row|
+			 link_to order_products_row.product_name, product_path(order_products_row.product)
 		  end
-		end
 
+		  column t('quantity') do |order_products_row|
+			 order_products_row.quantity
+		  end
+
+		  column t('total') do |order_products_row|
+			 order_products_row.formatted_total
+		  end
+
+		  column I18n.t('activerecord.models.product_image.one') do |order_products_row|
+			 image_tag(order_products_row.product.image.url(:medium)) unless order_products_row.product.image.nil?
+		  end
+
+		end
 	 end
 
   end

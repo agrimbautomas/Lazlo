@@ -1,5 +1,5 @@
 ActiveAdmin.register AdminUser do
-  menu priority: 3, parent: I18n.t('activerecord.models.user.other')
+  menu priority: 4, parent: I18n.t('activerecord.models.user.other')
 
   permit_params :email, :password, :password_confirmation, :role_ids
 

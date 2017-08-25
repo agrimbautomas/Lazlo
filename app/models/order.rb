@@ -25,6 +25,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :mercado_pago_purchase
   belongs_to :order_products_list
+  has_many :order_products_rows, through: :order_products_list
   belongs_to :order_status
 
   enum payment_type: [:cash, :mercado_pago]

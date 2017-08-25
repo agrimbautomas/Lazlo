@@ -1,5 +1,5 @@
 ActiveAdmin.register Buyer do
-  menu priority: 3
+  menu priority: 3, parent: I18n.t('activerecord.models.user.other')
 
   permit_params :name, :email, :phone, :address
 
