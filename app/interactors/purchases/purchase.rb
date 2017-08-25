@@ -1,11 +1,9 @@
-class Purchase
+class Purchase < Interactor
 
-  def self.for user, purchase_params
-	 @user = user
-	 @purchase_params = purchase_params
-
-	 create_order
-	 send_response_email
+  def initialize(arguments)
+	 super
+	 @user = arguments.fetch :user
+	 @mercado_pago_params = arguments.fetch :mercado_pago_params
   end
 
   def self.checkout
@@ -14,7 +12,7 @@ class Purchase
   end
 
   def self.preferences
-	 @preferences = @preferences || $mp_client.get_preference(@purchase_params['preference_id'])
+	 @preferences = @preferences || $mp_client.get_preference(@mercado_pago_params['preference_id'])
   end
 
   def self.additional_info
@@ -25,10 +23,10 @@ class Purchase
 
   def self.create_mercado_pago_order
 	 @order.create_mercado_pago_purchase(
-		  :status => @purchase_params['collection_status'],
-		  :preference_id => @purchase_params['preference_id'],
-		  :collection_id => @purchase_params['collection_id'],
-		  :payment_type => @purchase_params['payment_type'],
+		  :status => @mercado_pago_params['collection_status'],
+		  :preference_id => @mercado_pago_params['preference_id'],
+		  :collection_id => @mercado_pago_params['collection_id'],
+		  :payment_type => @mercado_pago_params['payment_type'],
 	 )
   end
 

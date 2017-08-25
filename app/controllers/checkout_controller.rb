@@ -4,7 +4,7 @@ class CheckoutController < ApplicationController
 
   # Success
   def single_checkout_success
-	 SuccessSinglePurchase.for(current_user, purchase_params)
+	 SuccessPurchase.(checkout_params).single_checkout
 	 redirect_to_profile I18n.t('checkout_success_message')
   end
 
@@ -42,8 +42,14 @@ class CheckoutController < ApplicationController
 	 @product = Product.friendly.find(params[:product_id])
   end
 
-  def purchase_params
+  def mercado_pago_params
 	 params.permit(:collection_id, :preference_id, :payment_type, :collection_status)
+  end
+
+  def checkout_params
+	 params[:user] = current_user
+	 params[:mercado_pago_params] = mercado_pago_params
+	 params
   end
 
   def redirect_to_profile message = nil

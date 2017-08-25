@@ -1,6 +1,15 @@
 class SuccessPurchase < Purchase
 
-  def self.create_order
+  def cart_checkout_for user, purchase_params
+  end
+
+  def single_checkout
+	 byebug
+	 create_order
+	 send_response_email
+  end
+
+  def create_order
 	 @order = Order.create(
 		  :user => @user,
 		  :order_products_list => order_products_list,
@@ -14,13 +23,11 @@ class SuccessPurchase < Purchase
 	 checkout
   end
 
-
   private
 
-
-  def self.send_response_email
+  def send_response_email
 	 BackgroundJob.run_block do
-		params = @purchase_params
+		params = @mercado_pago_params
 		params[:order] = @order
 		params[:user] = @user
 
@@ -28,5 +35,42 @@ class SuccessPurchase < Purchase
 		AdminMailer.success_purchase_admin_email(params).deliver_now
 	 end
   end
+
+end
+
+class SuccessSinglePurchase < SuccessPurchase
+
+  def order_products_list
+	 product = Product.find(product_data['id'])
+	 @order_products_list = OrderProductsList.create_from_product(product)
+  end
+
+  def payment
+	 @order_products_list.total
+  end
+
+  def title
+	 product_data['name']
+  end
+
+  def product_data
+	 JSON.parse(additional_info['product']) || nil
+  end
+end
+
+class SuccessCartPurchase < SuccessPurchase
+
+  def order_products_list
+	 @order_products_list = OrderProductsList.create_from_list(@user.checkout_list)
+  end
+
+  def payment
+	 @order_products_list.total
+  end
+
+  def title
+	 additional_info['title']
+  end
+
 
 end
