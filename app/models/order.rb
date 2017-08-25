@@ -41,8 +41,4 @@ class Order < ActiveRecord::Base
 	 end
   end
 
-  def for_single product:
-
-  end
-
 end

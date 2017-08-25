@@ -97,9 +97,9 @@ ActiveAdmin.register Order do
   show do |order|
 
 	 attributes_table_for order do
-		row :buyer
-		row :product
-		row :color
+		row t('activerecord.models.buyer.one') do
+		  order.buyer.present? ? order.buyer : order.user
+		end
 
 		row 'Tracking Link' do
 		  href = request.base_url + tracking_order_by_code_path(order.code)
@@ -119,24 +119,25 @@ ActiveAdmin.register Order do
 		  order.title
 		end if current_admin_user.has_role? :full_admin
 
-		#row 'Imagen' do
-		#image_tag(order.product.image.url(:thumb))
-		#end
-
-		panel t('activerecord.models.answer.other') do
+		panel t('activerecord.models.product.other') do
 		  table_for(order.order_products_list.order_products_rows) do
-			 column t('title') do |order_products_row|
-				product_row.name
+
+			 column t('activerecord.models.product.one') do |order_products_row|
+				link_to order_products_row.product_name, product_path(order_products_row.product)
 			 end
 
-			 column I18n.t('image') do |answer|
-				image_tag(answer.image.url(:medium), class: 'medium_image_size') unless answer.image.nil?
-			 end unless (question.answers_are_text_type?)
-
-			 column t('activerecord.models.question.next') do |answer|
-				link_to(answer.next_question.title,
-						  admin_research_question_path(question.research, answer.next_question)) unless answer.next_question.nil?
+			 column t('quantity') do |order_products_row|
+				order_products_row.quantity
 			 end
+
+			 column t('total') do |order_products_row|
+				order_products_row.formatted_total
+			 end
+
+			 column I18n.t('activerecord.models.product_image.one') do |order_products_row|
+				image_tag(order_products_row.product.image.url(:medium)) unless order_products_row.product.image.nil?
+			 end
+
 		  end
 		end
 

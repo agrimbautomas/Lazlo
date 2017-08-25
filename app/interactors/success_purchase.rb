@@ -1,17 +1,15 @@
 class SuccessPurchase < Purchase
 
   def self.create_order
-	 byebug
 	 @order = Order.create(
 		  :user => @user,
 		  :order_products_list => order_products_list,
 		  :payment => payment,
 		  :title => title,
 		  :payment_type => Order.payment_types[:mercado_pago],
-		  :order_status => OrderStatus.find_or_create_by(name: 'Encargada'),
-		  :detail => I18n.t('checkout_web_product_detail')
+		  :order_status => OrderStatus.find_by_name('Encargado'),
+		  :detail => order_detail
 	 )
-
 	 create_mercado_pago_order
 	 checkout
   end

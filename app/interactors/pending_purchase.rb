@@ -6,7 +6,8 @@ class PendingPurchase < Purchase
 		  :order_products_list => order_products_list,
 		  :title => "[PENDING] #{title}",
 		  :payment_type => Order.payment_types[:mercado_pago],
-		  :order_status => OrderStatus.find_or_create_by(name: 'Encargada')
+		  :order_status => OrderStatus.find_by_name('Encargado'),
+		  :detail => order_detail
 	 )
 	 checkout
   end

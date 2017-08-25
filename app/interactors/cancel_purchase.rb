@@ -6,7 +6,8 @@ class CancelPurchase < Purchase
 		  :order_products_list => order_products_list,
 		  :title => "[CANCELLED] #{title}",
 		  :payment_type => Order.payment_types[:mercado_pago],
-		  :order_status => nil
+		  :order_status => nil,
+		  :detail => order_detail
 	 )
 	 checkout
   end
