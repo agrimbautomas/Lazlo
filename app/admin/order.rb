@@ -126,19 +126,19 @@ ActiveAdmin.register Order do
 
 	 h4 'Detalle del pago de la Orden'
 	 attributes_table_for order do
-		row 'Pago: Monto' do |order|
+		row 'Monto' do |order|
 		  '$' + order.payment.to_s
 		end if current_admin_user.has_role? :full_admin
 
-		row 'Pago: Estado' do |order|
+		row 'Estado del pago' do |order|
 		  I18n.t("mercado_pago_purchase.order_status.#{order.mercado_pago_purchase.status}") unless order.mercado_pago_purchase.nil?
 		end if current_admin_user.has_role? :full_admin
 
-		row 'Pago: Tipo' do |order|
+		row 'Tipo de pago' do |order|
 		  I18n.t("mercado_pago_purchase.payment_type.#{order.mercado_pago_purchase.payment_type}")
 		end if current_admin_user.has_role? :full_admin
 
-	 end
+	 end unless order.mercado_pago_purchase.nil?
 
 	 br
 	 br
@@ -159,7 +159,7 @@ ActiveAdmin.register Order do
 		  end
 
 		  column I18n.t('activerecord.models.product_image.one') do |order_products_row|
-			 image_tag(order_products_row.product.image.url(:medium)) unless order_products_row.product.image.nil?
+			 image_tag(order_products_row.product.image.url(:thumb)) unless order_products_row.product.image.nil?
 		  end
 
 		end
