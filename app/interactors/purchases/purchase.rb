@@ -18,7 +18,7 @@ class Purchase < Interactor
 	 order_products_list = OrderProductsList.create_from_product(product)
 
 	 create_order(product_data['name'], order_products_list, order_status)
-	 send_response_email
+	 send_response_emails
   end
 
   def create_order title, products_list, order_status
@@ -40,6 +40,16 @@ class Purchase < Interactor
   end
 
   private
+
+  def send_response_emails
+	 BackgroundJob.run_block do
+		params = @purchase_params
+		params[:order] = @order
+		params[:user] = @user
+
+		send_purchase_emails params
+	 end
+  end
 
   def preferences
 	 @preferences = @preferences || $mp_client.get_preference(@mercado_pago_params['preference_id'])
