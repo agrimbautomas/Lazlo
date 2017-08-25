@@ -15,14 +15,23 @@
 
 class OrderStatus < ActiveRecord::Base
 
-  has_attached_file :image, styles: { medium: "400x400>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :image, styles: {medium: "400x400>", thumb: "100x100>"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   validates :name, uniqueness: true
   validates :priority, uniqueness: true
 
+  before_validation :set_priority
 
   def name_slug
-    self.name.parameterize
+	 self.name.parameterize
   end
+
+  def set_priority
+	 self.priority = 1
+	 if OrderStatus.order(priority: :asc).last.present?
+		self.priority = OrderStatus.order(:priority).last.priority + 1
+	 end
+  end
+
 end

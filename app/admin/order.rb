@@ -29,7 +29,6 @@ ActiveAdmin.register Order do
 
   end
 
-  #index(:row_class => -> record { 'my-class' if record.was_updated? }) do
   index(:row_class => -> record { OrderStatus.find(record.order_status_id).name_slug unless record.order_status_id.nil? }) do
 	 selectable_column
 
@@ -38,8 +37,11 @@ ActiveAdmin.register Order do
 	 end
 
 	 column :buyer do |order|
-		user = order.buyer || order.user
-		p user.name
+		if order.buyer.present?
+		  link_to order.buyer.name, admin_buyer_path(order.buyer)
+		else
+		  link_to order.user.name, admin_user_path(order.user)
+		end
 	 end
 
 	 column :title do |order|
@@ -48,7 +50,7 @@ ActiveAdmin.register Order do
 
 
 	 column 'Estado del Pago' do |order|
-		order.mercado_pago_purchase.status unless order.mercado_pago_purchase.nil?
+		I18n.t("mercado_pago_purchase.order_status.#{order.mercado_pago_purchase.status}") unless order.mercado_pago_purchase.nil?
 	 end
 	 column 'Estado de la Orden', :class => 'status' do |order|
 		order.order_status
@@ -62,10 +64,6 @@ ActiveAdmin.register Order do
 	 column 'Fecha Límite' do |order|
 		(order.created_at + 15.days).strftime("%m/%d")
 	 end if current_admin_user.has_role? :full_admin
-
-	 #column 'Imagen' do |order|
-	 #  image_tag(order.product.image.url(:thumb), :class => 'product-thumb')
-	 #end
 
 	 if current_admin_user.has_role? :blacksmith
 		column :actions do |order|
@@ -125,11 +123,11 @@ ActiveAdmin.register Order do
 		end if current_admin_user.has_role? :full_admin
 
 		row 'Pago: Estado' do |order|
-		  order.mercado_pago_purchase.status
+		  I18n.t("mercado_pago_purchase.order_status.#{order.mercado_pago_purchase.status}") unless order.mercado_pago_purchase.nil?
 		end if current_admin_user.has_role? :full_admin
 
 		row 'Pago: Tipo' do |order|
-		  order.mercado_pago_purchase.payment_type
+		  I18n.t("mercado_pago_purchase.payment_type.#{order.mercado_pago_purchase.payment_type}")
 		end if current_admin_user.has_role? :full_admin
 
 		panel t('activerecord.models.product.other') do

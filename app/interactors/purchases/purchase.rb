@@ -8,17 +8,13 @@ class Purchase < Interactor
 
   def cart_checkout
 	 order_products_list = OrderProductsList.create_from_list(@user.checkout_list)
-
 	 create_order(additional_info['title'], order_products_list, order_status)
-	 send_response_email
   end
 
   def single_checkout
 	 product = Product.find(product_data['id'])
 	 order_products_list = OrderProductsList.create_from_product(product)
-
 	 create_order(product_data['name'], order_products_list, order_status)
-	 send_response_emails
   end
 
   def create_order title, products_list, order_status
@@ -32,6 +28,7 @@ class Purchase < Interactor
 		  :detail => order_detail
 	 )
 	 checkout_callback
+	 send_response_emails
   end
 
   def checkout_callback
@@ -43,7 +40,7 @@ class Purchase < Interactor
 
   def send_response_emails
 	 BackgroundJob.run_block do
-		params = @purchase_params
+		params = @mercado_pago_params
 		params[:order] = @order
 		params[:user] = @user
 

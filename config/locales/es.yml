@@ -292,6 +292,7 @@ es:
         admin_user:
           current_sign_in_at: Última vez conectado
           sign_in_count: Cantidad de veces conectado
+
   checkout_purchase_title: Compra en Macain -
   checkout_web_product_detail: Compra desde la Web
   pending_web_product_detail: Compra pendiente desde la Web
@@ -301,3 +302,21 @@ es:
   checkout_pending_message: Su compra NO se concretó, quedó pendiente, Gracias.
   quantity: Cantidad
   total: Total
+
+  mercado_pago_purchase:
+    order_status:
+      pending: Pendiente
+      approved: Aprobado
+      in_process: En trámite
+      in_mediation: En mediación
+      rejected: Rechazado
+      refunded: Devuelto
+      charged_back: Contracargo al usuario
+    payment_type:
+      credit_card: Tarjeta de Crédito
+      debit_card: Tarjeta de Débito
+      prepaid_card: Tarjeta prepaga
+      atm: Pagado desde un cajero
+      bank_transfer: Transferencia bancaria
+      ticket: Ticket
+      account_money: Plata en Mercado Pago
