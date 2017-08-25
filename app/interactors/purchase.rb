@@ -8,18 +8,6 @@ class Purchase
 	 send_response_email
   end
 
-  def self.create_order
-	 @order = Order.create(
-		  :user => @user,
-		  :order_products_list => order_products_list,
-		  :title => "[PENDING] #{title}",
-		  :payment_type => Order.payment_types[:mercado_pago],
-		  :order_status => OrderStatus.find_or_create_by(name: 'pending'),
-		  :detail => I18n.t('pending_web_product_detail')
-	 )
-	 checkout
-  end
-
   def self.checkout
 	 create_mercado_pago_order
 	 @order.save!

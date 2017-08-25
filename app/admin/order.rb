@@ -9,144 +9,138 @@ ActiveAdmin.register Order do
   filter :product
   filter :code
 
-
   controller do
 
-    def scoped_collection
-      return Order.all if current_admin_user.has_role? :full_admin
-      #return AdminUser.where(company_id: current_admin_user.company_id) if current_admin_user.has_role? :blacksmith
-      return Order.where(order_status_id: [2, 3]) if current_admin_user.has_role? :blacksmith
-    end
+	 def scoped_collection
+		return Order.all if current_admin_user.has_role? :full_admin
+		return Order.where(order_status_id: [2, 3]) if current_admin_user.has_role? :blacksmith
+	 end
 
-    def update
-      if params[:status].present?
-        resource.update_attribute(:order_status_id, params[:status].to_f + 1)
-        redirect_to admin_orders_path
-      else
-        super do |format|
-        end
-      end
+	 def update
+		if params[:status].present?
+		  resource.update_attribute(:order_status_id, params[:status].to_f + 1)
+		  redirect_to admin_orders_path
+		else
+		  super do |format|
+		  end
+		end
 
-    end
+	 end
 
   end
 
   #index(:row_class => -> record { 'my-class' if record.was_updated? }) do
   index(:row_class => -> record { OrderStatus.find(record.order_status_id).name_slug unless record.order_status_id.nil? }) do
-    selectable_column
+	 selectable_column
 
-    column 'Nro' do |order|
-      p order.id
-    end
+	 column 'Nro' do |order|
+		p order.id
+	 end
 
-    column :buyer do |order|
+	 column :buyer do |order|
 		user = order.buyer || order.user
-      p user.name
-    end
+		p user.name
+	 end
 
-    column :title do |order|
-      p order.title
-    end
+	 column :title do |order|
+		p order.title
+	 end
 
-    column :color do |order|
-      p order.color
-    end
+	 column 'Estado', :class => 'status' do |order|
+		order.order_status
+	 end
 
-    column 'Estado', :class => 'status' do |order|
-      OrderStatus.find(order.order_status_id).name unless order.order_status_id.nil?
-    end
+	 column :payment do |order|
+		'$' + order.payment.to_s
+	 end if current_admin_user.has_role? :full_admin
 
-    column :payment do |order|
-      '$' + order.payment.to_s
-    end if current_admin_user.has_role? :full_admin
+	 column 'Fecha Límite' do |order|
+		(order.created_at + 15.days).strftime("%m/%d")
+	 end if current_admin_user.has_role? :full_admin
 
-    column 'Fecha Límite de Entrega' do |order|
-      (order.created_at + 15.days).strftime("%m/%d")
-    end if current_admin_user.has_role? :full_admin
+	 #column 'Imagen' do |order|
+	 #  image_tag(order.product.image.url(:thumb), :class => 'product-thumb')
+	 #end
 
-    #column 'Imagen' do |order|
-    #  image_tag(order.product.image.url(:thumb), :class => 'product-thumb')
-    #end
-
-    if current_admin_user.has_role? :blacksmith
-      column :actions do |order|
-        links = link_to I18n.t('active_admin.view'), resource_path(order)
-        links += ' '
-        links += link_to 'Terminada!', admin_order_path(order, :status => order.order_status_id),
-                         class: 'finished-button', method: :put if order.order_status_id == 2
-        links
-      end
-    else
-      actions
-    end
+	 if current_admin_user.has_role? :blacksmith
+		column :actions do |order|
+		  links = link_to I18n.t('active_admin.view'), resource_path(order)
+		  links += ' '
+		  links += link_to 'Terminada!', admin_order_path(order, :status => order.order_status_id),
+								 class: 'finished-button', method: :put if order.order_status_id == 2
+		  links
+		end
+	 else
+		actions
+	 end
 
   end
 
 
   form do |f|
-    f.inputs do
-      f.input :buyer, collection: Buyer.order(updated_at: :desc)
-      f.input :product
-      f.input :order_status_id, :as => :select, include_blank: false,
-              collection: OrderStatus.all, :label => 'Estado'
-      f.input :color, :as => :string
-      f.input :detail, :hint => 'Algun tipo de detalle para la producción'
-      f.input :payment, :input_html => {:min => 0, :step => 100} if current_admin_user.has_role? :full_admin
-      f.input :title, :hint => 'Titulo para mostrar en la página de trackeo',
-              :label => 'Titulo para el tracking' if current_admin_user.has_role? :full_admin
-    end
+	 f.inputs do
+		f.input :buyer, collection: Buyer.order(updated_at: :desc)
+		f.input :product
+		f.input :order_status_id, :as => :select, include_blank: false,
+				  collection: OrderStatus.all, :label => 'Estado'
+		f.input :color, :as => :string
+		f.input :detail, :hint => 'Algun tipo de detalle para la producción'
+		f.input :payment, :input_html => {:min => 0, :step => 100} if current_admin_user.has_role? :full_admin
+		f.input :title, :hint => 'Titulo para mostrar en la página de trackeo',
+				  :label => 'Titulo para el tracking' if current_admin_user.has_role? :full_admin
+	 end
 
-    actions
+	 actions
   end
 
 
   show do |order|
 
-    attributes_table_for order do
-      row :buyer
-      row :product
-      row :color
+	 attributes_table_for order do
+		row :buyer
+		row :product
+		row :color
 
-      row 'Tracking Link' do
-        href = request.base_url + tracking_order_by_code_path(order.code)
-        link_to href, href, target: '_blank'
-      end
+		row 'Tracking Link' do
+		  href = request.base_url + tracking_order_by_code_path(order.code)
+		  link_to href, href, target: '_blank'
+		end
 
 		row 'Status' do |order|
-        order.order_status
-      end
+		  order.order_status
+		end
 
 		row :payment do |order|
-        '$' + order.payment.to_s
-      end if current_admin_user.has_role? :full_admin
-      row :detail
+		  '$' + order.payment.to_s
+		end if current_admin_user.has_role? :full_admin
+		row :detail
 
-      row 'Título para Tracking' do
-        order.title
-      end if current_admin_user.has_role? :full_admin
+		row 'Título para Tracking' do
+		  order.title
+		end if current_admin_user.has_role? :full_admin
 
-      #row 'Imagen' do
-        #image_tag(order.product.image.url(:thumb))
+		#row 'Imagen' do
+		#image_tag(order.product.image.url(:thumb))
 		#end
 
-      panel t('activerecord.models.answer.other') do
-        table_for(order.order_products_list.order_products_rows) do
-          column t('title') do |order_products_row|
-            product_row.name
-          end
+		panel t('activerecord.models.answer.other') do
+		  table_for(order.order_products_list.order_products_rows) do
+			 column t('title') do |order_products_row|
+				product_row.name
+			 end
 
-          column I18n.t('image') do |answer|
-            image_tag(answer.image.url(:medium), class: 'medium_image_size') unless answer.image.nil?
-          end unless (question.answers_are_text_type?)
+			 column I18n.t('image') do |answer|
+				image_tag(answer.image.url(:medium), class: 'medium_image_size') unless answer.image.nil?
+			 end unless (question.answers_are_text_type?)
 
-          column t('activerecord.models.question.next') do |answer|
-            link_to(answer.next_question.title,
-                    admin_research_question_path(question.research, answer.next_question)) unless answer.next_question.nil?
-          end
-        end
-      end
+			 column t('activerecord.models.question.next') do |answer|
+				link_to(answer.next_question.title,
+						  admin_research_question_path(question.research, answer.next_question)) unless answer.next_question.nil?
+			 end
+		  end
+		end
 
-    end
+	 end
 
   end
 end

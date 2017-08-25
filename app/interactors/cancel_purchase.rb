@@ -6,15 +6,9 @@ class CancelPurchase < Purchase
 		  :order_products_list => order_products_list,
 		  :title => "[CANCELLED] #{title}",
 		  :payment_type => Order.payment_types[:mercado_pago],
-		  :order_status => OrderStatus.find_or_create_by(name: 'cancelled'),
-		  :detail => I18n.t('cancelled_web_product_detail')
+		  :order_status => nil
 	 )
 	 checkout
-  end
-
-  def self.checkout
-	 create_mercado_pago_order
-	 @order.save!
   end
 
   private
