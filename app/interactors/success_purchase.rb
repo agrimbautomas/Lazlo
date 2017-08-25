@@ -24,7 +24,7 @@ class SuccessPurchase < Purchase
 		  :collection_id => @purchase_params['collection_id'],
 		  :payment_type => @purchase_params['payment_type'],
 	 )
-  end
+	end
 
   def self.send_response_email
 	 BackgroundJob.run_block do

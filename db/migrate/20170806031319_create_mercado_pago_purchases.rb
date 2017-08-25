@@ -8,7 +8,7 @@ class CreateMercadoPagoPurchases < ActiveRecord::Migration
 		t.string :collection_id
 		t.string :preference_id
 		t.string :payment_type
-		t.string :status, null: false, default: 'initial'
+		t.integer :status, null: false
 
 		t.timestamps null: false
 	 end

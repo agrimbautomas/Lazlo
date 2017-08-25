@@ -32,7 +32,7 @@ class Purchase
 	 )
   end
 
-  def order_detail
+  def self.order_detail
 	 I18n.t('checkout_web_product_detail')
   end
 
