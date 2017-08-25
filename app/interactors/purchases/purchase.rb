@@ -25,7 +25,7 @@ class Purchase
 
   def self.create_mercado_pago_order
 	 @order.create_mercado_pago_purchase(
-		  :status => MercadoPagoPurchase.statuses['pending'],
+		  :status => @purchase_params['collection_status'],
 		  :preference_id => @purchase_params['preference_id'],
 		  :collection_id => @purchase_params['collection_id'],
 		  :payment_type => @purchase_params['payment_type'],

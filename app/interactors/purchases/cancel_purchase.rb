@@ -14,16 +14,6 @@ class CancelPurchase < Purchase
 
   private
 
-  def self.create_mercado_pago_order
-	 #Todo - Remove hardcoded status and add response status
-	 @order.create_mercado_pago_purchase(
-		  :status => MercadoPagoPurchase.statuses['cancelled'],
-		  :preference_id => @purchase_params['preference_id'],
-		  :collection_id => @purchase_params['collection_id'],
-		  :payment_type => @purchase_params['payment_type'],
-	 )
-  end
-
   def self.send_response_email
 	 BackgroundJob.run_block do
 		params = @purchase_params
