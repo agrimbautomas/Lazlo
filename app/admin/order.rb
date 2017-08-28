@@ -88,12 +88,25 @@ ActiveAdmin.register Order do
 		f.input :order_status_id, :as => :select, include_blank: false,
 				  collection: OrderStatus.all, :label => 'Estado'
 		f.input :detail, :hint => 'Algun tipo de detalle para la producción'
-		f.input :payment, :input_html => {:min => 0, :step => 100} if current_admin_user.has_role? :full_admin
+		f.input :payment, :input_html => { :min => 0, :step => 100 } if current_admin_user.has_role? :full_admin
 		f.input :title, :hint => 'Titulo de la orden (se muestra en el tracking)',
 				  :label => 'Titulo de la orden' if current_admin_user.has_role? :full_admin
 	 end
 
+
+	 f.inputs 'Detalle de la orden' do
+		resource.order_products_rows = [] if resource.order_products_list.nil?
+
+		f.fields_for :order_products_rows do |profile|
+		  profile.inputs :class => 'new-research-resources-form' do
+			 profile.input :product_name, :label => "Nombre"
+		  end
+		end
+	 end
+
+
 	 actions
+
   end
 
 
