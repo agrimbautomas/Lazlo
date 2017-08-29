@@ -2,13 +2,16 @@ ActiveAdmin.register Order do
   menu priority: 2
 
   permit_params :buyer_id, :user_id, :code, :detail, :order_status_id, :title,
-					 :payment, order_products_rows_attributes: [:id, :picture, :_destroy]
+					 :payment, order_products_rows_attributes: [:quantity, :product_id, :_destroy]
 
   config.per_page = 20
 
   filter :buyer
   filter :product
   filter :code
+
+
+  before_create :create_order_products_list
 
   controller do
 
@@ -18,20 +21,13 @@ ActiveAdmin.register Order do
 		return Order.where(order_status_id: [2, 3]) if current_admin_user.has_role? :blacksmith
 	 end
 
-	 def update
-		if params[:status].present?
-		  resource.update_attribute(:order_status_id, params[:status].to_f + 1)
-		  redirect_to admin_orders_path
-		else
-		  super do |format|
-		  end
-		end
-
+	 def create_order_products_list order
+		order.create_order_products_list
 	 end
 
   end
 
-  index(:row_class => -> record {OrderStatus.find(record.order_status_id).name_slug unless record.order_status_id.nil?}) do
+  index(:row_class => -> record { OrderStatus.find(record.order_status_id).name_slug unless record.order_status_id.nil? }) do
 	 selectable_column
 
 	 column 'Nro' do |order|
@@ -83,25 +79,28 @@ ActiveAdmin.register Order do
 
   form do |f|
 	 f.inputs do
-		f.input :buyer, collection: Buyer.order(updated_at: :desc) unless order.buyer.nil?
-		f.input :user, collection: User.order(updated_at: :desc) unless order.user.nil?
+		f.input :buyer, collection: Buyer.order(updated_at: :desc)
+		f.input :user, collection: User.order(updated_at: :desc)
 		f.input :order_status_id, :as => :select, include_blank: false,
 				  collection: OrderStatus.all, :label => 'Estado'
 		f.input :detail, :hint => 'Algun tipo de detalle para la producción'
-		f.input :payment, :input_html => {:min => 0, :step => 100} if current_admin_user.has_role? :full_admin
+		f.input :payment, :input_html => { :min => 0, :step => 100 } if current_admin_user.has_role? :full_admin
 		f.input :title, :hint => 'Titulo de la orden (se muestra en el tracking)',
 				  :label => 'Titulo de la orden' if current_admin_user.has_role? :full_admin
 	 end
 
 
 	 inputs do
+		f.semantic_errors *f.object.errors.keys
 		f.has_many :order_products_rows, new_record: true do |a|
 		  a.input :product_id, :as => :select, include_blank: false,
-					 collection: Product.all, :label => 'Producto'
+					 collection: Product.all, :label => t('activerecord.models.product.one'),
+					 :input_html => { :class => 'order-product-row-product' }
 		  a.input :quantity
+		  a.input :product_name
+		  a.input :product_price
 		end
 	 end
-
 
 	 actions
 
