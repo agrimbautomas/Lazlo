@@ -28,6 +28,10 @@ class Order < ActiveRecord::Base
   has_many :order_products_rows, through: :order_products_list
   belongs_to :order_status
 
+
+  accepts_nested_attributes_for :order_products_list, :allow_destroy => true
+  accepts_nested_attributes_for :order_products_rows, :allow_destroy => true
+
   enum payment_type: [:cash, :mercado_pago]
 
   before_create :set_code

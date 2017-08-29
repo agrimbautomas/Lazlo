@@ -31,7 +31,7 @@ ActiveAdmin.register Order do
 
   end
 
-  index(:row_class => -> record { OrderStatus.find(record.order_status_id).name_slug unless record.order_status_id.nil? }) do
+  index(:row_class => -> record {OrderStatus.find(record.order_status_id).name_slug unless record.order_status_id.nil?}) do
 	 selectable_column
 
 	 column 'Nro' do |order|
@@ -41,7 +41,7 @@ ActiveAdmin.register Order do
 	 column :buyer do |order|
 		if order.buyer.present?
 		  link_to order.buyer.name, admin_buyer_path(order.buyer)
-		else
+		elsif order.user.present?
 		  link_to order.user.name, admin_user_path(order.user)
 		end
 	 end
@@ -88,19 +88,17 @@ ActiveAdmin.register Order do
 		f.input :order_status_id, :as => :select, include_blank: false,
 				  collection: OrderStatus.all, :label => 'Estado'
 		f.input :detail, :hint => 'Algun tipo de detalle para la producción'
-		f.input :payment, :input_html => { :min => 0, :step => 100 } if current_admin_user.has_role? :full_admin
+		f.input :payment, :input_html => {:min => 0, :step => 100} if current_admin_user.has_role? :full_admin
 		f.input :title, :hint => 'Titulo de la orden (se muestra en el tracking)',
 				  :label => 'Titulo de la orden' if current_admin_user.has_role? :full_admin
 	 end
 
 
-	 f.inputs 'Detalle de la orden' do
-		resource.order_products_rows = [] if resource.order_products_list.nil?
-
-		f.fields_for :order_products_rows do |profile|
-		  profile.inputs :class => 'new-research-resources-form' do
-			 profile.input :product_name, :label => "Nombre"
-		  end
+	 inputs do
+		f.has_many :order_products_rows, new_record: true do |a|
+		  a.input :product_id, :as => :select, include_blank: false,
+					 collection: Product.all, :label => 'Producto'
+		  a.input :quantity
 		end
 	 end
 
