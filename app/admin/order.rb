@@ -1,8 +1,9 @@
 ActiveAdmin.register Order do
+
   menu priority: 2
 
   permit_params :buyer_id, :user_id, :code, :detail, :order_status_id, :title,
-					 :payment, order_products_rows_attributes: [:quantity, :product_id, :_destroy]
+					 :payment, order_products_rows_attributes: [:product_id, :quantity, :product_name, :product_price, :_destroy]
 
   config.per_page = 20
 
@@ -10,8 +11,8 @@ ActiveAdmin.register Order do
   filter :product
   filter :code
 
-
-  before_create :create_order_products_list
+  before_filter :repair_nested_params
+  before_filter :create_new_object
 
   controller do
 
@@ -21,8 +22,36 @@ ActiveAdmin.register Order do
 		return Order.where(order_status_id: [2, 3]) if current_admin_user.has_role? :blacksmith
 	 end
 
-	 def create_order_products_list order
-		order.create_order_products_list
+
+	 def create_new_object
+		new_order = Order.new
+		new_order.create_order_products_list
+		order_products_params.each do |product_row_params|
+		  new_order.order_products_list.order_products_rows << OrderProductsRow.create(product_row_params)
+		end
+
+		new_order.buyer_id = order_params[:buyer_id]
+		new_order.user_id = order_params[:user_id]
+		new_order.code = order_params[:code]
+		new_order.detail = order_params[:detail]
+		new_order.order_status_id = order_params[:order_status_id]
+		new_order.title = order_params[:title]
+		new_order.payment = order_params[:payment]
+		new_order.save!
+		@object = new_order
+
+	 end
+
+	 def update
+		byebug
+	 end
+
+	 def order_products_params
+		order_params.require(:order_products_rows_attributes) unless order_params[:order_products_rows_attributes].nil?
+	 end
+
+	 def order_params
+		permitted_params.require(:order)
 	 end
 
   end
@@ -93,12 +122,14 @@ ActiveAdmin.register Order do
 	 inputs do
 		f.semantic_errors *f.object.errors.keys
 		f.has_many :order_products_rows, new_record: true do |a|
-		  a.input :product_id, :as => :select, include_blank: false,
-					 collection: Product.all, :label => t('activerecord.models.product.one'),
-					 :input_html => { :class => 'order-product-row-product' }
-		  a.input :quantity
-		  a.input :product_name
-		  a.input :product_price
+		  a.input :product_id, :as => :select, include_blank: true,
+					 collection: Product.all.order('name asc').map { |product| [product.name, product.id, price: product.price.to_i] },
+					 :label => t('activerecord.models.product.one'), :input_html => { :class => 'order-product-row-product' }
+		  a.input :quantity, :input_html => { :value => 1 }
+		  a.input :product_name, #as: :hidden,
+					 :input_html => { :class => 'order-product-row-product-name', readonly: true }
+		  a.input :product_price, #as: :hidden,
+					 :input_html => { :class => 'order-product-row-product-price', readonly: true }
 		end
 	 end
 
@@ -176,4 +207,5 @@ ActiveAdmin.register Order do
 	 end
 
   end
+
 end

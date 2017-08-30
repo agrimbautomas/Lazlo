@@ -1,4 +1,3 @@
-
 $(function () {
 	 setupNewOrderForm();
 })
@@ -10,20 +9,35 @@ $(function () {
 
 function setupNewOrderForm() {
 
-    setInitialSelectedValues();
+	 setInitialSelectedValues();
 }
 
-function setInitialSelectedValues(){
+function setInitialSelectedValues() {
 
-	 console.log('Options');
-    $('.order-product-row-product').on('change', function () {
+	 $('body').on('change', 'select.order-product-row-product', function (e) {
+		  setInputValues($(this))
+	 });
 
-        console.log('Options', $(this));
-        $(this).css('display', 'block');
-    });
+}
 
+function setInputValues($selectInput) {
+	 var $rowsParentContainer = $selectInput.offsetParent('ol');
+	 var $selectedOption = $rowsParentContainer.find('option:selected');
 
-    $('.profile-select.neighborhood-select option:selected').each( function(){
-        $(this).css('display', 'block');
-    });
+	 setProductName($selectedOption, $rowsParentContainer);
+	 setProductPrice($selectedOption, $rowsParentContainer);
+
+}
+
+function setProductName($selectedOption, $rowsParentContainer) {
+	 var productName = $selectedOption.html();
+	 var $productNameInput = $rowsParentContainer.find('.order-product-row-product-name');
+
+	 $productNameInput.val(productName);
+}
+
+function setProductPrice($selectedOption, $rowsParentContainer) {
+	 var productPrice = $selectedOption.attr('price');
+	 var $productPriceInput = $rowsParentContainer.find('.order-product-row-product-price');
+	 $productPriceInput.val(productPrice);
 }

@@ -9,6 +9,7 @@
 #
 
 class OrderProductsList < ActiveRecord::Base
+
   belongs_to :order
   has_many :order_products_rows
 
