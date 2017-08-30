@@ -2,7 +2,7 @@ class UserMailer < AppMailer
 
   def confirmation_instructions(record, token, opts={})
     @images = {
-        :logo => asset_absolute_path('logo-macain-300.png'),
+        :logo => asset_absolute_path('logo-alomacain.png'),
         :background => asset_absolute_path('fondo-colores.png'),
         :account_icon => asset_absolute_path('new-account-icon.png'),
     }
@@ -12,7 +12,7 @@ class UserMailer < AppMailer
 
   def reset_password_instructions(record, token, opts={})
     @images = {
-        :logo => asset_absolute_path('logo-macain-300.png'),
+        :logo => asset_absolute_path('logo-alomacain.png'),
         :background => asset_absolute_path('fondo-colores.png'),
         :lock => asset_absolute_path('lock-icon-macain.png'),
     }
@@ -21,7 +21,7 @@ class UserMailer < AppMailer
 
   def success_purchase_user_email params
     @images = {
-        :logo => asset_absolute_path('logo-macain-300.png'),
+        :logo => asset_absolute_path('logo-alomacain.png'),
         :background => asset_absolute_path('fondo-colores.png'),
         :product =>  params[:image],
     }

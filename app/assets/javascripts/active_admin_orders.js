@@ -14,6 +14,8 @@ function setupNewOrderForm() {
 }
 
 function setInitialSelectedValues(){
+
+	 console.log('Options');
     $('.order-product-row-product').on('change', function () {
 
         console.log('Options', $(this));
