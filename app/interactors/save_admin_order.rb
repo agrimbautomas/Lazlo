@@ -18,6 +18,7 @@ class SaveAdminOrder < Interactor
   def set_products_to_list
 	 order_products_params.each do |product_row_params|
 		if old_product_row(product_row_params).present?
+		  next if destroy_row?(product_row_params)
 		  old_product_row(product_row_params).update(:quantity => product_row_params['quantity'])
 		else
 		  @order_products_rows << OrderProductsRow.create(product_row_params)
@@ -42,5 +43,11 @@ class SaveAdminOrder < Interactor
   def old_product_row params
 	 @order_products_rows.find { |s| s.product_id == params['product_id'].to_i }
   end
+
+	 def destroy_row? product_row_params
+		if product_row_params['_destroy'].to_i == 1
+		  old_product_row(product_row_params).destroy!
+		end
+	 end
 
 end

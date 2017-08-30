@@ -38,6 +38,7 @@ ActiveAdmin.register Order do
 	 def update
 		params[:order_params] = order_params
 		params[:order] = resource
+
 		updated_order = SaveAdminOrder.(params).update_order
 
 		redirect_to admin_order_path(updated_order)
@@ -119,10 +120,11 @@ ActiveAdmin.register Order do
 					 collection: Product.all.order('name asc').map { |product| [product.name, product.id, price: product.price.to_i] },
 					 :label => t('activerecord.models.product.one'), :input_html => { :class => 'order-product-row-product' }
 		  a.input :quantity, :input_html => { :value => a.object.quantity || 1 }
-		  a.input :product_name, #as: :hidden,
+		  a.input :product_name, as: :hidden,
 					 :input_html => { :class => 'order-product-row-product-name', readonly: true }
-		  a.input :product_price, #as: :hidden,
+		  a.input :product_price, as: :hidden,
 					 :input_html => { :class => 'order-product-row-product-price', readonly: true }
+		  a.input :_destroy, :as => :boolean, :required => false, :label => 'Borrar Producto(s)'
 		end
 	 end
 
