@@ -2,7 +2,7 @@ ActiveAdmin.register Order do
 
   menu priority: 2
 
-  permit_params :buyer_id, :user_id, :code, :detail, :order_status_id, :title,
+  permit_params :buyer_id, :user_id, :detail, :order_status_id, :title,
 					 :payment, order_products_rows_attributes: [:product_id, :quantity, :product_name, :product_price, :_destroy]
 
   config.per_page = 20
@@ -12,7 +12,6 @@ ActiveAdmin.register Order do
   filter :code
 
   before_filter :repair_nested_params
-  before_filter :create_new_object
 
   controller do
 
@@ -22,32 +21,26 @@ ActiveAdmin.register Order do
 		return Order.where(order_status_id: [2, 3]) if current_admin_user.has_role? :blacksmith
 	 end
 
-
-	 def create_new_object
+	 def create
 		new_order = Order.new
 		new_order.create_order_products_list
-		order_products_params.each do |product_row_params|
-		  new_order.order_products_list.order_products_rows << OrderProductsRow.create(product_row_params)
-		end
 
-		new_order.buyer_id = order_params[:buyer_id]
-		new_order.user_id = order_params[:user_id]
-		new_order.code = order_params[:code]
-		new_order.detail = order_params[:detail]
-		new_order.order_status_id = order_params[:order_status_id]
-		new_order.title = order_params[:title]
-		new_order.payment = order_params[:payment]
-		new_order.save!
+		params[:order_params] = order_params
+		params[:order] = new_order
+		new_order = SaveAdminOrder.(params).update_order
+
+		@order = new_order
 		@object = new_order
 
+		super
 	 end
 
 	 def update
-		byebug
-	 end
+		params[:order_params] = order_params
+		params[:order] = resource
+		updated_order = SaveAdminOrder.(params).update_order
 
-	 def order_products_params
-		order_params.require(:order_products_rows_attributes) unless order_params[:order_products_rows_attributes].nil?
+		redirect_to admin_order_path(updated_order)
 	 end
 
 	 def order_params
@@ -125,7 +118,7 @@ ActiveAdmin.register Order do
 		  a.input :product_id, :as => :select, include_blank: true,
 					 collection: Product.all.order('name asc').map { |product| [product.name, product.id, price: product.price.to_i] },
 					 :label => t('activerecord.models.product.one'), :input_html => { :class => 'order-product-row-product' }
-		  a.input :quantity, :input_html => { :value => 1 }
+		  a.input :quantity, :input_html => { :value => a.object.quantity || 1 }
 		  a.input :product_name, #as: :hidden,
 					 :input_html => { :class => 'order-product-row-product-name', readonly: true }
 		  a.input :product_price, #as: :hidden,
@@ -144,6 +137,10 @@ ActiveAdmin.register Order do
 		row t('activerecord.models.buyer.one') do
 		  order.buyer.present? ? order.buyer : order.user
 		end
+
+		row :payment do |order|
+		  '$' + order.payment.to_s
+		end if current_admin_user.has_role? :full_admin
 
 		row 'Tracking Link' do
 		  href = request.base_url + tracking_order_by_code_path(order.code)
