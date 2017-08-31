@@ -1,5 +1,5 @@
 ActiveAdmin.register Marvel do
-  menu priority: 4
+  menu priority: 5, parent: I18n.t('config')
 
   permit_params :name, :price
 

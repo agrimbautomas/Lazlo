@@ -16,7 +16,7 @@ ActiveAdmin.setup do |config|
   #
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
-   config.site_title_image = "macain-logo-diseno-blanco-negro-minimalista.png"
+  config.site_title_image = "macain-logo-diseno-blanco-negro-minimalista.png"
 
   # == Default Namespace
   #
@@ -161,7 +161,7 @@ ActiveAdmin.setup do |config|
   # Add additional meta tags to the head element of active admin pages.
   #
   # Add tags to all pages logged in users see:
-  config.meta_tags = { author: 'Amalgama.co' }
+  config.meta_tags = {author: 'Amalgama.co'}
 
   # By default, sign up/sign in/recover password pages are excluded
   # from showing up in search engine results by adding a robots meta
@@ -204,13 +204,12 @@ ActiveAdmin.setup do |config|
   # You can add a navigation menu to be used in your application, or configure a provided menu
   #
   # To change the default utility navigation to show a link to your website & a logout btn
-  #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :utility_navigation do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-  #       admin.add_logout_button_to_menu menu
-  #     end
-  #   end
+
+  config.namespace :admin do |admin|
+	 admin.build_menu do |menu|
+		menu.add label: I18n.t('config'), priority: 20
+	 end
+  end
   #
   # If you wanted to add a static menu item to the default menu provided:
   #
@@ -268,7 +267,7 @@ ActiveAdmin.setup do |config|
   # config.include_default_association_filters = true
 
   module ActiveAdmin::ViewHelpers
-    include ApplicationHelper
+	 include ApplicationHelper
   end
 
 end

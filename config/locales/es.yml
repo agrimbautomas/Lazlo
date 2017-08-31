@@ -244,6 +244,9 @@ es:
         order:
           one: Orden
           other: Ordenes
+        order_status:
+          one: Estado de la orden
+          other: Estados de las ordenes
         order_products_row:
           one: Producto(s) en la orden
           other: Producto(s) en la orden
@@ -288,6 +291,11 @@ es:
           product_name: Nombre del Producto
           quantity: Cantidad
           price: Precio
+        order_status:
+          name: Nombre del estado
+          priority: Prioridad
+          visible: Visible
+          image: Imagen
         buyer:
           name: Nombre
           phone: Teléfono
@@ -306,9 +314,10 @@ es:
   cancelled_web_product_detail: Compra cancelada desde la Web
   checkout_success_message: Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega.
   checkout_cancelled_message: Su compra ha sido cancelada. Gracias.
-  checkout_pending_message: Su compra NO se concretó, quedó pendiente, Gracias.
+  checkout_pending_message: Su compra está Encargada y el pago quedó pendiente, Gracias.
   quantity: Cantidad
   total: Total
+  config: Configuración
 
   mercado_pago_purchase:
     order_status:
