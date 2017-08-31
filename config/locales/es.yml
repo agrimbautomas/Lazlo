@@ -244,6 +244,9 @@ es:
         order:
           one: Orden
           other: Ordenes
+        order_products_row:
+          one: Producto(s) en la orden
+          other: Producto(s) en la orden
         buyer:
           one: Comprador
           other: Compradores
@@ -281,6 +284,10 @@ es:
           payment: A Cobrar
           code: Código
           detail: Detalle
+        order_products_rows:
+          product_name: Nombre del Producto
+          quantity: Cantidad
+          price: Precio
         buyer:
           name: Nombre
           phone: Teléfono

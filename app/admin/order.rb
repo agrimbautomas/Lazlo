@@ -113,7 +113,7 @@ ActiveAdmin.register Order do
 	 end
 
 
-	 inputs do
+	 inputs 'Detalle de los productos' do
 		f.semantic_errors *f.object.errors.keys
 		f.has_many :order_products_rows, new_record: true do |a|
 		  a.input :product_id, :as => :select, include_blank: true,
@@ -164,11 +164,8 @@ ActiveAdmin.register Order do
 	 br
 	 br
 
-	 h4 'Detalle del pago de la Orden'
+	 h4 'Detalle del pago de la Orden de Mercado Pago' unless order.mercado_pago_purchase.nil?
 	 attributes_table_for order do
-		row 'Monto' do |order|
-		  '$' + order.payment.to_s
-		end if current_admin_user.has_role? :full_admin
 
 		row 'Estado del pago' do |order|
 		  I18n.t("mercado_pago_purchase.order_status.#{order.mercado_pago_purchase.status}") unless order.mercado_pago_purchase.nil?
