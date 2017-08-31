@@ -44,6 +44,8 @@ class Product < ActiveRecord::Base
 
   scope :featured, -> { limit(6).order('featured desc, views desc') }
 
+  scope :visible, -> { where(:visible => true) }
+
   def image_uri
     URI.join($request.url, self.image.url)
   end

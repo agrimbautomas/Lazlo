@@ -43,7 +43,7 @@
         </div>
 
         <%
-          if (status_class == 'status-active') and (product_status.name == @status.name)
+          if (status_class == 'status-active') and (product_status.name == @order.order_status)
             status_class = 'status-inactive'
           end
         %>

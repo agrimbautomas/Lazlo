@@ -24,6 +24,8 @@ class OrderStatus < ActiveRecord::Base
 
   before_validation :set_priority
 
+  scope :visible, -> { where(:visible => true) }
+
   def name_slug
 	 self.name.parameterize
   end
