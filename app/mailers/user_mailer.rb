@@ -22,8 +22,7 @@ class UserMailer < AppMailer
   def success_purchase_user_email params
     @images = {
         :logo => asset_absolute_path('logo-alomacain.png'),
-        :background => asset_absolute_path('fondo-colores.png'),
-        :product =>  params[:image],
+        :background => asset_absolute_path('fondo-colores.png')
     }
     @user = params[:user]
     @product = params[:product]

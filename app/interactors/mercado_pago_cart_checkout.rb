@@ -15,7 +15,7 @@ class MercadoPagoCartCheckout < MercadoPagoCheckout
   def purchase_data
 	 {
 		  'title' => purchase_title,
-		  'product_rows' => @product_rows.to_json
+		  'product_rows' => strip_product_rows
 	 }
   end
 
@@ -29,7 +29,7 @@ class MercadoPagoCartCheckout < MercadoPagoCheckout
   end
 
   def purchase_title
-	 items_title = @items.map {|item| "#{item['quantity']} x #{item['title']}"}.join(', ')
+	 items_title = @items.map { |item| "#{item['quantity']} x #{item['title']}" }.join(', ')
 	 I18n.t('checkout_purchase_title') + items_title
   end
 
@@ -37,7 +37,7 @@ class MercadoPagoCartCheckout < MercadoPagoCheckout
 	 set_purchase_items
 	 @items.first['title'] = purchase_title
 	 @items
-	end
+  end
 
 
   def set_purchase_items
@@ -53,6 +53,13 @@ class MercadoPagoCartCheckout < MercadoPagoCheckout
 			 'picture_url' => product_row.product.image.url
 		}
 	 end
+  end
+
+
+  def strip_product_rows
+	 stripped_rows = []
+	 @product_rows.each { |product_row| stripped_rows << {:id => product_row.id} }
+	 stripped_rows.to_json
   end
 
 end

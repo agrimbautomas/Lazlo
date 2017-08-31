@@ -26,6 +26,10 @@
                 <%= product_row.formatted_total %>
             </span>
 
+            <div class="cart-product-image">
+              <img src="<%= product_row.product.image.url(:thumb) %>" >
+            </div>
+
           </div>
       <% end %>
   <% end %>

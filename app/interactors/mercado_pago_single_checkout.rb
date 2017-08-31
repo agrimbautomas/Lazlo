@@ -37,8 +37,12 @@ class MercadoPagoSingleCheckout < MercadoPagoCheckout
 
   def purchase_data
 	 {
-		  'product' => @product.to_json
+		  'product' => strip_product
 	 }
+  end
+
+  def strip_product
+	 {:id => @product.id, :name => @product.name}.to_json
   end
 
 end
