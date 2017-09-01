@@ -28,11 +28,14 @@ ActiveAdmin.register Order do
 		params[:order_params] = order_params
 		params[:order] = new_order
 		new_order = SaveAdminOrder.(params).update_order
-
 		@order = new_order
 		@object = new_order
 
-		super
+		if new_order.invalid?
+		  display_resource_errors new_order
+		else
+		  super
+		end
 	 end
 
 	 def update
@@ -41,8 +44,22 @@ ActiveAdmin.register Order do
 
 		updated_order = SaveAdminOrder.(params).update_order
 
-		redirect_to admin_order_path(updated_order)
+		if updated_order.invalid?
+		  display_resource_errors(updated_order)
+		else
+		  @order.save!
+		  redirect_to admin_order_path(updated_order)
+		end
 	 end
+
+	 def display_resource_errors order
+		if order.invalid?
+
+		  flash[:error] = SaveAdminOrder.errors_message order
+		  redirect_to :back
+		end
+	 end
+
 
 	 def order_params
 		permitted_params.require(:order)

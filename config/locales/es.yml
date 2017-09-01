@@ -283,6 +283,7 @@ es:
           picture: Imágen de la galería
         order:
           buyer: Comprador
+          user: Comprador
           product: Producto
           payment: A Cobrar
           code: Código

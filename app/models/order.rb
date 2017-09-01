@@ -34,7 +34,11 @@ class Order < ActiveRecord::Base
   enum payment_type: [:cash, :mercado_pago]
 
   before_create :set_code
-  validates :order_products_list, presence: true
+  validates_presence_of :order_products_list
+
+  # Todo - Add validations
+  validates_presence_of :user, :if => :buyer_is_nil?
+  validates_presence_of :buyer, :if => :user_is_nil?
 
   def set_code
 	 code = (0...8).map { (65 + rand(26)).chr }.join
@@ -54,5 +58,15 @@ class Order < ActiveRecord::Base
 	 )
 	 save!
   end
+
+  private
+
+	def buyer_is_nil?
+		buyer.nil?
+	end
+
+	def user_is_nil?
+	  user.nil?
+	end
 
 end

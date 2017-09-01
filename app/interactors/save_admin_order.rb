@@ -4,13 +4,24 @@ class SaveAdminOrder < Interactor
 	 super
 	 @order = arguments.fetch :order
 	 @order_params = arguments.fetch :order_params
-	 @order_products_rows = @order.order_products_list.order_products_rows
+	 @order_products_rows = @order.order_products_list.nil? ?
+										 @order.create_order_products_list.order_products_rows : @order.order_products_list.order_products_rows
   end
 
   def update_order
 	 set_products_to_list
 	 set_new_order_values
 	 @order
+  end
+
+  def self.errors_message order
+	 message = ''
+	 order.errors.each do |key|
+		field_name = I18n.t("activerecord.attributes.order.#{key.to_s}")
+		field_errors = order.errors[key].join(', ')
+		message += "El campo #{field_name} #{field_errors} -"
+	 end
+	 message
   end
 
   private
@@ -28,13 +39,12 @@ class SaveAdminOrder < Interactor
   end
 
   def set_new_order_values
-	 @order.buyer_id = @order_params[:buyer_id] unless @order_params[:buyer_id].empty?
-	 @order.user_id = @order_params[:user_id] unless @order_params[:user_id].empty?
+	 @order.buyer_id = @order_params[:buyer_id]
+	 @order.user_id = @order_params[:user_id]
 	 @order.detail = @order_params[:detail] unless @order_params[:detail].empty?
 	 @order.order_status_id = @order_params[:order_status_id] unless @order_params[:order_status_id].empty?
 	 @order.title = @order_params[:title] unless @order_params[:title].empty?
 	 @order.payment = @order_params[:payment] unless @order_params[:payment].empty?
-	 @order.save!
   end
 
   def order_products_params
