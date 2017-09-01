@@ -13,16 +13,24 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /config/database.yml
+/config/secrets.yml
 
+/db/schema.rb
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
 /tmp
 /vendor
 
+# Do not remove vendor, it has active_admin.css
+#/vendor/*
+1
+rubocop.html
+
 /.idea
 .idea/
 public/system/
+public/assets/
 /public/system/
 Capfile.lock
 

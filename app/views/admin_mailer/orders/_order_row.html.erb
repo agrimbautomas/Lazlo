@@ -1,0 +1,36 @@
+<div class="user-purchased-item-block">
+
+  <div class="order-info-row">
+    <span><%= @order.updated_at.strftime('%d %b %y') %></span>
+  </div>
+
+  <% if @order.order_products_list.present? and @order.order_products_list.order_products_rows.any? %>
+      <% @order.order_products_list.order_products_rows.each do |product_row| %>
+          <div class="product-row">
+
+            <h2>
+              <a href="<%= product_path product_row.product %>" class="smooth-transition">
+                <%= product_row.product_name %>
+              </a>
+            </h2>
+
+            <div class="cart-product-quantity">
+
+              <div class="quantity-message">
+                x<span><%= product_row.quantity %></span>
+              </div>
+
+            </div>
+
+            <span class="cart-product-price">
+                <%= product_row.formatted_total %>
+            </span>
+
+            <div class="cart-product-image">
+              <img src="<%= product_row.product.image.url(:thumb) %>" >
+            </div>
+
+          </div>
+      <% end %>
+  <% end %>
+</div>

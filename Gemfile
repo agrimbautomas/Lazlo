@@ -1,74 +1,99 @@
 source 'https://rubygems.org'
 
+gem 'active_admin_theme'
+gem 'activeadmin', github: 'activeadmin'
 
-gem 'rails', '4.2.1'
+# Auto schema in models, url: https://github.com/ctran/annotate_models
+gem 'annotate'
 
-gem 'sqlite3'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'cancan'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
-
-gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
-
-gem 'puma'
-gem 'rails_config'
+gem 'config'
 
 gem 'devise'
 gem 'devise-encryptable'
 gem 'devise-i18n'
+gem 'jbuilder', '~> 2.0'
 
-gem 'omniauth-facebook'
+gem 'jquery-rails'
+
+gem 'rails', '4.2.1'
+
+gem 'rails_config'
 
 gem 'mysql2', '~> 0.3.18'
+gem 'omniauth-facebook'
 
-gem 'rails-i18n', '~> 4.0.0'
 gem 'paperclip', '~> 4.3'
+gem 'rails-i18n', '~> 4.0.0'
 
 gem 'rolify'
-gem 'cancan'
 
-gem 'activeadmin', github: 'activeadmin'
 gem 'responsive_active_admin'
-gem 'active_admin_theme'
 gem 'simple_form'
 
-#MercadoPago https://github.com/mercadopago/sdk-ruby
+# MercadoPago https://github.com/mercadopago/sdk-ruby
 gem 'mercadopago-sdk'
 
 gem 'friendly_id', '~> 5.1.0'
-gem 'rocket_pants', '~> 1.0'
 gem 'instagram'
 
 gem 'letsencrypt_plugin'
+gem 'rocket_pants', '~> 1.0'
+
+gem 'sass-rails', '~> 5.0'
+gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sqlite3'
+
+gem 'turbolinks'
+
+gem 'uglifier', '>= 1.3.0'
+
+gem 'puma'
 
 group :development, :test do
-  gem 'spring'
-  gem 'rspec-rails'
-  gem 'fuubar'
+  # Replaces the standard Rails error page with a much better page
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'byebug'
+  # Better rails console, url: https://github.com/goodpeople/debbie
+  gem 'debbie'
 
-  gem 'capistrano', '~> 3.1'
-  gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-rvm'
-  gem 'capistrano3-unicorn'
-  gem 'capistrano3-puma', require: false
+  gem 'fuubar'
 
+  # Pry console, url: https://github.com/rweng/pry-rails
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'capistrano', '~> 3.1'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-puma'
+
+  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rubocop-rspec'
+
+  # Spring speeds up development by keeping your application running in the bg
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Access an IRB console on exception pages or by using <%= console %>
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
-  gem 'simplecov'
+  gem 'factory_girl_rails', '~> 4.0'
+
+  gem 'rspec-collection_matchers'
+  gem 'rspec-mocks'
+  gem 'rspec-rails'
   gem 'rubycritic'
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'rspec-collection_matchers'
+  gem 'simplecov'
 end
 
 group :production do
-
+  gem 'sentry-raven'
 end

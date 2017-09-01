@@ -1,4 +1,5 @@
 ActiveAdmin.register Page do
+  menu priority: 15, parent: I18n.t('config')
 
   permit_params :name, :description, page_images_attributes: [:id, :picture, :caption, :_destroy]
   config.sort_order = 'name_asc'

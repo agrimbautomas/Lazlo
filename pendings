@@ -10,6 +10,7 @@ Arreglar casos de ajax cuando se abren mas de una pestaña
 
 Agregar Latitude
 
+<<<<<<< HEAD
 
 
 
@@ -25,3 +26,6 @@ sudo update-ca-certificates
 to update the actual certificates in /etc/ssl/certs/ (if you use dpkg-reconfigure that is done automatically).
 
 See /usr/share/doc/ca-certificates/README.Debian for more information.
+=======
+Agregar soft delete - Sino borrar productos puede romper las products_lists
+>>>>>>> staging

@@ -244,6 +244,12 @@ es:
         order:
           one: Orden
           other: Ordenes
+        order_status:
+          one: Estado de la orden
+          other: Estados de las ordenes
+        order_products_row:
+          one: Producto(s) en la orden
+          other: Producto(s) en la orden
         buyer:
           one: Comprador
           other: Compradores
@@ -277,10 +283,20 @@ es:
           picture: Imágen de la galería
         order:
           buyer: Comprador
+          user: Comprador
           product: Producto
           payment: A Cobrar
           code: Código
           detail: Detalle
+        order_products_rows:
+          product_name: Nombre del Producto
+          quantity: Cantidad
+          price: Precio
+        order_status:
+          name: Nombre del estado
+          priority: Prioridad
+          visible: Visible
+          image: Imagen
         buyer:
           name: Nombre
           phone: Teléfono
@@ -292,3 +308,32 @@ es:
         admin_user:
           current_sign_in_at: Última vez conectado
           sign_in_count: Cantidad de veces conectado
+
+  checkout_purchase_title: Compra en Macain -
+  checkout_web_product_detail: Compra desde la Web
+  pending_web_product_detail: Compra pendiente desde la Web
+  cancelled_web_product_detail: Compra cancelada desde la Web
+  checkout_success_message: Muchas gracias por comprar en Macain! En breve nos vamos a estar contactando para coordinar la entrega.
+  checkout_cancelled_message: Su compra ha sido cancelada. Gracias.
+  checkout_pending_message: Su compra está Encargada y el pago quedó pendiente, Gracias.
+  quantity: Cantidad
+  total: Total
+  config: Configuración
+
+  mercado_pago_purchase:
+    order_status:
+      pending: Pendiente
+      approved: Aprobado
+      in_process: En trámite
+      in_mediation: En mediación
+      rejected: Rechazado
+      refunded: Devuelto
+      charged_back: Contracargo al usuario
+    payment_type:
+      credit_card: Tarjeta de Crédito
+      debit_card: Tarjeta de Débito
+      prepaid_card: Tarjeta prepaga
+      atm: Pagado desde un cajero
+      bank_transfer: Transferencia bancaria
+      ticket: Ticket
+      account_money: Plata en Mercado Pago

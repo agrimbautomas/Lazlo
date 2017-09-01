@@ -1,3 +1,24 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id                 :integer          not null, primary key
+#  name               :string(255)
+#  description        :text(65535)
+#  price              :float(24)
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#  slug               :string(255)
+#  category_id        :integer
+#  views              :integer          default(0)
+#  featured           :boolean          default(FALSE)
+#  visible            :boolean          default(TRUE)
+#
+
 class Product < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
@@ -23,25 +44,7 @@ class Product < ActiveRecord::Base
 
   scope :featured, -> { limit(6).order('featured desc, views desc') }
 
-  def payment
-    preference_data = {
-        'items' => [
-            'title' => self.name,
-            'description' => self.description,
-            'quantity' => 1,
-            'unit_price' => self.price,
-            'currency_id' => 'ARS',
-            'picture_url' => self.image_uri
-        ],
-        'back_urls' => {
-            'pending' => product_purchase_success_url(self),
-            'success' => product_purchase_pending_url(self),
-            'failure' => product_purchase_failure_url(self)
-        }
-    }
-
-    $mp_client.create_preference(preference_data)
-  end
+  scope :visible, -> { where(:visible => true) }
 
   def image_uri
     URI.join($request.url, self.image.url)

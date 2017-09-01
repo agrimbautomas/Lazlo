@@ -1,7 +1,7 @@
 ActiveAdmin.register Product do
   menu priority: 1, parent: I18n.t('activerecord.models.product.other')
 
-  permit_params :name, :slug, :description, :price, :category_id, :image, :featured,
+  permit_params :name, :slug, :description, :price, :category_id, :image, :featured, :visible,
                 product_images_attributes: [:id, :picture, :_destroy]
 
   config.sort_order = 'name_asc'
@@ -30,8 +30,9 @@ ActiveAdmin.register Product do
       image_tag(product.image.url(:thumb), :class => 'product-thumb')
     end
 
-    column :views
-    actions
+	 column :views
+	 column :visible
+	 actions
   end
 
 
@@ -45,6 +46,7 @@ ActiveAdmin.register Product do
               collection: Category.all, label: 'Tipo de producto'
       f.input :image, :as => :file, :hint => image_tag(f.object.image.url(:thumb))
       f.input :featured
+      f.input :visible
     end
 
     inputs 'Galería de Imágenes' do
@@ -72,6 +74,7 @@ ActiveAdmin.register Product do
       end
       row :views
       row :featured
+      row :visible
       row :image do
         image_tag(product.image.url(:medium))
       end

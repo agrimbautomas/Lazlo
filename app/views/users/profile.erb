@@ -1,0 +1,22 @@
+<!-- Start Header -->
+<%= render :partial => 'layouts/header' %>
+<!-- End Header -->
+
+<div class="grilla user-purchased-products">
+
+  <% if current_user.orders.any? %>
+      <% current_user.orders.order(:created_at => 'DESC').each do |order|
+        @order = order
+      %>
+          <%= render :partial => 'users/orders/order_row' %>
+      <% end %>
+  <% end %>
+
+  <%= link_to 'Cerrar Sesión', destroy_user_session_path, :method => :delete %>
+
+</div>
+
+
+<!-- Start Footer -->
+<%= render :partial => 'layouts/footer' %>
+<!-- End Footer -->

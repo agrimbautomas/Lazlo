@@ -130,7 +130,7 @@ a.home-category-block {
     }
     .see-more {
       background: #ffffff;
-      color: black;
+      color: $red_macain;
       padding: 5px 0px;
       font-size: 12px;
       font-weight: bold;
@@ -138,6 +138,7 @@ a.home-category-block {
       bottom: 7%;
       width: 54%;
       margin: 0px 23%;
+      border-radius: 3px;
     }
   }
 

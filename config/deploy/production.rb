@@ -5,6 +5,6 @@ role :db,  %w{deploy@macain.com.ar}
 set :deploy_to, '/srv/rails/macain-web'
 
 server 'macain.com.ar', user: 'deploy', roles: %w{web app}, my_property: :my_value
-set :rails_env, 'production'
 
+set :rails_env, 'production'
 set :branch, 'production'

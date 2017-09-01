@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_action :set_request, :set_category, :set_meta_data
 
   def show
-    @products = Product.where(category_id: @category)
+    @products = Product.visible.where(category_id: @category)
   end
 
   def set_request
