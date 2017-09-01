@@ -22,17 +22,17 @@ Rails.application.configure do
 
 
   ActionMailer::Base.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => "587",
-      :domain => "gmail.com",
-      :user_name => "macainsite@gmail.com",
-      :password => "mi4queridoh",
-      :authentication => "plain"
+		:address => "smtp.gmail.com",
+		:port => "587",
+		:domain => "gmail.com",
+		:user_name => "macainsite@gmail.com",
+		:password => "mi4queridoh",
+		:authentication => "plain"
   }
 
   Rails.application.routes.default_url_options[:host] = host
-  config.action_mailer.default_url_options = {host: host}
-  config.action_mailer.default_options = {from: 'no-reply@' + host}
+  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_options = { from: 'no-reply@' + host }
 
   config.action_controller.asset_host = host #Or your domain
   config.action_mailer.asset_host = config.action_controller.asset_host
@@ -70,11 +70,14 @@ Rails.application.configure do
 
   config.assets.js_compressor = :uglifier
 
-  MacainWeb::Application.configure do
-    config.force_ssl = true
-  end
+  config.force_ssl = true
 
   # Route exceptions to the application router vs. default
   config.exceptions_app = self.routes
+
+  # Sentry Config
+  Raven.configure do |config|
+	 config.dsn = Rails.application.secrets.sentry_dns
+  end
 
 end

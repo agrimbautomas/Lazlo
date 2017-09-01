@@ -93,3 +93,7 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov'
 end
+
+group :production do
+  gem 'sentry-raven'
+end
