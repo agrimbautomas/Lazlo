@@ -1,0 +1,5 @@
+<% @order.order_products_list.order_products_rows.each do |product_row| %>
+    <div class="product-image">
+      <%= image_tag product_row.product.image.url(:medium) %>
+    </div>
+<% end %>

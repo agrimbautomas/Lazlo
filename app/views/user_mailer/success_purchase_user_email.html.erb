@@ -31,7 +31,8 @@
 
       <% @order.order_products_list.order_products_rows.each do |products_row| %>
           <div class="orders-images-collapsed">
-            <img src="<%= products_row.product.image.url(:medium) %>" style="width: 50%; max-width: 150px; margin: 40px 25% 40px;">
+            <img src="http://beta.macain.com.ar/system/products/images/000/000/004/medium/untitled.46.jpg?1504117172" style="width: 50%; max-width: 150px; margin: 40px 25% 40px;">
+            <!-- <img src="<%= products_row.product.image.path(:medium) %>" style="width: 50%; max-width: 150px; margin: 40px 25% 40px;"> -->
           </div>
       <% end %>
 

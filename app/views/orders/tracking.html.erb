@@ -8,19 +8,16 @@
     <h1><%= @order.title %></h1>
 
     <div class="images-container">
-      <%
-         # Todo - Check if product was delivered, then dont show
-         if @order.order_products_list.present? and @order.order_products_list.order_products_rows.any? %>
-          <% @order.order_products_list.order_products_rows.each do |product_row| %>
-              <div class="product-image">
-                <%= image_tag product_row.product.image.url(:medium) %>
-              </div>
-          <% end %>
+      <% if @order.order_products_list.present? and @order.order_products_list.order_products_rows.any? %>
+          <%= render :partial => 'orders/tracking/products_rows' %>
+      <% else %>
+          <%= render :partial => 'orders/tracking/single_product' %>
       <% end %>
     </div>
   </div>
 
   <%
+
      status_class = 'status-active'
      date_created = @order.created_at.strftime('%m/%d')
      week_later = (@order.created_at + 15.days).strftime('%m/%d')
@@ -45,7 +42,7 @@
         </div>
 
         <%
-           if (status_class == 'status-active') and (product_status.name == @order.order_status)
+           if (status_class == 'status-active') and (product_status == @order.order_status)
              status_class = 'status-inactive'
            end
         %>

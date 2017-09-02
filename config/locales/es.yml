@@ -319,6 +319,7 @@ es:
   quantity: Cantidad
   total: Total
   config: Configuración
+  tracking_code_not_exists: El código no pertenece a ninguna orden en curso
 
   mercado_pago_purchase:
     order_status:

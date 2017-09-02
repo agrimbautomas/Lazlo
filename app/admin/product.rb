@@ -10,6 +10,7 @@ ActiveAdmin.register Product do
   filter :name
   filter :price
   filter :featured
+  filter :category
 
   controller do
     defaults :finder => :find_by_slug

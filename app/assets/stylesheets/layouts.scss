@@ -781,11 +781,15 @@ header {
 
 .buyers-data {
   margin-top: 70px;
+  margin: 0px 10%;
+  line-height: 35px;
+
   h1 {
-    margin: 20px auto 20px;
+    margin: 20px 10% 20px;
     display: inline-block;
     font-size: 22px;
     color: #F48789;
+    width: 80%;
   }
 }
 

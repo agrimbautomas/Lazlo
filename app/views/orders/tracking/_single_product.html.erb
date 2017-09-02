@@ -1,0 +1,4 @@
+<% product = Product.find(@order.product_id) %>
+<div class="product-image single-product-image ">
+  <%= image_tag product.image.url(:medium) %>
+</div>
