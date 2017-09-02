@@ -59,6 +59,10 @@ class Order < ActiveRecord::Base
 	 save!
   end
 
+  def tracking_link
+	 request.base_url + tracking_order_by_code_path(code)
+  end
+
   private
 
 	def buyer_is_nil?
@@ -68,5 +72,6 @@ class Order < ActiveRecord::Base
 	def user_is_nil?
 	  user.nil?
 	end
+
 
 end

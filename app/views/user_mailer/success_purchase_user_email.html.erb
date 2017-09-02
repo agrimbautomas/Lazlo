@@ -1,68 +1,221 @@
-<div style="width: 100%; text-align: center; padding: 50px 0px 70px; ">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
 
+  <style>
 
-  <img src="<%= @images[:logo] %>" style="width: 50%; max-width: 150px; margin: 0px 25%;">
+      .mail-container {
+          width: 100%;
+          text-align: center;
+          padding: 50px 0px 70px;
+      }
 
+      .mail-logo {
+          width: 50%;
+          max-width: 150px;
+          margin: 0px 25%;
+      }
 
-  <div style="border: #69caca 1px solid;
+      .header-container {
+          border: #69caca 1px solid;
           -webkit-border-radius: 5px;
           -moz-border-radius: 5px;
           border-radius: 5px;
           max-width: 600px;
           width: 96%;
-          display: inline-block;">
+          display: inline-block;
+      }
 
+      .header-title {
+          background: #69CACA;
+          margin-top: 36px;
+          display: inline-block;
+          width: 100%;
+          color: white;
+          border-top: 1px solid white;
+          font-family: 'Tahoma', sans-serif;
+          font-size: 14px;
+          padding: 6px 0px;
+      }
+
+      .products-container {
+          width: 90%;
+          padding: 20px 5%;
+          height: auto;
+          position: relative;
+          display: inline-block;
+          text-align: center;
+      }
+
+      .products-inner-container {
+          width: auto;
+          display: inline-block;
+      }
+
+      .data-container {
+          width: 90%;
+          padding: 20px 5%;
+      }
+
+      .product-image {
+          overflow: hidden;
+          border-radius: 50%;
+          float: left;
+          border: 2px solid #666666;
+          height: 100px;
+          width: 100px;
+          margin: 0px -6% 0px 3%;
+      }
+
+      .product-image img {
+          width: 100%;
+          margin: auto;
+          position: absolute;
+          height: 100%;
+          left: 0px;
+          top: 0px;
+      }
+
+      h1 {
+          font-family: 'Tahoma', sans-serif;
+          font-size: 20px;
+          color: black;
+          line-height: 26px;
+      }
+
+      .order-title {
+          font-style: italic;
+          color: gray;
+      }
+
+      .tracking-link {
+          background: #69caca;
+          color: white;
+          border-radius: 5px;
+          padding: 20px 0px;
+          font-weight: bold;
+          font-size: 16px;
+          font-family: 'Tahoma', sans-serif;
+          text-decoration: none;
+          width: 80%;
+          margin: 30px auto 40px;
+          display: inline-block;
+          max-width: 250px;
+      }
+
+      h6 {
+          font-family: 'Tahoma', sans-serif;
+          font-size: 15px;
+          color: black;
+          width: 90%;
+          margin: 30px 5% 10px;
+          font-weight: 600;
+      }
+
+      /************** Products List ******************/
+
+      .user-purchased-item-block {
+
+      }
+
+      .order-info-row {
+
+      }
+
+      .product-row {
+          width: 100%;
+          display: inline-block;
+          padding: 10px 0px;
+          border-bottom: 1px solid #828282;
+      }
+
+      .product-row h2 {
+          display: inline-block;
+          float: left;
+      }
+
+      .product-row h2 a {
+          text-decoration: none;
+          color: #69caca;
+      }
+
+      .cart-product-quantity {
+          display: inline-block;
+          float: left;
+      }
+
+      .cart-product-quantity .quantity-message {
+
+      }
+
+      .cart-product-quantity .quantity-message span {
+
+      }
+
+      .cart-product-price {
+          display: inline-block;
+          float: left;
+          width: 20%;
+      }
+
+      .cart-product-image {
+
+      }
+
+      .total-row {
+          width: 90%;
+          margin: 10px 5%;
+      }
+
+      .total-row h6 {
+          width: 70%;
+      }
+
+      .total-row span {
+          width: 30%;
+      }
+
+  </style>
+</head>
+
+<div class="mail-container">
+
+  <img class="mail-logo" src="<%= @images[:logo] %>">
+
+
+  <div class="header-container">
     <div style="background: url(<%= @images[:background] %>);">
-
-      <div style="background: #69CACA;
-              margin-top: 36px;
-              display: inline-block;
-              width: 100%;
-              color: white;
-              border-top: 1px solid white;
-              font-family: 'Tahoma',sans-serif;
-              font-size: 14px;
-              padding: 6px 0px;">Compra de Producto
-      </div>
+      <div class="header-title">Compra de Producto</div>
     </div>
 
 
-    <div style="width: 90%; padding: 20px 5%;">
+    <div class="products-container">
+      <div class="products-inner-container ">
+        <% @order.order_products_list.order_products_rows.each do |products_row| %>
+            <a class="product-image" href="<%= resource_domain + product_path(products_row.product) %>">
+              <img src="<%= products_row.product.image.path(:medium) %>" style="width: 50%; max-width: 150px; margin: 40px 25% 40px;">
+            </a>
+        <% end %>
+      </div>
+    </div>
 
-      <% @order.order_products_list.order_products_rows.each do |products_row| %>
-          <div class="orders-images-collapsed">
-            <img src="http://beta.macain.com.ar/system/products/images/000/000/004/medium/untitled.46.jpg?1504117172" style="width: 50%; max-width: 150px; margin: 40px 25% 40px;">
-            <!-- <img src="<%= products_row.product.image.path(:medium) %>" style="width: 50%; max-width: 150px; margin: 40px 25% 40px;"> -->
-          </div>
-      <% end %>
-
-      <h1 style="font-family: 'Tahoma',sans-serif;
-              font-size: 20px; color: black;">
-        Gracias por realizar el pedido de <%= @order.title %> en Macain!
+    <div class="data-container">
+      <h1>
+        Gracias por realizar la orden de
+        <div class="order-title"><%= @order.title %></div>
+        en Macain!
         <br>
 
       </h1>
 
-      <p style="font-size: 13px; color: black;
-              line-height: 20px;
-              margin: 40px auto 0px;">En breve nos vamos a estar contactando para coordinar la entrega.</p>
+      <h6>
+        En breve nos vamos a estar contactando para coordinar la entrega.
+        Podés hacer el seguimiento de tú producto desde el siguiente botón:
+      </h6>
 
-      <h1 style="font-family: 'Tahoma',sans-serif;
-              font-size: 20px; color: black;">Podés hacer el seguimiento de tú producto desde el siguiente link
-      </h1>
-
-      <a href="<%= tracking_order_by_code_url @order.code %>" style="background: #69caca;
-              color: white;
-              border-radius: 5px;
-              padding: 20px 0px;
-              font-weight: bold;
-              font-size: 16px;
-              font-family: 'Tahoma',sans-serif;
-              text-decoration: none;
-              width: 80%;
-              margin: 30px auto 40px;
-              display: inline-block;">
-        TRACKING LINK
+      <a href="<%= tracking_order_by_code_url @order.code %>" class="tracking-link">
+        SEGUIR PRODUCTO
       </a>
 
 

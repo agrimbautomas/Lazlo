@@ -181,6 +181,18 @@ span.error {
       span.status{
         font-weight: bold;
       }
+      
+      span.tracking-link{
+        float: right;
+        margin-right: 3%;
+        text-decoration: underline;
+        a{
+          color: $purple_macain;
+          &:hover{
+            color: $purple_macain_hover;
+          }
+        }
+      }
 
       h4 {
         width: 80%;

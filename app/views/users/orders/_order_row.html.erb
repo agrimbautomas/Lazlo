@@ -3,6 +3,7 @@
   <div class="order-info-row">
     <span><%= @order.updated_at.strftime('%d %b %y') %></span>
     <span class="status"> - <%= @order.order_status.name unless @order.order_status.nil? %></span>
+    <span class="tracking-link"> <%= link_to 'Tracking link', request.base_url + tracking_order_by_code_path(@order.code) %></span>
   </div>
 
   <% if @order.order_products_list.present? and @order.order_products_list.order_products_rows.any? %>

@@ -2,12 +2,47 @@
 <html>
 <head>
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+
+  <style>
+
+      h2 {
+          color: #FD6E6E;
+          width: 100%;
+          text-align: center;
+      }
+
+      .order-title {
+          font-style: italic;
+          color: gray;
+      }
+
+      .order-rows-container {
+          border: 1px solid #d0d0d0;
+          border-radius: 4px;
+          padding: 5% 35px;
+          background: #eaeaea;
+          width: 90%;
+          width: calc(90% - 2px);
+          display: inline-block;
+      }
+
+      h5 {
+          font-family: 'Roboto Condensed', Arial;
+          color: gray;
+          margin: 40px 0px 20px 20px;
+      }
+
+  </style>
 </head>
 
-<body>
-<h2 style="color: #FD6E6E; width: 100%; text-align: center;">|| Pophensen Email ||</h2>
 
-<h3 style="">Baguette! Se concretó la siguiente compra "<%= @order.title %>",</h3>
+
+<body>
+<h2>|| Pophensen Email ||</h2>
+
+<h3>Baguette! Se concretó la siguiente compra
+  <div class="order-title">"<%= @order.title %>"</div>
+</h3>
 
 <p>El usuario que compró es <strong><%= @user.email %></strong></p>
 
@@ -18,12 +53,7 @@
 <p>Te paso los detalles abajo...</p>
 
 
-<div style="border: 1px solid #D0D0D0;
-    border-radius: 4px;
-    padding: 10px 35px;
-    background: #EAEAEA;
-    width: auto;
-    display: inline-block;">
+<div class="order-rows-container">
 
   <%= render :partial => 'admin_mailer/orders/order_row' %>
 
@@ -32,8 +62,7 @@
 <p>Bueno Flaaaan, hasta la prox!</p>
 
 
-<h5 style="font-family: 'Roboto Condensed', Arial; color: gray; margin: 40px 0px 20px 20px;">- The Gordínflon Server
-  -</h5>
+<h5>- The Gordínflon Server -</h5>
 </body>
 </html>
 
