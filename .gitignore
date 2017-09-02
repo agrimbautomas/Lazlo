@@ -20,7 +20,6 @@
 /log/*
 !/log/.keep
 /tmp
-/vendor
 
 # Do not remove vendor, it has active_admin.css
 #/vendor/*
