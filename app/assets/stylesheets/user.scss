@@ -164,7 +164,7 @@ span.error {
   }
 }
 
-.user-purchased-products.grilla {
+.profile-container.grilla {
   width: 700px;
 
   .user-purchased-item-block {
@@ -249,6 +249,17 @@ span.error {
         width: 30%;
       }
     }
+  }
+
+  .no-orders-message{
+    font-size: 32px;
+    font-family: 'Josefin Sans', sans-serif;
+    width: 90%;
+    margin: 150px 5% 200px;
+  }
+
+  .log-out-button{
+    text-decoration: underline;
   }
 }
 
