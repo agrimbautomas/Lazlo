@@ -41,7 +41,7 @@
 
       .products-container {
           width: 90%;
-          padding: 20px 5%;
+          padding: 40px 5% 0px;
           height: auto;
           position: relative;
           display: inline-block;
@@ -193,8 +193,8 @@
     <div class="products-container">
       <div class="products-inner-container ">
         <% @order.order_products_list.order_products_rows.each do |products_row| %>
-            <a class="product-image" href="<%= resource_domain + product_path(products_row.product) %>">
-              <img src="<%= products_row.product.image.path(:medium) %>" style="width: 50%; max-width: 150px; margin: 40px 25% 40px;">
+            <a class="product-image" href="<%= product_url products_row.product %>">
+              <img src="<%= products_row.product.image.url(:medium) %>">
             </a>
         <% end %>
       </div>

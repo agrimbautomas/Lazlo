@@ -174,6 +174,13 @@ input:-webkit-autofill {
   transition: all 0.3s ease-in-out;
 }
 
+.transition {
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
 .margin-top-medium {
   margin-top: $margin_medium;
 }
@@ -698,73 +705,6 @@ header {
 
 }
 
-/************************************************************************************/
-/************************************************************************************/
-/************************************************************************************/
-/************************************************************************************/
-/*************************** RESPONSIVE 2*********************************************/
-/************************************************************************************/
-/************************************************************************************/
-/************************************************************************************/
-
-@media screen and (max-width: 450px) {
-
-  header {
-    .logo img {
-      max-width: 150px;
-      margin-bottom: -37px;
-    }
-
-    .social-nav-container {
-      height: 40px;
-
-      .social-nav {
-        display: none;
-      }
-    }
-
-    nav {
-      .grilla {
-        margin: 0px;
-        max-width: 100%;
-      }
-      a {
-        width: 100%;
-        padding: 15px 0px;
-      }
-    }
-
-  }
-
-  .social-nav-footer {
-    display: block;
-  }
-
-  .contact-form h5 {
-    font-size: 28px;
-  }
-
-  .contact-form {
-    padding-bottom: 40px;
-
-    font-size: 32px;
-  }
-
-  .contact-form {
-    .fa-times {
-      font-size: 40px;
-      right: 5%;
-      top: 2%;
-    }
-
-    input[type='submit'] {
-      font-size: 30px;
-      padding: 12px 6%;
-    }
-  }
-
-}
-
 
 /************************************************************************************/
 /************************************************************************************/
@@ -939,6 +879,60 @@ header {
 
 @media screen and (max-width: 500px) {
 
+  header {
+    .logo img {
+      max-width: 150px;
+      margin: 14px auto;
+    }
+
+    .social-nav-container {
+      height: 40px;
+
+      .social-nav {
+        display: none;
+      }
+    }
+
+    nav {
+      .grilla {
+        margin: 0px;
+        max-width: 100%;
+      }
+      a {
+        width: 100%;
+        padding: 15px 0px;
+      }
+    }
+
+  }
+
+  .social-nav-footer {
+    display: block;
+  }
+
+  .contact-form h5 {
+    font-size: 28px;
+  }
+
+  .contact-form {
+    padding-bottom: 40px;
+
+    font-size: 32px;
+  }
+
+  .contact-form {
+    .fa-times {
+      font-size: 40px;
+      right: 5%;
+      top: 2%;
+    }
+
+    input[type='submit'] {
+      font-size: 30px;
+      padding: 12px 6%;
+    }
+  }
+
   .products-box-container h1 {
     padding: 25px 0px;
     font-size: 25px;
@@ -989,11 +983,4 @@ header {
 
   }
 
-}
-
-.transition {
-  -webkit-transition: all .4s ease-in-out;
-  -moz-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
 }

@@ -1,4 +1,4 @@
 urls:
-  base: http://beta.macain.com.ar/
+  base: http://beta.macain.com.ar
 admin:
   emails: tomas@amalgama.co, smacagno@gmail.com

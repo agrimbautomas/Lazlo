@@ -37,8 +37,13 @@ Rails.application.configure do
   config.action_controller.asset_host = host #Or your domain
   config.action_mailer.asset_host = config.action_controller.asset_host
 
-  #Paper Clip
+  # PaperClip
   Paperclip.options[:command_path] = "/usr/bin/"
+  attachment_path = 'system/:class/:attachment/:id_partition/:style/:filename'
+  config.paperclip_defaults = {
+		:path => ":rails_root/public/#{attachment_path}",
+		:url => "#{Settings.urls.base}/#{attachment_path}",
+  }
 
   #Helpers
   Rails.application.routes.url_helpers
