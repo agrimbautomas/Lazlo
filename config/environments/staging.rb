@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  host = 'beta.macain.com.ar'
+  host = 'beta.alomacain.com'
   config.API_VERSION = 1
 
   # Settings specified here will take precedence over those in config/application.rb.

@@ -25,7 +25,7 @@ class MercadoPagoCheckout < Interactor
 		  'payer' => payer_data,
 		  'additional_info' => purchase_data,
 		  'client_id' => Rails.application.secrets[:mercado_pago_client_id],
-		  'marketplace' => 'alomacain.com.ar'
+		  'marketplace' => 'alomacain.com'
 		  # Todo - Limit payment methods only to cards
 		  # 'payment_methods' => payment_methods
 	 }

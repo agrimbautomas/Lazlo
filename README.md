@@ -93,6 +93,11 @@ $ bundle exec rake macain:codereview
  - *macain:coverage*: Generate code coverage report from tests (report task).
  - *macain:test*: Run all tests in spec directory.
 
+### SSL Certificates
+
+To update certificates with 'letsencrypt' gem, go to the server and run 'rake letsencrypt_plugin'. 
+
+
 ### Authentication
 
 The Macain API uses [Devise Gem - Flexible authentication solution for Rails with Warden][15]
