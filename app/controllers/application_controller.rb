@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
 
   def set_og_tags title=nil, description=nil, image=nil
-    @og_title = title + ' || Macain'
+    @og_title = title + ' || AloMacain'
     @og_description = description
     @og_image = image
   end
