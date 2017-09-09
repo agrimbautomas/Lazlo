@@ -8,3 +8,6 @@ server 'alomacain.com', user: 'deploy', roles: %w{web app}, my_property: :my_val
 
 set :rails_env, 'production'
 set :branch, 'production'
+
+# For sitemap_generator
+set :sitemap_roles, :web # default
