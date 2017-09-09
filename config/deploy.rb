@@ -2,7 +2,7 @@
 lock '3.7.1'
 
 set :application, 'macain-web'
-set :repo_url, 'git@bitbucket.org:agrimbautomas/macain-web-rails.git'
+set :repo_url, 'git@gitlab.com:agrimbautomas/macain-web-rails.git'
 
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 

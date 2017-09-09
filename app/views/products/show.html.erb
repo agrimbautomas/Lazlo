@@ -7,9 +7,9 @@
   <div class="breadcrumbs">
     <a href="<%= root_path %>">AloMacain</a>
     <span>/</span>
-    <a href="<%= category_path @category %>"><%= @category.name %></a>
+    <a href="<%= category_path @category %>"><%= capitalize_first_letters(@category.name) %></a>
     <span>/</span>
-    <a href="<%= product_path %>" class="active"><%= @product.name %></a>
+    <a href="<%= product_path %>" class="active"><%= capitalize_first_letters(@product.name) %></a>
   </div>
 </div>
 
