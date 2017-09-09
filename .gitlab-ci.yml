@@ -15,7 +15,8 @@ build_code:
     - bundle exec rubycritic -p "test_output/critic"
     - bundle exec rspec spec/
   tags:
-    - rails, ruby
+    - ruby
+#    - rails, ruby
   artifacts:
     paths:
       - test_output/

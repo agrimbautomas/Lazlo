@@ -6,7 +6,7 @@ RSpec.describe HomeController, type: :controller do
   describe 'GET index' do
     it 'assigns @featured_products' do
 
-      featured_products = Product.featured
+      featured_products = Product.featured.visible
 
       get :index
       expect(assigns(:featured_products)).to eq(featured_products)

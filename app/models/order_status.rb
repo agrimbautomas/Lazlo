@@ -19,22 +19,17 @@ class OrderStatus < ActiveRecord::Base
   has_attached_file :image, styles: {medium: "400x400>", thumb: "100x100>"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  validates :name, uniqueness: true
-  validates :priority, uniqueness: true
 
-  before_validation :set_priority
+  validates :name, presence: true, allow_blank: false,
+				:uniqueness => {:case_sensitive => false}, length: {maximum: 50}
 
-  scope :visible, -> { where(:visible => true) }
+  validates :priority, presence: true, uniqueness: true
+  validates_numericality_of :priority, less_than: 100, greater_than: 0
+
+  scope :visible, -> {where(:visible => true)}
 
   def name_slug
 	 self.name.parameterize
-  end
-
-  def set_priority
-	 self.priority = 1
-	 if OrderStatus.order(priority: :asc).last.present?
-		self.priority = OrderStatus.order(:priority).last.priority + 1
-	 end
   end
 
 end
