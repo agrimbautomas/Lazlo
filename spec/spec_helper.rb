@@ -1,22 +1,26 @@
-$LOAD_PATH << '../lib'
-
 #Coverage
 require 'simplecov'
-SimpleCov.start do
+SimpleCov.start 'rails' do
+  project_name 'AloMacain Web Site'
   coverage_dir 'test_output/coverage/'
+
+  # Ignore default files, uncomment if modified
   add_filter 'app/admin'
   add_filter 'config'
   add_filter 'vendor'
   add_filter 'spec'
-
-  # Ignore default files, uncomment if modified
   add_filter 'app/controllers/application_controller.rb'
   add_filter 'app/helpers/application_helper.rb'
+
+  add_group 'Models', '/app/models'
+  add_group 'Interactors', '/app/interactors'
+  add_group 'Services', '/app/services'
+  add_group 'Controllers', '/app/controllers'
+  add_group 'Serializers', '/app/serializers'
 end
 
 #Testing
 require File.expand_path('../../config/environment', __FILE__)
-Dir[Rails.root.join('spec/controllers/**/*.rb')].each {|f| require f}
 
 require 'rspec/rails'
 require 'paperclip/matchers'

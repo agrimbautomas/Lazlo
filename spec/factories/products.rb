@@ -1,19 +1,19 @@
 FactoryGirl.define do
 
-  factory :order_status do
+  factory :product do
 
 	 sequence(:name) {|n| "A random status #{n}"}
-	 sequence(:priority) {|n| n}
-	 visible true
+	 sequence(:description) {|n| "A random description #{n}"}
+	 sequence(:price) {|n| "A random price #{n}"}
 
-	 factory :order_status_with_image do
+
+	 factory :product_without_price do
+		price nil
+	 end
+
+	 factory :product_with_image do
 		image {File.new(Rails.root.join('spec', 'photos', 'logo-green.png'))}
 	 end
-
-	 factory :order_status_not_visible do
-		visible false
-	 end
-
   end
 
 end
