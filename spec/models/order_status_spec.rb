@@ -3,11 +3,11 @@
 # Table name: order_statuses
 #
 #  id                 :integer          not null, primary key
-#  name               :string(255)
+#  name               :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  image_file_name    :string(255)
-#  image_content_type :string(255)
+#  image_file_name    :string
+#  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #  priority           :integer
@@ -30,7 +30,6 @@ RSpec.describe OrderStatus, type: :model do
 
   it {should respond_to (:image)}
   it {should have_attached_file(:image)}
-
 
   describe '#create!' do
 	 context 'with correct params' do

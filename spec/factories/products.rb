@@ -2,10 +2,9 @@ FactoryGirl.define do
 
   factory :product do
 
-	 sequence(:name) {|n| "A random status #{n}"}
+	 sequence(:name) {|n| "A random name #{n}"}
 	 sequence(:description) {|n| "A random description #{n}"}
-	 sequence(:price) {|n| "A random price #{n}"}
-
+	 sequence(:price) {|n| n}
 
 	 factory :product_without_price do
 		price nil

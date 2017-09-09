@@ -3,12 +3,12 @@
 # Table name: buyers
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
-#  email      :string(255)
+#  name       :string
+#  email      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  phone      :string(255)
-#  address    :string(255)
+#  phone      :string
+#  address    :string
 #
 
 class Buyer < ActiveRecord::Base
