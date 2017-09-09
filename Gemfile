@@ -60,6 +60,7 @@ group :development, :test do
 
   gem 'fuubar'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'json_matchers'
 
   gem 'rspec-collection_matchers'
   gem 'rspec-mocks'

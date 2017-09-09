@@ -1,16 +1,29 @@
+$LOAD_PATH << '../lib'
+
 #Coverage
 require 'simplecov'
 SimpleCov.start do
   coverage_dir 'test_output/coverage/'
   add_filter 'app/admin'
+  add_filter 'config'
+  add_filter 'vendor'
+  add_filter 'spec'
+
+  # Ignore default files, uncomment if modified
+  add_filter 'app/controllers/application_controller.rb'
+  add_filter 'app/helpers/application_helper.rb'
 end
 
 #Testing
 require File.expand_path('../../config/environment', __FILE__)
+Dir[Rails.root.join('spec/controllers/**/*.rb')].each {|f| require f}
+
 require 'rspec/rails'
 require 'paperclip/matchers'
 require 'rspec/collection_matchers'
 require 'helpers/controller_helpers'
+require 'json_matchers/rspec'
+require 'support/factory_girl'
 
 RSpec.configure do |config|
   config.include RocketPants::TestHelper, type: :controller
@@ -28,9 +41,6 @@ RSpec.configure do |config|
 	 mocks.verify_partial_doubles = true
   end
 
-
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
