@@ -57,14 +57,23 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'byebug'
-  # Better rails console, url: https://github.com/goodpeople/debbie
-  gem 'debbie'
 
   gem 'fuubar'
+  gem 'factory_girl_rails', '~> 4.0'
+
+  gem 'rspec-collection_matchers'
+  gem 'rspec-mocks'
+  gem 'rspec-rails'
+  gem 'rubycritic'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'simplecov'
 
   # Pry console, url: https://github.com/rweng/pry-rails
   gem 'pry'
   gem 'pry-rails'
+
+  # Better rails console, url: https://github.com/goodpeople/debbie
+  gem 'debbie'
 end
 
 group :development do
@@ -82,17 +91,6 @@ group :development do
 
   # Access an IRB console on exception pages or by using <%= console %>
   gem 'web-console', '>= 3.3.0'
-end
-
-group :test do
-  gem 'factory_girl_rails', '~> 4.0'
-
-  gem 'rspec-collection_matchers'
-  gem 'rspec-mocks'
-  gem 'rspec-rails'
-  gem 'rubycritic'
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'simplecov'
 end
 
 group :production do

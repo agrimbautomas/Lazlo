@@ -18,6 +18,7 @@ RSpec.configure do |config|
   config.include Paperclip::Shoulda::Matchers
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerHelpers, :type => :controller
+  config.include FactoryGirl::Syntax::Methods
 
   config.expect_with :rspec do |expectations|
 	 expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -26,6 +27,7 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
 	 mocks.verify_partial_doubles = true
   end
+
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
