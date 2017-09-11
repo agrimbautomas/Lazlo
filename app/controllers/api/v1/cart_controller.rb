@@ -5,7 +5,6 @@ class Api::V1::CartController < Api::V1::ApiController
   before_action :set_quantity, only: [:edit_checkout_product_row]
 
   def add_product_to_cart
-	 byebug
 	 current_user.add_product_to_cart @product
 	 render json: {:response => 'success'}
   end
