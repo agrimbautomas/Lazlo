@@ -29,18 +29,12 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  let (:john) { User.create! email: 'john@theamalgama.com', password: 'asd789de', password_confirmation: 'asd789de' }
-  let (:tomas) { User.create! email: 'tomas@theamalgama.com', password: 'aad789de' }
-  let (:paul) { User.create! email: 'paul@theamalgama.com', password: 'aad789de' }
+  it { should respond_to(:email) }
+  it { should validate_presence_of(:email) }
+  it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
+  it { should validate_length_of(:email).is_at_most(255) }
 
-  let (:category1) { Category.create!(name: 'Mesa Ratona') }
-  let (:some_table) { Product.create!(name: 'A fake Product', description: 'Some random description, some random description',
-                                      price: 2000, category: category1) }
-
-
-  it { should respond_to (:email) }
   it { should respond_to (:password) }
-
   it { should validate_presence_of(:password) }
   it { should validate_confirmation_of(:password) }
 
@@ -57,56 +51,24 @@ RSpec.describe User, type: :model do
   it { should have_many(:orders) }
 
 
-  context "on Create" do
+  describe '#create!' do
+	 context 'with correct params' do
 
-    it 'should not be valid without email nor password' do
-      user = User.new
-      expect(user).to_not be_valid
-    end
+		let(:valid_user) { create(:user) }
+		it { expect(valid_user).to be_valid }
 
-    it 'should not be valid without password' do
-      user = User.new email: 'user@email.com'
-      expect(user).to_not be_valid
-    end
+	 end
 
-    it 'should not be valid without email' do
-      user = User.new password: 'a1ace234a'
-      expect(user).to_not be_valid
-    end
+	 context 'without name should generate a name' do
+		let(:user) { create(:user_without_name) }
+		it { expect(user.name).not_to be_nil }
+	 end
 
-    it 'should be valid with email and password' do
-      user = User.new email: 'user@email.com', password: 'asdjoasdb'
-      expect(user).to be_valid
-    end
-
-
-    it 'should not have products on cart' do
-      expect(john.has_product_in_cart? some_table).to be false
-    end
-
-    it 'should not have products as favourites' do
-      expect(john.has_product_as_favourite? some_table).to be false
-    end
-
-    it 'should not have products bought' do
-      expect(john.has_bought? some_table).to be false
-    end
-
-    it 'should have no products in cart count' do
-      expect(john.cart_count).to eq(0)
-    end
+	 context 'without email' do
+		let(:invalid_user) { create(:user_without_email) }
+		it { expect { invalid_user }.to raise_exception(ActiveRecord::RecordInvalid) }
+	 end
 
   end
-
-
-  context "Setting Users data" do
-
-    before(:each) do
-      @user = User.new email: 'user@email.com', password: 'asdjoasdb'
-      @user.save!
-    end
-
-  end
-
-
+  
 end

@@ -5,14 +5,17 @@ RSpec.describe Api::V1::CartController, type: :controller do
 
   default_version 1
 
-  let(:user) {create(:user)}
-  let(:product) {create(:product)}
-  let(:token) {double :acceptable? => true, :scopes => [:user]}
+
+  let(:product) { create(:product) }
 
   describe 'CRUD products in user cart' do
+	 login_user
 
 	 context 'without Token' do
-		before {post :add_product_to_cart, product_id: product.id}
+		before {
+		  sign_in nil
+		  post :add_product_to_cart, product_id: product.id
+		}
 		it 'should be redirected if not registered' do
 		  expect(response.status).to eq 302
 		end
@@ -21,16 +24,20 @@ RSpec.describe Api::V1::CartController, type: :controller do
 	 context 'with Token' do
 
 		before do
-		  allow(controller).to receive(:doorkeeper_token) {token}
-		  allow(controller).to receive(:current_user) {user}
+
 		end
 
 		context 'POST product to user cart' do
 		  before {
-			 post :add_product_to_cart, product_id: product.id
+
 		  }
-		  z 
+
 		  it {
+
+			 post :add_product_to_cart,
+					:format => :json,
+					:product_id => product.id,
+					:quantity => 1
 			 expect(response.status).to eq 200
 			 expect(response.content_type).to eq('application/json')
 		  }

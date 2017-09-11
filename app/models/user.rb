@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
 			:recoverable, :rememberable, :trackable, :validatable,
 			:omniauthable, :confirmable, :omniauth_providers => [:facebook]
 
+  validates :email, presence: true, allow_blank: false,
+				:uniqueness => {:case_sensitive => false}, length: {maximum: 255}
 
   has_one :favourites_list, :dependent => :destroy
   has_one :checkout_list, :dependent => :destroy

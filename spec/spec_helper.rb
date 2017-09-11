@@ -20,6 +20,7 @@ end
 
 #Testing
 require File.expand_path('../../config/environment', __FILE__)
+require_relative 'support/controller_macros'
 
 require 'rspec/rails'
 require 'paperclip/matchers'
@@ -32,9 +33,14 @@ RSpec.configure do |config|
   config.include RocketPants::TestHelper, type: :controller
   config.include RocketPants::RSpecMatchers, type: :controller
   config.include Paperclip::Shoulda::Matchers
-  config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerHelpers, :type => :controller
   config.include FactoryGirl::Syntax::Methods
+
+  # For Devise >= 4.1.1
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  # Use the following instead if you are on Devise <= 4.1.0
+  # config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
 
   config.expect_with :rspec do |expectations|
 	 expectations.include_chain_clauses_in_custom_matcher_descriptions = true
