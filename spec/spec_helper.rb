@@ -25,7 +25,6 @@ require_relative 'support/controller_macros'
 require 'rspec/rails'
 require 'paperclip/matchers'
 require 'rspec/collection_matchers'
-require 'helpers/controller_helpers'
 require 'json_matchers/rspec'
 require 'support/factory_girl'
 
@@ -33,7 +32,6 @@ RSpec.configure do |config|
   config.include RocketPants::TestHelper, type: :controller
   config.include RocketPants::RSpecMatchers, type: :controller
   config.include Paperclip::Shoulda::Matchers
-  config.include ControllerHelpers, :type => :controller
   config.include FactoryGirl::Syntax::Methods
 
   # For Devise >= 4.1.1
