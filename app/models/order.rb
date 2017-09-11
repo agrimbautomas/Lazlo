@@ -18,25 +18,29 @@
 #  order_products_list_id   :integer
 #  payment_type             :integer          default(0), not null
 #
+# Todo Remove Color
 
 class Order < ActiveRecord::Base
 
   belongs_to :buyer
   belongs_to :user
   belongs_to :mercado_pago_purchase
+  belongs_to :order_status
 
   has_one :order_products_list, :dependent => :destroy
   has_many :order_products_rows, through: :order_products_list
-  belongs_to :order_status
 
   accepts_nested_attributes_for :order_products_rows, :allow_destroy => true
 
   enum payment_type: [:cash, :mercado_pago]
 
   before_create :set_code
-  validates_presence_of :order_products_list
+  validates_presence_of :title, :code, :payment_type, :order_products_list
 
-  # Todo - Add validations
+  validates :title, allow_blank: false, length: { maximum: 255 }
+  validates :detail, allow_blank: false, length: { maximum: 255 }
+  validates :code, allow_blank: false, length: { maximum: 255 }
+
   validates_presence_of :user, :if => :buyer_is_nil?
   validates_presence_of :buyer, :if => :user_is_nil?
 
@@ -65,13 +69,13 @@ class Order < ActiveRecord::Base
 
   private
 
-	def buyer_is_nil?
-		buyer.nil?
-	end
+  def buyer_is_nil?
+	 buyer.nil?
+  end
 
-	def user_is_nil?
-	  user.nil?
-	end
+  def user_is_nil?
+	 user.nil?
+  end
 
 
 end

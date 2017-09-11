@@ -11,6 +11,7 @@ SimpleCov.start 'rails' do
   add_filter 'spec'
   add_filter 'app/controllers/application_controller.rb'
   add_filter 'app/helpers/application_helper.rb'
+  add_filter 'app/models/ability.rb'
 
   add_group 'Models', '/app/models'
   add_group 'Interactors', '/app/interactors'

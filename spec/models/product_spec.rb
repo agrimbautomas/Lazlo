@@ -23,43 +23,41 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
 
-  it {should respond_to (:name)}
-  it {should validate_presence_of (:name)}
-  it {should allow_value(false).for(:name)}
-  it {should validate_length_of(:name).is_at_most(255)}
-  it {should validate_uniqueness_of(:name).ignoring_case_sensitivity}
+  it { should respond_to (:name) }
+  it { should validate_presence_of (:name) }
+  it { should allow_value(false).for(:name) }
+  it { should validate_length_of(:name).is_at_most(255) }
+  it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
 
-  it {should respond_to (:price)}
-  it {should validate_presence_of (:price)}
-  it {should validate_numericality_of(:price).is_greater_than(0)}
+  it { should respond_to (:price) }
+  it { should validate_presence_of (:price) }
+  it { should validate_numericality_of(:price).is_greater_than(0) }
 
-  it {should respond_to (:slug)}
-  it {should validate_presence_of (:slug)}
+  it { should respond_to (:slug) }
+  it { should validate_presence_of (:slug) }
 
-  it {should respond_to(:category)}
-  it {should belong_to(:category)}
+  it { should respond_to(:category) }
+  it { should belong_to(:category) }
 
-  it {should respond_to(:orders)}
-  it {should have_many(:orders)}
+  it { should respond_to(:orders) }
+  it { should have_many(:orders) }
 
-  it {should respond_to(:product_images)}
-  it {should have_many(:product_images)}
+  it { should respond_to(:product_images) }
+  it { should have_many(:product_images) }
 
-  it {should respond_to(:product_rows)}
-  it {should have_many(:product_rows)}
+  it { should respond_to(:product_rows) }
+  it { should have_many(:product_rows) }
 
-  it {should respond_to (:image)}
-  it {should have_attached_file(:image)}
+  it { should respond_to (:image) }
+  it { should have_attached_file(:image) }
 
 
   describe '#create!' do
 
-	 let(:valid_product) {create(:product)}
+	 let(:valid_product) { create(:product) }
 
 	 context 'with correct params' do
-		it {
-		  expect(valid_product).to be_valid
-		}
+		it { expect(valid_product).to be_valid }
 	 end
 
 	 context 'should have a slug from name' do
@@ -79,7 +77,7 @@ RSpec.describe Product, type: :model do
 
 
 	 describe 'When file is uploaded' do
-		let(:product_with_image) {create(:product_with_image)}
+		let(:product_with_image) { create(:product_with_image) }
 		it 'Should have an attachment' do
 		  expect(product_with_image.image).to be_a(Paperclip::Attachment)
 		end

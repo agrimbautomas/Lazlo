@@ -15,5 +15,6 @@ class Buyer < ActiveRecord::Base
 
   has_many :orders
 
-  validates :name, presence: true
+  validates :name, presence: true, allow_blank: false,
+            :uniqueness => {:case_sensitive => false}, length: {maximum: 255}
 end

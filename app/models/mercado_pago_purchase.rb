@@ -6,10 +6,9 @@
 #  collection_id :string
 #  preference_id :string
 #  payment_type  :string
-#  status        :string           default("initial"), not null
+#  status        :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  order_id      :integer
 #
 
 ### Mercado Pago States ###
