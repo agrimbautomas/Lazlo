@@ -1,6 +1,5 @@
 Rails.application.configure do
 
-  host = 'http://localhost:3000'
   config.API_VERSION = 1
 
   # The test environment is used exclusively to run your application's
@@ -40,5 +39,14 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.active_record.raise_in_transactional_callbacks = true
+
+  host = Settings.urls.base
+  Rails.application.routes.default_url_options[:host] = host
+  config.action_mailer.default_url_options = {host: host}
+  config.action_mailer.default_options = {from: 'no-reply@' + host}
+
+  config.action_controller.asset_host = host #Or your domain
+  config.action_mailer.asset_host = config.action_controller.asset_host
+
 
 end

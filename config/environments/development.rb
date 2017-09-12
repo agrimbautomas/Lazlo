@@ -1,6 +1,5 @@
 Rails.application.configure do
 
-  host = 'http://localhost:3000'
   config.API_VERSION = 1
 
   # Settings specified here will take precedence over those in config/application.rb.
@@ -31,9 +30,10 @@ Rails.application.configure do
 		:authentication => "plain"
   }
 
+  host = Settings.urls.base
   Rails.application.routes.default_url_options[:host] = host
-  config.action_mailer.default_url_options = {host: host}
-  config.action_mailer.default_options = {from: 'no-reply@' + host}
+  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_options = { from: 'no-reply@' + host }
 
   config.action_controller.asset_host = host #Or your domain
   config.action_mailer.asset_host = config.action_controller.asset_host
@@ -44,8 +44,8 @@ Rails.application.configure do
   Paperclip.options[:command_path] = "/usr/bin/"
   attachment_path = 'system/:class/:attachment/:id_partition/:style/:filename'
   config.paperclip_defaults = {
-	:path => ":rails_root/public/#{attachment_path}",
-	:url => "#{Settings.urls.base}/#{attachment_path}",
+		:path => ":rails_root/public/#{attachment_path}",
+		:url => "#{Settings.urls.base}/#{attachment_path}",
   }
 
   # Print deprecation notices to the Rails logger.
