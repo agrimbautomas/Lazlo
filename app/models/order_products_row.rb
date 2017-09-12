@@ -39,7 +39,7 @@ class OrderProductsRow < ActiveRecord::Base
 
   def total
 	 if product_price.present?
-		quantity * product_price
+		(quantity * product_price).to_i
 	 end
   end
 
