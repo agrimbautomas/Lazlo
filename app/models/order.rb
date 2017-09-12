@@ -35,11 +35,11 @@ class Order < ActiveRecord::Base
   enum payment_type: [:cash, :mercado_pago]
 
   before_create :set_code
-  validates_presence_of :title, :code, :payment_type, :order_products_list
+  validates_presence_of :title, :payment_type, :order_products_list
 
   validates :title, allow_blank: false, length: { maximum: 255 }
   validates :detail, allow_blank: false, length: { maximum: 255 }
-  validates :code, allow_blank: false, length: { maximum: 255 }
+  validates :code, length: { maximum: 255 }
 
   validates_presence_of :user, :if => :buyer_is_nil?
   validates_presence_of :buyer, :if => :user_is_nil?

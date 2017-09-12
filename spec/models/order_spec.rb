@@ -53,7 +53,6 @@ RSpec.describe Order, type: :model do
   it { should validate_length_of(:detail).is_at_most(255) }
 
   it { should respond_to (:code) }
-  it { should validate_presence_of (:code) }
   it { should validate_length_of(:code).is_at_most(255) }
 
   it { should respond_to (:tracking_link) }

@@ -6,6 +6,13 @@ class AppMailer < Devise::Mailer
   RECEIVERS = Settings.admin.emails
   URL = Settings.urls.base
 
+  def mail_images
+	 {
+		  :logo => asset_absolute_path('logo-alomacain.png'),
+		  :background => asset_absolute_path('fondo-colores.png')
+	 }
+  end
+
   private
   def asset_absolute_path asset_name
 	 protocol = Rails.env.production? ? 'https:' : 'http:'
