@@ -58,3 +58,6 @@ es:
       not_saved:
         one: "1 error impidió que este %{resource} fuera guardado:"
         other: "%{count} errores impidieron que este %{resource} fuera guardado:"
+
+  user_mailer:
+    subject: "Gracias por comprar nuestro producto #{order_title}"

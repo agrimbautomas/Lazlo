@@ -64,7 +64,7 @@ class Order < ActiveRecord::Base
   end
 
   def tracking_link
-	 request.base_url + tracking_order_by_code_path(code)
+	 Rails.application.routes.url_helpers.tracking_order_by_code_url(code)
   end
 
   private

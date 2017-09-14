@@ -16,10 +16,10 @@ class UserMailer < AppMailer
   def success_purchase_user_email params
 	 @images = mail_images
 	 @user = params[:user]
-	 @product = params[:product]
 	 @order = params[:order]
 	 @message = params[:message]
-	 mail(to: @user.email, subject: "Gracias por comprar nuestro producto #{@order.title}")
+
+	 mail(to: @user.email, subject: I18n.t('user_mailer.subject', order_title: @order.title))
   end
 
 end
