@@ -3,15 +3,16 @@
 # Table name: categories
 #
 #  id                 :integer          not null, primary key
-#  name               :string(255)
+#  name               :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  image_file_name    :string(255)
-#  image_content_type :string(255)
+#  image_file_name    :string
+#  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
-#  slug               :string(255)
+#  slug               :string
 #  views              :integer          default(0)
+#  description        :string
 #
 
 class Category < ActiveRecord::Base
@@ -22,7 +23,7 @@ class Category < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   before_save :parse_slug
-
+  validates :description, presence: true, length: { maximum: 160 }
 
   belongs_to :product
 

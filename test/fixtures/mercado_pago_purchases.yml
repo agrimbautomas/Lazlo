@@ -3,9 +3,9 @@
 # Table name: mercado_pago_purchases
 #
 #  id            :integer          not null, primary key
-#  collection_id :string(255)
-#  preference_id :string(255)
-#  payment_type  :string(255)
+#  collection_id :string
+#  preference_id :string
+#  payment_type  :string
 #  status        :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
