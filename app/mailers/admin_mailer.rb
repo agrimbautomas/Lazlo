@@ -6,7 +6,7 @@ class AdminMailer < AppMailer
 	 @name = params[:macain_name]
 	 @email = params[:macain_email]
 	 @message = params[:macain_message]
-	 mail(to: RECEIVERS, subject: "Siranushen Alert :) - Mensaje de: #{@name}")
+	 mail(to: RECEIVERS, subject: I18n.t('admin_mail_mailer.contact.subject', name: @name ))
   end
 
   def success_purchase_admin_email params

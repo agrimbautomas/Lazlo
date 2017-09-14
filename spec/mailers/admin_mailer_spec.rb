@@ -2,22 +2,27 @@ require 'spec_helper'
 
 RSpec.describe AdminMailer, type: :mailer do
 
-  describe 'instructions' do
+  let(:user) {build(:user)}
 
-	 let(:user) { build(:user) }
-	 let(:mail) { AdminMailer.confirmation_instructions(user, user.confirmation_token) }
+  describe 'should send contact_email' do
+
+	 let(:mail) {AdminMailer.contact_email(params)}
+	 let(:params) {{:macain_name => user.name,
+						 :macain_email => user.email,
+						 :macain_message => 'A message'}}
 
 	 it 'renders the subject' do
-		expect(mail.subject).to eq(I18n.t('devise.mailer.confirmation_instructions.subject'))
+		expect(mail.subject).to eq(I18n.t('admin_mail_mailer.contact.subject', name: user.name))
 	 end
 
 	 it 'renders the receiver email' do
-		expect(mail.to).to eq([user.email])
+		expect(mail.to.first).to eq(Settings.admin.emails)
 	 end
 
-	 it 'assigns @name' do
+	 it 'assigns displays user name' do
 		expect(mail.body.encoded).to match(user.name)
 	 end
 
   end
+
 end

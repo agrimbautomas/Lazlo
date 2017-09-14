@@ -60,4 +60,8 @@ es:
         other: "%{count} errores impidieron que este %{resource} fuera guardado:"
 
   user_mailer:
-    subject: "Gracias por comprar nuestro producto #{order_title}"
+    purchase:
+      subject: "Gracias por comprar nuestro producto #{order_title}"
+  admin_mail_mailer:
+    contact:
+      subject: "Siranushen Alert :) - Mensaje de: #{name}"

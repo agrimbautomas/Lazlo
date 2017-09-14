@@ -47,7 +47,7 @@ RSpec.describe UserMailer, type: :mailer do
 	 let(:params) {{:user => user, :order => order, :message => 'A message'}}
 
 	 it 'renders the subject' do
-		expect(mail.subject).to eq(I18n.t('user_mailer.subject', order_title: order.title))
+		expect(mail.subject).to eq(I18n.t('user_mailer.purchase.subject', order_title: order.title))
 	 end
 
 	 it 'renders the receiver email' do

@@ -19,7 +19,7 @@ class UserMailer < AppMailer
 	 @order = params[:order]
 	 @message = params[:message]
 
-	 mail(to: @user.email, subject: I18n.t('user_mailer.subject', order_title: @order.title))
+	 mail(to: @user.email, subject: I18n.t('user_mailer.purchase.subject', order_title: @order.title))
   end
 
 end
