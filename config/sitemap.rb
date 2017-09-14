@@ -4,6 +4,8 @@ require 'sitemap_generator'
 SitemapGenerator::Sitemap.default_host = 'https://alomacain.com'
 SitemapGenerator::Sitemap.create_index = false
 SitemapGenerator::Sitemap.compress = :all_but_first
+#SitemapGenerator::Sitemap.public_path = "#{Dir.pwd}/public/"
+
 SitemapGenerator::Sitemap.create do
   add '/cart', :changefreq => 'monthly', :priority => 0.3
   add '/profile', :changefreq => 'monthly', :priority => 0.3
