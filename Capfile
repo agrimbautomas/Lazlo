@@ -17,11 +17,11 @@ require 'capistrano/deploy'
 #
 require 'capistrano/bundler'
 require 'capistrano/rvm'
+require 'capistrano/sitemap_generator'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano/puma'
 require 'capistrano/scm/git'
-require 'capistrano/sitemap_generator'
 
 install_plugin Capistrano::SCM::Git
 install_plugin Capistrano::Puma # Default puma tasks
