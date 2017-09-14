@@ -22,19 +22,25 @@ class Category < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
-  before_save :parse_slug
-  validates :description, presence: true, length: { maximum: 160 }
+  before_save :parse_slug, :if => :name_changed?
 
-  belongs_to :product
+  validates :name, presence: true, allow_blank: false,
+				:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
+  validates :slug, presence: true, allow_blank: false,
+				:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
+  validates :description, presence: true, allow_blank: false, length: { maximum: 160 }
+
+  has_many :products
 
   has_attached_file :image,
-                    styles: {big: "800x800>", medium: "450x300>", thumb: "100x100>"},
-                    default_url: "/images/:style/missing.png", :preserve_files => true
+						  styles: { big: "800x800>", medium: "450x300>", thumb: "100x100>" },
+						  default_url: "/images/:style/missing.png", :preserve_files => true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-
   def parse_slug
-    self.slug = self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+	 self.slug = self.name.downcase.strip.gsub(' ', '-').gsub('ñ', 'n').gsub(/[^\w-]/, '')
+	 self.slug = self.slug + rand(0..9999).to_s if Category.find_by_slug(self.slug).present?
   end
+
 
 end

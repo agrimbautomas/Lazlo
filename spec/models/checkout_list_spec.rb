@@ -13,12 +13,11 @@ require 'rails_helper'
 
 RSpec.describe CheckoutList, type: :model do
 
-
-  let (:john) { User.create! email: 'john1988@theamalgama.com', password: 'asd789de', password_confirmation: 'asd789de' }
+  let (:john) { create(:user) }
 
   let(:current_user) { User.first }
-  let(:category1) { Category.create!(name: 'Mesas Ratonas') }
-  let(:a_product) { Product.new(name: 'Another fake Product', price: 5000, category: category1,
+  let(:category) { create(:category) }
+  let(:a_product) { Product.new(name: 'Another fake Product', price: 5000, category: category,
                                 description: 'Some random description') }
 
   context 'on model validations' do

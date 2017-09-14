@@ -18,7 +18,6 @@
 #  order_products_list_id   :integer
 #  payment_type             :integer          default(0), not null
 #
-# Todo Remove Color
 
 class Order < ActiveRecord::Base
 
