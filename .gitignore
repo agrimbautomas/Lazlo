@@ -31,6 +31,7 @@ rubocop.html
 public/system/
 public/assets/
 /public/system/
+public/sitemap.xml
 Capfile.lock
 
 #Tests

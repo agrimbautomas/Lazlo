@@ -12,6 +12,7 @@
 #  image_updated_at   :datetime
 #  slug               :string
 #  views              :integer          default(0)
+#  description        :string
 #
 
 class Category < ActiveRecord::Base
@@ -22,7 +23,7 @@ class Category < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   before_save :parse_slug
-
+  validates :description, presence: true, length: { maximum: 160 }
 
   belongs_to :product
 

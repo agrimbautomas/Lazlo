@@ -1,7 +1,7 @@
 ActiveAdmin.register Category do
   menu parent: I18n.t('activerecord.models.product.other')
 
-  permit_params :name, :slug, :image
+  permit_params :name, :description, :slug, :image
 
   config.sort_order = 'name_asc'
   filter :name
@@ -26,6 +26,7 @@ ActiveAdmin.register Category do
   form do |f|
     f.inputs do
       f.input :name
+      f.input :description
       #hint = f.object.new_record? ? 'Ejemplo: ' + categories_url + '/nombre-de-la-categoria' : 'Actual: ' + category_url
       #f.input :slug, :label => 'Link de la categoría', :hint => hint
       f.input :image, :as => :file, :hint => image_tag(f.object.image.url(:thumb))
@@ -37,6 +38,7 @@ ActiveAdmin.register Category do
   show do |category|
     attributes_table_for category do
       row :name
+      row :description
       row 'Link' do
         link_to category_url, category_path
       end
