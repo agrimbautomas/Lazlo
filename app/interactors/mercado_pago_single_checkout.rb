@@ -7,6 +7,7 @@ class MercadoPagoSingleCheckout < MercadoPagoCheckout
 	 @parameters = arguments.fetch :parameters
 	 @user = @parameters['user']
 	 @product = @parameters['product']
+
   end
 
   private
