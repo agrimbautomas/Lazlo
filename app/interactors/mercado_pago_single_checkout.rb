@@ -1,7 +1,5 @@
 class MercadoPagoSingleCheckout < MercadoPagoCheckout
 
-  attr_accessor :link
-
   def initialize(arguments)
 	 super
 	 @parameters = arguments.fetch :parameters
