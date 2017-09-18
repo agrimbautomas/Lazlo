@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MercadoPagoSingleCheckout do
+RSpec.describe MercadoPagoCartCheckout do
 
   let(:user) {create(:user)}
   let!(:product) {create(:product)}
@@ -9,8 +9,8 @@ RSpec.describe MercadoPagoSingleCheckout do
   before {
 	 params = ActionController::Parameters.new
 	 params[:user] = user
-	 params[:product] = product
-	 @single_checkout = MercadoPagoSingleCheckout.(parameters: params, delegate: self)
+	 byebug
+	 @single_checkout = MercadoPagoCartCheckout.(parameters: params, delegate: self)
   }
 
   describe 'checkout method' do

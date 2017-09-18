@@ -23,6 +23,10 @@ FactoryGirl.define do
 		confirmed_at nil
 	 end
 
+	 factory :user_with_checkout_list do
+		checkout_list
+	 end
+
   end
 
 end

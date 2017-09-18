@@ -1,8 +1,6 @@
 class MercadoPagoCartCheckout < MercadoPagoCheckout
   include Rails.application.routes.url_helpers
 
-  attr_accessor :link
-
   def initialize(arguments)
 	 super
 	 @parameters = arguments.fetch :parameters
