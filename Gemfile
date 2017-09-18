@@ -24,7 +24,7 @@ gem 'rails_config'
 gem 'mysql2', '~> 0.3.18'
 gem 'omniauth-facebook'
 
-gem 'paperclip', '~> 4.3'
+gem 'paperclip', '~> 5.0.0'
 gem 'rails-i18n', '~> 4.0.0'
 
 gem 'rolify'
