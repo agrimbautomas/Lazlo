@@ -51,6 +51,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'puma'
 gem 'sitemap_generator'
+gem 'paranoia', '~> 2.2'
 
 group :development, :test do
   # Replaces the standard Rails error page with a much better page

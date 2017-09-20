@@ -23,6 +23,8 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
 
+  it_behaves_like 'a Paranoid model'
+
   it { should respond_to (:name) }
   it { should validate_presence_of (:name) }
   it { should allow_value(false).for(:name) }
