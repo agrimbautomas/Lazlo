@@ -20,7 +20,7 @@ RSpec.describe CancelPurchase do
 
 	 before { @cart_checkout.single_checkout }
 
-	 it 'matches the checkout link from mercado pago' do
+	 it 'should create an order' do
 		expect(Order).to have(1).record
 	 end
 
