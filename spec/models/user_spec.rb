@@ -23,11 +23,14 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string
+#  deleted_at             :datetime
 #
 
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+
+  it_behaves_like 'a Paranoid model'
 
   it { should respond_to(:email) }
   it { should validate_presence_of(:email) }

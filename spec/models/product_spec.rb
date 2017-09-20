@@ -17,6 +17,7 @@
 #  views              :integer          default(0)
 #  featured           :boolean          default(FALSE)
 #  visible            :boolean          default(TRUE)
+#  deleted_at         :datetime
 #
 
 require 'rails_helper'

@@ -17,9 +17,13 @@
 #  views              :integer          default(0)
 #  featured           :boolean          default(FALSE)
 #  visible            :boolean          default(TRUE)
+#  deleted_at         :datetime
 #
 
 class Product < ActiveRecord::Base
+
+  acts_as_paranoid
+
   include Rails.application.routes.url_helpers
 
   extend FriendlyId
