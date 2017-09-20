@@ -7,8 +7,12 @@ class MercadoPagoCheckout < Interactor
 	 @user = @parameters['user']
   end
 
+  def checkout_preferences preference_data
+	 $mp_client.create_preference(preference_data)
+  end
+
   def payment_link preference_data
-	 mp_response = $mp_client.create_preference(preference_data)
+	 mp_response = checkout_preferences preference_data
 	 Rails.env == 'production' ? mp_response['response']['init_point'] : mp_response['response']['sandbox_init_point']
   end
 
