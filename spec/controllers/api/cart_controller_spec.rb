@@ -33,10 +33,8 @@ RSpec.describe Api::V1::CartController, type: :controller do
 					:quantity => 1
 		  }
 
-		  it {
-			 expect(response.status).to eq 200
-			 expect(response.content_type).to eq('application/json')
-		  }
+		  it { expect(response.status).to eq 200 }
+		  it { expect(response.content_type).to eq('application/json') }
 
 		  it 'should respond success and update the cart' do
 			 expect(response.body).to match_response_schema('product-cart-response')

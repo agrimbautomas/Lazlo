@@ -3,9 +3,6 @@ class ProductsController < ApplicationController
   before_action :set_request, :set_product, :set_meta_data, :set_product_hash
 
   def show
-	 @image_uri = URI.join(request.url, @product.image.url)
-	 @category = Category.friendly.find(@product.category_id)
-
 	 set_purchase_link unless current_user.nil?
 	 @is_in_cart = (current_user.has_product_in_cart?(@product) ? true : false) unless current_user.nil?
   end
