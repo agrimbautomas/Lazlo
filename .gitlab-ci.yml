@@ -1,21 +1,25 @@
-stages:
-  - build
+image: ruby:2.3.4
+
+services:
+   - mysql:5.7.19
 
 variables:
-  RAILS_ENV: "test"
-  COVERAGE: "true"
+   RAILS_ENV: "test"
+   COVERAGE: "true"
 
-build_code:
-  stage: build
-  script:
-    - bundle install
-    - mkdir -p test_output
-    - cp config/database-gitlab.yml config/database.yml
-    - bundle exec rake db:drop db:create db:migrate
-    - bundle exec rubycritic -p "test_output/critic"
-    - bundle exec rspec spec/
-  tags:
-    - rails, ruby
-  artifacts:
-    paths:
-      - test_output/
+before_script:
+   - cp config/database-sample.yml config/database.yml
+   - cp config/secrets-sample.yml config/secrets.yml
+   - mkdir -p reports/
+   - bundle install --jobs 4 --deployment
+
+test:
+   script:
+      - bundle exec rake db:drop db:create db:migrate
+      - bundle exec rake app:reports
+   tags:
+      - docker
+   coverage: '/\(\d+.\d+\%\) covered/'
+   artifacts:
+      paths:
+         - reports/

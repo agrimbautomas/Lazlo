@@ -1,0 +1,19 @@
+version: '3'
+services:
+   alomacain:
+      build: .
+      volumes:
+         - ./:/usr/src/alomacain
+         - ~/.ssh:/root/.ssh
+      ports:
+         - "3000:3000"
+      depends_on:
+         - mysql
+   mysql:
+      image: mysql
+      ports:
+         - "3306:3306"
+      volumes:
+         - ./db/mysql:/var/lib/mysql
+      environment:
+         MYSQL_ROOT_PASSWORD: sinclair

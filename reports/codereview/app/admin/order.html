@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../overview.html"><img src="../../assets/images/logo.png" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Updated <time class='js-timeago' datetime='2017-09-01 10:33:02 -0300'>2017-09-01 10:33:02 -0300</time>
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>app/admin /</small> order.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating d big">
+              D
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">224</span><small> lines of codes</small></div>
+              <div><span class="metric">5</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">52.2</span><small> complexity/method</small></div>
+              <div><span class="metric">27</span><small> loc/method</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">261</span><small> complexity</small></div>
+              <div><span class="metric">0</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                5
+                smells
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code">ActiveAdmin.register Order do
+
+  menu priority: 2
+
+  permit_params :buyer_id, :user_id, :detail, :order_status_id, :title,
+					 :payment, order_products_rows_attributes: [:product_id, :quantity, :product_name, :product_price, :_destroy]
+
+  config.per_page = 20
+
+  filter :buyer
+  filter :product
+  filter :code
+
+  before_filter :repair_nested_params
+
+  controller do
+
+	 def scoped_collection
+		Order.includes(:order_products_rows)
+		return Order.all if current_admin_user.has_role? :full_admin
+		return Order.where(order_status_id: [2, 3]) if current_admin_user.has_role? :blacksmith
+	 end
+
+	 def create<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>create has approx 9 statements</span>          </div>  </li></div>
+		new_order = Order.new
+		new_order.create_order_products_list
+
+		params[:order_params] = order_params
+		params[:order] = new_order
+		new_order = SaveAdminOrder.(params).update_order
+		@order = new_order
+		@object = new_order
+
+		if new_order.invalid?
+		  display_resource_errors new_order
+		else
+		  super
+		end
+	 end
+
+	 def update<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>update has approx 6 statements</span>          </div>  </li></div>
+		params[:order_params] = order_params
+		params[:order] = resource
+
+		updated_order = SaveAdminOrder.(params).update_order
+
+		if updated_order.invalid?
+		  display_resource_errors(updated_order)
+		else
+		  @order.save!
+		  redirect_to admin_order_path(updated_order)
+		end
+	 end
+
+	 def display_resource_errors order
+		if order.invalid?
+
+		  flash[:error] = SaveAdminOrder.errors_message order
+		  redirect_to :back
+		end
+	 end
+
+
+	 def order_params
+		permitted_params.require(:order)
+	 end
+
+  end
+
+  index(:row_class =&gt; -&gt; record { OrderStatus.find(record.order_status_id).name_slug unless record.order_status_id.nil? }) do<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>index#row_class has a flog score of 59</span>          </div>  </li></div>
+	 selectable_column
+
+	 column &#39;Nro&#39; do |order|
+		p order.id
+	 end
+
+	 column :buyer do |order|
+		if order.buyer.present?
+		  link_to order.buyer.name, admin_buyer_path(order.buyer)
+		elsif order.user.present?
+		  link_to order.user.name, admin_user_path(order.user)
+		end
+	 end
+
+	 column :title do |order|
+		p order.title
+	 end
+
+	 column &#39;Estado del Pago&#39; do |order|
+		I18n.t(&quot;mercado_pago_purchase.order_status.#{order.mercado_pago_purchase.status}&quot;) unless order.mercado_pago_purchase.nil?
+	 end
+	 column &#39;Estado de la Orden&#39;, :class =&gt; &#39;status&#39; do |order|
+		order.order_status
+	 end
+
+
+	 column :payment do |order|
+		&#39;$&#39; + order.payment.to_s
+	 end if current_admin_user.has_role? :full_admin
+
+	 column &#39;Fecha Límite&#39; do |order|
+		(order.created_at + 15.days).strftime(&quot;%m/%d&quot;)
+	 end if current_admin_user.has_role? :full_admin
+
+	 if current_admin_user.has_role? :blacksmith
+		column :actions do |order|
+		  links = link_to I18n.t(&#39;active_admin.view&#39;), resource_path(order)
+		  links += &#39; &#39;
+		  links += link_to &#39;Terminada!&#39;, admin_order_path(order, :status =&gt; order.order_status_id),
+								 class: &#39;finished-button&#39;, method: :put if order.order_status_id == 2
+		  links
+		end
+	 else
+		actions
+	 end
+
+  end
+
+
+  form do |f|
+	 f.inputs do
+		f.input :buyer, collection: Buyer.order(updated_at: :desc)
+		f.input :user, collection: User.order(updated_at: :desc)
+		f.input :order_status_id, :as =&gt; :select, include_blank: false,
+				  collection: OrderStatus.all, :label =&gt; &#39;Estado&#39;
+		f.input :detail, :hint =&gt; &#39;Algun tipo de detalle para la producción&#39;
+		f.input :payment, :input_html =&gt; { :min =&gt; 0, :step =&gt; 100 } if current_admin_user.has_role? :full_admin
+		f.input :title, :hint =&gt; &#39;Titulo de la orden (se muestra en el tracking)&#39;,
+				  :label =&gt; &#39;Titulo de la orden&#39; if current_admin_user.has_role? :full_admin
+	 end
+
+
+	 inputs &#39;Detalle de los productos&#39; do<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>inputs#Detalle de los productos has a flog score of 40</span>          </div>  </li></div>
+		f.semantic_errors *f.object.errors.keys
+		f.has_many :order_products_rows, new_record: true do |a|
+		  a.input :product_id, :as =&gt; :select, include_blank: true,
+					 collection: Product.all.order(&#39;name asc&#39;).map { |product| [product.name, product.id, price: product.price.to_i] },
+					 :label =&gt; t(&#39;activerecord.models.product.one&#39;), :input_html =&gt; { :class =&gt; &#39;order-product-row-product&#39; }
+		  a.input :quantity, :input_html =&gt; { :value =&gt; a.object.quantity || 1 }
+		  a.input :product_name, as: :hidden,
+					 :input_html =&gt; { :class =&gt; &#39;order-product-row-product-name&#39;, readonly: true }
+		  a.input :product_price, as: :hidden,
+					 :input_html =&gt; { :class =&gt; &#39;order-product-row-product-price&#39;, readonly: true }
+		  a.input :_destroy, :as =&gt; :boolean, :required =&gt; false, :label =&gt; &#39;Borrar Producto(s)&#39;
+		end
+	 end
+
+	 actions
+
+  end
+
+
+  show do |order|
+	 h4 &#39;Detalle de la Orden&#39;
+	 attributes_table_for order do
+		row t(&#39;activerecord.models.buyer.one&#39;) do
+		  order.buyer.present? ? order.buyer : order.user
+		end
+
+		row :payment do |order|
+		  &#39;$&#39; + order.payment.to_s
+		end if current_admin_user.has_role? :full_admin
+
+		row &#39;Tracking Link&#39; do
+		  href = request.base_url + tracking_order_by_code_path(order.code)
+		  link_to href, href, target: &#39;_blank&#39;
+		end
+
+		row &#39;Status&#39; do |order|
+		  order.order_status
+		end
+
+		row :detail
+
+		row &#39;Título para Tracking&#39; do
+		  order.title
+		end if current_admin_user.has_role? :full_admin
+
+	 end
+
+	 br
+	 br
+
+	 h4 &#39;Detalle del pago de la Orden de Mercado Pago&#39; unless order.mercado_pago_purchase.nil?
+	 attributes_table_for order do
+
+		row &#39;Estado del pago&#39; do |order|
+		  I18n.t(&quot;mercado_pago_purchase.order_status.#{order.mercado_pago_purchase.status}&quot;) unless order.mercado_pago_purchase.nil?
+		end if current_admin_user.has_role? :full_admin
+
+		row &#39;Tipo de pago&#39; do |order|
+		  I18n.t(&quot;mercado_pago_purchase.payment_type.#{order.mercado_pago_purchase.payment_type}&quot;)
+		end if current_admin_user.has_role? :full_admin
+
+	 end unless order.mercado_pago_purchase.nil?
+
+	 br
+	 br
+
+	 panel &#39;Productos en la orden&#39; do<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flog/" target="_blank"><b>HighComplexity</b></a>        </span>      </div>      <span>panel#Productos en la orden has a flog score of 44</span>          </div>  </li></div>
+		table_for(order.order_products_rows) do
+
+		  column t(&#39;activerecord.models.product.one&#39;) do |order_products_row|
+			 link_to order_products_row.product_name, product_path(order_products_row.product)
+		  end
+
+		  column t(&#39;quantity&#39;) do |order_products_row|
+			 order_products_row.quantity
+		  end
+
+		  column t(&#39;total&#39;) do |order_products_row|
+			 order_products_row.formatted_total
+		  end
+
+		  column I18n.t(&#39;activerecord.models.product_image.one&#39;) do |order_products_row|
+			 image_tag(order_products_row.product.image.url(:thumb)) unless order_products_row.product.image.nil?
+		  end
+
+		end
+	 end
+
+  end
+
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascripts -->
+    <script src='../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../assets/javascripts/prettify.js'></script>
+    <script src='../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../assets/javascripts/application.js'></script>
+    <script src='../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>
