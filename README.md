@@ -1,8 +1,8 @@
 ## Macain API
 
 Markdown
-[![pipeline status](https://gitlab.com/agrimbautomas/macain-web-rails/badges/master/pipeline.svg)](https://gitlab.com/agrimbautomas/macain-web-rails/commits/master)
-[![coverage report](https://gitlab.com/agrimbautomas/macain-web-rails/badges/master/coverage.svg)](https://gitlab.com/agrimbautomas/macain-web-rails/commits/master)
+[![pipeline status](https://gitlab.com/agrimbautomas/macain-web-rails/badges/production/pipeline.svg)](https://gitlab.com/agrimbautomas/macain-web-rails/commits/production)
+[![coverage report](https://gitlab.com/agrimbautomas/macain-web-rails/badges/production/coverage.svg)](https://gitlab.com/agrimbautomas/macain-web-rails/commits/production)
 
 A Ruby on Rails API to process web requests and run the BAT tool for the Macain Web Platform.
 
