@@ -366,8 +366,8 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
     <div class="information">
       <div class="infobox">
         <div class="total">
-          149 files inspected,
-          1490 offenses detected:
+          151 files inspected,
+          1515 offenses detected:
         </div>
         <ul class="offenses-list">
           
@@ -381,7 +381,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
             
             <li>
               <a href="#offense_Gemfile">
-                Gemfile - 2 offenses
+                Gemfile - 3 offenses
               </a>
             </li>
           
@@ -775,7 +775,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
             
             <li>
               <a href="#offense_app/models/product.rb">
-                app/models/product.rb - 33 offenses
+                app/models/product.rb - 34 offenses
               </a>
             </li>
           
@@ -817,7 +817,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
             
             <li>
               <a href="#offense_app/models/user.rb">
-                app/models/user.rb - 49 offenses
+                app/models/user.rb - 50 offenses
               </a>
             </li>
           
@@ -1115,6 +1115,13 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
             
             <li>
+              <a href="#offense_spec/interactors/save_admin_order_spec.rb">
+                spec/interactors/save_admin_order_spec.rb - 19 offenses
+              </a>
+            </li>
+          
+            
+            <li>
               <a href="#offense_spec/interactors/success_purchase_spec.rb">
                 spec/interactors/success_purchase_spec.rb - 7 offenses
               </a>
@@ -1288,6 +1295,13 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               </a>
             </li>
           
+            
+            <li>
+              <a href="#offense_spec/support/paranoia_examples.rb">
+                spec/support/paranoia_examples.rb - 3 offenses
+              </a>
+            </li>
+          
         </ul>
       </div>
     </div>
@@ -1315,12 +1329,23 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
       
       <div class="offense-box" id="offense_Gemfile">
         <div class="box-title-placeholder"><h3>&nbsp;</h3></div>
-        <div class="box-title"><h3>Gemfile - 2 offenses</h3></div>
+        <div class="box-title"><h3>Gemfile - 3 offenses</h3></div>
         <div class="offense-reports">
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #65</span> –
+              <span class="location">Line #54</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Bundler/OrderedGems: Gems should be sorted in an alphabetical order within their section of the Gemfile. Gem <code>paranoia</code> should appear before <code>sitemap_generator</code>.</span>
+            </div>
+            
+            <pre><code><span class="highlight convention">gem &#39;paranoia&#39;, &#39;~&gt; 2.2&#39;</span></code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #66</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Bundler/OrderedGems: Gems should be sorted in an alphabetical order within their section of the Gemfile. Gem <code>factory_girl_rails</code> should appear before <code>fuubar</code>.</span>
             </div>
@@ -1331,7 +1356,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #88</span> –
+              <span class="location">Line #89</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Bundler/OrderedGems: Gems should be sorted in an alphabetical order within their section of the Gemfile. Gem <code>capistrano-bundler</code> should appear before <code>capistrano3-puma</code>.</span>
             </div>
@@ -7302,12 +7327,12 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
       
       <div class="offense-box" id="offense_app/models/product.rb">
         <div class="box-title-placeholder"><h3>&nbsp;</h3></div>
-        <div class="box-title"><h3>app/models/product.rb - 33 offenses</h3></div>
+        <div class="box-title"><h3>app/models/product.rb - 34 offenses</h3></div>
         <div class="offense-reports">
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #22</span> –
+              <span class="location">Line #23</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Rails/ApplicationRecord: Models should subclass <code>ApplicationRecord</code>.</span>
             </div>
@@ -7318,7 +7343,16 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #30</span> –
+              <span class="location">Line #24</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/EmptyLinesAroundClassBody: Extra empty line detected at class body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
+            </div>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #34</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -7329,7 +7363,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #33</span> –
+              <span class="location">Line #37</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -7340,7 +7374,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/AlignHash: Align the elements of a hash literal if they span more than one line.</span>
             </div>
@@ -7351,7 +7385,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -7362,7 +7396,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideHashLiteralBraces: Space inside { missing. (https://github.com/bbatsov/ruby-style-guide#spaces-operators)</span>
             </div>
@@ -7373,7 +7407,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -7384,7 +7418,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideHashLiteralBraces: Space inside } missing. (https://github.com/bbatsov/ruby-style-guide#spaces-operators)</span>
             </div>
@@ -7395,7 +7429,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideHashLiteralBraces: Space inside { missing. (https://github.com/bbatsov/ruby-style-guide#spaces-operators)</span>
             </div>
@@ -7406,7 +7440,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideHashLiteralBraces: Space inside } missing. (https://github.com/bbatsov/ruby-style-guide#spaces-operators)</span>
             </div>
@@ -7417,7 +7451,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #38</span> –
+              <span class="location">Line #42</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Rails/Validation: Prefer the new style validations <code>validates :column, presence: value</code> over <code>validates_presence_of</code>.</span>
             </div>
@@ -7428,7 +7462,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #39</span> –
+              <span class="location">Line #43</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Rails/Validation: Prefer the new style validations <code>validates :column, numericality: value</code> over <code>validates_numericality_of</code>.</span>
             </div>
@@ -7439,7 +7473,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #41</span> –
+              <span class="location">Line #45</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -7450,7 +7484,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #44</span> –
+              <span class="location">Line #48</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideHashLiteralBraces: Space inside { missing. (https://github.com/bbatsov/ruby-style-guide#spaces-operators)</span>
             </div>
@@ -7461,7 +7495,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #44</span> –
+              <span class="location">Line #48</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols. (https://github.com/bbatsov/ruby-style-guide#consistent-string-literals)</span>
             </div>
@@ -7472,7 +7506,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #44</span> –
+              <span class="location">Line #48</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols. (https://github.com/bbatsov/ruby-style-guide#consistent-string-literals)</span>
             </div>
@@ -7483,7 +7517,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #44</span> –
+              <span class="location">Line #48</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols. (https://github.com/bbatsov/ruby-style-guide#consistent-string-literals)</span>
             </div>
@@ -7494,7 +7528,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #44</span> –
+              <span class="location">Line #48</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideHashLiteralBraces: Space inside } missing. (https://github.com/bbatsov/ruby-style-guide#spaces-operators)</span>
             </div>
@@ -7505,7 +7539,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #45</span> –
+              <span class="location">Line #49</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols. (https://github.com/bbatsov/ruby-style-guide#consistent-string-literals)</span>
             </div>
@@ -7516,7 +7550,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #45</span> –
+              <span class="location">Line #49</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -7527,7 +7561,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #46</span> –
+              <span class="location">Line #50</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RegexpLiteral: Use <code>%r</code> around regular expression. (https://github.com/bbatsov/ruby-style-guide#percent-r)</span>
             </div>
@@ -7538,7 +7572,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #48</span> –
+              <span class="location">Line #52</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLines: Extra blank line detected. (https://github.com/bbatsov/ruby-style-guide#two-or-more-empty-lines)</span>
             </div>
@@ -7547,7 +7581,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #51</span> –
+              <span class="location">Line #55</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -7558,7 +7592,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #54</span> –
+              <span class="location">Line #58</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/GlobalVars: Do not introduce global variables. (https://github.com/bbatsov/ruby-style-guide#instance-vars, http://www.zenspider.com/Languages/Ruby/QuickRef.html)</span>
             </div>
@@ -7569,7 +7603,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #54</span> –
+              <span class="location">Line #58</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantSelf: Redundant <code>self</code> detected. (https://github.com/bbatsov/ruby-style-guide#no-self-unless-required)</span>
             </div>
@@ -7580,7 +7614,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #57</span> –
+              <span class="location">Line #61</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundAccessModifier: Keep a blank line before and after <code>private</code>. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-access-modifier)</span>
             </div>
@@ -7591,7 +7625,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #59</span> –
+              <span class="location">Line #63</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantSelf: Redundant <code>self</code> detected. (https://github.com/bbatsov/ruby-style-guide#no-self-unless-required)</span>
             </div>
@@ -7602,7 +7636,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #59</span> –
+              <span class="location">Line #63</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Performance/StringReplacement: Use <code>tr</code> instead of <code>gsub</code>. (https://github.com/JuanitoFatas/fast-ruby#stringgsub-vs-stringtr-code)</span>
             </div>
@@ -7613,7 +7647,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #59</span> –
+              <span class="location">Line #63</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Performance/StringReplacement: Use <code>tr</code> instead of <code>gsub</code>. (https://github.com/JuanitoFatas/fast-ruby#stringgsub-vs-stringtr-code)</span>
             </div>
@@ -7624,7 +7658,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #60</span> –
+              <span class="location">Line #64</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantSelf: Redundant <code>self</code> detected. (https://github.com/bbatsov/ruby-style-guide#no-self-unless-required)</span>
             </div>
@@ -7635,7 +7669,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #60</span> –
+              <span class="location">Line #64</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Rails/DynamicFindBy: Use <code>find_by</code> instead of dynamic <code>find_by_slug</code>. (https://github.com/bbatsov/rails-style-guide#find_by)</span>
             </div>
@@ -7646,7 +7680,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #60</span> –
+              <span class="location">Line #64</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantSelf: Redundant <code>self</code> detected. (https://github.com/bbatsov/ruby-style-guide#no-self-unless-required)</span>
             </div>
@@ -7657,7 +7691,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #62</span> –
+              <span class="location">Line #66</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundClassBody: Extra empty line detected at class body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -8030,12 +8064,12 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
       
       <div class="offense-box" id="offense_app/models/user.rb">
         <div class="box-title-placeholder"><h3>&nbsp;</h3></div>
-        <div class="box-title"><h3>app/models/user.rb - 49 offenses</h3></div>
+        <div class="box-title"><h3>app/models/user.rb - 50 offenses</h3></div>
         <div class="offense-reports">
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #28</span> –
+              <span class="location">Line #29</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Rails/ApplicationRecord: Models should subclass <code>ApplicationRecord</code>.</span>
             </div>
@@ -8046,7 +8080,16 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #32</span> –
+              <span class="location">Line #30</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/EmptyLinesAroundClassBody: Extra empty line detected at class body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
+            </div>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #36</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/AlignParameters: Align the parameters of a method call if they span more than one line. (https://github.com/bbatsov/ruby-style-guide#no-double-indent)</span>
             </div>
@@ -8057,7 +8100,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #33</span> –
+              <span class="location">Line #37</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/AlignParameters: Align the parameters of a method call if they span more than one line. (https://github.com/bbatsov/ruby-style-guide#no-double-indent)</span>
             </div>
@@ -8068,7 +8111,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #33</span> –
+              <span class="location">Line #37</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8079,7 +8122,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/AlignHash: Align the elements of a hash literal if they span more than one line.</span>
             </div>
@@ -8090,7 +8133,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8101,7 +8144,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideHashLiteralBraces: Space inside { missing. (https://github.com/bbatsov/ruby-style-guide#spaces-operators)</span>
             </div>
@@ -8112,7 +8155,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8123,7 +8166,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideHashLiteralBraces: Space inside } missing. (https://github.com/bbatsov/ruby-style-guide#spaces-operators)</span>
             </div>
@@ -8134,7 +8177,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideHashLiteralBraces: Space inside { missing. (https://github.com/bbatsov/ruby-style-guide#spaces-operators)</span>
             </div>
@@ -8145,7 +8188,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideHashLiteralBraces: Space inside } missing. (https://github.com/bbatsov/ruby-style-guide#spaces-operators)</span>
             </div>
@@ -8156,7 +8199,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #38</span> –
+              <span class="location">Line #42</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8167,7 +8210,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #39</span> –
+              <span class="location">Line #43</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8178,7 +8221,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #40</span> –
+              <span class="location">Line #44</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8189,7 +8232,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #43</span> –
+              <span class="location">Line #47</span> –
               <span class="severity warning">warning:</span>
               <span class="message">Lint/UnusedMethodArgument: Unused method argument - <code>signed_in_resource</code>. If it's necessary, use <code>_</code> or <code>_signed_in_resource</code> as an argument name to indicate that it won't be used. (https://github.com/bbatsov/ruby-style-guide#underscore-unused-vars)</span>
             </div>
@@ -8200,7 +8243,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #43</span> –
+              <span class="location">Line #47</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceAroundEqualsInParameterDefault: Surrounding space missing in default value assignment. (https://github.com/bbatsov/ruby-style-guide#spaces-around-equals)</span>
             </div>
@@ -8211,7 +8254,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #45</span> –
+              <span class="location">Line #49</span> –
               <span class="severity warning">warning:</span>
               <span class="message">Lint/AssignmentInCondition: Assignment in condition - you probably meant to use <code>==</code>. (https://github.com/bbatsov/ruby-style-guide#safe-assignment-in-condition)</span>
             </div>
@@ -8222,7 +8265,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #45</span> –
+              <span class="location">Line #49</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Rails/FindBy: Use <code>find_by</code> instead of <code>where.first</code>. (https://github.com/bbatsov/rails-style-guide#find_by)</span>
             </div>
@@ -8233,7 +8276,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #45</span> –
+              <span class="location">Line #49</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8244,7 +8287,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #46</span> –
+              <span class="location">Line #50</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/IdenticalConditionalBranches: Move <code>user</code> out of the conditional.</span>
             </div>
@@ -8255,7 +8298,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #48</span> –
+              <span class="location">Line #52</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8266,7 +8309,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #48</span> –
+              <span class="location">Line #52</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8277,7 +8320,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #51</span> –
+              <span class="location">Line #55</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/IdenticalConditionalBranches: Move <code>user</code> out of the conditional.</span>
             </div>
@@ -8288,7 +8331,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #56</span> –
+              <span class="location">Line #60</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/Semicolon: Do not use semicolons to terminate expressions. (https://github.com/bbatsov/ruby-style-guide#no-semicolon)</span>
             </div>
@@ -8299,7 +8342,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #59</span> –
+              <span class="location">Line #63</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/MethodDefParentheses: Use def with parentheses when there are parameters. (https://github.com/bbatsov/ruby-style-guide#method-parens)</span>
             </div>
@@ -8310,7 +8353,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #60</span> –
+              <span class="location">Line #64</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8321,7 +8364,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #60</span> –
+              <span class="location">Line #64</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Rails/Blank: Use <code>if self.checkout_list.blank?</code> instead of <code>unless self.checkout_list.present?</code>.</span>
             </div>
@@ -8332,7 +8375,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #60</span> –
+              <span class="location">Line #64</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantSelf: Redundant <code>self</code> detected. (https://github.com/bbatsov/ruby-style-guide#no-self-unless-required)</span>
             </div>
@@ -8343,7 +8386,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #61</span> –
+              <span class="location">Line #65</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantSelf: Redundant <code>self</code> detected. (https://github.com/bbatsov/ruby-style-guide#no-self-unless-required)</span>
             </div>
@@ -8354,7 +8397,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #62</span> –
+              <span class="location">Line #66</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantSelf: Redundant <code>self</code> detected. (https://github.com/bbatsov/ruby-style-guide#no-self-unless-required)</span>
             </div>
@@ -8365,7 +8408,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #65</span> –
+              <span class="location">Line #69</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/PredicateName: Rename <code>has_product_in_cart?</code> to <code>product_in_cart?</code>. (https://github.com/bbatsov/ruby-style-guide#bool-methods-qmark)</span>
             </div>
@@ -8376,7 +8419,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #65</span> –
+              <span class="location">Line #69</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/MethodDefParentheses: Use def with parentheses when there are parameters. (https://github.com/bbatsov/ruby-style-guide#method-parens)</span>
             </div>
@@ -8387,7 +8430,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #66</span> –
+              <span class="location">Line #70</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/AndOr: Use <code>&&</code> instead of <code>and</code>. (https://github.com/bbatsov/ruby-style-guide#no-and-or-or)</span>
             </div>
@@ -8398,7 +8441,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #66</span> –
+              <span class="location">Line #70</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/AndOr: Use <code>&&</code> instead of <code>and</code>. (https://github.com/bbatsov/ruby-style-guide#no-and-or-or)</span>
             </div>
@@ -8409,7 +8452,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #66</span> –
+              <span class="location">Line #70</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8420,7 +8463,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #66</span> –
+              <span class="location">Line #70</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Metrics/LineLength: Line is too long. [130/120] (https://github.com/bbatsov/ruby-style-guide#80-character-limits)</span>
             </div>
@@ -8431,7 +8474,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #69</span> –
+              <span class="location">Line #73</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/PredicateName: Rename <code>has_product_as_favourite?</code> to <code>product_as_favourite?</code>. (https://github.com/bbatsov/ruby-style-guide#bool-methods-qmark)</span>
             </div>
@@ -8442,7 +8485,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #69</span> –
+              <span class="location">Line #73</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/MethodDefParentheses: Use def with parentheses when there are parameters. (https://github.com/bbatsov/ruby-style-guide#method-parens)</span>
             </div>
@@ -8453,7 +8496,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #70</span> –
+              <span class="location">Line #74</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/AndOr: Use <code>&&</code> instead of <code>and</code>. (https://github.com/bbatsov/ruby-style-guide#no-and-or-or)</span>
             </div>
@@ -8464,7 +8507,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #70</span> –
+              <span class="location">Line #74</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/AndOr: Use <code>&&</code> instead of <code>and</code>. (https://github.com/bbatsov/ruby-style-guide#no-and-or-or)</span>
             </div>
@@ -8475,7 +8518,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #70</span> –
+              <span class="location">Line #74</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8486,7 +8529,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #70</span> –
+              <span class="location">Line #74</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Metrics/LineLength: Line is too long. [136/120] (https://github.com/bbatsov/ruby-style-guide#80-character-limits)</span>
             </div>
@@ -8497,7 +8540,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #73</span> –
+              <span class="location">Line #77</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/PredicateName: Rename <code>has_bought?</code> to <code>bought?</code>. (https://github.com/bbatsov/ruby-style-guide#bool-methods-qmark)</span>
             </div>
@@ -8508,7 +8551,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #73</span> –
+              <span class="location">Line #77</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/MethodDefParentheses: Use def with parentheses when there are parameters. (https://github.com/bbatsov/ruby-style-guide#method-parens)</span>
             </div>
@@ -8519,7 +8562,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #74</span> –
+              <span class="location">Line #78</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/AndOr: Use <code>&&</code> instead of <code>and</code>. (https://github.com/bbatsov/ruby-style-guide#no-and-or-or)</span>
             </div>
@@ -8530,7 +8573,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #74</span> –
+              <span class="location">Line #78</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/AndOr: Use <code>&&</code> instead of <code>and</code>. (https://github.com/bbatsov/ruby-style-guide#no-and-or-or)</span>
             </div>
@@ -8541,7 +8584,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #74</span> –
+              <span class="location">Line #78</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -8552,7 +8595,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #74</span> –
+              <span class="location">Line #78</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Metrics/LineLength: Line is too long. [133/120] (https://github.com/bbatsov/ruby-style-guide#80-character-limits)</span>
             </div>
@@ -8563,7 +8606,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #80</span> –
+              <span class="location">Line #84</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundClassBody: Extra empty line detected at class body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -11430,16 +11473,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #23</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
-            </div>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #25</span> –
+              <span class="location">Line #24</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -11449,6 +11483,15 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           <div class="report">
             <div class="meta">
               <span class="location">Line #26</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
+            </div>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #27</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideBlockBraces: Space between { and | missing.</span>
             </div>
@@ -11459,7 +11502,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #26</span> –
+              <span class="location">Line #27</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideBlockBraces: Space missing inside }.</span>
             </div>
@@ -11470,7 +11513,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #27</span> –
+              <span class="location">Line #28</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideBlockBraces: Space between { and | missing.</span>
             </div>
@@ -11481,7 +11524,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #27</span> –
+              <span class="location">Line #28</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideBlockBraces: Space missing inside }.</span>
             </div>
@@ -11492,7 +11535,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #28</span> –
+              <span class="location">Line #29</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideBlockBraces: Space between { and | missing.</span>
             </div>
@@ -11503,7 +11546,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #28</span> –
+              <span class="location">Line #29</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideBlockBraces: Space missing inside }.</span>
             </div>
@@ -11514,7 +11557,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #35</span> –
+              <span class="location">Line #36</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideBlockBraces: Space missing inside {.</span>
             </div>
@@ -11525,7 +11568,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #35</span> –
+              <span class="location">Line #36</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/SpaceInsideBlockBraces: Space missing inside }.</span>
             </div>
@@ -11536,7 +11579,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #38</span> –
+              <span class="location">Line #39</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -12679,6 +12722,217 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           <div class="report">
             <div class="meta">
               <span class="location">Line #29</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/TrailingBlankLines: Final newline missing. (https://github.com/bbatsov/ruby-style-guide#newline-eof)</span>
+            </div>
+            
+            <pre><code>end<span class="highlight convention"></span></code></pre>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="offense-box" id="offense_spec/interactors/save_admin_order_spec.rb">
+        <div class="box-title-placeholder"><h3>&nbsp;</h3></div>
+        <div class="box-title"><h3>spec/interactors/save_admin_order_spec.rb - 19 offenses</h3></div>
+        <div class="offense-reports">
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #4</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
+            </div>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #9</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/BlockDelimiters: Avoid using <code>{...}</code> for multi-line blocks. (https://github.com/bbatsov/ruby-style-guide#single-line-blocks)</span>
+            </div>
+            
+            <pre><code>  before <span class="highlight convention">{</span></code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #11</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
+            </div>
+            
+            <pre><code>		  <span class="highlight convention">:buyer_id =&gt;</span> buyer.id,</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #12</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
+            </div>
+            
+            <pre><code>		  <span class="highlight convention">:user_id =&gt;</span> nil,</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #13</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
+            </div>
+            
+            <pre><code>		  <span class="highlight convention">:detail =&gt;</span> &quot;Algun detalle&quot;,</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #13</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols. (https://github.com/bbatsov/ruby-style-guide#consistent-string-literals)</span>
+            </div>
+            
+            <pre><code>		  :detail =&gt; <span class="highlight convention">&quot;Algun detalle&quot;</span>,</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #14</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
+            </div>
+            
+            <pre><code>		  <span class="highlight convention">:order_status_id =&gt;</span> order_status.id.to_s,</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #15</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
+            </div>
+            
+            <pre><code>		  <span class="highlight convention">:title =&gt;</span> &quot;Algun titulo&quot;,</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #15</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols. (https://github.com/bbatsov/ruby-style-guide#consistent-string-literals)</span>
+            </div>
+            
+            <pre><code>		  :title =&gt; <span class="highlight convention">&quot;Algun titulo&quot;</span>,</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #16</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
+            </div>
+            
+            <pre><code>		  <span class="highlight convention">:payment =&gt;</span> &quot;32323&quot;</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #16</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols. (https://github.com/bbatsov/ruby-style-guide#consistent-string-literals)</span>
+            </div>
+            
+            <pre><code>		  :payment =&gt; <span class="highlight convention">&quot;32323&quot;</span></code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #20</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
+            </div>
+            
+            <pre><code>		  <span class="highlight convention">:order_params =&gt;</span> order_params,</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #21</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
+            </div>
+            
+            <pre><code>		  <span class="highlight convention">:order =&gt;</span> order</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #24</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">RSpec/DescribedClass: Use <code>described_class</code> instead of <code>SaveAdminOrder</code>.</span>
+            </div>
+            
+            <pre><code>	 @cart_checkout = <span class="highlight convention">SaveAdminOrder</span>.(params)</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #28</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
+            </div>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #30</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">RSpec/InstanceVariable: Use <code>let</code> instead of an instance variable.</span>
+            </div>
+            
+            <pre><code>		expect(<span class="highlight convention">@cart_checkout</span>.update_order).to be_instance_of(Order)</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #32</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
+            </div>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #34</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
+            </div>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #35</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/TrailingBlankLines: Final newline missing. (https://github.com/bbatsov/ruby-style-guide#newline-eof)</span>
             </div>
@@ -16894,9 +17148,9 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #24</span> –
+              <span class="location">Line #25</span> –
               <span class="severity convention">convention:</span>
-              <span class="message">Metrics/BlockLength: Block has too many lines. [50/25]</span>
+              <span class="message">Metrics/BlockLength: Block has too many lines. [51/25]</span>
             </div>
             
             <pre><code><span class="highlight convention">RSpec.describe Product, type: :model do</span> <span class="extra-code">...</span></code></pre>
@@ -16905,87 +17159,10 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #25</span> –
+              <span class="location">Line #26</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #26</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
-            </div>
-            
-            <pre><code>  it { <span class="highlight convention">should</span> respond_to (:name) }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #26</span> –
-              <span class="severity warning">warning:</span>
-              <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
-            </div>
-            
-            <pre><code>  it { should respond_to<span class="highlight warning"> </span>(:name) }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #26</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
-            </div>
-            
-            <pre><code>  it { should respond_to <span class="highlight convention">(:name)</span> }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #27</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
-            </div>
-            
-            <pre><code>  it { <span class="highlight convention">should</span> validate_presence_of (:name) }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #27</span> –
-              <span class="severity warning">warning:</span>
-              <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
-            </div>
-            
-            <pre><code>  it { should validate_presence_of<span class="highlight warning"> </span>(:name) }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #27</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
-            </div>
-            
-            <pre><code>  it { should validate_presence_of <span class="highlight convention">(:name)</span> }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #28</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
-            </div>
-            
-            <pre><code>  it { <span class="highlight convention">should</span> allow_value(false).for(:name) }</code></pre>
             
           </div>
           
@@ -16996,7 +17173,29 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> validate_length_of(:name).is_at_most(255) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> respond_to (:name) }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #29</span> –
+              <span class="severity warning">warning:</span>
+              <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
+            </div>
+            
+            <pre><code>  it { should respond_to<span class="highlight warning"> </span>(:name) }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #29</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
+            </div>
+            
+            <pre><code>  it { should respond_to <span class="highlight convention">(:name)</span> }</code></pre>
             
           </div>
           
@@ -17007,13 +17206,68 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> validate_uniqueness_of(:name).ignoring_case_sensitivity }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> validate_presence_of (:name) }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #30</span> –
+              <span class="severity warning">warning:</span>
+              <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
+            </div>
+            
+            <pre><code>  it { should validate_presence_of<span class="highlight warning"> </span>(:name) }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #30</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
+            </div>
+            
+            <pre><code>  it { should validate_presence_of <span class="highlight convention">(:name)</span> }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #31</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
+            </div>
+            
+            <pre><code>  it { <span class="highlight convention">should</span> allow_value(false).for(:name) }</code></pre>
             
           </div>
           
           <div class="report">
             <div class="meta">
               <span class="location">Line #32</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
+            </div>
+            
+            <pre><code>  it { <span class="highlight convention">should</span> validate_length_of(:name).is_at_most(255) }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #33</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
+            </div>
+            
+            <pre><code>  it { <span class="highlight convention">should</span> validate_uniqueness_of(:name).ignoring_case_sensitivity }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #35</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17024,7 +17278,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #32</span> –
+              <span class="location">Line #35</span> –
               <span class="severity warning">warning:</span>
               <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
             </div>
@@ -17035,7 +17289,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #32</span> –
+              <span class="location">Line #35</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
             </div>
@@ -17046,7 +17300,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #33</span> –
+              <span class="location">Line #36</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17057,7 +17311,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #33</span> –
+              <span class="location">Line #36</span> –
               <span class="severity warning">warning:</span>
               <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
             </div>
@@ -17068,7 +17322,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #33</span> –
+              <span class="location">Line #36</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
             </div>
@@ -17079,7 +17333,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #34</span> –
+              <span class="location">Line #37</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17090,7 +17344,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #39</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17101,7 +17355,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #39</span> –
               <span class="severity warning">warning:</span>
               <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
             </div>
@@ -17112,7 +17366,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #36</span> –
+              <span class="location">Line #39</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
             </div>
@@ -17123,7 +17377,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #37</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17134,7 +17388,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #37</span> –
+              <span class="location">Line #40</span> –
               <span class="severity warning">warning:</span>
               <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
             </div>
@@ -17145,7 +17399,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #37</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
             </div>
@@ -17156,7 +17410,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #39</span> –
+              <span class="location">Line #42</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17167,7 +17421,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #40</span> –
+              <span class="location">Line #43</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17178,7 +17432,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #42</span> –
+              <span class="location">Line #45</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17189,7 +17443,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #43</span> –
+              <span class="location">Line #46</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17200,7 +17454,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #45</span> –
+              <span class="location">Line #48</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17211,7 +17465,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #46</span> –
+              <span class="location">Line #49</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17222,7 +17476,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #48</span> –
+              <span class="location">Line #51</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17233,7 +17487,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #49</span> –
+              <span class="location">Line #52</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17244,7 +17498,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #51</span> –
+              <span class="location">Line #54</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17255,7 +17509,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #51</span> –
+              <span class="location">Line #54</span> –
               <span class="severity warning">warning:</span>
               <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
             </div>
@@ -17266,7 +17520,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #51</span> –
+              <span class="location">Line #54</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
             </div>
@@ -17277,7 +17531,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #52</span> –
+              <span class="location">Line #55</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
@@ -17288,7 +17542,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #54</span> –
+              <span class="location">Line #57</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLines: Extra blank line detected. (https://github.com/bbatsov/ruby-style-guide#two-or-more-empty-lines)</span>
             </div>
@@ -17297,7 +17551,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #56</span> –
+              <span class="location">Line #59</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -17306,7 +17560,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #65</span> –
+              <span class="location">Line #68</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Rails/SkipsModelValidations: Avoid using <code>update_attribute</code> because it skips validations. (http://guides.rubyonrails.org/active_record_validations.html#skipping-validations)</span>
             </div>
@@ -17317,7 +17571,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #71</span> –
+              <span class="location">Line #74</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols. (https://github.com/bbatsov/ruby-style-guide#consistent-string-literals)</span>
             </div>
@@ -17328,7 +17582,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #78</span> –
+              <span class="location">Line #81</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLines: Extra blank line detected. (https://github.com/bbatsov/ruby-style-guide#two-or-more-empty-lines)</span>
             </div>
@@ -17337,7 +17591,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #80</span> –
+              <span class="location">Line #83</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/EmptyLineAfterFinalLet: Add an empty line after the last <code>let</code> block.</span>
             </div>
@@ -17348,7 +17602,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #84</span> –
+              <span class="location">Line #87</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -17357,7 +17611,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #93</span> –
+              <span class="location">Line #96</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -17366,7 +17620,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #95</span> –
+              <span class="location">Line #98</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -17375,7 +17629,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #97</span> –
+              <span class="location">Line #100</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/TrailingBlankLines: 2 trailing blank lines detected. (https://github.com/bbatsov/ruby-style-guide#newline-eof)</span>
             </div>
@@ -17626,9 +17880,9 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #30</span> –
+              <span class="location">Line #31</span> –
               <span class="severity convention">convention:</span>
-              <span class="message">Metrics/BlockLength: Block has too many lines. [29/25]</span>
+              <span class="message">Metrics/BlockLength: Block has too many lines. [30/25]</span>
             </div>
             
             <pre><code><span class="highlight convention">RSpec.describe User, type: :model do</span> <span class="extra-code">...</span></code></pre>
@@ -17637,43 +17891,10 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #31</span> –
+              <span class="location">Line #32</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #32</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
-            </div>
-            
-            <pre><code>  it { <span class="highlight convention">should</span> respond_to(:email) }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #33</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
-            </div>
-            
-            <pre><code>  it { <span class="highlight convention">should</span> validate_presence_of(:email) }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #34</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
-            </div>
-            
-            <pre><code>  it { <span class="highlight convention">should</span> validate_uniqueness_of(:email).ignoring_case_sensitivity }</code></pre>
             
           </div>
           
@@ -17684,7 +17905,18 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> validate_length_of(:email).is_at_most(255) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> respond_to(:email) }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #36</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
+            </div>
+            
+            <pre><code>  it { <span class="highlight convention">should</span> validate_presence_of(:email) }</code></pre>
             
           </div>
           
@@ -17695,29 +17927,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> respond_to (:password) }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #37</span> –
-              <span class="severity warning">warning:</span>
-              <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
-            </div>
-            
-            <pre><code>  it { should respond_to<span class="highlight warning"> </span>(:password) }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #37</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
-            </div>
-            
-            <pre><code>  it { should respond_to <span class="highlight convention">(:password)</span> }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> validate_uniqueness_of(:email).ignoring_case_sensitivity }</code></pre>
             
           </div>
           
@@ -17728,18 +17938,40 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> validate_presence_of(:password) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> validate_length_of(:email).is_at_most(255) }</code></pre>
             
           </div>
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #39</span> –
+              <span class="location">Line #40</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> validate_confirmation_of(:password) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> respond_to (:password) }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #40</span> –
+              <span class="severity warning">warning:</span>
+              <span class="message">Lint/ParenthesesAsGroupedExpression: <code>(...)</code> interpreted as grouped expression. (https://github.com/bbatsov/ruby-style-guide#parens-no-spaces)</span>
+            </div>
+            
+            <pre><code>  it { should respond_to<span class="highlight warning"> </span>(:password) }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #40</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Style/RedundantParentheses: Don't use parentheses around a literal.</span>
+            </div>
+            
+            <pre><code>  it { should respond_to <span class="highlight convention">(:password)</span> }</code></pre>
             
           </div>
           
@@ -17750,7 +17982,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> respond_to(:favourites_list) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> validate_presence_of(:password) }</code></pre>
             
           </div>
           
@@ -17761,7 +17993,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> have_one(:favourites_list) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> validate_confirmation_of(:password) }</code></pre>
             
           </div>
           
@@ -17772,7 +18004,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> respond_to(:checkout_list) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> respond_to(:favourites_list) }</code></pre>
             
           </div>
           
@@ -17783,7 +18015,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> have_one(:checkout_list) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> have_one(:favourites_list) }</code></pre>
             
           </div>
           
@@ -17794,7 +18026,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> respond_to(:purchased_list) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> respond_to(:checkout_list) }</code></pre>
             
           </div>
           
@@ -17805,7 +18037,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> have_one(:purchased_list) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> have_one(:checkout_list) }</code></pre>
             
           </div>
           
@@ -17816,7 +18048,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> respond_to(:orders) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> respond_to(:purchased_list) }</code></pre>
             
           </div>
           
@@ -17827,13 +18059,35 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
               <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
             </div>
             
-            <pre><code>  it { <span class="highlight convention">should</span> have_many(:orders) }</code></pre>
+            <pre><code>  it { <span class="highlight convention">should</span> have_one(:purchased_list) }</code></pre>
             
           </div>
           
           <div class="report">
             <div class="meta">
               <span class="location">Line #53</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
+            </div>
+            
+            <pre><code>  it { <span class="highlight convention">should</span> respond_to(:orders) }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #54</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">RSpec/ImplicitExpect: Prefer <code>is_expected.to</code> over <code>should</code>.</span>
+            </div>
+            
+            <pre><code>  it { <span class="highlight convention">should</span> have_many(:orders) }</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #56</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLines: Extra blank line detected. (https://github.com/bbatsov/ruby-style-guide#two-or-more-empty-lines)</span>
             </div>
@@ -17842,7 +18096,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #56</span> –
+              <span class="location">Line #59</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -17851,7 +18105,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #57</span> –
+              <span class="location">Line #60</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/EmptyLineAfterFinalLet: Add an empty line after the last <code>let</code> block.</span>
             </div>
@@ -17862,7 +18116,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #59</span> –
+              <span class="location">Line #62</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -17871,7 +18125,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #63</span> –
+              <span class="location">Line #66</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/EmptyLineAfterFinalLet: Add an empty line after the last <code>let</code> block.</span>
             </div>
@@ -17882,7 +18136,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #68</span> –
+              <span class="location">Line #71</span> –
               <span class="severity convention">convention:</span>
               <span class="message">RSpec/EmptyLineAfterFinalLet: Add an empty line after the last <code>let</code> block.</span>
             </div>
@@ -17893,7 +18147,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #71</span> –
+              <span class="location">Line #74</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -17902,7 +18156,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #73</span> –
+              <span class="location">Line #76</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -18048,7 +18302,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #41</span> –
+              <span class="location">Line #42</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -18059,7 +18313,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #44</span> –
+              <span class="location">Line #45</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Style/HashSyntax: Use the new Ruby 1.9 hash syntax. (https://github.com/bbatsov/ruby-style-guide#hash-literals)</span>
             </div>
@@ -18070,7 +18324,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #54</span> –
+              <span class="location">Line #55</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLines: Extra blank line detected. (https://github.com/bbatsov/ruby-style-guide#two-or-more-empty-lines)</span>
             </div>
@@ -18079,7 +18333,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #81</span> –
+              <span class="location">Line #82</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
             </div>
@@ -18088,7 +18342,7 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           
           <div class="report">
             <div class="meta">
-              <span class="location">Line #83</span> –
+              <span class="location">Line #84</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/TrailingBlankLines: 1 trailing blank lines detected. (https://github.com/bbatsov/ruby-style-guide#newline-eof)</span>
             </div>
@@ -18344,6 +18598,47 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
           <div class="report">
             <div class="meta">
               <span class="location">Line #25</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/TrailingBlankLines: Final newline missing. (https://github.com/bbatsov/ruby-style-guide#newline-eof)</span>
+            </div>
+            
+            <pre><code>end<span class="highlight convention"></span></code></pre>
+            
+          </div>
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="offense-box" id="offense_spec/support/paranoia_examples.rb">
+        <div class="box-title-placeholder"><h3>&nbsp;</h3></div>
+        <div class="box-title"><h3>spec/support/paranoia_examples.rb - 3 offenses</h3></div>
+        <div class="offense-reports">
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #2</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning. (https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies)</span>
+            </div>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #8</span> –
+              <span class="severity convention">convention:</span>
+              <span class="message">Layout/ExtraSpacing: Unnecessary spacing detected.</span>
+            </div>
+            
+            <pre><code>	 expect(described_class.unscoped.where_sql.to_s).not_to include(&#39;`deleted_at`&#39;)<span class="highlight convention"> </span> # to_s to handle nil.</code></pre>
+            
+          </div>
+          
+          <div class="report">
+            <div class="meta">
+              <span class="location">Line #10</span> –
               <span class="severity convention">convention:</span>
               <span class="message">Layout/TrailingBlankLines: Final newline missing. (https://github.com/bbatsov/ruby-style-guide#newline-eof)</span>
             </div>

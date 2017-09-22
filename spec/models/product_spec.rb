@@ -17,11 +17,14 @@
 #  views              :integer          default(0)
 #  featured           :boolean          default(FALSE)
 #  visible            :boolean          default(TRUE)
+#  deleted_at         :datetime
 #
 
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
+
+  it_behaves_like 'a Paranoid model'
 
   it { should respond_to (:name) }
   it { should validate_presence_of (:name) }

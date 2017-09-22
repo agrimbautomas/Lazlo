@@ -51,6 +51,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'puma'
 gem 'sitemap_generator'
+gem 'paranoia', '~> 2.2'
 
 # For the js runtime
 gem 'therubyracer', platforms: :ruby

@@ -44,7 +44,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2017-09-11 11:02:16 -0300'>2017-09-11 11:02:16 -0300</time>
+          Updated <time class='js-timeago' datetime='2017-09-20 13:26:56 -0300'>2017-09-20 13:26:56 -0300</time>
         
       </span>
     </div>
@@ -65,12 +65,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">81</span><small> lines of codes</small></div>
+              <div><span class="metric">85</span><small> lines of codes</small></div>
               <div><span class="metric">7</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">9.7</span><small> complexity/method</small></div>
-              <div><span class="metric">33</span><small> loc/method</small></div>
+              <div><span class="metric">35</span><small> loc/method</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">68</span><small> complexity</small></div>
@@ -119,9 +119,13 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string
+#  deleted_at             :datetime
 #
 
 class User &lt; ActiveRecord::Base
+
+  acts_as_paranoid
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :encryptable,
@@ -138,10 +142,10 @@ class User &lt; ActiveRecord::Base
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Too-Many-Statements.md" target="_blank"><b>TooManyStatements</b></a>        </span>      </div>      <span>User#self.find_for_facebook_oauth has approx 6 statements</span>          </div>  </li>  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Unused-Parameters.md" target="_blank"><b>UnusedParameters</b></a>        </span>      </div>      <span>User#self.find_for_facebook_oauth has unused parameter 'signed_in_resource'</span>          </div>  </li></div>
 	 data = access_token.extra.raw_info
-	 if user = User.where(:email =&gt; data.email).first<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#self.find_for_facebook_oauth calls 'data.email' 2 times</span>              <span>Locations:</span>                  <a href="user.html#L45" class="js-smell-location">0</a>                  <a href="user.html#L48" class="js-smell-location">1</a>                  </div>  </li></div>
+	 if user = User.where(:email =&gt; data.email).first<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#self.find_for_facebook_oauth calls 'data.email' 2 times</span>              <span>Locations:</span>                  <a href="user.html#L49" class="js-smell-location">0</a>                  <a href="user.html#L52" class="js-smell-location">1</a>                  </div>  </li></div>
 		user
 	 else # Create a user with a stub password.
-		user = User.new(:email =&gt; data.email, :password =&gt; Devise.friendly_token[0, 20])<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#self.find_for_facebook_oauth calls 'data.email' 2 times</span>              <span>Locations:</span>                  <a href="user.html#L45" class="js-smell-location">0</a>                  <a href="user.html#L48" class="js-smell-location">1</a>                  </div>  </li></div>
+		user = User.new(:email =&gt; data.email, :password =&gt; Devise.friendly_token[0, 20])<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#self.find_for_facebook_oauth calls 'data.email' 2 times</span>              <span>Locations:</span>                  <a href="user.html#L49" class="js-smell-location">0</a>                  <a href="user.html#L52" class="js-smell-location">1</a>                  </div>  </li></div>
 		user.skip_confirmation!
 		user.save!
 		user
@@ -153,20 +157,20 @@ class User &lt; ActiveRecord::Base
   end
 
   def add_product_to_cart product
-	 self.checkout_list = CheckoutList.create(:user =&gt; self) unless self.checkout_list.present?<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#add_product_to_cart calls 'self.checkout_list' 2 times</span>              <span>Locations:</span>                  <a href="user.html#L60" class="js-smell-location">0</a>                  <a href="user.html#L61" class="js-smell-location">1</a>                  </div>  </li></div>
-	 self.checkout_list.save_product_row product<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#add_product_to_cart calls 'self.checkout_list' 2 times</span>              <span>Locations:</span>                  <a href="user.html#L60" class="js-smell-location">0</a>                  <a href="user.html#L61" class="js-smell-location">1</a>                  </div>  </li></div>
+	 self.checkout_list = CheckoutList.create(:user =&gt; self) unless self.checkout_list.present?<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#add_product_to_cart calls 'self.checkout_list' 2 times</span>              <span>Locations:</span>                  <a href="user.html#L64" class="js-smell-location">0</a>                  <a href="user.html#L65" class="js-smell-location">1</a>                  </div>  </li></div>
+	 self.checkout_list.save_product_row product<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#add_product_to_cart calls 'self.checkout_list' 2 times</span>              <span>Locations:</span>                  <a href="user.html#L64" class="js-smell-location">0</a>                  <a href="user.html#L65" class="js-smell-location">1</a>                  </div>  </li></div>
 	 self.save!
   end
 
-  def has_product_in_cart? product<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="user.html#L65" class="js-smell-location">0</a>                  <a href="user.html#L69" class="js-smell-location">1</a>                  <a href="user.html#L73" class="js-smell-location">2</a>                  </div>  </li></div>
+  def has_product_in_cart? product<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="user.html#L69" class="js-smell-location">0</a>                  <a href="user.html#L73" class="js-smell-location">1</a>                  <a href="user.html#L77" class="js-smell-location">2</a>                  </div>  </li></div>
 	 checkout_list.present? and checkout_list.product_rows.present? and checkout_list.product_rows.where(:product =&gt; product).exists?<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#has_product_in_cart? calls 'checkout_list.product_rows' 2 times</span>          </div>  </li></div>
   end
 
-  def has_product_as_favourite? product<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="user.html#L65" class="js-smell-location">0</a>                  <a href="user.html#L69" class="js-smell-location">1</a>                  <a href="user.html#L73" class="js-smell-location">2</a>                  </div>  </li></div>
+  def has_product_as_favourite? product<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="user.html#L69" class="js-smell-location">0</a>                  <a href="user.html#L73" class="js-smell-location">1</a>                  <a href="user.html#L77" class="js-smell-location">2</a>                  </div>  </li></div>
 	 favourites_list.present? and favourites_list.product_rows.present? and favourites_list.product_rows.where(:product =&gt; product).exists?<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#has_product_as_favourite? calls 'favourites_list.product_rows' 2 times</span>          </div>  </li></div>
   end
 
-  def has_bought? product<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="user.html#L65" class="js-smell-location">0</a>                  <a href="user.html#L69" class="js-smell-location">1</a>                  <a href="user.html#L73" class="js-smell-location">2</a>                  </div>  </li></div>
+  def has_bought? product<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 3 nodes</span>              <span>Locations:</span>                  <a href="user.html#L69" class="js-smell-location">0</a>                  <a href="user.html#L73" class="js-smell-location">1</a>                  <a href="user.html#L77" class="js-smell-location">2</a>                  </div>  </li></div>
 	 purchased_list.present? and purchased_list.product_rows.present? and purchased_list.product_rows.where(:product =&gt; product).exists?<div class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Duplicate-Method-Call.md" target="_blank"><b>DuplicateMethodCall</b></a>        </span>      </div>      <span>User#has_bought? calls 'purchased_list.product_rows' 2 times</span>          </div>  </li></div>
   end
 
