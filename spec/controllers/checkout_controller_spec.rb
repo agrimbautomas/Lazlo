@@ -1,31 +1,65 @@
 require 'rails_helper'
 
 RSpec.describe CheckoutController, type: :controller do
-  include ApplicationHelper
+  include MercadoPagoHelper
 
-  let!(:category) { create(:category) }
 
-  describe 'GET categorie products ' do
+  let(:user) {create(:user_with_checkout_list)}
+  let!(:product) {create(:product)}
+
+  before {
+	 params = ActionController::Parameters.new
+	 params[:user] = user
+  }
+
+  describe 'GET single_checkout_success ' do
+	 login_user
 
 	 before {
-		get :show, :id => category.slug
+		mp_params = mercado_pago_params(user, product)
+		get :single_checkout_success,
+			 :collection_id => mp_params[:collection_id],
+			 :preference_id => mp_params[:preference_id],
+			 :payment_type => mp_params[:payment_type],
+			 :collection_status => mp_params[:collection_status]
 	 }
 
-	 it { expect(response.status).to eq 200 }
-	 it { expect(response.content_type).to eq('text/html') }
+	 it {expect(response.status).to eq 302}
+	 it {expect(Order).to have(1).record}
 
-	 it 'renders the product template' do
-		expect(response).to render_template('show')
-	 end
+  end
 
+  describe 'GET single_checkout_pending' do
+	 login_user
 
-	 it 'assigns @category to the category' do
-		expect(assigns(:category)).to be_a(Category)
-	 end
+	 before {
+		mp_params = mercado_pago_params(user, product)
+		get :single_checkout_pending,
+			 :collection_id => mp_params[:collection_id],
+			 :preference_id => mp_params[:preference_id],
+			 :payment_type => mp_params[:payment_type],
+			 :collection_status => mp_params[:collection_status]
+	 }
 
-	 it 'assigns @products' do
-		expect(assigns(:products)).to all(be_a(Product))
-	 end
+	 it {expect(response.status).to eq 302}
+	 it {expect(Order).to have(1).record}
+
+  end
+
+  describe 'GET single_checkout_cancelled' do
+	 login_user
+
+	 before {
+		mp_params = mercado_pago_params(user, product)
+		get :single_checkout_cancelled,
+			 :collection_id => mp_params[:collection_id],
+			 :preference_id => mp_params[:preference_id],
+			 :payment_type => mp_params[:payment_type],
+			 :collection_status => mp_params[:collection_status]
+	 }
+
+	 it {expect(response.status).to eq 302}
+	 it {expect(Order).to have(1).record}
 
   end
 
