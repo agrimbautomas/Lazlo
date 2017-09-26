@@ -33,6 +33,7 @@ public/assets/
 /public/system/
 public/sitemap.xml
 Capfile.lock
+reports/
 
 #Tests
 /test_output/*

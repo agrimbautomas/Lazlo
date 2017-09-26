@@ -69,7 +69,7 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   gem 'rspec-mocks'
   gem 'rspec-rails'
-  gem 'rubycritic'
+  gem 'rubycritic', require: false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov'
 
