@@ -15,8 +15,8 @@ module MercadoPagoHelper
 	 JSON.parse(checkout_preferences_file)
   end
 
-  def mercado_pago_params user
-	 preferences = checkout_preferences_from_file
+  def mercado_pago_params user, product
+	 preferences = checkout_preferences user, product
 
 	 ActionController::Parameters.new(
 		  :collection_id => "6588898",
