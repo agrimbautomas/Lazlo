@@ -16,7 +16,7 @@ RSpec.describe CheckoutController, type: :controller do
 	 login_user
 
 	 before {
-		mp_params = mercado_pago_params(user, product)
+		mp_params = mercado_pago_params user
 		get :single_checkout_success,
 			 :collection_id => mp_params[:collection_id],
 			 :preference_id => mp_params[:preference_id],
@@ -33,7 +33,7 @@ RSpec.describe CheckoutController, type: :controller do
 	 login_user
 
 	 before {
-		mp_params = mercado_pago_params(user, product)
+		mp_params = mercado_pago_params user
 		get :single_checkout_pending,
 			 :collection_id => mp_params[:collection_id],
 			 :preference_id => mp_params[:preference_id],
@@ -50,7 +50,7 @@ RSpec.describe CheckoutController, type: :controller do
 	 login_user
 
 	 before {
-		mp_params = mercado_pago_params(user, product)
+		mp_params = mercado_pago_params user
 		get :single_checkout_cancelled,
 			 :collection_id => mp_params[:collection_id],
 			 :preference_id => mp_params[:preference_id],

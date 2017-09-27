@@ -11,5 +11,5 @@ if Rails.env == 'test' or Rails.env == 'development'
 		task.options = ['-c.rubocop.yml', '-oreports/lint.html']
 	 end
   end
-  
+
 end

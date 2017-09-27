@@ -11,7 +11,7 @@ RSpec.describe PendingPurchase do
 	 params = ActionController::Parameters.new
 	 params[:user] = user
 	 params[:product] = product
-	 params[:mercado_pago_params] = mercado_pago_params(user, product)
+	 params[:mercado_pago_params] = mercado_pago_params user
 	 
 	 @cart_checkout = PendingPurchase.(params)
   }

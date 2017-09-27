@@ -1,0 +1,101 @@
+{
+  "status": "201",
+  "response": {
+	 "collector_id": 130206835,
+	 "operation_type": "regular_payment",
+	 "items": [
+		{
+		  "id": "a-random-name-1",
+		  "picture_url": "/images/original/missing.png",
+		  "title": "A random name 1",
+		  "description": "A random description 1",
+		  "category_id": "",
+		  "currency_id": "ARS",
+		  "quantity": 1,
+		  "unit_price": 1
+		}
+	 ],
+	 "payer": {
+		"name": "user1@amalgama.co",
+		"surname": "",
+		"email": "user1@amalgama.co",
+		"date_created": "",
+		"phone": {
+		  "area_code": "",
+		  "number": ""
+		},
+		"identification": {
+		  "type": "",
+		  "number": ""
+		},
+		"address": {
+		  "street_name": "",
+		  "street_number": null,
+		  "zip_code": ""
+		}
+	 },
+	 "back_urls": {
+		"success": "http://localhost:3000/single-checkout-pending.a-random-name-1",
+		"pending": "http://localhost:3000/single-checkout-success.a-random-name-1",
+		"failure": "http://localhost:3000/single-checkout-cancelled.a-random-name-1"
+	 },
+	 "auto_return": "",
+	 "payment_methods": {
+		"excluded_payment_methods": [
+		  {
+			 "id": ""
+		  }
+		],
+		"excluded_payment_types": [
+		  {
+			 "id": ""
+		  }
+		],
+		"installments": null,
+		"default_payment_method_id": null,
+		"default_installments": null
+	 },
+	 "client_id": "963",
+	 "marketplace": "NONE",
+	 "marketplace_fee": 0,
+	 "shipments": {
+		"receiver_address": {
+		  "zip_code": "",
+		  "street_number": null,
+		  "street_name": "",
+		  "floor": "",
+		  "apartment": ""
+		}
+	 },
+	 "notification_url": null,
+	 "external_reference": "",
+	 "additional_info": {
+		"product": {
+		  "id": 1,
+		  "name": "A random name 1"
+		}
+	 },
+	 "expires": false,
+	 "expiration_date_from": null,
+	 "expiration_date_to": null,
+	 "date_created": "2017-09-27T13:59:20.198-04:00",
+	 "id": "130206835-d6061435-1a64-4018-bb8b-bdae9f36dce4",
+	 "init_point": "https://www.mercadopago.com/mla/checkout/start?pref_id=130206835-d6061435-1a64-4018-bb8b-bdae9f36dce4",
+	 "sandbox_init_point": "https://sandbox.mercadopago.com/mla/checkout/pay?pref_id=130206835-d6061435-1a64-4018-bb8b-bdae9f36dce4"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
