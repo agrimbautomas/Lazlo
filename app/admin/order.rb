@@ -119,12 +119,20 @@ ActiveAdmin.register Order do
 
   form do |f|
 	 f.inputs do
+		# Todo refactor - 'code' as select input to choose buyer type
+		is_user_checked = f.object.user.present?
+
+		f.input :code, :as => :radio, :collection => [
+							  ['Usuario creado desde el Admin', 'buyer', {:checked => !is_user_checked}],
+							  ['Usuario de la Web', 'user', {:checked => is_user_checked}]
+						 ],
+				  :label => 'Origen del comprador'
 		f.input :buyer, collection: Buyer.order(updated_at: :desc)
 		f.input :user, collection: User.order(updated_at: :desc)
 		f.input :order_status_id, :as => :select, include_blank: false,
 				  collection: OrderStatus.all, :label => 'Estado'
 		f.input :detail, :hint => 'Algun tipo de detalle para la producción'
-		f.input :payment, :input_html => { :min => 0, :step => 100 } if current_admin_user.has_role? :full_admin
+		f.input :payment, :input_html => {:min => 0, :step => 100} if current_admin_user.has_role? :full_admin
 		f.input :title, :hint => 'Titulo de la orden (se muestra en el tracking)',
 				  :label => 'Titulo de la orden' if current_admin_user.has_role? :full_admin
 	 end
@@ -135,12 +143,12 @@ ActiveAdmin.register Order do
 		f.has_many :order_products_rows, new_record: true do |a|
 		  a.input :product_id, :as => :select, include_blank: true,
 					 collection: Product.all.order('name asc').map { |product| [product.name, product.id, price: product.price.to_i] },
-					 :label => t('activerecord.models.product.one'), :input_html => { :class => 'order-product-row-product' }
-		  a.input :quantity, :input_html => { :value => a.object.quantity || 1 }
+					 :label => t('activerecord.models.product.one'), :input_html => {:class => 'order-product-row-product'}
+		  a.input :quantity, :input_html => {:value => a.object.quantity || 1}
 		  a.input :product_name, as: :hidden,
-					 :input_html => { :class => 'order-product-row-product-name', readonly: true }
+					 :input_html => {:class => 'order-product-row-product-name', readonly: true}
 		  a.input :product_price, as: :hidden,
-					 :input_html => { :class => 'order-product-row-product-price', readonly: true }
+					 :input_html => {:class => 'order-product-row-product-price', readonly: true}
 		  a.input :_destroy, :as => :boolean, :required => false, :label => 'Borrar Producto(s)'
 		end
 	 end
