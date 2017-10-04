@@ -20,4 +20,9 @@ class ProductRow < ActiveRecord::Base
   def total_price
     quantity * product.price
   end
+
+  def formatted_total
+    '$' + total_price.to_s
+  end
+
 end

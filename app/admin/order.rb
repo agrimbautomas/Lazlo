@@ -13,6 +13,15 @@ ActiveAdmin.register Order do
 
   before_filter :repair_nested_params
 
+  #
+  # Config
+  #
+  OrderStatus.all.each do |order_status|
+	 scope order_status.name do
+		Order.where(:order_status => order_status)
+	 end
+  end
+
   controller do
 
 	 def scoped_collection
@@ -67,6 +76,9 @@ ActiveAdmin.register Order do
 
   end
 
+  #
+  # Index
+  #
   index(:row_class => -> record { OrderStatus.find(record.order_status_id).name_slug unless record.order_status_id.nil? }) do
 	 selectable_column
 

@@ -1,4 +1,4 @@
-ActiveAdmin.register User  do
+ActiveAdmin.register User do
   menu priority: 1, parent: I18n.t('activerecord.models.user.other')
 
   permit_params :email, :password, :password_confirmation, :role_ids
@@ -7,40 +7,71 @@ ActiveAdmin.register User  do
   filter :email
 
   index do
-    selectable_column
+	 selectable_column
 
-    column :id
-    column :email
+	 column :id
+	 column :email
 
-    column 'Última vez conectado' do |user|
-      user.last_sign_in_at.strftime('%H:%M %d/%m/%Y') unless user.last_sign_in_at.nil?
-    end
+	 column 'Última vez conectado' do |user|
+		user.last_sign_in_at.strftime('%H:%M %d/%m/%Y') unless user.last_sign_in_at.nil?
+	 end
 
-    column 'Registro' do |user|
-      user.confirmation_token.nil? ? 'Facebook' : 'Página'
-    end
+	 column 'Registro' do |user|
+		user.confirmation_token.nil? ? 'Facebook' : 'Página'
+	 end
 
-    column 'Fecha de creación' do |user|
-      user.created_at.strftime('%H:%M %d/%m/%Y')
-    end
+	 column 'Fecha de creación' do |user|
+		user.created_at.strftime('%H:%M %d/%m/%Y')
+	 end
 
-    actions
+	 column 'Productos en carrito' do |user|
+		user.checkout_list.present? ? user.purchased_list.products_count : 0
+	 end
+
+	 column 'Productos comprados' do |user|
+		user.purchased_list.present? ? user.purchased_list.products_count : 0
+	 end
+
+	 actions
   end
 
   form do |f|
-    f.inputs "Admin Details" do
-      f.input :email
-      f.input :password
-      f.input :password_confirmation
-    end
-    f.actions
+	 f.inputs "Admin Details" do
+		f.input :email
+		f.input :password
+		f.input :password_confirmation
+	 end
+	 f.actions
   end
 
   show do |buyer|
-    attributes_table_for buyer do
-      row :email
-      row :sign_in_count
-    end
+	 attributes_table_for buyer do
+		row :email
+		row :sign_in_count
+	 end
+
+	 panel 'Productos en el carrito' do
+		table_for(buyer.checkout_list.product_rows) do
+
+		  column t('activerecord.models.product.one') do |product_row|
+			 # Show unless the product is deleted
+			 link_to product_row.product.name, product_path(product_row.product) unless product_row.product.nil?
+		  end
+
+		  column t('quantity') do |product_row|
+			 product_row.quantity unless product_row.product.nil?
+		  end
+
+		  column t('total') do |product_row|
+			 product_row.formatted_total unless product_row.product.nil?
+		  end
+
+		  column I18n.t('activerecord.models.product_image.one') do |product_row|
+			 image_tag(product_row.product.image.url(:thumb)) unless product_row.product.nil? or product_row.product.image.nil?
+		  end
+
+		end
+	 end
 
   end
 

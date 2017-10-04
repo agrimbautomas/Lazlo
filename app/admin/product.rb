@@ -16,7 +16,18 @@ ActiveAdmin.register Product do
     defaults :finder => :find_by_slug
   end
 
+  #
+  # Config
+  #
+  Category.all.each do |category|
+    scope category.name do
+      Product.where(:category => category)
+    end
+  end
 
+  #
+  # Index
+  #
   index do
     selectable_column
 

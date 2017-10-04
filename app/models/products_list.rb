@@ -20,4 +20,8 @@ class ProductsList < ActiveRecord::Base
 	 save!
   end
 
+  def products_count
+	 product_rows.map { |pr| pr.quantity }.sum
+  end
+
 end
