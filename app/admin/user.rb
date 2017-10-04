@@ -25,7 +25,7 @@ ActiveAdmin.register User do
 	 end
 
 	 column 'Productos en carrito' do |user|
-		user.checkout_list.present? ? user.purchased_list.products_count : 0
+		user.checkout_list.present? ? user.checkout_list.products_count : 0
 	 end
 
 	 column 'Productos comprados' do |user|
@@ -48,6 +48,12 @@ ActiveAdmin.register User do
 	 attributes_table_for buyer do
 		row :email
 		row :sign_in_count
+		row :last_sign_in_at do
+		  buyer.last_sign_in_at.strftime('%H:%M %d/%m/%Y')
+		end
+		row :created_at do
+		  buyer.created_at.strftime('%d/%m/%Y')
+		end
 	 end
 
 	 panel 'Productos en el carrito' do
@@ -71,7 +77,7 @@ ActiveAdmin.register User do
 		  end
 
 		end
-	 end
+	 end unless buyer.checkout_list.nil?
 
   end
 

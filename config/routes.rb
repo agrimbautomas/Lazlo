@@ -2,7 +2,13 @@ Rails.application.routes.draw do
 
   mount LetsencryptPlugin::Engine, at: '/' # It must be at root level
 
-  ActiveAdmin.routes(self)
+  #ActiveAdmin.routes(self)
+  begin
+    ActiveAdmin.routes(self)
+  rescue Exception => e
+    puts "ActiveAdmin: #{e.class}: #{e}"
+  end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users, :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
