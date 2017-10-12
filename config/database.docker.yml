@@ -1,0 +1,18 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+  host: mysql
+
+development:
+  <<: *default
+  username: test
+  password: sinclair
+  database: alomacain_test
+
+test:
+  <<: *default
+  username: test
+  password: sinclair
+  database: alomacain_test

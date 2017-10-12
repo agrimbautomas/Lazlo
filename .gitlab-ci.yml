@@ -6,10 +6,14 @@ services:
 variables:
    RAILS_ENV: "test"
    COVERAGE: "true"
+   MYSQL_ROOT_PASSWORD: "sinclair"
+   MYSQL_PASSWORD: "sinclair"
+   MYSQL_DATABASE: "alomacain_test"
+   MYSQL_USER: "test"
 
 before_script:
-   - cp config/database-sample.yml config/database.yml
-   - cp config/secrets-sample.yml config/secrets.yml
+   - cp config/database.docker.yml config/database.yml
+   - cp config/secrets.docker.yml config/secrets.yml
    - mkdir -p reports/
    - bundle install --jobs 4 --deployment
 
