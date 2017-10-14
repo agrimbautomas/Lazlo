@@ -1,7 +1,11 @@
 class SuccessPurchase < Purchase
 
   def order_status
-	 OrderStatus.find_or_create_by(name: 'Encargado', priority: 20)
+	 order_status = OrderStatus.find_by_name('Encargado')
+	 if order_status.nil?
+		order_status = OrderStatus.create!(name: 'Encargado', priority: 21)
+	 end
+	 order_status
   end
 
   def send_purchase_emails params
