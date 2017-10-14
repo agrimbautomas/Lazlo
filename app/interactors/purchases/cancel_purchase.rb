@@ -1,7 +1,7 @@
 class CancelPurchase < Purchase
 
   def order_status
-	 OrderStatus.find_or_create_by(name: 'Cancelado')
+	 OrderStatus.find_or_create_by(name: 'Cancelado', priority: 22)
   end
 
   def checkout_callback

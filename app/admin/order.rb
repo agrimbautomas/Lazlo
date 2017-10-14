@@ -190,6 +190,10 @@ ActiveAdmin.register Order do
 		  order.order_status
 		end
 
+		row I18n.t('created_at') do |order|
+		  order.created_at
+		end
+
 		row :detail
 
 		row 'Título para Tracking' do

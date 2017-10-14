@@ -1,7 +1,7 @@
 class PendingPurchase < Purchase
 
   def order_status
-	 OrderStatus.find_or_create_by(name: 'Encargado')
+	 OrderStatus.find_or_create_by(name: 'Encargado', priority: 21)
   end
 
   def send_purchase_emails params
