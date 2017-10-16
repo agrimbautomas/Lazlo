@@ -8,7 +8,8 @@
              style="background-image: url(<%= featured_product.image.url(:medium) %>);">
             <div class="description smooth-transition">
               <h1><%= featured_product.name %></h1>
-              <h4><%= '$' + featured_product.price.to_i.to_s unless featured_product.price.nil? %></h4>
+              <h4>
+                <%= format_price featured_product.price %></h4>
               <span class="see-more">VER MÁS</span>
             </div>
           </a>

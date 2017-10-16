@@ -156,12 +156,15 @@ ActiveAdmin.register Order do
 		  a.input :product_id, :as => :select, include_blank: true,
 					 collection: Product.all.order('name asc').map { |product| [product.name, product.id, price: product.price.to_i] },
 					 :label => t('activerecord.models.product.one'), :input_html => {:class => 'order-product-row-product'}
-		  a.input :quantity, :input_html => {:value => a.object.quantity || 1}
+		  a.input :quantity,  :label => t('activerecord.attributes.order_products_rows.quantity'),
+					 :input_html => {:value => a.object.quantity || 1, :class => 'order-product-row-product-quantity'}
+		  a.input :product_price, :label => t('activerecord.attributes.order_products_rows.product_price'),
+					 :input_html => {:class => 'order-product-row-product-price', :alt => '0'}
 		  a.input :product_name, as: :hidden,
 					 :input_html => {:class => 'order-product-row-product-name', readonly: true}
-		  a.input :product_price, as: :hidden,
-					 :input_html => {:class => 'order-product-row-product-price', readonly: true}
-		  a.input :_destroy, :as => :boolean, :required => false, :label => 'Borrar Producto(s)'
+		  a.template.concat "<li class='total-row-price'><label>Total</label>$<span>0</span></li>".html_safe
+		  a.input :_destroy, :as => :boolean, :required => false, :label => 'Borrar Producto(s)',
+					 :input_html => {:class => 'remove-product-row'}
 		end
 	 end
 

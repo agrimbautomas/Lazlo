@@ -55,7 +55,7 @@
           <div class="text-detail-container">
 
             <div class="product-price-box">
-              <div class="product-price">$<%= @product.price.to_i %></div>
+              <div class="product-price"><%= format_price @product.price %></div>
               <label>PROMOCIÓN ONLINE</label>
             </div>
 

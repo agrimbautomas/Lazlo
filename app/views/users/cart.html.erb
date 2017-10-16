@@ -28,7 +28,7 @@
             </h2>
 
             <span class="cart-product-price">
-              <%= '$' + product_row.product.price.to_i.to_s unless product_row.product.price.nil? %>
+              <%= format_price product_row.product.price %>
             </span>
           </div>
       <% end %>

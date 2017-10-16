@@ -291,7 +291,7 @@ es:
         order_products_rows:
           product_name: Nombre del Producto
           quantity: Cantidad
-          price: Precio
+          product_price: Precio
         order_status:
           name: Nombre del estado
           priority: Prioridad
