@@ -40,7 +40,7 @@ class Product < ActiveRecord::Base
 				:uniqueness => {:case_sensitive => false}, length: {maximum: 255}
 
   validates_presence_of :price, :slug
-  validates_numericality_of :price, greater_than: 0
+  validates_numericality_of :price, greater_than_or_equal_to: 0
 
   before_save :parse_slug, :if => :name_changed?
 
