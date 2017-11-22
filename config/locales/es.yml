@@ -288,6 +288,7 @@ es:
           payment: A Cobrar
           code: Código
           detail: Detalle
+          title: Titulo
         order_products_rows:
           product_name: Nombre del Producto
           quantity: Cantidad

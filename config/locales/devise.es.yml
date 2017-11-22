@@ -64,4 +64,4 @@ es:
       subject: "Gracias por comprar nuestro producto #{order_title}"
   admin_mail_mailer:
     contact:
-      subject: "Siranushen Alert :) - Mensaje de: #{name}"
+      subject: "Siranushen Alert :) - Mensaje de: %{name}"

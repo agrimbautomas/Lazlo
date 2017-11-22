@@ -63,6 +63,7 @@ ActiveAdmin.register Order do
 
 	 def display_resource_errors order
 		if order.invalid?
+			byebug
 
 		  flash[:error] = SaveAdminOrder.errors_message order
 		  redirect_to :back
