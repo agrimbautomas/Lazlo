@@ -55,7 +55,7 @@
           <div class="text-detail-container">
 
             <div class="product-price-box">
-              <div class="product-price">$<%= @product.price.to_i %></div>
+              <div class="product-price"><%= format_price @product.price %></div>
               <label>PROMOCIÓN ONLINE</label>
             </div>
 
@@ -70,7 +70,7 @@
             -->
 
             <% if user_signed_in? %>
-                <a href="<%= @product_link %>" name="MP-Checkout" class="product-buy-button macain-button red-button smooth-transition">
+                <a href="<%= @product_link %>"  mp-mode='popup' name="MP-Checkout" class="product-buy-button macain-button red-button smooth-transition">
                   Comprar
                 </a>
                 <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>

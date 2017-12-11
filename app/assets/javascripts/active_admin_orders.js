@@ -12,17 +12,23 @@ function setupNewOrderForm() {
     setInitialSelectedValues();
     toggleBuyerUserValues();
     displayListIfSelected();
-
+    calculateTotalPrice();
 }
-
 
 /******* Products Rows *********/
 
 function setInitialSelectedValues() {
-    $('body').on('change', 'select.order-product-row-product', function (e) {
-        setInputValues($(this))
-    });
+    $('body').on('change',
+        'select.order-product-row-product',
+        function (e) {
+            setInputValues($(this));
+        });
 
+    $('body').on('change',
+        'input.order-product-row-product-quantity, input.order-product-row-product-price',
+        function (e) {
+            updateManualProductTotalPrice($(this));
+        });
 }
 
 function setInputValues($selectInput) {
@@ -31,6 +37,7 @@ function setInputValues($selectInput) {
 
     setProductName($selectedOption, $rowsParentContainer);
     setProductPrice($selectedOption, $rowsParentContainer);
+
 }
 
 function setProductName($selectedOption, $rowsParentContainer) {
@@ -43,8 +50,34 @@ function setProductPrice($selectedOption, $rowsParentContainer) {
     var productPrice = $selectedOption.attr('price');
     var $productPriceInput = $rowsParentContainer.find('.order-product-row-product-price');
     $productPriceInput.val(productPrice);
+
+    updateProductTotalPrice($rowsParentContainer, productPrice);
 }
 
+
+function updateManualProductTotalPrice($selectInput) {
+    var $rowsParentContainer = $selectInput.offsetParent('ol');
+    var $productPriceInput = $rowsParentContainer.find('.order-product-row-product-price');
+
+    updateProductTotalPrice($rowsParentContainer, $productPriceInput.val());
+}
+
+function updateProductTotalPrice($rowsParentContainer, productPrice) {
+    var $productPriceInput = $rowsParentContainer.find('.order-product-row-product-quantity');
+    var totalPrice = $productPriceInput.val() * productPrice;
+    $rowsParentContainer.find('.total-row-price span').html(totalPrice);
+
+    console.log('Quantity: ', totalPrice);
+
+    $('#closeButton').on('click',function() {
+        $(this).parent().remove();
+        return false;
+    });
+}
+
+function calculateTotalPrice() {
+    //console.log('Total price');
+}
 
 /******* Buyer/User *********/
 
@@ -69,8 +102,8 @@ function displayListByName(nameToShow, nameToHide) {
     $('#order_' + nameToHide + '_input select option:selected').removeAttr("selected");
 }
 
-function displayListIfSelected(){
-    if( $('#order_user_input select option:selected').val() != '' )
+function displayListIfSelected() {
+    if ($('#order_user_input select option:selected').val() != '')
         displayListByName('user', 'buyer');
     else
         displayListByName('buyer', 'user');

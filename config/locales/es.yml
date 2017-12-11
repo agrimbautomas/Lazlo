@@ -288,10 +288,11 @@ es:
           payment: A Cobrar
           code: Código
           detail: Detalle
+          title: Titulo
         order_products_rows:
           product_name: Nombre del Producto
           quantity: Cantidad
-          price: Precio
+          product_price: Precio
         order_status:
           name: Nombre del estado
           priority: Prioridad
@@ -338,3 +339,4 @@ es:
       bank_transfer: Transferencia bancaria
       ticket: Ticket
       account_money: Plata en Mercado Pago
+  created_at: Fecha de creación

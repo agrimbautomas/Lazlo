@@ -19,7 +19,7 @@ class SaveAdminOrder < Interactor
 	 order.errors.each do |key|
 		field_name = I18n.t("activerecord.attributes.order.#{key.to_s}")
 		field_errors = order.errors[key].join(', ')
-		message += "El campo #{field_name} #{field_errors} -"
+		message += "El campo #{field_name} #{field_errors} -<br>"
 	 end
 	 message
   end
