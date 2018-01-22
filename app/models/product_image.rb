@@ -12,7 +12,7 @@
 #  picture_updated_at   :datetime
 #
 
-class ProductImage < ActiveRecord::Base
+class ProductImage < ApplicationRecord
   belongs_to :product
 
   has_attached_file :picture,

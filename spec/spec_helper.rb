@@ -1,7 +1,7 @@
 #Coverage
 require 'simplecov'
 SimpleCov.start 'rails' do
-  project_name 'AloMacain Web Site'
+  project_name 'Lazlo Web Site'
   coverage_dir 'test_output/coverage/'
 
   # Ignore default files, uncomment if modified
@@ -12,7 +12,7 @@ SimpleCov.start 'rails' do
   add_filter 'app/controllers/application_controller.rb'
   add_filter 'app/helpers/application_helper.rb'
   add_filter 'app/models/ability.rb'
-  add_filter 'app/errors/macain_error.rb'
+  add_filter 'app/errors/lazlo_error.rb'
 
   add_group 'Models', '/app/models'
   add_group 'Interactors', '/app/interactors'
@@ -33,10 +33,9 @@ require 'support/mercado_pago_helper'
 require 'support/paranoia_examples'
 
 RSpec.configure do |config|
-  config.include RocketPants::TestHelper, type: :controller
-  config.include RocketPants::RSpecMatchers, type: :controller
   config.include Paperclip::Shoulda::Matchers
   config.include FactoryGirl::Syntax::Methods
+  config.include Rails.application.routes.url_helpers
 
   # For Devise >= 4.1.1
   config.include Devise::Test::ControllerHelpers, :type => :controller

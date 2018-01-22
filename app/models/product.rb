@@ -20,7 +20,7 @@
 #  deleted_at         :datetime
 #
 
-class Product < ActiveRecord::Base
+class Product < ApplicationRecord
 
   acts_as_paranoid
 

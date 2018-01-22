@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class Marvel < ActiveRecord::Base
+class Marvel < ApplicationRecord
 
   validates :name, presence: true
   validates :price, presence: true

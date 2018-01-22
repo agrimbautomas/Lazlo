@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class ProductsList < ActiveRecord::Base
+class ProductsList < ApplicationRecord
 
   belongs_to :user
   belongs_to :order

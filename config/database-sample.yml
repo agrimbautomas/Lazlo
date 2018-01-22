@@ -1,17 +1,19 @@
 default: &default
-  adapter: sqlite3
-  encoding: utf8
+  adapter: mysql2
   pool: 5
   timeout: 5000
+  encoding: utf8
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  host: team_db_dev
+  username: amalgama
+  database: team_dev
+  password: password
 
 test:
   <<: *default
-  database: db/test.sqlite3
-
-production:
-  <<: *default
-  database: db/production.sqlite3
+  host: team_db_test
+  username: amalgama
+  database: team_test
+  password: password

@@ -19,7 +19,7 @@
 #  payment_type             :integer          default(0), not null
 #
 
-class Order < ActiveRecord::Base
+class Order < ApplicationRecord
 
   belongs_to :buyer
   belongs_to :user

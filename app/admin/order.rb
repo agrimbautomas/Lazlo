@@ -11,7 +11,7 @@ ActiveAdmin.register Order do
   filter :product
   filter :code
 
-  before_filter :repair_nested_params
+  before_action :repair_nested_params
 
   #
   # Config

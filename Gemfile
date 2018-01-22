@@ -1,13 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'rails', '5.1.3'
+
 gem 'active_admin_theme'
 gem 'activeadmin', github: 'activeadmin'
 
-# Auto schema in models, url: https://github.com/ctran/annotate_models
-gem 'annotate'
-
 gem 'cancan'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 gem 'config'
 
 gem 'devise'
@@ -17,7 +16,6 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'jquery-rails'
 
-gem 'rails', '4.2.8'
 
 gem 'rails_config'
 
@@ -39,7 +37,9 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'instagram'
 
 gem 'letsencrypt_plugin'
-gem 'rocket_pants', '~> 1.0'
+
+gem 'actionpack', '5.1.3'
+gem 'railties', '~> 5.0', '>= 5.0.0.1'
 
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -63,7 +63,7 @@ group :development, :test do
   gem 'byebug'
 
   gem 'fuubar'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_girl_rails'
   gem 'json_matchers'
 
   gem 'rspec-collection_matchers'
@@ -72,6 +72,8 @@ group :development, :test do
   gem 'rubycritic', require: false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov'
+
+  gem 'rails-controller-testing'
 
   # Pry console, url: https://github.com/rweng/pry-rails
   gem 'pry'
@@ -88,7 +90,7 @@ group :development do
   gem 'capistrano3-puma'
   gem 'capistrano-bundler'
 
-  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rubocop', '~> 0.52.1', require: false
   gem 'rubocop-rspec'
 
   # Spring speeds up development by keeping your application running in the bg

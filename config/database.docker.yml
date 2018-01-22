@@ -9,10 +9,10 @@ development:
   <<: *default
   username: test
   password: sinclair
-  database: alomacain_test
+  database: lazlo_test
 
 test:
   <<: *default
   username: test
   password: sinclair
-  database: alomacain_test
+  database: lazlo_test

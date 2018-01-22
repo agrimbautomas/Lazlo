@@ -10,6 +10,6 @@
 #  updated_at :datetime         not null
 #
 
-class UserContact < ActiveRecord::Base
+class UserContact < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 end

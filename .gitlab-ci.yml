@@ -8,7 +8,7 @@ variables:
    COVERAGE: "true"
    MYSQL_ROOT_PASSWORD: "sinclair"
    MYSQL_PASSWORD: "sinclair"
-   MYSQL_DATABASE: "alomacain_test"
+   MYSQL_DATABASE: "lazlo_test"
    MYSQL_USER: "test"
 
 before_script:

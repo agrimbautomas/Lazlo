@@ -21,7 +21,7 @@
 # refunded: El pago fue devuelto al usuario.
 # charged_back: Fue hecho un contracargo en la tarjeta del pagador.
 
-class MercadoPagoPurchase < ActiveRecord::Base
+class MercadoPagoPurchase < ApplicationRecord
 
   belongs_to :order
 

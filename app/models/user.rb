@@ -26,7 +26,7 @@
 #  deleted_at             :datetime
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
 
   acts_as_paranoid
 

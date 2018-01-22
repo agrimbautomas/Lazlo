@@ -17,7 +17,7 @@
 #  updated_at             :datetime         not null
 #
 
-class AdminUser < ActiveRecord::Base
+class AdminUser < ApplicationRecord
   rolify
 
   # Include default devise modules. Others available are:

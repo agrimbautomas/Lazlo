@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 
-class OrderProductsList < ActiveRecord::Base
+class OrderProductsList < ApplicationRecord
 
   belongs_to :order
   has_many :order_products_rows

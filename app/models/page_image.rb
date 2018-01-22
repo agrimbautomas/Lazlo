@@ -13,7 +13,7 @@
 #  picture_updated_at   :datetime
 #
 
-class PageImage < ActiveRecord::Base
+class PageImage < ApplicationRecord
   belongs_to :page
 
   has_attached_file :picture,

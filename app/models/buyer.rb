@@ -11,7 +11,7 @@
 #  address    :string
 #
 
-class Buyer < ActiveRecord::Base
+class Buyer < ApplicationRecord
 
   has_many :orders
 

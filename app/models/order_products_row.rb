@@ -12,7 +12,7 @@
 #  updated_at             :datetime         not null
 #
 
-class OrderProductsRow < ActiveRecord::Base
+class OrderProductsRow < ApplicationRecord
 
   belongs_to :order_products_list
   belongs_to :product

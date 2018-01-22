@@ -15,7 +15,7 @@
 #  description        :string
 #
 
-class Category < ActiveRecord::Base
+class Category < ApplicationRecord
   include Rails.application.routes.url_helpers
 
   extend FriendlyId

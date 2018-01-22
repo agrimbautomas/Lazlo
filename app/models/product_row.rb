@@ -10,7 +10,7 @@
 #  products_list_id :integer
 #
 
-class ProductRow < ActiveRecord::Base
+class ProductRow < ApplicationRecord
 
   belongs_to :product
 
