@@ -1,4 +1,4 @@
-class RemoveUselessListsReferences < ActiveRecord::Migration
+class RemoveUselessListsReferences < ActiveRecord::Migration[4.2]
   def change
 	 remove_reference :orders, :purchased_list, index: true, null: true
 	 add_reference :orders, :products_list, index: true, null: true

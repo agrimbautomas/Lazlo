@@ -1,4 +1,4 @@
-class AddAttachmentPictureToPageImages < ActiveRecord::Migration
+class AddAttachmentPictureToPageImages < ActiveRecord::Migration[4.2]
   def self.up
     change_table :page_images do |t|
       t.attachment :picture

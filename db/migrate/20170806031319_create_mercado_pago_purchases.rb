@@ -1,4 +1,4 @@
-class CreateMercadoPagoPurchases < ActiveRecord::Migration
+class CreateMercadoPagoPurchases < ActiveRecord::Migration[4.2]
   def change
 	 create_table :mercado_pago_purchases do |t|
 

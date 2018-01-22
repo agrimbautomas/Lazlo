@@ -1,4 +1,4 @@
-class CreateFavouritesList < ActiveRecord::Migration
+class CreateFavouritesList < ActiveRecord::Migration[4.2]
   def change
     create_table :favourites_lists do |t|
       t.belongs_to :user

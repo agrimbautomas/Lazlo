@@ -1,4 +1,4 @@
-class CreateProductsLists < ActiveRecord::Migration
+class CreateProductsLists < ActiveRecord::Migration[4.2]
   def self.up
 	 if !table_exists?("products_lists")
 		create_table :products_lists do |t|

@@ -1,4 +1,4 @@
-class CreateProductRows < ActiveRecord::Migration
+class CreateProductRows < ActiveRecord::Migration[4.2]
   def change
     create_table :product_rows do |t|
 

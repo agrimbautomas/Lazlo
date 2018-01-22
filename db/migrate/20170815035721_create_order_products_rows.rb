@@ -1,4 +1,4 @@
-class CreateOrderProductsRows < ActiveRecord::Migration
+class CreateOrderProductsRows < ActiveRecord::Migration[4.2]
   def change
     create_table :order_products_rows do |t|
 		t.belongs_to :order_products_list
