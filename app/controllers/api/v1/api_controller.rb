@@ -19,7 +19,7 @@ class Api::V1::ApiController < ActionController::Base
 
 
   def contact_params
-    params.permit(:macain_name, :macain_email, :macain_message, :authenticity_token)
+    params.permit(:lazlo_name, :lazlo_email, :lazlo_message, :authenticity_token)
   end
 
 end

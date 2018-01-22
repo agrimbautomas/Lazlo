@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= @og_title.present? ? @og_title : 'AloMacain || Productos de Diseño' %></title>
+  <title><%= @og_title.present? ? @og_title : 'Lazlo || Productos de Diseño' %></title>
   <meta name="keywords" content="mesa, ratona, auxiliar, de comedor, mesita, marmol, hierro, lampara, perchero, decoración, muebles, interiores, living, comedor, desayunador, consola, dresuar"/>
   <meta name="description"
         content="<%= @og_description.present? ? @og_description : 'Tienda online de productos de diseño. Creamos, desarrollamos y fabricamos objetos de decoración. Muebles, mesas, iluminación, deco, sillas y más.'%>"/>
-  <meta name="canonical" content="http://alomacain.com"/>
+  <meta name="canonical" content="http://lazlo.com"/>
   <meta name="robots" content="INDEX, FOLLOW"/>
   <meta name="author" content="theamalgama.com"/>
   <meta name="viewport" content="width=1100, user-scalable=yes"/>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta http-equiv="Content-Language" content="ES"/>
-  <link rel="alternate" hreflang="es" href="<%= @current_url || 'https://alomacain.com/' %>" />
+  <link rel="alternate" hreflang="es" href="<%= @current_url || 'https://lazlo.la/' %>" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -22,14 +22,14 @@
 
   <meta property="fb:app_id" content="1708824779437109"/>
   <meta property="og:url" content="<%= @current_url %>"/>
-  <meta property="og:title" content="<%= @og_title.present? ? @og_title : 'AloMacain - Productos de Diseño' %>"/>
+  <meta property="og:title" content="<%= @og_title.present? ? @og_title : 'Lazlo - Productos de Diseño' %>"/>
   <meta property="og:description" content="<%= @og_description.present? ? @og_description : 'Tienda online de productos de diseño. Creamos, desarrollamos y fabricamos objetos de decoración. Muebles, mesas, iluminación, deco, sillas y más.' %>"/>
   <meta property="og:image" content="<%= @og_image.present? ? @og_image : image_path('logos/logo-multi.png') %>"/>
 
   <meta name="HandheldFriendly" content="true"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-  <meta name="apple-mobile-web-app-title" content="AloMacain">
+  <meta name="apple-mobile-web-app-title" content="Lazlo">
   <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui"/>
 
   <link rel="shortcut icon" href="<%= image_path('logos/logo-green.png') %>">
@@ -37,10 +37,10 @@
 
   <!-- Apple Icons -->
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<%= image_path('alomacain-icon.jpg') %>"/>
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= image_path('alomacain-icon.jpg') %>"/>
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= image_path('alomacain-icon.jpg') %>"/>
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= image_path('alomacain-icon.jpg') %>"/>
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<%= image_path('lazlo-icon.jpg') %>"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= image_path('lazlo-icon.jpg') %>"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= image_path('lazlo-icon.jpg') %>"/>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= image_path('lazlo-icon.jpg') %>"/>
 
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Roboto:400,700" rel="stylesheet">
 
@@ -71,13 +71,13 @@
   <div class="contact-form-inner">
 
     <%= form_tag('/contact_email', :method => 'POST', :class => 'contact') do %>
-        <h5>alo@macain.com.ar</h5>
+        <h5>alo@lazlo.la</h5>
 
-        <input type="text" name="macain_name" placeholder="Nombre" required/>
+        <input type="text" name="lazlo_name" placeholder="Nombre" required/>
 
-        <input type="email" name="macain_email" placeholder="E-mail" required/>
+        <input type="email" name="lazlo_email" placeholder="E-mail" required/>
 
-        <textarea name="macain_message" placeholder="Consulta"></textarea>
+        <textarea name="lazlo_message" placeholder="Consulta"></textarea>
 
         <%= submit_tag('Enviar', :class => 'smooth-transition') %>
         </div>

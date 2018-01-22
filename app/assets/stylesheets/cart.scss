@@ -1,13 +1,13 @@
 $margin_medium: 30px;
 
-$red_macain: #f38385;
-$red_macain_hover: #f5999b;
+$red_lazlo: #f38385;
+$red_lazlo_hover: #f5999b;
 
-$purple_macain: #c9afd4;
-$purple_macain_hover: #bb98d4;
+$purple_lazlo: #c9afd4;
+$purple_lazlo_hover: #bb98d4;
 
-$green_macain: #69caca;
-$green_macain_hover: #6edcdc;
+$green_lazlo: #69caca;
+$green_lazlo_hover: #6edcdc;
 
 $black_footer: #222222;
 $black_footer_hover: #eaeaea;
@@ -83,12 +83,12 @@ $grey_hover: #828282;
 
         i {
           display: block;
-          color: $purple_macain;
+          color: $purple_lazlo;
           cursor: pointer;
           margin: 3px 0px;
 
           &:active {
-            color: $purple_macain_hover;
+            color: $purple_lazlo_hover;
           }
         }
       }
@@ -108,7 +108,7 @@ $grey_hover: #828282;
     display: inline-block;
     width: 92%;
     text-align: right;
-    color: $purple_macain;
+    color: $purple_lazlo;
     font-size: 34px;
     padding: 10px 4% 0px;
     margin: 14px 0% 0px;
@@ -198,7 +198,7 @@ $grey_hover: #828282;
     display: inline-block;
     width: 92%;
     text-align: right;
-    color: $purple_macain;
+    color: $purple_lazlo;
     font-size: 34px;
     padding: 10px 4% 0px;
     margin: 14px 0% 0px;

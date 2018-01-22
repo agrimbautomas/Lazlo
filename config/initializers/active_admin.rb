@@ -4,7 +4,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "AloMacain Web"
+  config.site_title = "Lazlo Web"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -16,7 +16,7 @@ ActiveAdmin.setup do |config|
   #
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
-  config.site_title_image = "macain-logo-diseno-blanco-negro-minimalista.png"
+  config.site_title_image = "lazlo-logo-diseno-blanco-negro-minimalista.png"
 
   # == Default Namespace
   #
@@ -154,7 +154,7 @@ ActiveAdmin.setup do |config|
 
   # == Setting a Favicon
   #
-  config.favicon = 'macain-icon.png'
+  config.favicon = 'lazlo-icon.png'
 
   # == Meta Tags
   #

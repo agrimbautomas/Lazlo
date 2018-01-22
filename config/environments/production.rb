@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  host = 'alomacain.com'
+  host = 'lazlo.la'
   config.API_VERSION = 1
 
   # In the development environment your application's code is reloaded on
@@ -25,7 +25,7 @@ Rails.application.configure do
 		:address => "smtp.gmail.com",
 		:port => "587",
 		:domain => "gmail.com",
-		:user_name => "macainsite@gmail.com",
+		:user_name => "lazlosite@gmail.com",
 		:password => "mi4queridoh",
 		:authentication => "plain"
   }

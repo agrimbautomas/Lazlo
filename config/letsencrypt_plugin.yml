@@ -1,7 +1,7 @@
 default: &default
   endpoint: 'https://acme-v01.api.letsencrypt.org/'
   email: 'tomas@theamalgama.com'
-  domain: alomacain.com www.alomacain.com
+  domain: lazlo.la www.lazlo.la
 
   # in Rails.root, path to private key
   private_key: '../../shared/key/keyfile.pem'

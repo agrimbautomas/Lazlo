@@ -19,9 +19,9 @@
 */
 
 $margin_medium: 30px;
-$red_macain: #f38385;
-$purple_macain: #c9afd4;
-$green_macain: #69caca;
+$red_lazlo: #f38385;
+$purple_lazlo: #c9afd4;
+$green_lazlo: #69caca;
 $black_footer: #222222;
 $thumb_size: 60px;
 /************************************************************************************/
@@ -215,7 +215,7 @@ $thumb_size: 60px;
       border-radius: 50%;
       width: $thumb_size;
       height: $thumb_size;
-      border: 1px solid $green_macain;
+      border: 1px solid $green_lazlo;
       margin-bottom: 10px;
       position: relative;
 
@@ -248,7 +248,7 @@ $thumb_size: 60px;
   .image-detail-container {
     display: inline-block;
     width: 86%;
-    border: 1px solid $green_macain;
+    border: 1px solid $green_lazlo;
     position: relative;
 
     img {
@@ -294,7 +294,7 @@ $thumb_size: 60px;
 
   .product-price-box {
 
-    border: 1px solid $green_macain;
+    border: 1px solid $green_lazlo;
     text-align: center;
     width: 50%;
     min-width: 300px;
@@ -306,13 +306,13 @@ $thumb_size: 60px;
       margin: 6px auto;
       width: 100%;
       display: block;
-      color: $green_macain;
+      color: $green_lazlo;
       font-weight: bold;
     }
 
     label {
       color: #ffffff;
-      background: $green_macain;
+      background: $green_lazlo;
       width: 100%;
       display: inline-block;
       font-size: 15px;

@@ -9,7 +9,7 @@ class UserMailer < AppMailer
 
   def reset_password_instructions(record, token, opts={})
 	 @images = mail_images
-	 @images[:lock] = asset_absolute_path('lock-icon-macain.png')
+	 @images[:lock] = asset_absolute_path('lock-icon-lazlo.png')
 	 super(record, token, opts={})
   end
 

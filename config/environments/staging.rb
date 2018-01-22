@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  host = 'beta.alomacain.com'
+  host = 'beta.lazlo.la'
   config.API_VERSION = 1
 
   # Settings specified here will take precedence over those in config/application.rb.
@@ -26,7 +26,7 @@ Rails.application.configure do
       :address => "smtp.gmail.com",
       :port => "587",
       :domain => "gmail.com",
-      :user_name => "macainsite@gmail.com",
+      :user_name => "lazlosite@gmail.com",
       :password => "mi4queridoh",
       :authentication => "plain"
   }

@@ -1,10 +1,10 @@
-## Macain API
+## Lazlo API
 
 Markdown
-[![pipeline status](https://gitlab.com/agrimbautomas/macain-web-rails/badges/production/pipeline.svg)](https://gitlab.com/agrimbautomas/macain-web-rails/commits/production)
-[![coverage report](https://gitlab.com/agrimbautomas/macain-web-rails/badges/production/coverage.svg)](https://gitlab.com/agrimbautomas/macain-web-rails/commits/production)
+[![pipeline status](https://gitlab.com/agrimbautomas/lazlo-web-rails/badges/production/pipeline.svg)](https://gitlab.com/agrimbautomas/lazlo-web-rails/commits/production)
+[![coverage report](https://gitlab.com/agrimbautomas/lazlo-web-rails/badges/production/coverage.svg)](https://gitlab.com/agrimbautomas/lazlo-web-rails/commits/production)
 
-A Ruby on Rails API to process web requests and run the BAT tool for the Macain Web Platform.
+A Ruby on Rails API to process web requests and run the BAT tool for the Lazlo Web Platform.
 
 
 ## Requirements
@@ -32,7 +32,7 @@ $ rake jobs:work
 ### Admin Section
 
 If you want to access to the admin panel of the app you cand do it from http://localhost:3000/admin
-By default you will have and admin user with the email 'admin@macain.com' and the password 'macain-password'.
+By default you will have and admin user with the email 'admin@lazlo.com' and the password 'lazlo-password'.
 
 
 ### Database
@@ -42,7 +42,7 @@ The format of this file is yml based and you can get an example in the [database
 ### Tests
 
 [RSpec][1] and [RSpec-Rails][2] are used for testing, following [Test-Driven Development][3] methodologies.
-To run the tests use *rspec* rake task or *macain:test*.
+To run the tests use *rspec* rake task or *lazlo:test*.
 
 ```
 $ bundle exec rspec
@@ -51,23 +51,23 @@ $ bundle exec rspec
 or
 
 ```
-$ bundle exec rake macain:test
+$ bundle exec rake lazlo:test
 ```
 
 
 ### Code Coverage
 
-[SimpleCov][4] is used for code coverage reports. To generate a coverage report from tests use the rake task *macain:coverage*.
+[SimpleCov][4] is used for code coverage reports. To generate a coverage report from tests use the rake task *lazlo:coverage*.
 
 ```
-$ bundle exec rake macain:coverage
+$ bundle exec rake lazlo:coverage
 ```
 
 The report is saved at `test_output/coverage/index.html`.
 
 ### Documentation
 
-[GITLAB WIKI][5] is used to store all the API documentation. WIKI: https://git.theamalgama.com/macain/macain-ws/wikis
+[GITLAB WIKI][5] is used to store all the API documentation. WIKI: https://git@gitlab.com:agrimbautomas/lazlo-web-rails.git/wikis
 
 > [Reports][6]
 
@@ -79,10 +79,10 @@ The report is saved at `test_output/coverage/index.html`.
 
 Automatic code review is implemented using [Rubycritic][9]. Rubycritic is used for code smells.
 
- - Rubycritic is run with *macain:codereview*.
+ - Rubycritic is run with *lazlo:codereview*.
 
 ```
-$ bundle exec rake macain:codereview
+$ bundle exec rake lazlo:codereview
 ```
 
  - Rubycritic output is saved at `test_output/codereview/overview.html`
@@ -90,9 +90,9 @@ $ bundle exec rake macain:codereview
 
 ## Rake Tasks
 
- - *macain:codereview*: Automatic code-review report (report task).
- - *macain:coverage*: Generate code coverage report from tests (report task).
- - *macain:test*: Run all tests in spec directory.
+ - *lazlo:codereview*: Automatic code-review report (report task).
+ - *lazlo:coverage*: Generate code coverage report from tests (report task).
+ - *lazlo:test*: Run all tests in spec directory.
 
 ### SSL Certificates
 
@@ -101,7 +101,7 @@ To update certificates with 'letsencrypt' gem, go to the server and run 'rake le
 
 ### Authentication
 
-The Macain API uses [Devise Gem - Flexible authentication solution for Rails with Warden][15]
+The Lazlo API uses [Devise Gem - Flexible authentication solution for Rails with Warden][15]
 for authentication, and [Doorkeeper][16] for token generation and verification.
 
 Doorkeeper is an OAuth 2 provider for Rails. It's built on top of Rails engines. The gem is in active development. So far it supports all protocol flows, but we will still have to work on few missing pieces.
@@ -118,15 +118,15 @@ to every path (existing or not).
 [2]: https://github.com/rspec/rspec-rails
 [3]: http://agiledata.org/essays/tdd.html
 [4]: https://github.com/colszowka/simplecov
-[5]: https://git.theamalgama.com/macain/macain-ws/wikis/home
-[6]: https://git.theamalgama.com/macain/macain-ws/wikis/Reports
-[7]: https://git.theamalgama.com/macain/macain-ws/wikis/Settings
-[8]: https://git.theamalgama.com/macain/macain-ws/wikis/Users
+[5]: https://git@gitlab.com:agrimbautomas/lazlo-web-rails.git/wikis/home
+[6]: https://git@gitlab.com:agrimbautomas/lazlo-web-rails.git/wikis/Reports
+[7]: https://git@gitlab.com:agrimbautomas/lazlo-web-rails.git/wikis/Settings
+[8]: https://git@gitlab.com:agrimbautomas/lazlo-web-rails.git/wikis/Users
 [9]: https://github.com/whitesmith/rubycritic
-[10]: https://git.theamalgama.com/macain/macain-ws/blob/master/config/database-example.yml
+[10]: https://git@gitlab.com:agrimbautomas/lazlo-web-rails.git/blob/master/config/database-example.yml
 
 [15]: https://github.com/plataformatec/devise
 [16]: https://github.com/doorkeeper-gem/doorkeeper
 [17]: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
-[18]: /lib/macain/rack/cors.rb
+[18]: /lib/lazlo/rack/cors.rb
 [19]: https://github.com/chriswarren/doorkeeper-jwt

@@ -24,9 +24,9 @@ Resets
 --------------------------------------------------------*/
 
 $margin_medium: 30px;
-$red_macain: #f38385;
-$purple_macain: #c9afd4;
-$green_macain: #69caca;
+$red_lazlo: #f38385;
+$purple_lazlo: #c9afd4;
+$green_lazlo: #69caca;
 $black_footer: #222222;
 
 .articulos {
@@ -86,14 +86,14 @@ a.home-category-block {
   margin: 70px 0px 90px;
 
   h3.section-title {
-    background: $red_macain;
+    background: $red_lazlo;
   }
 
   .featured-product {
     float: left;
     width: 15.56%;
     width: calc(15.56% - 2px);
-    border: 1px solid $red_macain;
+    border: 1px solid $red_lazlo;
 
     height: 300px;
     position: relative;
@@ -130,7 +130,7 @@ a.home-category-block {
     }
     .see-more {
       background: #ffffff;
-      color: $red_macain;
+      color: $red_lazlo;
       padding: 5px 0px;
       font-size: 12px;
       font-weight: bold;
