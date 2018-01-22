@@ -1,10 +1,5 @@
 ActiveAdmin.register User do
-  menu priority: 1, parent: I18n.t('activerecord.models.user.other')
 
-  permit_params :email, :password, :password_confirmation, :role_ids
-
-
-  filter :email
 
   index do
 	 selectable_column

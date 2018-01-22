@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '5.1.3'
 
+gem 'activeadmin', '~> 1.2'
 gem 'active_admin_theme'
-gem 'activeadmin', github: 'activeadmin'
 
 gem 'cancan'
 gem 'coffee-rails'
