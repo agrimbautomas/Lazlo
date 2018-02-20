@@ -3,9 +3,9 @@ class AdminMailer < AppMailer
   after_action :save_email_contact, :only => [:contact_email]
 
   def contact_email params
-	 @name = params[:macain_name]
-	 @email = params[:macain_email]
-	 @message = params[:macain_message]
+	 @name = params[:lazlo_name]
+	 @email = params[:lazlo_email]
+	 @message = params[:lazlo_message]
 	 mail(to: RECEIVERS, subject: I18n.t('admin_mail_mailer.contact.subject', name: @name ))
   end
 

@@ -8,7 +8,7 @@ class AppMailer < Devise::Mailer
 
   def mail_images
 	 {
-		  :logo => asset_absolute_path('logo-alomacain.png'),
+		  :logo => asset_absolute_path('logo-lazlo.png'),
 		  :background => asset_absolute_path('fondo-colores.png')
 	 }
   end

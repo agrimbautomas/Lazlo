@@ -1,5 +1,5 @@
-set :application, 'macain-web'
-set :repo_url, 'git@gitlab.com:agrimbautomas/macain-web-rails.git'
+set :application, 'lazlo-web'
+set :repo_url, 'git@gitlab.com:agrimbautomas/lazlo-web-rails.git'
 
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'key', 'certificates', 'challenge')

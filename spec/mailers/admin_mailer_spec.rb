@@ -7,9 +7,9 @@ RSpec.describe AdminMailer, type: :mailer do
   describe 'should send contact_email' do
 
 	 let(:mail) {AdminMailer.contact_email(params)}
-	 let(:params) {{:macain_name => user.name,
-						 :macain_email => user.email,
-						 :macain_message => 'A message'}}
+	 let(:params) {{:lazlo_name => user.name,
+						 :lazlo_email => user.email,
+						 :lazlo_message => 'A message'}}
 
 	 it 'renders the subject' do
 		expect(mail.subject).to eq(I18n.t('admin_mail_mailer.contact.subject', name: user.name))

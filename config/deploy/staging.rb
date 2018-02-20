@@ -1,10 +1,10 @@
-role :app, %w{deploy@alomacain.com}
-role :web, %w{deploy@alomacain.com}
-role :db,  %w{deploy@alomacain.com}
+role :app, %w{deploy@lazlo.la}
+role :web, %w{deploy@lazlo.la}
+role :db,  %w{deploy@lazlo.la}
 
-set :deploy_to, '/srv/rails/macain-beta-web'
+set :deploy_to, '/srv/rails/lazlo-beta-web'
 
-server 'alomacain.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+server 'lazlo.la', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
 set :rails_env, 'staging'
 set :branch, 'staging'

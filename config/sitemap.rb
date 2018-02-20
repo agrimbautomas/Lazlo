@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sitemap_generator'
 
-SitemapGenerator::Sitemap.default_host = 'https://alomacain.com'
+SitemapGenerator::Sitemap.default_host = 'https://lazlo.la'
 SitemapGenerator::Sitemap.create_index = false
 SitemapGenerator::Sitemap.compress = :all_but_first
 #SitemapGenerator::Sitemap.public_path = "#{Dir.pwd}/public/"

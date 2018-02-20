@@ -5,7 +5,7 @@
 
 <div class="grilla margin-top-medium">
   <div class="breadcrumbs">
-    <a href="<%= root_path %>">AloMacain</a>
+    <a href="<%= root_path %>">Lazlo</a>
     <span>/</span>
     <a href="<%= category_path @product.category %>"><%= capitalize_first_letters(@product.category.name) %></a>
     <span>/</span>
@@ -70,12 +70,12 @@
             -->
 
             <% if user_signed_in? %>
-                <a href="<%= @product_link %>"  mp-mode='popup' name="MP-Checkout" class="product-buy-button macain-button red-button smooth-transition">
+                <a href="<%= @product_link %>"  mp-mode='popup' name="MP-Checkout" class="product-buy-button lazlo-button red-button smooth-transition">
                   Comprar
                 </a>
                 <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>
 
-                <a class="add-to-cart-btn macain-button
+                <a class="add-to-cart-btn lazlo-button
                     <%= @is_in_cart ? 'green-button in_cart' : 'transparent-button' %>"
                    href="<%= add_product_to_cart_url(@product_hash) %>"
                    data-rm-href="<%= remove_cart_product_row_url(@product_hash) %>">
@@ -83,7 +83,7 @@
                 </a>
 
             <% else %>
-                <a href="<%= new_user_session_path %>" class="product-buy-button macain-button red-button smooth-transition">
+                <a href="<%= new_user_session_path %>" class="product-buy-button lazlo-button red-button smooth-transition">
                   Registrarme para comprar
                 </a>
             <% end %>

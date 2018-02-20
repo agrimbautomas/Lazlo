@@ -18,7 +18,7 @@ OrderStatus.create!(name: 'Entregada', priority: 5, image: order_status_image)
 admin1 = AdminUser.create!(email: 'tomas@theamalgama.com', password: 'sinclair2955', password_confirmation: 'sinclair2955')
 admin1.add_role :full_admin
 
-admin2 = AdminUser.create!(email: 'tomas@macain.com.ar', password: 'sinclair2955', password_confirmation: 'sinclair2955')
+admin2 = AdminUser.create!(email: 'tomas@lazlo.la', password: 'sinclair2955', password_confirmation: 'sinclair2955')
 admin2.add_role :full_admin
 
 Buyer.create!(name: 'John Buyer', email: 'john@buyer.com')
