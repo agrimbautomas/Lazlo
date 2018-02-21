@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  host = 'beta.lazlo.la'
+  host = Settings.urls.base
   config.API_VERSION = 1
 
   # Settings specified here will take precedence over those in config/application.rb.
@@ -69,6 +69,8 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+
+	config.force_ssl = true
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
