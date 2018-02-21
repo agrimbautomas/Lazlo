@@ -5,6 +5,9 @@ class HomeController < ApplicationController
     @featured_products = Product.featured.visible
   end
 
+  def landing
+  end
+
   def cotizador
     @marvels = Marvel.all.order(:name)
   end
