@@ -8,28 +8,14 @@ services:
       ports:
          - "3000:3000"
       depends_on:
-         - lazlo_db_dev
-         - lazlo_db_test
+         - lazlo_db
       stdin_open: true
       tty: true
 
-         
-   lazlo_db_dev:
-      image: mysql
-      volumes:
-         - ./db/lazlo_db_dev:/var/lib/lazlo_db_dev
-      environment:
-         MYSQL_ROOT_PASSWORD: sinclair
-         MYSQL_PASSWORD: sinclair
-         MYSQL_DATABASE: lazlo_dev
-         MYSQL_USER: amalgama
-
-   lazlo_db_test:
+   lazlo_db:
       image: mysql
       volumes:
          - ./db/lazlo_db_test:/var/lib/lazlo_db_test
       environment:
          MYSQL_ROOT_PASSWORD: sinclair
-         MYSQL_PASSWORD: sinclair
-         MYSQL_DATABASE: lazlo_test
-         MYSQL_USER: amalgama
+
