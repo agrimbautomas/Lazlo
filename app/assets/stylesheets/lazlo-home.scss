@@ -23,11 +23,7 @@
 Resets
 --------------------------------------------------------*/
 
-$margin_medium: 30px;
-$red_lazlo: #f38385;
-$purple_lazlo: #c9afd4;
-$green_lazlo: #69caca;
-$black_footer: #222222;
+@import "variables";
 
 @font-face {
   font-family: 'futuralight';
