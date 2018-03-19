@@ -16,56 +16,49 @@
   </div>
   <!-- END Notifications -->
 
-  <div class="social-nav-container">
-    <div class="social-nav ">
-
-      <div class="grilla">
-
-        <div class="social-block social-block-left smooth-transition">
-          <a class="social-icons" target="_blank" href="https://www.facebook.com/lazlo">
-            <i class="fa fa-facebook" aria-hidden="true"></i>
-          </a>
-
-          <a class="social-icons smooth-transition" target="_blank" href="https:///www.instagram.com/lazlo">
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-          </a>
-
-          <a class="social-icons smooth-transition contact-form-button">
-            <i class="fa fa-at" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <div class="social-block social-block-right">
-          <% if user_signed_in? %>
-              <a class="header-user-name" href="<%= profile_url %>"><%= current_user.email %></a>
-
-              <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
-                <% if current_user.cart_count.present? %>
-                    <span class="notification-number"><%= current_user.cart_count %></span>
-                <% end %>
-              </a>
-
-          <% else %>
-              <%= link_to 'Ingresar / Registrate', new_user_session_path, :class => 'header-user-name' %>
-              <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-              </a>
-          <% end %>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
 
   <div class="grilla">
+
     <a class="logo" href="<%= root_path %>">
-      <%= image_tag('logo-lazlo.png') %>
+      <%= image_tag('lazlo-logotipo.svg') %>
     </a>
+
+    <div class="social-block social-block-left smooth-transition">
+      <a class="social-icons" target="_blank" href="https://www.facebook.com/lazlo">
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+      </a>
+
+      <a class="social-icons smooth-transition" target="_blank" href="https:///www.instagram.com/lazlo">
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+      </a>
+
+      <a class="social-icons smooth-transition contact-form-button">
+        <i class="fa fa-at" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div class="social-block social-block-right">
+      <% if user_signed_in? %>
+          <a class="header-user-name" href="<%= profile_url %>"><%= current_user.email %></a>
+
+          <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+            <% if current_user.cart_count.present? %>
+                <span class="notification-number"><%= current_user.cart_count %></span>
+            <% end %>
+          </a>
+
+      <% else %>
+          <%= link_to 'Ingresar / Registrate', new_user_session_path, :class => 'header-user-name' %>
+          <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          </a>
+      <% end %>
+    </div>
+
   </div>
+
 
   <nav>
     <div class="grilla">

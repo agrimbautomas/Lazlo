@@ -13,8 +13,7 @@ Rails.application.routes.draw do
 	devise_for :users, :controllers => { :omniauth_callbacks => 'omniauth_callbacks' }
 
 
-	#root 'home#index'
-	root 'home#landing'
+	root 'home#index'
 
 	resources :categories
 	resources :products do
