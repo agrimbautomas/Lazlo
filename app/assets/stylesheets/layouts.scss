@@ -48,7 +48,7 @@ body {
   text-align: center;
   font-family: "Roboto", sans-serif;
   position: relative;
-
+  color: $black_lazlo;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -272,11 +272,11 @@ header {
   .left-container {
     float: left;
 
-    .menu-button{
+    .menu-button {
       width: 30%;
       float: left;
     }
-    
+
     .logo {
       width: 40%;
 
@@ -409,7 +409,7 @@ header {
   width: 50%;
   min-width: 300px;
   display: block;
-  border: 1px solid $black_footer;
+  border: 1px solid $black_lazlo;
   margin: 0px 0px 15px;
 
   &:hover {
@@ -435,10 +435,10 @@ header {
 
 .transparent-button {
   background: transparent;
-  color: $black_footer;
+  color: $black_lazlo;
 
   &:hover {
-    background: $black_footer_hover;
+    background: $black_lazlo_hover;
   }
 }
 
@@ -447,12 +447,12 @@ header {
 .breadcrumbs {
   display: block;
   text-align: left;
-  color: $black_footer;
+  color: $black_lazlo;
   margin-top: 16px;
 
   a {
     display: inline-block;
-    color: $black_footer;
+    color: $black_lazlo;
     font-family: 'Josefin Sans', sans-serif;
 
     &.active {

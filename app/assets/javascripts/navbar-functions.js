@@ -1,7 +1,7 @@
 var $cartProductsNumber;
 var cartNumberValue;
 
-$(document).on('ready page:load', function (event) {
+$( document ).ready(function() {
 
     $cartProductsNumber = $('.notification-number');
     setCartCounters();

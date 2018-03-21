@@ -1,7 +1,8 @@
 var win;
 var elementsHeight;
 
-$(document).on('ready page:load', function (event) {
+$( document ).ready(function() {
+
     $('.bx-wrapper').bxSlider({
         randomStart: true
     });

@@ -1,11 +1,10 @@
 //= require_tree .
-//= require jquery
+//= require jquery3
 //= require jquery_ujs
 // require turbolinks Avoid turbo links since images dont show properly
 
 var $contactForm;
-
-$(document).on('ready page:load', function (event) {
+$( document ).ready(function(){
 
     setupVars();
     setupContactForm();

@@ -19,7 +19,7 @@
       width: 20%;
       display: table-cell;
       vertical-align: middle;
-      color: $black_footer;
+      color: $black_lazlo;
       font-size: 20px;
 
       &:hover {
@@ -34,7 +34,7 @@
     }
 
     .fa-times {
-      color: $black_footer;
+      color: $black_lazlo;
       width: 5%;
       cursor: pointer;
       font-size: 20px;
@@ -54,7 +54,7 @@
       width: 6%;
 
       &:hover {
-        color: $black_footer;
+        color: $black_lazlo;
       }
 
       .quantity-message {
@@ -205,7 +205,7 @@
       float: left;
       font-size: 18px;
       padding: 24px 0px;
-      color: $black_footer;
+      color: $black_lazlo;
 
       &:hover {
         opacity: 0.85;

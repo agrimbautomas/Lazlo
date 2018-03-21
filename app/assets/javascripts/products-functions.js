@@ -7,7 +7,7 @@ var goToTop = false;
 var doubleRowCounter = 0;
 var randomNum, featuredBoxIndexes, featuredBoxDisplayed;
 
-$(document).on('ready page:load', function (event) {
+$( document ).ready(function() {
 
     setupResponsiveBoxes();
     //  setProductQuantity();

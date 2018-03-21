@@ -78,4 +78,7 @@ Rails.application.configure do
 
   # Set to :debug to see everything in the log.
   config.log_level = :debug
+
+	config.web_console.whitelisted_ips = '172.18.0.1'
+
 end
