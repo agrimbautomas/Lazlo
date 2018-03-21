@@ -18,9 +18,7 @@
  *Resets
  *--------------------------------------------------------
 */
-
 /*---Active admin files in /vendor/assets/stylesheets/ --*/
-
 @import "variables";
 
 html, body {
@@ -128,15 +126,15 @@ textarea {
   }
 }
 
-.red-bg{
+.red-bg {
   background: $red_lazlo !important;
 }
 
-.green-bg{
+.green-bg {
   background: $green_lazlo !important;
 }
 
-.purple-bg{
+.purple-bg {
   background: $purple_lazlo !important;
 }
 
@@ -177,7 +175,6 @@ input:-webkit-autofill {
 .margin-bottom-medium {
   margin-bottom: $margin_medium;
 }
-
 
 .grilla {
   width: 1000px;
@@ -248,10 +245,10 @@ header {
           }
         }
 
-        .cart-block{
+        .cart-block {
           position: relative;
 
-          .notification-number{
+          .notification-number {
             background: #ff0e12;
             position: absolute;
             -webkit-border-radius: 50%;
@@ -272,14 +269,22 @@ header {
     }
   }
 
-  .logo {
-    width: 100%;
-    display: inline-block;
+  .left-container {
+    float: left;
 
-    img {
-      width: 50%;
-      margin: 22px auto;
-      max-width: 320px;
+    .menu-button{
+      width: 30%;
+      float: left;
+    }
+    
+    .logo {
+      width: 40%;
+
+      img {
+        width: 50%;
+        margin: 22px auto;
+        max-width: 320px;
+      }
     }
   }
 
@@ -351,7 +356,6 @@ header {
   }
 }
 
-
 /******* Containers *******/
 .half-container {
   width: 50%;
@@ -365,29 +369,28 @@ header {
   }
 }
 
-
 /******* 404 Page *******/
-.not-found-container{
+.not-found-container {
   width: 100%;
 
-  .not-found-image{
+  .not-found-image {
     margin: 40px auto;
     max-width: 100%;
   }
 
-  h1{
+  h1 {
     font-size: 40px;
     margin: 0px auto 50px;
   }
 
-  h2{
+  h2 {
     font-size: 48px;
     margin: 0px auto 20px;
     font-weight: bold;
     text-transform: uppercase;
   }
 
-  .green-button{
+  .green-button {
     padding: 14px 24px;
     color: white;
   }
@@ -395,7 +398,7 @@ header {
 
 /******* Buttons *******/
 
-.lazlo-button{
+.lazlo-button {
   color: #ffffff;
   padding: 12px 0px;
   font-size: 18px;
@@ -409,36 +412,35 @@ header {
   border: 1px solid $black_footer;
   margin: 0px 0px 15px;
 
-  &:hover{
+  &:hover {
     background: white;
   }
 }
 
-.green-button{
+.green-button {
   background: $green_lazlo;
   border: 1px solid $green_lazlo;
-  &:hover{
+  &:hover {
     background: $green_lazlo_hover;
   }
 }
 
-.red-button{
+.red-button {
   background: $red_lazlo;
   border: 1px solid $red_lazlo;
-  &:hover{
+  &:hover {
     background: $red_lazlo_hover;
   }
 }
 
-.transparent-button{
+.transparent-button {
   background: transparent;
   color: $black_footer;
 
-  &:hover{
+  &:hover {
     background: $black_footer_hover;
   }
 }
-
 
 /******* Breadcrumbs *******/
 
@@ -461,7 +463,7 @@ header {
     }
   }
 
-  i{
+  i {
     font-size: 10px;
     margin: 0px 5px 0px;
   }
@@ -702,7 +704,6 @@ header {
 
 }
 
-
 /************************************************************************************/
 /************************************************************************************/
 /************************************************************************************/
@@ -729,9 +730,6 @@ header {
     width: 80%;
   }
 }
-
-
-
 
 /************************************************************************************/
 /************************************************************************************/
@@ -783,7 +781,6 @@ header {
     }
   }
 }
-
 
 @media screen and (max-width: 700px) {
   .social, .contact {
@@ -951,7 +948,7 @@ header {
 
   .half-container.half-container-left,
   .half-container.half-container-right,
-  .product-detail-section .half-container{
+  .product-detail-section .half-container {
     width: 100% !important;
   }
 
