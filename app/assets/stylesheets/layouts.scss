@@ -32,7 +32,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  font-family: 'futuralight', arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -41,7 +47,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 a {
   text-decoration: none;
-  color: $green_lazlo;
+  color: $black_lazlo;
+
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
 }
 
 body {
@@ -188,64 +201,89 @@ input:-webkit-autofill {
 /******* Header *******/
 
 header {
-
+  text-align: center;
   width: 100%;
   height: 62px;
   background-color: #ffffff;
 
-  .social-nav-container {
+  nav.grilla {
+    margin: 0px;
+    height: inherit;
 
-    .social-nav {
-      background: #69CACA;
-      margin-top: 50px;
-      display: inline-block;
-      width: 100%;
-      border-top: 1px solid white;
+    .left-container {
+      float: left;
 
-      .grilla {
-        margin: 0px;
+      .menu-button {
+        float: left;
+        text-align: center;
+        padding: 19px 0px;
+        margin: 0px 50px 0px 0px;
+
+        h2 {
+          display: inline-block;
+          color: $black_lazlo;
+
+          font-size: 18px;
+          font-weight: 500;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+
+        }
+
+        span {
+          width: 90%;
+          height: 2px;
+          display: block;
+          margin: 0px 5%;
+          background-color: $yellow_lazlo;
+
+          -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+        }
+
+        &:hover span,
+        &.current-section span {
+          -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+        }
       }
 
-      .social-block {
-        width: 50%;
-        float: left;
-        text-align: left;
-        font-size: 0px;
-        margin-bottom: -4px;
+      .logo {
+        padding: 14px 13px 14px 0px;
 
-        &.social-block-left {
-
+        img {
+          max-width: 320px;
+          height: 30px;
         }
-        &.social-block-right {
-          text-align: right;
+      }
+    }
 
-          a.header-user-name {
-            font-size: 14px;
-            padding: 12px 15px;
+    .right-container {
+      float: right;
+      text-align: right;
 
-            &:hover {
-              text-decoration: underline;
-              background: none;
-            }
-          }
-        }
+      a {
+        text-decoration: none;
+        padding: 10px 10px;
+        display: inline-block;
+        text-align: right;
+        border-right: 1px solid white;
+        font-size: 18px;
+        cursor: pointer;
+        margin: 10px 0px;
 
-        a {
-          text-decoration: none;
-          color: white;
-          padding: 10px 15px;
-          display: inline-block;
-          text-align: right;
-          border-right: 1px solid white;
-          font-size: 18px;
-          cursor: pointer;
+        color: $soft_black_lazlo;
 
-          &:hover {
-            background: #5d8686;
-          }
+        &:hover {
+          background: #5d8686;
         }
 
-        .cart-block {
+        &.header-user-name{
+
+        }
+        &.cart-block {
           position: relative;
 
           .notification-number {
@@ -263,54 +301,12 @@ header {
             line-height: 18px;
           }
         }
-
       }
 
-    }
-  }
 
-  .left-container {
-    float: left;
 
-    .menu-button {
-      width: 30%;
-      float: left;
     }
 
-    .logo {
-      width: 40%;
-
-      img {
-        width: 50%;
-        margin: 22px auto;
-        max-width: 320px;
-      }
-    }
-  }
-
-  nav {
-    display: inline-block;
-    width: 100%;
-    border-top: 1px solid #5d8686;
-    border-bottom: 1px solid #69CACA;
-    font-size: 0px;
-    background: white;
-    position: relative;
-
-    a {
-      text-decoration: none;
-      color: #5d8686;
-      padding: 15px 25px;
-      font-size: 13px;
-      display: inline-block;
-      text-transform: uppercase;
-
-      &:hover,
-      &.active {
-        background: #5d8686;
-        color: white;
-      }
-    }
   }
 
 }

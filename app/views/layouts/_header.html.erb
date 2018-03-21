@@ -17,7 +17,7 @@
   <!-- END Notifications -->
 
 
-  <div class="grilla">
+  <nav class="grilla">
     <div class="left-container">
 
       <a class="logo menu-button" href="<%= root_path %>">
@@ -25,16 +25,18 @@
       </a>
 
       <a class="menu-button" href="<%= root_path %>">
-        PRODUCTOS
+        <h2>PRODUCTOS</h2>
+        <span class="smooth-transition"></span>
       </a>
 
-      <a class="menu-button" href="<%= root_path %>">
-        DESTACADOS
+      <a class="menu-button current-section" href="<%= root_path %>">
+        <h2>DESTACADOS</h2>
+        <span class="smooth-transition"></span>
       </a>
 
     </div>
 
-    <div class="social-block social-block-left smooth-transition">
+    <div class="right-container">
       <a class="social-icons" target="_blank" href="https://www.facebook.com/lazlo">
         <i class="fa fa-facebook" aria-hidden="true"></i>
       </a>
@@ -46,9 +48,8 @@
       <a class="social-icons smooth-transition contact-form-button">
         <i class="fa fa-at" aria-hidden="true"></i>
       </a>
-    </div>
 
-    <div class="social-block social-block-right">
+
       <% if user_signed_in? %>
           <a class="header-user-name" href="<%= profile_url %>"><%= current_user.email %></a>
 
@@ -61,27 +62,16 @@
           </a>
 
       <% else %>
-          <%= link_to 'Ingresar / Registrate', new_user_session_path, :class => 'header-user-name' %>
+          <%= link_to 'iniciar sesión', new_user_session_path, :class => 'header-user-name' %>
           <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
           </a>
       <% end %>
+
+
     </div>
 
-  </div>
-
-
-  <nav>
-    <div class="grilla">
-
-      <% @page_categories.each do |category| %>
-          <a class="<%= active_class(category_path(category)) %> smooth-transition"
-             href="<%= category_path category %>"><%= category.name %></a>
-      <% end %>
-
-    </div>
   </nav>
-
 
 </header>
 
