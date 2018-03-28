@@ -59,14 +59,13 @@ a {
 
 body {
   text-align: center;
-  font-family: "Roboto", sans-serif;
   position: relative;
   color: $black_lazlo;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: bold;
+  font-family: 'futura', arial, sans-serif;
+  font-weight: normal;
 }
 
 h1 {
@@ -95,6 +94,13 @@ h5 {
 
 h6 {
   font-size: 12px;
+}
+
+svg.header-icon {
+  background-color: transparent;
+  fill: currentColor;
+  width: 29px;
+  height: 28px;
 }
 
 input,
@@ -230,6 +236,17 @@ header {
           line-height: normal;
           letter-spacing: normal;
 
+
+          &.expandable{
+            position: relative;
+          }
+
+          &.expandable:after{
+            content: "⌄";
+            top: -5px;
+            right: -18px;
+            position: absolute;
+          }
         }
 
         span {
@@ -265,24 +282,23 @@ header {
       text-align: right;
 
       a {
-        text-decoration: none;
-        padding: 10px 10px;
+        padding: 19px 7px 15px;
         display: inline-block;
-        text-align: right;
-        border-right: 1px solid white;
-        font-size: 16px;
         cursor: pointer;
-        margin: 10px 0px;
-
-        color: $soft_black_lazlo;
+        float: left;
 
         &:hover {
-          background: #5d8686;
         }
 
         &.header-user-name{
-
+          width: 94px;
+          height: 21px;
+          font-size: 16px;
+          text-align: left;
+          color: rgba(0, 0, 0, 0.6);
+          padding: 20px 9px;
         }
+
         &.cart-block {
           position: relative;
 

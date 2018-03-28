@@ -28,18 +28,56 @@ $slow_transition: all .4s ease-in-out;
 
 @font-face {
   font-family: 'futura';
-  src: url('futura_book_font-webfont.woff2') format('woff2'),
-  url('futura_book_font-webfont.woff') format('woff');
+  src: url('futura-medium-01-webfont.woff2') format('woff2'),
+  url('futura-medium-01-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-}
 
+}
 
 @font-face {
   font-family: 'futura';
-  src: url('futura_bold_font-webfont.woff2') format('woff2'),
-  url('futura_bold_font-webfont.woff') format('woff');
+  src: url('futura-bold-03-webfont.woff2') format('woff2'),
+  url('futura-bold-03-webfont.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 
 }
+
+@font-face {
+  font-family: 'futura';
+  src: url('futura-mediumitalic-02-webfont.woff2') format('woff2'),
+  url('futura-mediumitalic-02-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+
+}
+
+/*
+@font-face {
+  font-family: 'futura-condensed';
+  src: url('futura-condensedmedium-04-webfont.woff2') format('woff2'),
+  url('futura-condensedmedium-04-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'futura-condensed';
+  src: url('futura-condensedextrabold-05-webfont.woff2') format('woff2'),
+  url('futura-condensedextrabold-05-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'adam.cg_proregular';
+  src: url('adam-cg-pro.regular-webfont.woff2') format('woff2'),
+  url('adam-cg-pro.regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+*/
