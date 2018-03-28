@@ -4,7 +4,8 @@ var elementsHeight;
 $( document ).ready(function() {
 
     $('.bx-wrapper').bxSlider({
-        randomStart: true
+        randomStart: true,
+        controls: false
     });
 });
 

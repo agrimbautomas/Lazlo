@@ -18,11 +18,9 @@
  *Resets
  *--------------------------------------------------------
 */
-
 /*--------------------------------------------------------
 Resets
 --------------------------------------------------------*/
-
 @import "variables";
 
 @font-face {
@@ -34,65 +32,22 @@ Resets
 
 }
 
-body.home {
-  background: url('lazlo-landing.jpg');
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  height: 100vh;
+.bx-wrapper {
+  height: 695px;
 
-  .outer-home {
-    width: 100%;
-    height: 100vh;
-    position: relative;;
-  }
-
-  .inner-home {
+  .bx-controls {
     position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 32%;
-  }
+    top: 50%;
+    left: 50px;
 
-  .social-icon,
-  .logo-container,
-  h2 {
-    width: 100%;
-    display: block;
-  }
-
-  .logo {
-    width: 30%;
-    min-width: 200px;
-  }
-
-  .social-icon {
-    height: 40px;
-    width: 40px;
-    background-size: cover;
-    display: inline-block;
-    margin: 0px 12px;
-
-    &.facebook {
-      background-image: url(icons/lazlo-facebook.svg);
+    .bx-pager.bx-default-pager a {
+      background: white;
     }
 
-    &.instagram {
-      background-image: url(icons/lazlo-instagram.svg);
+    .bx-pager.bx-default-pager a:hover,
+    .bx-pager.bx-default-pager a.active {
+      background: $yellow_lazlo;
     }
-
-    &.pinterest {
-      background-image: url(icons/lazlo-pinterest.svg);
-    }
-
-
-  }
-
-  h2 {
-    color: #010203;
-    font-size: 2em;
-    line-height: 75px;
-    font-family: 'futuralight', arial, sans-serif;
   }
 }
 
@@ -247,7 +202,6 @@ a.home-category-block {
 /************************************************************************************/
 
 @media screen and (max-width: 650px) {
-
 
   body.home {
     h2 {
