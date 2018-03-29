@@ -29,7 +29,7 @@ ActiveAdmin.register Page do
 
     inputs I18n.t('activerecord.models.page_image.other') do
       f.has_many :page_images, new_record: true do |page_image|
-        hint = (page_image.object.picture.file? ? image_tag(page_image.object.picture.url(:medium)) : 'De 1300x330 px si son para el slider Papin!')
+        hint = (page_image.object.picture.file? ? image_tag(page_image.object.picture.url(:medium)) : 'De 1440x695 px si son para el slider Papin!')
         page_image.input :picture, :hint => hint
         page_image.input :_destroy, :as => :boolean, :required => false, :label => 'Borrar Imagen'
       end

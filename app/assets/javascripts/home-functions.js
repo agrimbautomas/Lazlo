@@ -5,7 +5,8 @@ $( document ).ready(function() {
 
     $('.bx-wrapper').bxSlider({
         randomStart: true,
-        controls: false
+        controls: false,
+        mode: 'vertical'
     });
 });
 
