@@ -21,7 +21,9 @@
     <div class="left-container">
 
       <a class="logo menu-button" href="<%= root_path %>">
-        <%= image_tag('lazlo-logotipo.svg') %>
+        <svg>
+          <use xlink:href="assets/sprite.svg#lazlo-logo"/>
+        </svg>
       </a>
 
       <a class="menu-button" href="<%= root_path %>">

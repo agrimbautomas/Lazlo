@@ -21,37 +21,55 @@
 <div class="grilla">
 
   <!-- Start articulos -->
-  <div class="articulos">
+  <section class="categories">
 
-    <% @page_categories.each_with_index do |category, index = 1|
+    <% if @page_categories.present? %>
+        <div class="left-column">
+          <%
+             split_column_index = (@page_categories.count / 2.0).ceil
+             index = 0
+             left_column_enabled = true
+             @page_categories.each_with_index do |category|
+          %>
 
-      block_class = if index % 5 == 0
-                      'violet'
-                    elsif index % 4 == 0
-                      'blue'
-                    elsif index % 3 == 0
-                      'green'
-                    elsif index % 2 == 0
-                      'red'
-                    elsif index % 1 == 0
-                      'yellow'
-                    else
-                      ''
-                    end
+              <%
+                 # To display right images column
+                 if index == split_column_index && left_column_enabled
+                   index = 1
+                   left_column_enabled = false
+              %>
+                  </div>
+                  <div class="right-column">
+              <% end %>
 
-    %>
-        <a class="home-category-block <%= block_class %> <%= index %> <%= index % 2 == 1 ? 'even' : '' %>" href="<%= category_path category %>"
-           style="background-image: url('<%= category.image.url(:medium) %>')">
-          <h2 class="transition "><%= category.name %></h2>
-        </a>
+
+              <a class="home-category-block <%= index %> <%= index % 2 == 1 ? 'odd' : 'even' %>" href="<%= category_path category %>">
+                <div class="image-block">
+                  <span class="hover-block smooth-transition">
+                    <svg>
+                      <use xlink:href="assets/sprite.svg#eye-icon"/>
+                    </svg>
+                  </span>
+                  <% image_size = index % 2 == 1 ? :rectangular2 : :rectangular1 %>
+                  <%= image_tag category.image.url(image_size) %>
+                </div>
+
+                <h2 class="transition "><%= category.name %></h2>
+              </a>
+
+          <%
+             index += 1
+             end
+          %>
+          </div>
     <% end %>
 
-  </div>
+  </section>
 
 
-  <!-- Start Recomended Products -->
+  <!-- Start Recomended Products
   <%= render :partial => 'products/featured' %>
-  <!-- End  Recomended Products -->
+   End  Recomended Products -->
 
 
 </div>
