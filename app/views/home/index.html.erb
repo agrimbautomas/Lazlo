@@ -18,32 +18,32 @@
 
 
 
-<div class="grilla">
+<div class="grilla home">
 
-  <!-- Start articulos -->
+  <!-- Start categories -->
   <section class="categories">
 
     <% if @page_categories.present? %>
         <div class="left-column">
           <%
-             split_column_index = (@page_categories.count / 2.0).ceil
-             index = 0
-             left_column_enabled = true
-             @page_categories.each_with_index do |category|
+            split_column_index = (@page_categories.count / 2.0).ceil
+            index = 0
+            left_column_enabled = true
+            @page_categories.each_with_index do |category|
           %>
 
               <%
-                 # To display right images column
-                 if index == split_column_index && left_column_enabled
-                   index = 1
-                   left_column_enabled = false
+                # To display right images column
+                if index == split_column_index && left_column_enabled
+                  index = 1
+                  left_column_enabled = false
               %>
                   </div>
                   <div class="right-column">
               <% end %>
 
 
-              <a class="home-category-block <%= index %> <%= index % 2 == 1 ? 'odd' : 'even' %>" href="<%= category_path category %>">
+              <a class="home-category-block hover-block-trigger <%= index % 2 == 1 ? 'odd' : 'even' %>" href="<%= category_path category %>">
                 <div class="image-block">
                   <span class="hover-block smooth-transition">
                     <svg>
@@ -54,26 +54,86 @@
                   <%= image_tag category.image.url(image_size) %>
                 </div>
 
-                <h2 class="transition "><%= category.name %></h2>
+                <h2><%= category.name %></h2>
               </a>
 
           <%
-             index += 1
-             end
+            index += 1
+            end
           %>
           </div>
     <% end %>
 
   </section>
+  <!-- End categories -->
 
 
-  <!-- Start Recomended Products
-  <%= render :partial => 'products/featured' %>
-   End  Recomended Products -->
+  <!-- Start contact -->
+  <section class="contact">
+    <%= image_tag 'home-contact-lazlo.jpg' %>
+    <div class="floating-text">
+      En LAZLO. buscamos la expresion de las
+      cosas mediante las formas geométricas
+      destructuradamente ordenadas.
+      <button class="black-transparent">
+        Contactar
+        <svg>
+          <use xlink:href="assets/sprite.svg#right-arrow"/>
+        </svg>
+      </button>
 
+    </div>
+  </section>
+  <!-- End contact -->
+
+
+  <!-- Start products -->
+  <section class="products">
+
+    <% if @most_liked_product.present? %>
+        <a class="left-product hover-block-trigger">
+          <div class="image-block">
+                  <span class="hover-block smooth-transition">
+                    <svg>
+                      <use xlink:href="assets/sprite.svg#eye-icon"/>
+                    </svg>
+                  </span>
+            <%= image_tag @most_liked_product.image.url(:rectangular1) %>
+
+            <div class="product-description">
+              <h5>PRODUCTO <strong>MÁS VENDIDO</strong></h5>
+              <h5><%= @most_liked_product.name %> - <%= format_price @most_liked_product.price %></h5>
+            </div>
+
+          </div>
+        </a>
+    <% end %>
+
+
+    <% if @most_purchased_product.present? %>
+        <a class="right-product hover-block-trigger">
+          <div class="image-block">
+                  <span class="hover-block smooth-transition">
+                    <svg>
+                      <use xlink:href="assets/sprite.svg#eye-icon"/>
+                    </svg>
+                  </span>
+            <%= image_tag @most_purchased_product.image.url(:rectangular2) %>
+
+            <div class="product-description">
+              <h5>PRODUCTO <strong>MÁS LIKEADO</strong></h5>
+              <h5><%= @most_liked_product.name %></h5>
+            </div>
+
+          </div>
+        </a>
+    <% end %>
+
+
+  </section>
+  <!-- End products -->
 
 </div>
-<!-- end articulos -->
 
 
 <!-- Start Footer -->

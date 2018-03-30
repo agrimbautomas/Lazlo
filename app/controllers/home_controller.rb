@@ -2,7 +2,8 @@ class HomeController < ApplicationController
 
   def index
     @home_page = Page.find_by_name 'Home'
-    @featured_products = Product.featured.visible
+    @most_liked_product = Product.last
+    @most_purchased_product = Product.last
   end
 
   def cotizador

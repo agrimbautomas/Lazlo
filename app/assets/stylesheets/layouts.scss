@@ -96,6 +96,20 @@ svg.header-icon {
   height: 28px;
 }
 
+
+button {
+  cursor: pointer;
+
+  &.black-transparent{
+    margin: 0px;
+    padding: 10px 0px;
+    border: solid 4px #010203;
+    font-size: 14px;
+    font-weight: bolder;
+    background: transparent;
+  }
+}
+
 input,
 textarea {
   border: 1px solid #5d8686;
@@ -138,17 +152,6 @@ textarea {
   }
 }
 
-.red-bg {
-  background: $red_lazlo !important;
-}
-
-.green-bg {
-  background: $green_lazlo !important;
-}
-
-.purple-bg {
-  background: $purple_lazlo !important;
-}
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
@@ -402,49 +405,6 @@ header {
 
 /******* Buttons *******/
 
-.lazlo-button {
-  color: #ffffff;
-  padding: 12px 0px;
-  font-size: 18px;
-  text-align: center;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  width: 50%;
-  min-width: 300px;
-  display: block;
-  border: 1px solid $black_lazlo;
-  margin: 0px 0px 15px;
-
-  &:hover {
-    background: white;
-  }
-}
-
-.green-button {
-  background: $green_lazlo;
-  border: 1px solid $green_lazlo;
-  &:hover {
-    background: $green_lazlo_hover;
-  }
-}
-
-.red-button {
-  background: $red_lazlo;
-  border: 1px solid $red_lazlo;
-  &:hover {
-    background: $red_lazlo_hover;
-  }
-}
-
-.transparent-button {
-  background: transparent;
-  color: $black_lazlo;
-
-  &:hover {
-    background: $black_lazlo_hover;
-  }
-}
 
 /******* Breadcrumbs *******/
 
@@ -539,13 +499,6 @@ header {
 
       button {
         width: 25%;
-        margin: 0px;
-        padding: 10px 0px;
-        border: solid 4px #202020;
-        font-size: 14px;
-        font-weight: bolder;
-        cursor: pointer;
-        background: transparent;
       }
     }
     .social-icons {
