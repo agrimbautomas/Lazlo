@@ -7,12 +7,14 @@
 
 <% if @home_page.present? and @home_page.page_images.present? %>
     <!-- Start Slider -->
-    <ul class="bx-wrapper">
-      <% @home_page.page_images.each do |image| %>
-          <li><img src="<%= image.picture.url(slider_image_size) %>"/></li>
-      <% end %>
+    <div class="home">
+      <ul class="bx-wrapper">
+        <% @home_page.page_images.each do |image| %>
+            <li><img src="<%= image.picture.url(slider_image_size) %>"/></li>
+        <% end %>
 
-    </ul>
+      </ul>
+    </div>
     <!-- End Slider -->
 <% end %>
 
