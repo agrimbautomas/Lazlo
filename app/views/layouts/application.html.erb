@@ -63,13 +63,14 @@
 
 <%= yield %>
 
-<div class="contact-form ">
-  <i class="fa fa-times smooth-transition close-contact-form" aria-hidden="true"></i>
-
+<div class="contact-form">
   <div class="contact-form-inner">
+    <svg class="close-contact-form">
+      <use xlink:href="assets/sprite.svg#close-cross"/>
+    </svg>
 
     <%= form_tag('/contact_email', :method => 'POST', :class => 'contact') do %>
-        <h5>alo@lazlo.la</h5>
+        <h5>hola@lazlo.la</h5>
 
         <input type="text" name="lazlo_name" placeholder="Nombre" required/>
 
@@ -77,7 +78,7 @@
 
         <textarea name="lazlo_message" placeholder="Consulta"></textarea>
 
-        <%= submit_tag('Enviar', :class => 'smooth-transition') %>
+        <%= submit_tag('ENVIAR', :class => 'smooth-transition yellow-button') %>
         </div>
     <% end %>
     </div>

@@ -96,62 +96,40 @@ svg.header-icon {
   height: 28px;
 }
 
-
 button {
   cursor: pointer;
 
-  &.black-transparent{
+  &.black-transparent {
     margin: 0px;
     padding: 10px 0px;
     border: solid 4px #010203;
     font-size: 14px;
     font-weight: bolder;
     background: transparent;
+    outline: none;
+
+    -webkit-transition: $smooth_transition;
+    -moz-transition: $smooth_transition;
+    -o-transition: $smooth_transition;
+    transition: $smooth_transition;
+
+    &:hover {
+      background: rgba(254, 214, 4, 0.7);
+    }
   }
+
+}
+
+.yellow-button {
+  background: $yellow_lazlo;
 }
 
 input,
 textarea {
-  border: 1px solid #5d8686;
   outline: none;
-  padding: 12px 2%;
-  font-size: 15px;
-  color: #5d8686;
-  background: none;
-  display: block;
-  width: 96%;
-  width: calc(96% - 2px);
-  margin: 10px auto;
-  box-shadow: none;
-
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-
-  &:focus {
-    border-color: #e4c6f1;
-  }
-
-  &[type="submit"] {
-    background: $green_lazlo;
-    border-color: $green_lazlo;
-    width: 100%;
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    -webkit-appearance: none;
-
-    &:hover {
-      background: #62bdbd;
-    }
-  }
-
-  &[type="checkbox"] {
-    width: auto;
-    float: left;
-  }
+  font-family: 'futura', arial, sans-serif;
+  font-weight: bold;
 }
-
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
@@ -405,7 +383,6 @@ header {
 
 /******* Buttons *******/
 
-
 /******* Breadcrumbs *******/
 
 .breadcrumbs {
@@ -595,7 +572,7 @@ header {
   position: fixed;
   top: 0px;
   left: 0px;
-  background: rgba(104, 201, 205, 0.92);
+  background: rgba(0, 0, 0, 0.5);
   text-align: center;
   color: white;
   font-size: 30px;
@@ -606,70 +583,81 @@ header {
   opacity: 0;
 
   .contact-form-inner {
-    width: 80%;
-    height: 90%;
+    width: 70%;
+    height: 70%;
     margin: auto;
-    top: 10%;
+    top: 7%;
     position: absolute;
     left: 10%;
+    
+    background: #f9f9f9;
+    color: $black_lazlo;
+    padding: 5%;
 
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.5);
   }
 
-  .fa-times {
-    font-size: 70px;
-    position: absolute;
-    right: 3%;
-    top: 3%;
+  input,
+  textarea {
+    color: $black_lazlo;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 18px;
+    margin-top: 40px;
+    width: 100%;
+    background: transparent;
+    padding: 0px 0px 5px 0px;
+  }
+
+  textarea {
+    resize: vertical;
+    height: 30px;
+  }
+
+  input[type='submit'] {
+    background: $yellow_lazlo;
+    color: $black_lazlo;
+
+    max-width: 230px;
+    width: 36%;
+    margin-top: 60px;
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 55px;
+    border: none;
     cursor: pointer;
 
     &:hover {
       opacity: 0.8;
     }
+
   }
 
-  input,
-  textarea {
-    color: #ffffff;
-    border: none;
-    border-bottom: 2px solid white;
-    font-style: italic;
-    font-size: 40px;
-    margin-top: 30px;
-  }
-
-  textarea {
-    resize: vertical;
-    max-height: 50px;
-  }
-
-  input[type='submit'] {
-    background: white;
-    width: auto;
-    color: #74cac7;
-    margin-top: 80px;
-    margin-bottom: 50px;
-
-    &:hover {
-      opacity: 0.8;
-    }
+  svg {
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
   }
 
   ::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.5);;
+    color: $black_lazlo;
   }
 
   :-moz-placeholder {
     /* Firefox 18- */
-    color: rgba(255, 255, 255, 0.5);;
+    color: $black_lazlo;
   }
 
   ::-moz-placeholder {
     /* Firefox 19+ */
-    color: rgba(255, 255, 255, 0.5);;
+    color: $black_lazlo;
   }
 
   :-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.5);;
+    color: $black_lazlo;
   }
 
   h5 {
