@@ -154,7 +154,7 @@ ActiveAdmin.setup do |config|
 
   # == Setting a Favicon
   #
-  config.favicon = 'lazlo-icon.png'
+  config.favicon = 'lazlo-icon-40.png'
 
   # == Meta Tags
   #
