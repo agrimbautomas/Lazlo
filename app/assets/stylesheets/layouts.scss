@@ -89,13 +89,6 @@ h6 {
   font-size: 16px;
 }
 
-svg.header-icon {
-  background-color: transparent;
-  fill: currentColor;
-  width: 29px;
-  height: 28px;
-}
-
 button {
   cursor: pointer;
 
@@ -161,12 +154,56 @@ input:-webkit-autofill {
   transition: $slow_transition;
 }
 
+.fast-transition {
+  -webkit-transition: $slow_transition;
+  -moz-transition: $slow_transition;
+  -o-transition: $slow_transition;
+  transition: $slow_transition;
+}
+
 .margin-top-medium {
   margin-top: $margin_medium;
 }
 
 .margin-bottom-medium {
   margin-bottom: $margin_medium;
+}
+
+
+.with-hover {
+
+  span {
+    position: relative;
+  }
+
+  svg.hovered,
+  svg.header-icon {
+    background-color: transparent;
+    fill: currentColor;
+    width: 29px;
+    height: 28px;
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+
+  svg.hovered{
+    opacity: 0;
+
+    -webkit-transition: $slow_transition;
+    -moz-transition: $slow_transition;
+    -o-transition: $slow_transition;
+    transition: $slow_transition;
+  }
+
+  &:hover{
+    svg.hovered{
+      opacity: 1;
+    }
+  }
+
 }
 
 .grilla {
@@ -261,6 +298,8 @@ header {
         display: inline-block;
         cursor: pointer;
         float: left;
+        width: 29px;
+        height: 28px;
 
         &:hover {
         }
@@ -272,10 +311,28 @@ header {
           text-align: left;
           color: rgba(0, 0, 0, 0.6);
           padding: 20px 9px;
+
+          &:hover{
+            color: #fed604;
+          }
         }
 
         &.cart-block {
           position: relative;
+
+          span{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            background: transparent;
+          }
+
+          &:hover span{
+            background: rgba(254, 214, 4, 1);
+          }
 
           .notification-number {
             background: #ff0e12;
@@ -485,6 +542,10 @@ header {
         height: 30px;
         margin: 20px 15px 0px 0px;
 
+        &:hover{
+          opacity: 0.6;
+        }
+        
         svg {
           width: 100%;
           height: 100%;
@@ -589,7 +650,7 @@ header {
     top: 7%;
     position: absolute;
     left: 10%;
-    
+
     background: #f9f9f9;
     color: $black_lazlo;
     padding: 5%;

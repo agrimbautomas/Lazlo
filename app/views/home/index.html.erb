@@ -93,7 +93,7 @@
   <section class="products">
 
     <% if @most_liked_product.present? %>
-        <a class="left-product hover-block-trigger">
+        <a class="left-product hover-block-trigger" href="<%= product_path @most_liked_product %>">
           <div class="image-block">
                   <span class="hover-block smooth-transition">
                     <svg>
@@ -113,7 +113,7 @@
 
 
     <% if @most_purchased_product.present? %>
-        <a class="right-product hover-block-trigger">
+        <a class="right-product hover-block-trigger" href="<%= product_path @most_purchased_product %>">
           <div class="image-block">
                   <span class="hover-block smooth-transition">
                     <svg>

@@ -43,28 +43,48 @@
     <div class="right-container">
 
 
-      <a class="social-icons" target="_blank" href="https://www.facebook.com/lazlo.design">
-        <svg class="header-icon">
-          <use xlink:href="assets/sprite.svg#facebook-icon"/>
-        </svg>
+      <a class="social-icons with-hover" target="_blank" href="https://www.facebook.com/lazlo.design">
+        <span>
+          <svg class="header-icon">
+            <use xlink:href="assets/sprite.svg#facebook-icon"/>
+          </svg>
+          <svg class="hovered">
+            <use xlink:href="assets/sprite.svg#facebook-icon-yellow"/>
+          </svg>
+        </span>
       </a>
 
-      <a class="social-icons" target="_blank" href="https://www.instagram.com/lazlo.la/">
-        <svg class="header-icon">
-          <use xlink:href="assets/sprite.svg#instagram-icon"/>
-        </svg>
+      <a class="social-icons with-hover" target="_blank" href="https://www.instagram.com/lazlo.la/">
+        <span>
+          <svg class="header-icon">
+            <use xlink:href="assets/sprite.svg#instagram-icon"/>
+          </svg>
+          <svg class="hovered">
+            <use xlink:href="assets/sprite.svg#instagram-icon-yellow"/>
+          </svg>
+        </span>
       </a>
 
-      <a class="social-icons" target="_blank" href="https://www.facebook.com/lazlo">
-        <svg class="header-icon">
-          <use xlink:href="assets/sprite.svg#pinterest-icon"/>
-        </svg>
+      <a class="social-icons with-hover" target="_blank" href="https://www.facebook.com/lazlo">
+        <span>
+          <svg class="header-icon">
+            <use xlink:href="assets/sprite.svg#pinterest-icon"/>
+          </svg>
+          <svg class="hovered">
+            <use xlink:href="assets/sprite.svg#pinterest-icon-yellow"/>
+          </svg>
+        </span>
       </a>
 
-      <a class="social-icons" target="_blank" href="https://www.facebook.com/lazlo">
-        <svg class="header-icon">
-          <use xlink:href="assets/sprite.svg#mail-icon"/>
-        </svg>
+      <a class="social-icons with-hover contact-form-button">
+        <span>
+          <svg class="header-icon">
+            <use xlink:href="assets/sprite.svg#mail-icon"/>
+          </svg>
+          <svg class="hovered">
+            <use xlink:href="assets/sprite.svg#mail-icon-yellow"/>
+          </svg>
+        </span>
       </a>
 
 
@@ -86,10 +106,15 @@
       <% else %>
           <%= link_to 'iniciar sesión', new_user_session_path, :class => 'header-user-name' %>
 
-          <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
-            <svg class="header-icon">
-              <use xlink:href="assets/sprite.svg#cart-icon"/>
-            </svg>
+          <a class="social-icons smooth-transition with-hover cart-block" href="<%= cart_path %>">
+            <span>
+              <svg class="header-icon">
+                <use xlink:href="assets/sprite.svg#cart-icon"/>
+              </svg>
+              <svg class="hovered">
+                <use xlink:href="assets/sprite.svg#cart-icon"/>
+              </svg>
+            </span>
           </a>
 
       <% end %>

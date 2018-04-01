@@ -233,7 +233,7 @@ Resets
 
     .left-promotion {
       background-size: cover;
-      width: 50%;
+      width: 44%;
       height: 350px;
       max-width: 555px;
       position: relative;
@@ -268,7 +268,7 @@ Resets
       margin-left: 1%;
       background: $yellow_lazlo;
       max-width: 585px;
-      width: 50%;
+      width: 54%;
       text-align: center;
       padding: 10px 0px 30px;
 
@@ -286,6 +286,10 @@ Resets
 
       button.black-transparent {
         padding: 10px 14px;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.8);
+        }
       }
 
     }
