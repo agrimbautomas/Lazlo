@@ -1,0 +1,20 @@
+<div class="contact-form">
+  <div class="contact-form-inner">
+    <svg class="close-contact-form">
+      <use xlink:href="<%= image_url('sprite.svg') %>#close-cross"/>
+    </svg>
+
+    <%= form_tag('/contact_email', :method => 'POST', :class => 'contact') do %>
+        <h5>hola@lazlo.la</h5>
+
+        <input type="text" name="lazlo_name" placeholder="Nombre" required/>
+
+        <input type="email" name="lazlo_email" placeholder="E-mail" required/>
+
+        <textarea name="lazlo_message" placeholder="Consulta"></textarea>
+
+        <%= submit_tag('ENVIAR', :class => 'smooth-transition yellow-button') %>
+        </div>
+    <% end %>
+    </div>
+</div>

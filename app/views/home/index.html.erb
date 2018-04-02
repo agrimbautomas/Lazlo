@@ -49,7 +49,7 @@
                 <div class="image-block">
                   <span class="hover-block smooth-transition">
                     <svg>
-                      <use xlink:href="assets/sprite.svg#eye-icon"/>
+                      <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
                     </svg>
                   </span>
                   <% image_size = index % 2 == 1 ? :rectangular2 : :rectangular1 %>
@@ -80,7 +80,7 @@
       <button class="black-transparent contact-form-button">
         Contactar
         <svg>
-          <use xlink:href="assets/sprite.svg#right-arrow"/>
+          <use xlink:href="<%= image_url('sprite.svg') %>#right-arrow"/>
         </svg>
       </button>
 
@@ -97,7 +97,7 @@
           <div class="image-block">
                   <span class="hover-block smooth-transition">
                     <svg>
-                      <use xlink:href="assets/sprite.svg#eye-icon"/>
+                      <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
                     </svg>
                   </span>
             <%= image_tag @most_liked_product.image.url(:rectangular1) %>
@@ -117,7 +117,7 @@
           <div class="image-block">
                   <span class="hover-block smooth-transition">
                     <svg>
-                      <use xlink:href="assets/sprite.svg#eye-icon"/>
+                      <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
                     </svg>
                   </span>
             <%= image_tag @most_purchased_product.image.url(:rectangular2) %>
@@ -150,7 +150,7 @@
 
     <div class="right-promotion">
       <svg>
-        <use xlink:href="assets/sprite.svg#discount-icon"/>
+        <use xlink:href="<%= image_url('sprite.svg') %>#discount-icon"/>
       </svg>
       <h5>GANATE $2.0000</h5>
       <button class="black-transparent">SEGUIR LAZLO EN FACEBOOK</button>

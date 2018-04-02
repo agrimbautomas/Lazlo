@@ -1,0 +1,177 @@
+@import "variables";
+
+.register-section {
+  background: url(lazlo-landing.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+
+  .register-pop-up {
+    position: relative;
+    z-index: 10;
+    background: white;
+    display: inline-block;
+    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.2);
+    max-width: 280px;
+    width: 50%;
+    padding: 60px 60px 30px 60px;
+    text-align: center;
+    margin: 10% auto 0px;
+
+    form{
+      margin: -10px auto 0px;
+    }
+    
+    .close-register-form {
+      width: 23px;
+      height: 23px;
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      cursor: pointer;
+    }
+
+    .logo {
+      width: 140px;
+      height: 35px;
+      display: inline-block;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .form-inputs {
+      text-align: center;
+    }
+
+    .input {
+      margin: 10px 0px 10px;
+
+      label {
+        font-weight: normal;
+        font-size: 13px;
+        margin: 0px 0px 3px 0px;
+        display: inline-block;
+      }
+
+      input {
+        border: solid 1px #d4d4d4;
+        width: 92%;
+        font-size: 12px;
+        padding: 12px 4%;
+        font-weight: normal;
+        margin: 1px;
+
+        &:focus {
+          margin: 0px;
+          border: solid 2px #52b4e0;
+        }
+      }
+
+      &:first-child {
+        margin: 0px 0px 10px;
+      }
+
+    }
+
+    input[type=submit] {
+      background: #4285f4;
+      width: 100%;
+      color: white;
+      padding: 11px 0px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      margin: 20px auto 5px;
+
+      &:hover{
+        background: #2975f5;
+      }
+    }
+
+    .forgot-password {
+      display: inline-block;
+      color: $black_lazlo;
+      font-size: 12px;
+    }
+
+    a.forgot-password {
+      text-decoration: underline;
+      cursor: pointer;
+
+      &:hover {
+        color: $yellow_lazlo;
+      }
+    }
+
+    .user_remember_me {
+      display: none;
+    }
+
+    .register-fb {
+      background: #3b5998;
+      color: white;
+      width: 100%;
+      display: inline-block;
+      padding: 12px 0px;
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+      margin: 20px auto 5px;
+
+      &:hover {
+        background-color: #5076c5;
+      }
+    }
+
+    .letter-div {
+      color: #b7b7b7;
+      width: 100%;
+      text-align: center;
+      display: inline-block;
+      margin: 20px 0px 0px;
+      font-size: 32px;
+
+    }
+
+    .new-label {
+      color: #969696;
+      width: 100%;
+      text-align: center;
+      display: inline-block;
+      margin: 20px 0px 3px;
+      font-size: 13px;
+
+    }
+
+    .create-account {
+      color: $black_lazlo;
+      width: 100%;
+      display: inline-block;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: underline;
+      text-align: center;
+
+      &:hover {
+        color: $yellow_lazlo;
+      }
+    }
+
+  }
+
+  .register-black-filter {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    left: 0px;
+  }
+
+}

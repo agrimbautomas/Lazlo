@@ -398,6 +398,25 @@ header {
   }
 }
 
+.error_notification {
+  color: #ff2121;
+  margin: 10px 0px;
+  font-size: 14px;
+}
+
+span.error {
+  color: #ff2121;
+  text-align: right;
+  display: inline-block;
+  width: 100%;
+  font-size: 14px;
+
+  &.notice,
+  &.alert {
+    text-align: center;
+  }
+}
+
 /******* Containers *******/
 .half-container {
   width: 50%;
@@ -701,6 +720,7 @@ header {
     position: absolute;
     right: 16px;
     top: 16px;
+    cursor: pointer;
   }
 
   ::-webkit-input-placeholder {
