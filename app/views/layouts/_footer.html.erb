@@ -33,21 +33,23 @@
     </div>
 
     <div class="footer-block">
+
       <h6>
         SEGUINOS EN INSTAGRAM
-        <a href="https://www.instagram.com/<%= @instagram_client.user.username %>" target="_blank">
-          @<%= @instagram_client.user.username %>
+        <a href="https://www.instagram.com/<%= @instagram_username %>" target="_blank">
+          @<%= @instagram_username %>
         </a>
       </h6>
 
-      <div class="instagram-fotos">
-        <% @instagram_client.user_recent_media.each_with_index do |media_item, i| %>
-            <% break if i == 4 %>
-            <a href="<%= media_item.link %>" target="_blank">
-              <img src="<%= media_item.images.thumbnail.url %>">
-            </a>
-        <% end %>
-      </div>
+      <% if @instagram_images.present? %>
+          <div class="instagram-fotos">
+            <% @instagram_images.each_with_index do |media_item, i| %>
+                <a href="<%= media_item.link %>" target="_blank">
+                  <img src="<%= media_item.images.thumbnail.url %>">
+                </a>
+            <% end %>
+          </div>
+      <% end %>
 
     </div>
 

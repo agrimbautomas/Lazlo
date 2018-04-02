@@ -4,7 +4,14 @@ class ApplicationController < ActionController::Base
 	before_action :load_page_categories, :set_instagram, :set_original_url, :set_raven_context
 
 	def set_instagram
-		@instagram_client = Instagram.client(:access_token => INSTRAGRAM_ACCESS_TOKEN)
+		instagram_client = Instagram.client(:access_token => INSTRAGRAM_ACCESS_TOKEN)
+		begin
+			@instagram_username = instagram_client.user.username
+			@instagram_images = instagram_client.user_recent_media(:count => 4)
+		rescue
+			@instagram_username = 'lazlo.la'
+			@instagram_images = nil
+		end
 	end
 
 	def load_page_categories
