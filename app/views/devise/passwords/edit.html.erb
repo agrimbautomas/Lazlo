@@ -1,39 +1,50 @@
-<div class="register-section grilla">
+<div class="register-section">
+
+  <div class="register-pop-up">
+
+    <a class="" href="<%= root_path %>">
+      <svg class="close-register-form">
+        <use xlink:href="<%= image_url('sprite.svg') %>#close-cross"/>
+      </svg>
+    </a>
+
+    <a class="logo" href="<%= root_path %>">
+      <svg>
+        <use xlink:href="<%= image_url('sprite.svg') %>#lazlo-logo"/>
+      </svg>
+    </a>
 
 
-  <a class="logo" href="<%= root_path %>">
-    <%= image_tag('logo-lazlo.png') %>
-  </a>
+    <div class="register-box grilla medium-border-radious">
 
-  <div class="register-box grilla medium-border-radious">
-
-    <div class="register-nav-container">
-      <div class="register-nav ">
-        <h3>Cambiar Contraseña</h3>
+      <div class="register-nav-container">
+        <div class="register-nav ">
+          <h3>Cambiar Contraseña</h3>
+        </div>
       </div>
-    </div>
 
-    <div class="register-inner-container">
+      <div class="register-inner-container">
 
-      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f| %>
 
-          <%= f.input :reset_password_token, as: :hidden %>
-          <%= f.full_error :reset_password_token %>
+            <%= f.input :reset_password_token, as: :hidden %>
+            <%= f.full_error :reset_password_token %>
 
-          <div class="form-inputs">
-            <%= f.input :password, label: "Nueva contraseña", required: true, autofocus: true, hint: ("#{@minimum_password_length} caracteres mínimo" if @minimum_password_length) %>
-            <%= f.input :password_confirmation, label: "Confirmar contraseña", required: true %>
-          </div>
+            <div class="form-inputs">
+              <%= f.input :password, label: "Nueva contraseña", required: true, autofocus: true, hint: ("#{@minimum_password_length} caracteres mínimo" if @minimum_password_length) %>
+              <%= f.input :password_confirmation, label: "Confirmar contraseña", required: true %>
+            </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Cambiar constraseña" %>
-          </div>
-      <% end %>
+            <div class="form-actions">
+              <%= f.button :submit, "Cambiar constraseña" %>
+            </div>
+        <% end %>
 
-      <%- if controller_name != 'sessions' %>
-          <%= link_to "<< Volver", new_session_path(resource_name), class: 'create-account smooth-transition' %>
-      <% end -%>
+        <%- if controller_name != 'sessions' %>
+            <%= link_to "<< Volver", new_session_path(resource_name), class: 'create-account smooth-transition' %>
+        <% end -%>
 
+      </div>
     </div>
   </div>
 </div>

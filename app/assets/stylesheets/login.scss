@@ -19,12 +19,18 @@
     width: 50%;
     padding: 60px 60px 30px 60px;
     text-align: center;
-    margin: 10% auto 0px;
+    margin: 3% auto 0px;
 
-    form{
+    form {
       margin: -10px auto 0px;
+
     }
-    
+
+    &.new-account-pop-up {
+      form {
+        margin: 10px auto 0px;
+      }
+    }
     .close-register-form {
       width: 23px;
       height: 23px;
@@ -71,10 +77,15 @@
           margin: 0px;
           border: solid 2px #52b4e0;
         }
+
       }
 
       &:first-child {
         margin: 0px 0px 10px;
+      }
+
+      abbr{
+        display: none;
       }
 
     }
@@ -89,7 +100,7 @@
       cursor: pointer;
       margin: 20px auto 5px;
 
-      &:hover{
+      &:hover {
         background: #2975f5;
       }
     }
@@ -122,32 +133,13 @@
       text-align: center;
       font-size: 14px;
       cursor: pointer;
-      margin: 20px auto 5px;
+      margin: 10px auto 10px;
 
       &:hover {
         background-color: #5076c5;
       }
     }
 
-    .letter-div {
-      color: #b7b7b7;
-      width: 100%;
-      text-align: center;
-      display: inline-block;
-      margin: 20px 0px 0px;
-      font-size: 32px;
-
-    }
-
-    .new-label {
-      color: #969696;
-      width: 100%;
-      text-align: center;
-      display: inline-block;
-      margin: 20px 0px 3px;
-      font-size: 13px;
-
-    }
 
     .create-account {
       color: $black_lazlo;
@@ -163,6 +155,18 @@
       }
     }
 
+    h3 {
+      font-size: 14px;
+      width: 100%;
+      margin: 30px auto;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    span,
+    .new-label{
+      font-size: 13px;
+    }
   }
 
   .register-black-filter {

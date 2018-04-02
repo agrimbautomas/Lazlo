@@ -1,46 +1,47 @@
 <div class="register-section">
 
+  <div class="register-pop-up new-account-pop-up">
 
-  <a class="logo" href="<%= root_path %>">
-    <%= image_tag('logo-lazlo.png') %>
-  </a>
+    <a class="" href="<%= root_path %>">
+      <svg class="close-register-form">
+        <use xlink:href="<%= image_url('sprite.svg') %>#close-cross"/>
+      </svg>
+    </a>
 
-  <div class="register-box grilla medium-border-radious">
-
-    <div class="register-nav-container">
-      <div class="register-nav ">
-        <h3>Crear Cuenta</h3>
-      </div>
-    </div>
-
-    <div class="register-inner-container">
-
-      <%= link_to "Crear cuenta con Facebook", user_facebook_omniauth_authorize_path, class: 'register-fb smooth-transition small-border-radious' %>
-      <span class="letter-div">ó</span>
-
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-          <div class="form-inputs">
-            <%= f.input :email, required: true, autofocus: true %>
-            <%= f.input :password, required: true, placeholder: ("#{@minimum_password_length} caracteres mínimo" if @minimum_password_length) %>
-            <%= f.input :password_confirmation, required: true %>
-          </div>
-
-          <div class="form-actions">
-            <%= f.button :submit, "Creat cuenta" %>
-          </div>
-      <% end %>
+    <a class="logo" href="<%= root_path %>">
+      <svg>
+        <use xlink:href="<%= image_url('sprite.svg') %>#lazlo-logo"/>
+      </svg>
+    </a>
 
 
-      <label class="new-label">Ya tenés cuenta en Lazlo?</label>
-      <%- if controller_name != 'sessions' %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-          <%= link_to "Ingresá a tú Cuenta", new_session_path(resource_name), class: 'create-account smooth-transition' %>
-          <br/>
-      <% end -%>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true, label: 'Correo electrónico' %>
+          <%= f.input :password, required: true, placeholder: ("#{@minimum_password_length} caracteres mínimo" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true, placeholder: 'Confirmar contraseña', label: nil %>
+        </div>
 
-    </div>
+        <div class="form-actions">
+          <%= f.button :submit, "CREAR CUENTA" %>
+        </div>
+    <% end %>
+
+    <span>sino</span>
+
+    <%= link_to "Crear cuenta con Facebook", user_facebook_omniauth_authorize_path, class: 'register-fb smooth-transition small-border-radious' %>
+
+
+    <label class="new-label">¿Ya tenés cuenta en LAZLO.?</label>
+    <%- if controller_name != 'sessions' %>
+        <%= link_to "INGRESAR", new_session_path(resource_name), class: 'create-account smooth-transition' %>
+    <% end -%>
+
   </div>
+
+  <div class="register-black-filter"></div>
+
 </div>
 
 

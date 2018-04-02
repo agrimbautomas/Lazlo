@@ -1,35 +1,48 @@
-<div class="register-section grilla">
+<div class="register-section">
 
+  <div class="register-pop-up">
 
-  <a class="logo" href="<%= root_path %>">
-    <%= image_tag('logo-lazlo.png') %>
-  </a>
+    <a class="" href="<%= root_path %>">
+      <svg class="close-register-form">
+        <use xlink:href="<%= image_url('sprite.svg') %>#close-cross"/>
+      </svg>
+    </a>
 
-  <div class="register-box grilla medium-border-radious">
+    <a class="logo" href="<%= root_path %>">
+      <svg>
+        <use xlink:href="<%= image_url('sprite.svg') %>#lazlo-logo"/>
+      </svg>
+    </a>
 
-    <div class="register-nav-container">
-      <div class="register-nav ">
-        <h3>Cambiar Contraseña</h3>
+    <div class="register-box grilla medium-border-radious">
+
+      <div class="register-nav-container">
+        <div class="register-nav ">
+          <h3>Cambiar Contraseña</h3>
+        </div>
+      </div>
+
+      <div class="register-inner-container">
+
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post, class: 'forgot-form'}) do |f| %>
+
+            <div class="form-inputs">
+              <%= f.input :email, required: true, autofocus: true, label: 'Correo electrónico' %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, "Enviar contraseña al mail", class: 'margin-top-medium margin-bottom-medium' %>
+            </div>
+        <% end %>
+
+        <%- if controller_name != 'sessions' %>
+            <%= link_to "<< VOLVER", new_session_path(resource_name), class: 'create-account smooth-transition' %>
+        <% end -%>
+
       </div>
     </div>
-
-    <div class="register-inner-container">
-
-      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post, class: 'forgot-form'}) do |f| %>
-
-          <div class="form-inputs">
-            <%= f.input :email, required: true, autofocus: true %>
-          </div>
-
-          <div class="form-actions">
-            <%= f.button :submit, "Enviar contraseña al mail", class: 'margin-top-medium margin-bottom-medium' %>
-          </div>
-      <% end %>
-
-      <%- if controller_name != 'sessions' %>
-          <%= link_to "<< Volver", new_session_path(resource_name), class: 'create-account smooth-transition' %>
-      <% end -%>
-
-    </div>
   </div>
+
+
+  <div class="register-black-filter"></div>
 </div>
