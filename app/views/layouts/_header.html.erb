@@ -5,7 +5,9 @@
     <% if notice.nil? %> hidden-bar
     <% end %>">
     <p><%= notice %></p>
-    <i class="fa fa-times-circle" aria-hidden="true"></i>
+    <svg class="close-notification-bar">
+      <use xlink:href="<%= image_url('sprite.svg') %>#close-cross-white"/>
+    </svg>
   </div>
 
   <div class="notification-bar alert

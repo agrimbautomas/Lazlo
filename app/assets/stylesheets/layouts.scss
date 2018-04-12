@@ -361,7 +361,7 @@ header {
   position: fixed;
   z-index: 99999;
   width: 100%;
-  background: #69ca8d;
+  background: $green_notification;
   line-height: 51px;
   color: white;
   font-weight: bolder;
@@ -380,20 +380,25 @@ header {
   p {
     width: 92%;
     margin: 0px 4%;
+    padding: 20px 0px;
+    display: inline-block;
+    text-align: center;
   }
 
-  i {
+  .close-notification-bar {
     float: right;
     position: absolute;
-    right: 0px;
-    padding: 0% 13px;
-    bottom: 0px;
-    height: 100%;
     cursor: pointer;
     line-height: 52px;
+    height: 25px;
+    width: 25px;
+    right: 2%;
+    top: 0px;
+    padding: 18px;
 
     &:hover {
-      color: #eaeaea
+      color: #ffffff
+      
     }
   }
 }

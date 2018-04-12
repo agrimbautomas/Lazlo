@@ -60,6 +60,7 @@ Resets
     .left-column,
     .right-column {
       width: 49%;
+      width: -webkit-calc(50% - 15px);
       width: calc(50% - 15px);
     }
 
@@ -75,6 +76,7 @@ Resets
         position: absolute;
         bottom: 0px;
         opacity: 0.8;
+        z-index: 99;
       }
 
       .image-block {
@@ -170,20 +172,51 @@ Resets
       .image-block {
         position: relative;
         max-width: 100%;
+        overflow: hidden;
 
         img {
-          max-width: 100%
+          max-width: none;
+          width: -webkit-calc(100% + 50px);
+          width: calc(100% + 50px);
+          opacity: 0.7;
+          -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+          transition: opacity 0.35s, transform 0.35s;
+          -webkit-transform: translate3d(-40px,0, 0);
+          transform: translate3d(-40px,0,0);
         }
+
+        &:hover {
+          img,
+          h5,
+          h6{
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+          }
+
+          h6{
+            -webkit-transition-delay: 0.05s;
+            transition-delay: 0.05s;
+            -webkit-transition-duration: 0.35s;
+            transition-duration: 0.35s;
+
+            opacity: 1;
+          }
+        }
+
+
       }
 
       .product-description {
         position: absolute;
         bottom: 8%;
         left: 4%;
+        z-index: 999;
       }
 
       .hover-block {
         height: 98%;
+        height: -webkit-calc(98% + 2px);
+        height: calc(98% + 2px);
       }
 
     }
@@ -191,7 +224,6 @@ Resets
     .left-product {
       float: left;
       width: 56%;
-      height: 288px;
       margin: 0px 1% 0px 0px;
 
       .image-block {
@@ -203,20 +235,30 @@ Resets
       float: right;
       width: 42%;
       margin-left: 1%;
-      margin-bottom: -6px;
 
       .image-block {
         float: left;
       }
     }
 
-    h5 {
+    h5, h6 {
       font-weight: normal;
       font-size: 16px;
 
+      -webkit-transition: -webkit-transform 0.35s;
+      transition: transform 0.35s;
+
+      -webkit-transform: translate3d(0,40px,0);
+      transform: translate3d(0,40px,0);
       strong {
         font-weight: bold;
       }
+    }
+
+    h6{
+      opacity: 0;
+      -webkit-transition: opacity 0.2s, -webkit-transform 0.35s;
+      transition: opacity 0.2s, transform 0.35s;
     }
   }
 
@@ -305,6 +347,7 @@ Resets
       opacity: 0;
       left: 0px;
       top: 0px;
+      z-index: 99;
 
       background: $yellow_lazlo_transparent;
 

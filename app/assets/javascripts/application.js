@@ -43,7 +43,7 @@ $( document ).ready(function(){
     }
 
     function setupAlertButtons() {
-        $('.notification-bar i.fa').each(function () {
+        $('.notification-bar .close-notification-bar').each(function () {
             $(this).click(function () {
                 $(this).parent().hide();
             });

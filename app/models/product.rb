@@ -48,8 +48,12 @@ class Product < ApplicationRecord
                     styles: {
 											big: "800x800#",
 											medium: "300x300#",
+											square1: "400x400#",
 											rectangular1: "584x288#",
 											rectangular2: "544x350#",
+											rectangular3: "454x284#",
+											rectangular4: "350x400#",
+											rectangular5: "386x284#",
 											thumb: "100x100#"
 										},
                     default_url: "/images/:style/missing.png", :preserve_files => true

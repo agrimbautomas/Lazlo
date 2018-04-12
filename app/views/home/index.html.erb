@@ -93,8 +93,8 @@
   <section class="products">
 
     <% if @most_liked_product.present? %>
-        <a class="left-product hover-block-trigger" href="<%= product_path @most_liked_product %>">
-          <div class="image-block">
+        <a class="left-product" href="<%= product_path @most_liked_product %>">
+          <div class="image-block hover-block-trigger">
                   <span class="hover-block smooth-transition">
                     <svg>
                       <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
@@ -104,7 +104,7 @@
 
             <div class="product-description">
               <h5>PRODUCTO <strong>MÁS VENDIDO</strong></h5>
-              <h5><%= @most_liked_product.name %> - <%= format_price @most_liked_product.price %></h5>
+              <h6><%= @most_liked_product.name %> - <%= format_price @most_liked_product.price %></h6>
             </div>
 
           </div>
@@ -113,8 +113,8 @@
 
 
     <% if @most_purchased_product.present? %>
-        <a class="right-product hover-block-trigger" href="<%= product_path @most_purchased_product %>">
-          <div class="image-block">
+        <a class="right-product" href="<%= product_path @most_purchased_product %>">
+          <div class="image-block hover-block-trigger">
                   <span class="hover-block smooth-transition">
                     <svg>
                       <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
@@ -124,7 +124,7 @@
 
             <div class="product-description">
               <h5>PRODUCTO <strong>MÁS LIKEADO</strong></h5>
-              <h5><%= @most_liked_product.name %></h5>
+              <h6><%= @most_liked_product.name %></h6>
             </div>
 
           </div>
