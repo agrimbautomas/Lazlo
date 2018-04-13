@@ -53,7 +53,7 @@ class Product < ApplicationRecord
 											rectangular2: "544x350#",
 											rectangular3: "454x284#",
 											rectangular4: "350x400#",
-											rectangular5: "386x284#",
+											rectangular5: "356x284#",
 											thumb: "100x100#"
 										},
                     default_url: "/images/:style/missing.png", :preserve_files => true

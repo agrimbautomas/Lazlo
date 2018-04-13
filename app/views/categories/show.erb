@@ -2,37 +2,21 @@
 <%= render :partial => 'layouts/header' %>
 <!-- End Header -->
 
+<div class="grilla category-products">
 
-<div class="grilla margin-top-medium">
-  <div class="breadcrumbs">
-    <a href="<%= root_path %>">Lazlo</a>
-    <span>/</span>
-    <a href="<%= category_path @category %>"><%= capitalize_first_letters(@category.name) %></a>
-  </div>
-</div>
+  <h1><%= @category.name %></h1>
 
-<div class="grilla">
+  <div class="category-products-container">
 
-  <div class="products-box-container">
-    <h1><%= @category.name %></h1>
 
-    <div class="products-white-container">
-      <div class="inner-container">
+    <% if @products.any? %>
 
-        <% @products.each do |product| %>
-            <a class="product-box small-box"
-               href="<%= product_path(product) %>"
-               style="background-image: url('<%= product.image.url(:big) %>');">
-              <div class="hidden-info">
-                <h2><%= product.name %></h2>
+        <!-- Start Product Rows -->
+        <%= render :partial => 'categories/product_rows' %>
+        <!-- End Product Rows -->
 
-                <p class="price"><%= format_price product.price %></p>
+    <% end %>
 
-              </div>
-            </a>
-        <% end %>
-      </div>
-    </div>
   </div>
 
 

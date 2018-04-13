@@ -70,6 +70,7 @@ h1, h2, h3, h4, h5, h6, button {
 }
 
 h1 {
+  font-size: 44px;
 }
 
 h2 {
@@ -794,13 +795,6 @@ span.error {
     margin: 0px 5% 20px;
     text-align: center;
 
-    .cta-btn {
-      float: none;
-    }
-  }
-
-  .contact-form .fa-times {
-    font-size: 40px;
   }
 
 }
@@ -819,7 +813,6 @@ span.error {
 }
 
 .buyers-data {
-  margin-top: 70px;
   margin: 0px 10%;
   line-height: 35px;
 
@@ -849,8 +842,7 @@ span.error {
   .status-block {
     width: 100%;
     height: 20%;
-    .logo-container img {
-    }
+
     label {
       float: left;
       width: 55%;
@@ -907,7 +899,6 @@ span.error {
     }
   }
   .grilla-social {
-    margin: 0px;
     max-width: 100%;
     margin: 25px 0px 0px;
   }
@@ -941,23 +932,6 @@ span.error {
     font-size: 11px;
   }
 
-  .social-block {
-    &.ml {
-      background: #FFF059;
-    }
-    &.face {
-      background: #4c66a4;
-    }
-    &.ins {
-      background: #3f729b;
-    }
-  }
-  .status-blocks-container {
-
-  }
-  .tracking-container {
-
-  }
   .status-block {
     p {
       font-size: 10px;
@@ -1026,56 +1000,6 @@ span.error {
       font-size: 30px;
       padding: 12px 6%;
     }
-  }
-
-  .products-box-container h1 {
-    padding: 25px 0px;
-    font-size: 25px;
-  }
-
-  .product-box.small-box.big-box h2,
-  .product-box.small-box h2 {
-    font-size: 10px;
-    line-height: 14px;
-  }
-
-  .product-box.small-box.big-box .price,
-  .product-box.small-box .price {
-    width: 100%;
-    right: 0px;
-    bottom: 10px;
-    font-size: 12px;
-  }
-
-  .half-container.half-container-left,
-  .half-container.half-container-right,
-  .product-detail-section .half-container {
-    width: 100% !important;
-  }
-
-  .products-box-container.products-box-container-detail {
-    .text-detail-container {
-      width: 95%;
-      margin: 0px 2.5%;
-    }
-    .product-buy-button {
-      margin: 40px 0px 0px 25%;
-      width: 50%;
-      text-align: center;
-      padding: 10px 0px;
-    }
-    .payment-methods {
-      background-size: cover;
-      margin: 15px 0px 30px 25%;
-      width: 50%;
-    }
-    .product-name {
-      font-size: 18px;
-    }
-    .product-price {
-      font-size: 26px;
-    }
-
   }
 
 }
