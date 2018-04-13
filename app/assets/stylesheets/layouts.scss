@@ -61,6 +61,7 @@ body {
   text-align: center;
   position: relative;
   color: $black_lazlo;
+  padding-top: 62px;
 }
 
 h1, h2, h3, h4, h5, h6, button {
@@ -237,6 +238,15 @@ header {
   width: 100%;
   height: 62px;
   background-color: #ffffff;
+
+  position: fixed;
+  top: 0;
+  z-index: 999999;
+  transition: top 0.2s ease-in-out;
+
+  &.nav-up {
+    top: -62px;
+  }
 
   nav.grilla {
     margin: 0px;
