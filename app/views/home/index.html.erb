@@ -45,8 +45,8 @@
               <% end %>
 
 
-              <a class="home-category-block hover-block-trigger <%= index % 2 == 1 ? 'odd' : 'even' %>" href="<%= category_path category %>">
-                <div class="image-block">
+              <a class="home-category-block <%= index % 2 == 1 ? 'odd' : 'even' %>" href="<%= category_path category %>">
+                <div class="image-block hover-block-trigger ">
                   <span class="hover-block smooth-transition">
                     <svg>
                       <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
@@ -77,7 +77,7 @@
       En LAZLO. buscamos la expresion de las
       cosas mediante las formas geométricas
       destructuradamente ordenadas.
-      <button class="black-transparent contact-form-button">
+      <button class="yellow-with-hover contact-form-button">
         Contactar
         <svg>
           <use xlink:href="<%= image_url('sprite.svg') %>#right-arrow"/>
@@ -153,7 +153,7 @@
         <use xlink:href="<%= image_url('sprite.svg') %>#discount-icon"/>
       </svg>
       <h5>GANATE $2.0000</h5>
-      <button class="black-transparent">SEGUIR LAZLO EN FACEBOOK</button>
+      <button class="yellow-with-hover">SEGUIR LAZLO EN FACEBOOK</button>
     </div>
 
   </section>

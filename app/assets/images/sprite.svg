@@ -86,7 +86,7 @@
 
   <symbol id="right-arrow" width="40" height="20" viewBox="0 0 40 20">
     <path fill="#000" fill-rule="nonzero"
-          d="M28.421 16.27l4.885-5.029H1V8.157h32.246L28.421 3.19 30.52 1 39 9.73l-8.481 8.73z" opacity=".8"/>
+          d="M28.421 16.27l4.885-5.029H1V8.157h32.246L28.421 3.19 30.52 1 39 9.73l-8.481 8.73z" />
   </symbol>
 
   <symbol id="discount-icon" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
