@@ -256,6 +256,7 @@ es:
         user:
           one: 'Usuario'
           other: 'Usuarios'
+          app_users: 'Usuarios Registrados'
         user_contact:
           one: 'Usuario Contactado'
           other: 'Usuarios Contactados'

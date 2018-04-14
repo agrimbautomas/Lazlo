@@ -26,44 +26,10 @@
   <section class="categories">
 
     <% if @page_categories.present? %>
-        <div class="left-column">
-          <%
-            split_column_index = (@page_categories.count / 2.0).ceil
-            index = 0
-            left_column_enabled = true
-            @page_categories.each_with_index do |category|
-          %>
-              <%
-                # To display right images column
-                if index == split_column_index && left_column_enabled
-                  index = 1
-                  left_column_enabled = false
-              %>
-                  </div>
-                  <div class="right-column">
-              <% end %>
-
-
-              <a class="home-category-block <%= index % 2 == 1 ? 'odd' : 'even' %>" href="<%= category_path category %>">
-                <div class="image-block hover-block-trigger ">
-                  <span class="hover-block smooth-transition">
-                    <svg>
-                      <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
-                    </svg>
-                  </span>
-                  <% image_size = index % 2 == 1 ? :rectangular2 : :rectangular1 %>
-                  <%= image_tag category.image.url(image_size) %>
-                </div>
-
-                <h2><%= category.name %></h2>
-              </a>
-
-          <%
-            index += 1
-            end
-          %>
-          </div>
-    <% end %>
+        <!-- Start Category Rows -->
+        <%= render :partial => 'home/category_rows' %>
+        <!-- End Category Rows -->
+  <% end %>
 
   </section>
   <!-- End categories -->
@@ -93,7 +59,7 @@
 
     <% if @most_liked_product.present? %>
         <a class="left-product" href="<%= product_path @most_liked_product %>">
-          <div class="image-block hover-block-trigger">
+          <div class="image-block-with-transition hover-block-trigger">
                   <span class="hover-block smooth-transition">
                     <svg>
                       <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
@@ -113,7 +79,7 @@
 
     <% if @most_purchased_product.present? %>
         <a class="right-product" href="<%= product_path @most_purchased_product %>">
-          <div class="image-block hover-block-trigger">
+          <div class="image-block-with-transition hover-block-trigger">
                   <span class="hover-block smooth-transition">
                     <svg>
                       <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>

@@ -79,7 +79,7 @@ Resets
         z-index: 99;
       }
 
-      .image-block {
+      .image-block-with-hover {
         float: right;
         position: relative;
 
@@ -94,7 +94,7 @@ Resets
       }
 
       &.odd {
-        .image-block {
+        .image-block-with-hover {
           width: 584px;
           height: 286px;
         }
@@ -113,7 +113,7 @@ Resets
 
       .home-category-block {
 
-        .image-block {
+        .image-block-with-hover {
           float: left;
         }
         h2 {
@@ -177,7 +177,7 @@ Resets
       width: 56%;
       margin: 0px 1% 0px 0px;
 
-      .image-block {
+      .image-block-with-hover {
         float: right;
       }
     }
@@ -187,7 +187,7 @@ Resets
       width: 42%;
       margin-left: 1%;
 
-      .image-block {
+      .image-block-with-hover {
         float: left;
       }
     }
