@@ -10,9 +10,7 @@
     </svg>
   </div>
 
-  <div class="notification-bar alert
-    <% if alert.nil? %> hidden-bar
-    <% end %>">
+  <div class="notification-bar alert <% if alert.nil? %> hidden-bar <% end %>">
     <p><%= alert %></p>
     <i class="fa fa-times-circle" aria-hidden="true"></i>
   </div>
@@ -98,8 +96,6 @@
           <a class="header-user-name" href="<%= profile_url %>"><%= current_user.email %></a>
 
           <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-
             <% if current_user.cart_count.present? %>
                 <span class="notification-number"><%= current_user.cart_count %></span>
             <% end %>

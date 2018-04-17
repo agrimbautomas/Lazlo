@@ -78,7 +78,8 @@ h2 {
 }
 
 h3 {
-
+  font-size: 28px;
+  line-height: 1.3em;
 }
 
 h4 {
@@ -91,42 +92,38 @@ h6 {
   font-size: 16px;
 }
 
+a.button,
 button {
   cursor: pointer;
 
-  &.yellow-with-hover {
-    margin: 0px;
-    padding: 10px 0px;
-    font-size: 14px;
-    font-weight: bolder;
-    background: transparent;
-    outline: none;
-    position: relative;
+  margin: 0px;
+  padding: 10px 0px;
+  font-size: 14px;
+  font-weight: bolder;
+  outline: none;
+  position: relative;
 
+  -webkit-transition: $fast_transition;
+  -moz-transition: $fast_transition;
+  -o-transition: $fast_transition;
+  transition: $fast_transition;
+
+  &.transparent-with-hover-yellow {
+    background: transparent;
     border: solid 4px $black_lazlo;
 
-    -webkit-transition: $smooth_transition;
-    -moz-transition: $smooth_transition;
-    -o-transition: $smooth_transition;
-    transition: $smooth_transition;
-
-    &:hover:after {
-      height: 100%;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      transition: all 0.3s;
-
-      width: 100%;
-      height: 0;
-      top: 0;
-      left: 0;
+    &:hover{
       background: $yellow_lazlo;
+      border-color: $yellow_lazlo;
+    }
+  }
+
+  &.yellow-with-icon-hover {
+    background: $yellow_lazlo;
+    color: $black_lazlo;
+
+    &:hover{
+
     }
   }
 
@@ -501,10 +498,11 @@ span.error {
   a {
     display: inline-block;
     color: $black_lazlo;
-    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+    padding: 20px 0px 0px;
 
     &.active {
-      font-weight: bolder;
+      font-style: italic;
     }
     &:hover {
       text-decoration: underline;

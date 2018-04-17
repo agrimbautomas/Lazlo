@@ -21,43 +21,13 @@
     <div class="products-white-container">
       <div class="inner-container">
 
-        <div class="half-container half-container-left">
-
-          <% if @product.product_images.present? %>
-              <div id="product-images-gallery" class="product-images-gallery">
-
-                <a href="#" class="active" data-image="<%= @product.image.url(:big) %>" data-zoom-image="<%= @product.image.url(:big) %>">
-                  <img id="img_01" src="<%= @product.image.url(:thumb) %>"/>
-                  <span class="thumb-filter smooth-transition"></span>
-                </a>
-
-                <% @product.product_images.each do |image| %>
-                    <a href="#" data-image="<%= image.picture.url(:big) %>" data-zoom-image="<%= image.picture.url(:big) %>">
-                      <img id="img_01" src="<%= image.picture.url(:thumb) %>"/>
-                      <span class="thumb-filter smooth-transition"></span>
-                    </a>
-                <% end %>
-
-              </div>
-          <% end %>
-
-
-          <div class="image-detail-container">
-
-            <img id="product-detail-zoom" src='<%= @product.image.url(:big) %>' data-zoom-image="<%= @product.image.url(:big) %>"/>
-          </div>
-        </div>
-
-
         <div class="half-container half-container-right">
-          <h1><%= @product.name %></h1>
+          <h3><%= @product.name %></h3>
 
-          <div class="text-detail-container">
+          <div class="product-detail-container">
 
-            <div class="product-price-box">
-              <div class="product-price"><%= format_price @product.price %></div>
-              <label>PROMOCIÓN ONLINE</label>
-            </div>
+            <%= format_price @product.price %>
+
 
             <div class="product-description">
               <%= simple_format(@product.description) %>
@@ -70,25 +40,56 @@
             -->
 
             <% if user_signed_in? %>
-                <a href="<%= @product_link %>"  mp-mode='popup' name="MP-Checkout" class="product-buy-button lazlo-button red-button smooth-transition">
-                  Comprar
-                </a>
-                <script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>
 
-                <a class="add-to-cart-btn lazlo-button
+                <a class="transparent-with-hover-yellow add-to-cart-btn button
                     <%= @is_in_cart ? 'green-button in_cart' : 'transparent-button' %>"
                    href="<%= add_product_to_cart_url(@product_hash) %>"
                    data-rm-href="<%= remove_cart_product_row_url(@product_hash) %>">
-                  <%= @is_in_cart ? 'Guardado en el Carrito!' : 'Agregar al Carrito' %>
+                  <%= @is_in_cart ? 'Guardado en el Carrito!' : 'AGREGAR AL CARRITO' %>
                 </a>
 
             <% else %>
-                <a href="<%= new_user_session_path %>" class="product-buy-button lazlo-button red-button smooth-transition">
-                  Registrarme para comprar
+                <a class="transparent-with-hover-yellow add-to-cart-btn button" href="<%= new_user_session_path %>">
+                  AGREGAR AL CARRITO
                 </a>
             <% end %>
 
+
+            <a href="<%= user_signed_in? ? @product_link : new_user_session_path %>" mp-mode='popup'
+               name="MP-Checkout" class="product-buy-button yellow-with-icon-hover button">
+              COMPRAR
+            </a>
+
+
           </div>
+        </div>
+
+
+        <div class="half-container half-container-left">
+
+
+          <!-- Start image-detail-container -->
+          <div class="image-detail-container">
+            <img id="product-detail-zoom" src='<%= @product.product_images.first.picture.url(:rectangular1) %>' data-zoom-image="<%= @product.product_images.first.picture.url(:rectangular1) %>"/>
+          </div>
+          <!-- End image-detail-container -->
+
+
+          <% if @product.product_images.present? %>
+              <!-- Start product-images-gallery -->
+              <div id="product-images-gallery" class="product-images-gallery">
+
+                <% @product.product_images.each do |image| %>
+                    <a href="#" data-image="<%= image.picture.url(:rectangular1) %>" data-zoom-image="<%= image.picture.url(:rectangular1) %>">
+                      <img id="img_01" src="<%= image.picture.url(:rectangular1) %>"/>
+                    </a>
+                <% end %>
+
+              </div>
+              <!-- End product-images-gallery -->
+          <% end %>
+
+
         </div>
 
       </div>
@@ -97,6 +98,10 @@
 
 
 </div>
+
+
+
+<script type="text/javascript" src="//resources.mlstatic.com/mptools/render.js"></script>
 
 <!-- Start Footer -->
 <%= render :partial => 'layouts/footer' %>
