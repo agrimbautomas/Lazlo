@@ -2,39 +2,21 @@
   <%
     counter = 0
     column = 1
+    images_per_column = (@products.count / 3.0).floor
+
     @products.each do |product|
-
-      counter += 1
       size = counter % 2 == 0 ? 2 : 1
-
-      if column == 1
-        if size == 1
-          image_size = :rectangular3
-        else
-          image_size = :rectangular4
-        end
-
-      elsif column == 2
-        if size == 1
-          image_size = :rectangular4
-        else
-          image_size = :rectangular5
-        end
-
-      elsif column == 3
-        if size == 1
-          image_size = :rectangular5
-        else
-          image_size = :square1
-        end
-      end
-
+      image_size = get_image_size column, size
 
   %>
 
       <%
-        if counter % 3 == 0
+        if counter != 0 and (counter % images_per_column == 0)
           column += 1
+          if column > 3
+            column = 1
+            images_per_column = 1
+          end
       %>
           </div>
           <div class="column">
@@ -52,11 +34,15 @@
           <%= image_tag product.image.url(image_size) %>
 
           <div class="product-description">
-            <h5>PRODUCTO <strong>MÁS VENDIDO</strong></h5>
+            <h5><%= @products.count %> PRODUCTO <strong>MÁS VENDIDO <%= images_per_column %></strong></h5>
             <h6><%= product.name %> - <%= format_price product.price %></h6>
           </div>
 
         </div>
       </a>
-  <% end %>
+  <%
+
+    counter += 1
+    end
+  %>
   </div>
