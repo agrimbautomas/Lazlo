@@ -68,14 +68,14 @@
         <div class="half-container half-container-left">
 
 
-          <!-- Start image-detail-container -->
-          <div class="image-detail-container">
-            <img id="product-detail-zoom" src='<%= @product.product_images.first.picture.url(:rectangular1) %>' data-zoom-image="<%= @product.product_images.first.picture.url(:rectangular1) %>"/>
-          </div>
-          <!-- End image-detail-container -->
-
-
           <% if @product.product_images.present? %>
+              <!-- Start image-detail-container -->
+              <div class="image-detail-container">
+                <img id="product-detail-zoom" src='<%= @product.product_images.first.picture.url(:rectangular1) %>' data-zoom-image="<%= @product.product_images.first.picture.url(:rectangular1) %>"/>
+              </div>
+              <!-- End image-detail-container -->
+
+
               <!-- Start product-images-gallery -->
               <div id="product-images-gallery" class="product-images-gallery">
 

@@ -154,6 +154,10 @@
       float: left;
       margin: 0px 1%;
 
+      .product-description{
+        bottom: 12%;
+      }
+
       .image-block {
         margin: 10px 0px;
         display: inline-block;
@@ -171,6 +175,10 @@
           max-width: 360px;
           width: 83%;
           max-height: 350px;
+
+          .product-description{
+
+          }
         }
 
         .column1-size2 {
@@ -191,6 +199,10 @@
         width: 27.2%;
         margin-top: -65px;
         max-width: 360px;
+
+        .product-description{
+          bottom: 10%;
+        }
 
         .column2-size1 {
           width: 100%;

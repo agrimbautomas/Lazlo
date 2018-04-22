@@ -32,8 +32,8 @@
           <%= image_tag product.image.url(get_image_size column, size) %>
 
           <div class="product-description">
-            <h5><%= @products.count %> PRODUCTO <strong>MÁS VENDIDO <%= images_per_column %></strong></h5>
-            <h6><%= product.name %> - <%= format_price product.price %></h6>
+            <h5><%= format_price product.price %> <strong><%= product.name %></strong></h5>
+            <h6>medidas: 50x50x70 de alto</h6>
           </div>
 
         </div>
