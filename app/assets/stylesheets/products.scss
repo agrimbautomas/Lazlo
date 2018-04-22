@@ -246,6 +246,8 @@
 
   .product-images-gallery {
     width: 100%;
+    text-align: center;
+    margin: 30px auto 60px;
 
     a {
       width: 267px;
@@ -264,6 +266,27 @@
         opacity: 0.8;
       }
     }
+
+    .slick-arrow{
+      position: absolute;
+      top: 0px;
+      height: 100%;
+      z-index: 99;
+      width: 30px;
+      background-color: #E0E0E0;
+      border: none;
+      font-size: 0;
+
+      &.slick-prev{
+        left: 0px;
+      }
+
+      &.slick-next{
+        right: 0px;
+      }
+    }
+
+
   }
 
   .image-detail-container {
@@ -332,6 +355,43 @@
 
   }
 
+}
+
+
+/*********** Product Suggestions *************/
+.suggestions{
+  margin: 40px auto;
+
+  .section-title{
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0px 0px 24px;
+  }
+
+  .suggestions-container{
+    margin: 10px auto;
+
+    .suggestion-block{
+      float: left;
+      width: 13%;
+      margin: 0px 0px 0px 0.9%;
+      overflow: hidden;
+
+      &:first-child{
+        margin: 0px;
+      }
+
+      h4{
+        font-weight: normal;
+        font-size: 13px;
+        margin: 5px 0px 0px;
+      }
+
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+  }
 }
 
 /*********** Product Tracking *************/

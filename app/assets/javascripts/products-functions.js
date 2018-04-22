@@ -2,6 +2,7 @@ $( document ).ready(function() {
 
     setImagesGallery();
     setToggleCartBtn();
+    setProductImagesSlider();
 });
 
 /**************************/
@@ -88,6 +89,22 @@ function removeFromCartStyles($btn) {
         .addClass('transparent-button').html('Agregar al Carrito');
 }
 
+
+
+/**************************/
+/**************************/
+/**** Products Slider *****/
+/**************************/
+/**************************/
+
+function setProductImagesSlider(){
+	 $('.product-images-gallery').slick({
+		  infinite: true,
+		  slidesToShow: 3,
+		  slidesToScroll: 3,
+		  width: '32%'
+	 });
+}
 
 /**************************/
 /**************************/
