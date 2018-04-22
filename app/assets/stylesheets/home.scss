@@ -83,9 +83,6 @@ Resets
         float: right;
         position: relative;
 
-        width: 488px;
-        height: 288px;
-
         img {
           display: inline-block;
           width: 100%;
@@ -95,8 +92,6 @@ Resets
 
       &.odd {
         .image-block-with-hover {
-          width: 584px;
-          height: 286px;
         }
       }
 

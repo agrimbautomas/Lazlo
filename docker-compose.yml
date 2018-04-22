@@ -1,6 +1,9 @@
 version: '3'
 services:
    lazlo:
+      container_name: lazlo_ws
+      stdin_open: true
+      tty: true
       build: .
       volumes:
          - ./:/usr/src/lazlo
@@ -9,10 +12,9 @@ services:
          - "3000:3000"
       depends_on:
          - lazlo_db
-      stdin_open: true
-      tty: true
 
    lazlo_db:
+      container_name: lazlo_db
       image: mysql
       volumes:
          - ./db/lazlo_db_test:/var/lib/lazlo_db_test
