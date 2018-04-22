@@ -66,6 +66,9 @@ class Product < ApplicationRecord
 
 	scope :most_viewed, -> { order('views DESC').first }
 
+	#Todo Add suggestions logic
+	scope :suggestions_for, -> (product) { where(:category => product.category).limit(7) }
+
 	def image_uri
 		URI.join($request.url, self.image.url)
 	end

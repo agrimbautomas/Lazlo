@@ -1,46 +1,48 @@
 <div class="column column1">
-  <%
-    counter = 0
-    column = 1
-    images_per_column = (@products.count / 3.0).floor
-
-    @products.each do |product|
-      size = counter % 2 == 0 ? 2 : 1
-  %>
-
+  <% if @products.any? %>
       <%
-        if counter != 0 and (counter % images_per_column == 0)
-          column += 1
-          if column > 3
-            column = 1
-            images_per_column = 1
-          end
+        counter = 0
+        column = 1
+        images_per_column = (@products.count / 3.0).floor
+
+        @products.each do |product|
+          size = counter % 2 == 0 ? 2 : 1
       %>
-          </div>
-          <div class="column column<%= column %>">
-      <% end %>
+
+          <%
+            if counter != 0 and (counter % images_per_column == 0)
+              column += 1
+              if column > 3
+                column = 1
+                images_per_column = 1
+              end
+          %>
+              </div>
+              <div class="column column<%= column %>">
+          <% end %>
 
 
-      <a class="image-block column<%= column %>-size<%= size %>" href="<%= product_path product %>">
-        <div class="image-block-with-transition no-image-translate hover-block-trigger">
+          <a class="image-block column<%= column %>-size<%= size %>" href="<%= product_path product %>">
+            <div class="image-block-with-transition no-image-translate hover-block-trigger">
                   <span class="hover-block smooth-transition">
                     <svg>
                       <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
                     </svg>
                   </span>
 
-          <%= image_tag product.image.url(get_image_size column, size) %>
+              <%= image_tag product.image.url(get_image_size column, size) %>
 
-          <div class="product-description">
-            <h5><%= format_price product.price %> <strong><%= product.name %></strong></h5>
-            <h6>medidas: 50x50x70 de alto</h6>
-          </div>
+              <div class="product-description">
+                <h5><%= format_price product.price %> <strong><%= product.name %></strong></h5>
+                <h6>medidas: 50x50x70 de alto</h6>
+              </div>
 
-        </div>
-      </a>
-  <%
+            </div>
+          </a>
+      <%
 
-    counter += 1
-    end
-  %>
+        counter += 1
+        end
+      %>
+  <% end %>
   </div>

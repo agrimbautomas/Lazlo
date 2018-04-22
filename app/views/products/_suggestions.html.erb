@@ -1,0 +1,19 @@
+<% if @suggestions.any? %>
+    <div class="suggestions-block">
+      <h3 class="section-title">MIRÁ ESTAS SUGERENCIAS PARA COMBINAR ESTE PRODUCTO</h3>
+
+      <% @suggestions.each do |suggested_product| %>
+          <a class="featured-product "
+             href="<%= product_path suggested_product %>"
+             style="background-image: url(<%= suggested_product.image.url(:medium) %>);">
+            <div class="description smooth-transition">
+              <h1><%= suggested_product.name %></h1>
+              <h4>
+                <%= format_price suggested_product.price %></h4>
+              <span class="see-more">VER MÁS</span>
+            </div>
+          </a>
+      <% end %>
+
+    </div>
+<% end %>

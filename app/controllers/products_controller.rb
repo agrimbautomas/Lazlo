@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
   private
   def set_product
 	 @product = Product.friendly.find(params[:id])
+	 @suggestions = Product.suggestions_for(@product)
 	 @product.update_attribute(:views, @product.views + 1)
   end
 
