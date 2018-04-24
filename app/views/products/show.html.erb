@@ -22,74 +22,16 @@
       <div class="inner-container">
 
         <div class="half-container half-container-right">
-          <h3><%= @product.name %></h3>
-
-          <div class="product-detail-container">
-
-            <%= format_price @product.price %>
-
-
-            <div class="product-description">
-              <%= simple_format(@product.description) %>
-            </div>
-            <!--
-          <div class="product-quantity" data-request-path="">
-            <%= number_field_tag 'quantity', 1, min: 1 %>
-          </div>
-
-            -->
-
-            <% if user_signed_in? %>
-
-                <a class="transparent-with-hover-yellow add-to-cart-btn button
-                    <%= @is_in_cart ? 'green-button in_cart' : 'transparent-button' %>"
-                   href="<%= add_product_to_cart_url(@product_hash) %>"
-                   data-rm-href="<%= remove_cart_product_row_url(@product_hash) %>">
-                  <%= @is_in_cart ? 'Guardado en el Carrito!' : 'AGREGAR AL CARRITO' %>
-                </a>
-
-            <% else %>
-                <a class="transparent-with-hover-yellow add-to-cart-btn button" href="<%= new_user_session_path %>">
-                  AGREGAR AL CARRITO
-                </a>
-            <% end %>
-
-
-            <a href="<%= user_signed_in? ? @product_link : new_user_session_path %>" mp-mode='popup'
-               name="MP-Checkout" class="product-buy-button yellow-with-icon-hover button">
-              COMPRAR
-            </a>
-
-
-          </div>
-        </div>
+          <!-- Start Description -->
+          <%= render :partial => 'products/description' %>
+          <!-- End Description -->
+         </div>
 
 
         <div class="half-container half-container-left">
-
-
-          <% if @product.product_images.present? %>
-              <!-- Start image-detail-container -->
-              <div class="image-detail-container">
-                <img id="product-detail-zoom" src='<%= @product.product_images.first.picture.url(:rectangular1) %>' data-zoom-image="<%= @product.product_images.first.picture.url(:rectangular1) %>"/>
-              </div>
-              <!-- End image-detail-container -->
-
-
-              <!-- Start product-images-gallery -->
-              <div id="product-images-gallery" class="product-images-gallery">
-
-                <% @product.product_images.each do |image| %>
-                    <a href="#" data-image="<%= image.picture.url(:rectangular1) %>" data-zoom-image="<%= image.picture.url(:rectangular1) %>">
-                      <img id="img_01" src="<%= image.picture.url(:rectangular1) %>"/>
-                    </a>
-                <% end %>
-
-              </div>
-              <!-- End product-images-gallery -->
-          <% end %>
-
-
+          <!-- Start Images Detail -->
+          <%= render :partial => 'products/images_detail' %>
+          <!-- End Images Detail -->
         </div>
 
       </div>

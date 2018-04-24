@@ -1,0 +1,41 @@
+<h3><%= @product.name %></h3>
+
+<div class="product-detail-container">
+
+  <%= format_price @product.price %>
+
+
+  <div class="product-description">
+    <%= simple_format(@product.description) %>
+  </div>
+  <!--
+          <div class="product-quantity" data-request-path="">
+            <%= number_field_tag 'quantity', 1, min: 1 %>
+          </div>
+
+            -->
+
+  <% if user_signed_in? %>
+
+      <a class="transparent-with-hover-yellow add-to-cart-btn button
+                    <%= @is_in_cart ? 'green-button in_cart' : 'transparent-button' %>"
+         href="<%= add_product_to_cart_url(@product_hash) %>"
+         data-rm-href="<%= remove_cart_product_row_url(@product_hash) %>">
+        <%= @is_in_cart ? 'Guardado en el Carrito!' : 'AGREGAR AL CARRITO' %>
+      </a>
+
+  <% else %>
+      <a class="transparent-with-hover-yellow add-to-cart-btn button" href="<%= new_user_session_path %>">
+        AGREGAR AL CARRITO
+      </a>
+  <% end %>
+
+
+  <a href="<%= user_signed_in? ? @product_link : new_user_session_path %>" mp-mode='popup'
+     name="MP-Checkout" class="product-buy-button yellow-with-icon-hover button">
+    COMPRAR
+  </a>
+
+
+</div>
+        

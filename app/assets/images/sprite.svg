@@ -86,7 +86,7 @@
 
   <symbol id="right-arrow" width="40" height="20" viewBox="0 0 40 20">
     <path fill="#000" fill-rule="nonzero"
-          d="M28.421 16.27l4.885-5.029H1V8.157h32.246L28.421 3.19 30.52 1 39 9.73l-8.481 8.73z" />
+          d="M28.421 16.27l4.885-5.029H1V8.157h32.246L28.421 3.19 30.52 1 39 9.73l-8.481 8.73z"/>
   </symbol>
 
   <symbol id="discount-icon" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
@@ -105,4 +105,9 @@
              transform="translate(12.000000, 12.000000) rotate(-315.000000) translate(-12.000000, -12.000000) "
              points="13.3333333 4 10.6666667 4 10.6666667 10.6666667 4 10.6666667 4 13.3333333 10.6666667 13.3333333 10.6666667 20 13.3333333 20 13.3333333 13.3333333 20 13.3333333 20 10.6666667 13.3333333 10.6666667"></polygon>
   </symbol>
+
+  <symbol id="right-arrow-white" width="26" height="26" viewBox="0 0 26 26">
+    <path fill="#FFF" fill-rule="nonzero" d="M15.344 13L6 22.593 8.344 25 20 13 8.344 1 6 3.407z"/>
+  </symbol>
+
 </svg>

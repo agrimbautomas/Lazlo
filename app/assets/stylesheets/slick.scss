@@ -68,8 +68,9 @@
 .slick-slide {
   float: left;
   height: 100%;
+  width: 267px;
   min-height: 1px;
-  margin: 0px 20px;
+  margin: 0px 14px;
 
   [dir="rtl"] & {
     float: right;
@@ -104,4 +105,47 @@
 
 .slick-arrow.slick-hidden {
   display: none;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  z-index: 99;
+  width: 30px;
+  border: none;
+  font-size: 0;
+  background: #E0E0E0 ;
+  padding: 0px;
+
+  &.slick-prev {
+    left: 0px;
+
+    &:before{
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+  }
+
+  &.slick-next {
+    right: 0px;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    background: url(right-arrow-light.svg) no-repeat center center;
+  }
+
+  &:hover{
+    background-color: #d4d4d4;
+  }
 }
