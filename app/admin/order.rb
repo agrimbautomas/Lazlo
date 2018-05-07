@@ -36,7 +36,8 @@ ActiveAdmin.register Order do
 
 		params[:order_params] = order_params
 		params[:order] = new_order
-		new_order = SaveAdminOrder.(params).update_order
+
+		new_order = SaveAdminOrder.(params).save_or_update_order
 		@order = new_order
 		@object = new_order
 
@@ -51,7 +52,7 @@ ActiveAdmin.register Order do
 		params[:order_params] = order_params
 		params[:order] = resource
 
-		updated_order = SaveAdminOrder.(params).update_order
+		updated_order = SaveAdminOrder.(params).save_or_update_order
 
 		if updated_order.invalid?
 		  display_resource_errors(updated_order)

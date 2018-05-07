@@ -5,10 +5,10 @@ class SaveAdminOrder < Interactor
 	 @order = arguments.fetch :order
 	 @order_params = arguments.fetch :order_params
 	 @order_products_rows = @order.order_products_list.nil? ?
-										 @order.create_order_products_list.order_products_rows : @order.order_products_list.order_products_rows
+		  @order.create_order_products_list.order_products_rows : @order.order_products_list.order_products_rows
   end
 
-  def update_order
+  def save_or_update_order
 	 set_products_to_list
 	 set_new_order_values
 	 @order
@@ -27,15 +27,15 @@ class SaveAdminOrder < Interactor
   private
 
   def set_products_to_list
-	 order_products_params.each do |product_row_params|
+	 order_products_array.each do |product_row_params|
 		if old_product_row(product_row_params).present?
 		  next if destroy_row?(product_row_params)
 		  old_product_row(product_row_params).update(:quantity => product_row_params['quantity'])
 		else
-		  new_row_params = product_row_params.except(:_destroy)
-		  @order_products_rows << OrderProductsRow.create(new_row_params)
+		  product_row_params.delete('_destroy')
+		  @order_products_rows << OrderProductsRow.create(product_row_params)
 		end
-	 end unless order_products_params.nil?
+	 end unless order_products_array.nil?
   end
 
   def set_new_order_values
@@ -47,9 +47,16 @@ class SaveAdminOrder < Interactor
 	 @order.payment = @order_params[:payment] unless @order_params[:payment].empty?
   end
 
+  def order_products_array
+	 products = []
+	 order_products_params.to_hash.each { |p| products.push(p.last) }
+	 products
+  end
+
   def order_products_params
 	 @order_params.require(:order_products_rows_attributes) unless @order_params[:order_products_rows_attributes].nil?
   end
+
 
   def old_product_row params
 	 @order_products_rows.find { |s| s.product_id == params['product_id'].to_i }
