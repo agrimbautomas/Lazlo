@@ -9,7 +9,7 @@ variables:
    MYSQL_ROOT_PASSWORD: "sinclair"
    MYSQL_PASSWORD: "sinclair"
    MYSQL_DATABASE: "lazlo_test"
-   MYSQL_USER: "test"
+   MYSQL_USER: "root"
 
 before_script:
    - cp config/database.docker.yml config/database.yml

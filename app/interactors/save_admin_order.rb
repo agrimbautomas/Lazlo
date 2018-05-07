@@ -35,7 +35,7 @@ class SaveAdminOrder < Interactor
 		  product_row_params.delete('_destroy')
 		  @order_products_rows << OrderProductsRow.create(product_row_params)
 		end
-	 end unless order_products_array.nil?
+	 end unless order_products_array.empty?
   end
 
   def set_new_order_values
@@ -49,7 +49,7 @@ class SaveAdminOrder < Interactor
 
   def order_products_array
 	 products = []
-	 order_products_params.to_hash.each { |p| products.push(p.last) }
+	 order_products_params.to_hash.each { |p| products.push(p.last) } unless order_products_params.nil?
 	 products
   end
 

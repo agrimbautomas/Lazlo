@@ -27,7 +27,7 @@ RSpec.describe SaveAdminOrder do
   describe 'update_ordermethod' do
 
 	 it 'should return an Order' do
-		expect(@cart_checkout.update_order).to be_instance_of(Order)
+		expect(@cart_checkout.save_or_update_order).to be_instance_of(Order)
 	 end
 
   end

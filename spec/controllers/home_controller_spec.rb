@@ -4,10 +4,16 @@ RSpec.describe HomeController, type: :controller do
   include ApplicationHelper
 
   describe 'GET index' do
-    it 'assigns @featured_products' do
-      featured_products = Product.featured.visible
+    it 'assigns @most_liked_product' do
+		most_liked_product = Product.most_viewed
       get :index
-      expect(assigns(:featured_products)).to eq(featured_products)
+      expect(assigns(:most_liked_product)).to eq(most_liked_product)
+	 end
+
+    it 'assigns @home_page with page values' do
+		home_page =Page.find_by_name 'Home'
+      get :index
+      expect(assigns(:home_page)).to eq(home_page)
     end
 
     it 'renders the index template' do
