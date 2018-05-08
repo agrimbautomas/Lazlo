@@ -6,14 +6,16 @@ services:
 variables:
    RAILS_ENV: "test"
    COVERAGE: "true"
-   MYSQL_ROOT_PASSWORD: "sinclair"
+   MYSQL_HOST: "mysql"
    MYSQL_PASSWORD: "sinclair"
+   MYSQL_ROOT_PASSWORD: "sinclair"
    MYSQL_DATABASE: "lazlo_test"
-   MYSQL_USER: "root"
+   MYSQL_USER: "test"
+
 
 before_script:
-   - cp config/database.docker.yml config/database.yml
-   - cp config/secrets.docker.yml config/secrets.yml
+   - cp config/database.ci.yml config/database.yml
+   - cp config/secrets.ci.yml config/secrets.yml
    - mkdir -p reports/
    - bundle install --jobs 4 --deployment
 
