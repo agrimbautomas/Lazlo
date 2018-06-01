@@ -34,7 +34,6 @@ require 'support/paranoia_examples'
 
 RSpec.configure do |config|
   config.include Paperclip::Shoulda::Matchers
-  config.include FactoryGirl::Syntax::Methods
   config.include Rails.application.routes.url_helpers
 
   # For Devise >= 4.1.1

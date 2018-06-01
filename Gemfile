@@ -78,6 +78,9 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
 
+  gem 'rubocop', '~> 0.56.0', require: false
+  gem 'rubocop-rspec'
+
 end
 
 group :development do
@@ -86,9 +89,6 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano3-puma'
   gem 'capistrano-bundler'
-
-  gem 'rubocop', '~> 0.52.1', require: false
-  gem 'rubocop-rspec'
 
   # Spring speeds up development by keeping your application running in the bg
   gem 'spring'

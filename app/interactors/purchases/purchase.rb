@@ -39,13 +39,13 @@ class Purchase < Interactor
   private
 
   def send_response_emails
-	 BackgroundJob.run_block do
+	 #BackgroundJob.run_block do
 		params = @mercado_pago_params
 		params[:order] = @order
 		params[:user] = @user
 
 		send_purchase_emails params
-	 end
+	 #end
   end
 
   def preferences
