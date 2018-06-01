@@ -2,18 +2,19 @@ version: '3'
 services:
    lazlo:
       container_name: lazlo_ws
-      stdin_open: true
-      tty: true
       build: .
+      stdin_open: ${DOCKERTTY}
+      tty: ${DOCKERTTY}
       volumes:
          - ./:/usr/src/lazlo
          - ~/.ssh:/root/.ssh
+         - ./public/system:/usr/src/lazlo/public/system
       ports:
-         - "3000:3000"
+         - 3000:3000
       depends_on:
-         - lazlo_db
+         - db
 
-   lazlo_db:
+   db:
       container_name: lazlo_db
       image: mysql
       volumes:

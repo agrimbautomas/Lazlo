@@ -1,21 +1,17 @@
 image: ruby:2.4.1
 
 services:
-   - mysql:5.7.19
+   - mysql:5.7.22
 
 variables:
    RAILS_ENV: "test"
    COVERAGE: "true"
    MYSQL_HOST: "mysql"
    MYSQL_PASSWORD: "sinclair"
-   MYSQL_ROOT_PASSWORD: "sinclair"
-   MYSQL_DATABASE: "lazlo_test"
-   MYSQL_USER: "test"
-
 
 before_script:
-   - cp config/database.ci.yml config/database.yml
-   - cp config/secrets.ci.yml config/secrets.yml
+   - cp config/database.yml.example config/database.yml
+   - cp config/secrets.yml.example config/secrets.yml
    - mkdir -p reports/
    - bundle install --jobs 4 --deployment
 
