@@ -16,7 +16,7 @@ services:
 
    db:
       container_name: lazlo_db
-      image: mysql
+      image: mysql:5.7.22
       volumes:
          - ./db/lazlo_db_test:/var/lib/lazlo_db_test
       environment:

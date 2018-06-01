@@ -62,7 +62,6 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'byebug'
 
-  gem 'fuubar'
   gem 'factory_girl_rails'
   gem 'json_matchers'
 
@@ -79,8 +78,6 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
 
-  # Better rails console, url: https://github.com/goodpeople/debbie
-  gem 'debbie'
 end
 
 group :development do

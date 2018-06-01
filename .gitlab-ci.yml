@@ -1,4 +1,4 @@
-image: ruby:2.4.1
+image: ruby:2.5.1
 
 services:
    - mysql:5.7.22
@@ -6,7 +6,7 @@ services:
 variables:
    RAILS_ENV: "test"
    COVERAGE: "true"
-   MYSQL_HOST: "mysql"
+   MYSQL_HOST: "mysql2"
    MYSQL_PASSWORD: "sinclair"
 
 before_script:
