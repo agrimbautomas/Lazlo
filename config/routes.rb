@@ -2,11 +2,7 @@ Rails.application.routes.draw do
 
 	mount LetsencryptPlugin::Engine, at: '/'
 
-	begin
-		ActiveAdmin.routes(self)
-	rescue Exception => e
-		puts "ActiveAdmin: #{e.class}: #{e}"
-	end
+	ActiveAdmin.routes(self)
 
 	devise_for :admin_users, ActiveAdmin::Devise.config
 

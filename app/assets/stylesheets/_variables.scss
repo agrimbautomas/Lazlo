@@ -31,6 +31,10 @@ $slow_transition: all .4s ease-in-out;
 $green_notification: #7ed321;
 $yellow_notification: #fed604;
 
+// For active admin
+$theme-primary: #010203;
+$theme-accent: #fed604;
+$theme-accent-fallback: #ff7547;
 
 @font-face {
   font-family: 'futura';

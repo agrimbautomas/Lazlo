@@ -1,5 +1,6 @@
-ActiveAdmin.register User, as: I18n.t('activerecord.models.user.app_users') do
-  menu priority: 1, parent: I18n.t('activerecord.models.user.other')
+ActiveAdmin.register User do
+  menu priority: 1, label: I18n.t('activerecord.models.user.app_users'),
+	  parent: I18n.t('activerecord.models.user.other')
 
 
   index do
