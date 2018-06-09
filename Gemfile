@@ -39,7 +39,7 @@ gem 'paperclip', '~> 5.0.0'
 # For User roles, url: https://github.com/RolifyCommunity/rolify
 gem 'rolify'
 
-gem 'simple_form'
+#gem 'simple_form'
 
 # MercadoPago https://github.com/mercadopago/sdk-ruby
 gem 'mercadopago-sdk'
