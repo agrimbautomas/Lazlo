@@ -1,67 +1,118 @@
-// SASS variable overrides must be declared before loading up Active Admin's styles.
-//
-// To view the variables that Active Admin provides, take a look at
-// `app/assets/stylesheets/active_admin/mixins/_variables.scss` in the
-// Active Admin source.
-//
-// For example, to change the sidebar width:
-// $sidebar-width: 242px;
-// Active Admin's got SASS!
-
-
-//$skinMainFirstColor: #69caca!default;
-//$skinMainSecondColor: #f38385!default;
-//$skinBorderWindowColor: #c9afd4!default;
-
 @import "variables";
 @import "active_admin/mixins";
 @import "active_material";
-
-// Overriding any non-variable SASS must be done after the fact.
-// For example, to change the default status-tag color:
-//
-//   .status_tag { background: #6090DB; }
 
 .product-thumb {
   width: 40px;
 }
 
+thead tr {
+  background: #ececec;
+}
+
 tr {
 
-  &.encargado td{
-    background: #F7BCBC !important;
+  td.col {
+
+    a {
+      color: $blue-state;
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+      text-transform: lowercase;
+      padding: 2px 8px;
+
+      &:hover{
+        text-decoration: none;
+
+      }
+    }
+
+    &.col-selectable {
+      width: 1.5%;
+      padding: 0px 1.5%;
+    }
+
+    &.col-nro {
+      width: 2%;
+      padding: 0px 1%;
+    }
+
+    &.col-buyer {
+      width: 22%;
+      font-size: 11px;
+    }
+
+    &.col-title {
+      width: 10%;
+    }
+
+    &.col-pago {
+      width: 10%;
+    }
+
+    &.col-orden {
+      width: 20%;
+      text-align: center;
+      a {
+        color: white;
+      }
+    }
+
+    &.col-status {
+      width: 10%;
+    }
+
+    &.col-payment {
+      width: 10%;
+    }
+
+    &.col-fecha_limite {
+      width: 10%;
+    }
+
+    &.status a {
+      background: #F7BCBC !important;
+    }
+
   }
 
-  &.en-herreria td{
-    background: #FFD789 !important;
-  }
-  &.en-pintureria td{
-    background: #CAB1D5 !important;
-  }
-  &.listo-para-entregar td{
-    background: #70CACE !important;
-  }
-  &.entregada td{
-    background: #ACEFBA !important;
+  &.encargado .col-orden a {
+    background: $blue-state;
   }
 
-  &.even td{
+  &.en-herreria .col-orden a {
+    background: $red-state ;
   }
+
+  &.en-pintureria .col-orden a {
+    background: $grey-state;
+  }
+
+  &.listo-para-entregar .col-orden a {
+    background: $green-state;
+  }
+
+  &.entregada .col-orden a {
+    background: #ACEFBA ;
+  }
+
+
   .status {
     font-weight: bold;
   }
 
 }
 
-a.finished-button{
+a.finished-button {
   color: #009E00;
   font-weight: bold;
 }
 
-li.total-row-price{
+li.total-row-price {
   font-size: 16px;
 }
 
-#header h1 img{
+#header h1 img {
   width: 95px;
 }

@@ -16,7 +16,7 @@ ActiveAdmin.setup do |config|
   #
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
-  config.site_title_image = "logos/lazlo-logotipo.svg"
+  config.site_title_image = "logos/lazlo-logotipo-white.png"
 
   # == Default Namespace
   #
@@ -154,7 +154,7 @@ ActiveAdmin.setup do |config|
 
   # == Setting a Favicon
   #
-  config.favicon = 'lazlo-icon-40.png'
+  config.favicon = 'logos/lazlo-icon-40.png'
 
   # == Meta Tags
   #

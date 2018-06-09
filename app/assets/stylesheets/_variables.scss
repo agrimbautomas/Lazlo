@@ -31,10 +31,23 @@ $slow_transition: all .4s ease-in-out;
 $green_notification: #7ed321;
 $yellow_notification: #fed604;
 
+
+
 // For active admin
-$theme-primary: #010203;
-$theme-accent: #fed604;
-$theme-accent-fallback: #ff7547;
+$am-theme-primary: #010203;
+$am-theme-accent: #010203 !default;
+
+$am-theme-accent: $yellow_lazlo;
+$am-font-sans: 'futura', sans-serif !default;
+
+// Order States
+$blue-state: #2185F5;
+$red-state: #EE3B37;
+$orange-state: #FFB000;
+$green-state: #009D58;
+$grey-state: #656565;
+
+
 
 @font-face {
   font-family: 'futura';

@@ -96,13 +96,14 @@ ActiveAdmin.register Order do
 	 end
 
 	 column :title do |order|
-		p order.title
+		p order.title.split.slice(0, 7).join(' ')
 	 end
 
-	 column 'Estado del Pago' do |order|
+	 column 'Pago' do |order|
 		I18n.t("mercado_pago_purchase.order_status.#{order.mercado_pago_purchase.status}") unless order.mercado_pago_purchase.nil?
 	 end
-	 column 'Estado de la Orden', :class => 'status' do |order|
+
+	 column 'Orden' do |order|
 		order.order_status
 	 end
 
