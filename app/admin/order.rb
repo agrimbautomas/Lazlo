@@ -100,7 +100,7 @@ ActiveAdmin.register Order do
 	 end
 
 	 column 'Pago' do |order|
-		I18n.t("mercado_pago_purchase.order_status.#{order.mercado_pago_purchase.status}") unless order.mercado_pago_purchase.nil?
+		span I18n.t("mercado_pago_purchase.order_status.#{order.mercado_pago_purchase.status}") unless order.mercado_pago_purchase.nil?
 	 end
 
 	 column 'Orden' do |order|
@@ -109,10 +109,10 @@ ActiveAdmin.register Order do
 
 
 	 column :payment do |order|
-		'$' + order.payment.to_s
+		 format_price order.payment
 	 end if current_admin_user.has_role? :full_admin
 
-	 column 'Fecha Límite' do |order|
+	 column 'Límite' do |order|
 		(order.created_at + 15.days).strftime("%m/%d")
 	 end if current_admin_user.has_role? :full_admin
 
@@ -183,7 +183,7 @@ ActiveAdmin.register Order do
 		end
 
 		row :payment do |order|
-		  '$' + order.payment.to_s
+			format_price order.payment
 		end if current_admin_user.has_role? :full_admin
 
 		row 'Tracking Link' do

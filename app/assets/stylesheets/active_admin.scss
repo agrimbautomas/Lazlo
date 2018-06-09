@@ -6,102 +6,153 @@
   width: 40px;
 }
 
-thead tr {
-  background: #ececec;
+.dropdown_menu_button.disabled {
+  font-size: 12px;
 }
 
-tr {
+.scopes li {
+  font-size: 10px;
+  margin-left: 10px;
+}
 
-  td.col {
+table.index_table {
+  thead {
+    tr {
+      background: #ececec;
+    }
 
-    a {
-      color: $blue-state;
-      -webkit-border-radius: 2px;
-      -moz-border-radius: 2px;
-      border-radius: 2px;
-      text-transform: lowercase;
-      padding: 2px 8px;
+  }
 
-      &:hover{
-        text-decoration: none;
+  thead th.col-selectable,
+  tr td.col.col-selectable {
+    width: 1.5%;
+    padding: 0px 1.5%;
+  }
 
+  th.col.col-nro,
+  tr td.col.col-nro {
+    width: 2%;
+    padding: 0px 1%;
+  }
+
+  th.col.col-orden,
+  tr td.col.col-orden {
+    width: 22%;
+    text-align: center;
+  }
+
+  th.col.col-pago,
+  tr td.col.col-pago{
+    width: 20%;
+    text-align: center;
+  }
+
+  th.col.col-payment,
+  tr td.col.col-payment,
+  th.col-fecha_limite,
+  tr td.col-fecha_limite {
+    width: 2%;
+    padding: 8px 1%;
+    text-align: center;
+  }
+
+  tr {
+
+    td.col {
+
+      a,
+      &.col-pago span {
+        color: $blue-state;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        text-transform: lowercase;
+        padding: 2px 8px;
+
+        &:hover {
+          text-decoration: none;
+
+        }
       }
-    }
 
-    &.col-selectable {
-      width: 1.5%;
-      padding: 0px 1.5%;
-    }
-
-    &.col-nro {
-      width: 2%;
-      padding: 0px 1%;
-    }
-
-    &.col-buyer {
-      width: 22%;
-      font-size: 11px;
-    }
-
-    &.col-title {
-      width: 10%;
-    }
-
-    &.col-pago {
-      width: 10%;
-    }
-
-    &.col-orden {
-      width: 20%;
-      text-align: center;
-      a {
-        color: white;
+      &.col-selectable {
       }
+
+      &.col-nro {
+      }
+
+      &.col-buyer {
+        width: 22%;
+        font-size: 11px;
+        padding: 8px 1% 8px 0px;
+      }
+
+      &.col-title {
+        width: 10%;
+        text-transform: lowercase;
+        font-size: 12px;
+        line-height: 14px;
+        padding: 4px 0%;
+      }
+
+      &.col-pago {
+        span {
+          background: $green-state;
+          color: white;
+        }
+      }
+
+      &.col-orden {
+        a {
+          color: white;
+        }
+      }
+
+      &.col-status {
+        width: 10%;
+      }
+
+      &.col-payment {
+      }
+
+      &.col-fecha_limite {
+      }
+
+      &.status a {
+        background: #F7BCBC !important;
+      }
+
     }
 
-    &.col-status {
-      width: 10%;
+    &.encargado .col-orden a {
+      background: $blue-state;
     }
 
-    &.col-payment {
-      width: 10%;
+    &.en-herreria .col-orden a {
+      background: $orange-state;
     }
 
-    &.col-fecha_limite {
-      width: 10%;
+    &.en-pintureria .col-orden a {
+      background: $red-state;
     }
 
-    &.status a {
-      background: #F7BCBC !important;
+    &.listo-para-entregar .col-orden a {
+      background: $green-state;
+    }
+
+    &.entregada .col-orden a {
+      background: $grey-state;
+    }
+
+    &.cancelado .col-orden a {
+      background: $red-state;
+    }
+
+    .status {
+      font-weight: bold;
     }
 
   }
-
-  &.encargado .col-orden a {
-    background: $blue-state;
-  }
-
-  &.en-herreria .col-orden a {
-    background: $red-state ;
-  }
-
-  &.en-pintureria .col-orden a {
-    background: $grey-state;
-  }
-
-  &.listo-para-entregar .col-orden a {
-    background: $green-state;
-  }
-
-  &.entregada .col-orden a {
-    background: #ACEFBA ;
-  }
-
-
-  .status {
-    font-weight: bold;
-  }
-
 }
 
 a.finished-button {
@@ -116,3 +167,4 @@ li.total-row-price {
 #header h1 img {
   width: 95px;
 }
+
