@@ -6,5 +6,5 @@ set :deploy_to, '/srv/rails/lazlo-beta-web'
 
 server 'lazlo.la', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
-set :rails_env, 'lazlo'
+set :rails_env, 'staging'
 set :branch, 'lazlo'
