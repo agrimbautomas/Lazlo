@@ -13,7 +13,7 @@ var materialPrice;
 var $resultBox;
 var DIAMETER_EXTRA_PRICE_RATE = 1.5439;
 
-$(document).ready(function () {
+jQuery(document).ready(function () {
 
     $widthInput = $('input[name="width_size"]');
     $heightInput = $('input[name="height_size"]');

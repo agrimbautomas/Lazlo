@@ -25,8 +25,6 @@ gem 'devise-encryptable'
 gem 'devise-i18n'
 gem 'jbuilder', '~> 2.0'
 
-gem 'jquery-rails'
-
 gem 'rails_config'
 
 gem 'mysql2', '~> 0.3.18'

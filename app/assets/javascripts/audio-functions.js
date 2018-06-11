@@ -1,5 +1,5 @@
 
-$(document).ready(function () {
+jQuery(document).ready(function () {
 
     papin();
     foca();
