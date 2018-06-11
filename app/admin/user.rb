@@ -7,7 +7,9 @@ ActiveAdmin.register User do
 	 selectable_column
 
 	 column :id
-	 column :email
+	 column :email do |user|
+		 link_to user.email, admin_user_path(user)
+	 end
 
 	 column 'Última vez conectado' do |user|
 		user.last_sign_in_at.strftime('%H:%M %d/%m/%Y') unless user.last_sign_in_at.nil?
@@ -15,10 +17,6 @@ ActiveAdmin.register User do
 
 	 column 'Registro' do |user|
 		user.confirmation_token.nil? ? 'Facebook' : 'Página'
-	 end
-
-	 column 'Fecha de creación' do |user|
-		user.created_at.strftime('%H:%M %d/%m/%Y')
 	 end
 
 	 column 'Productos en carrito' do |user|

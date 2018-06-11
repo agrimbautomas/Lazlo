@@ -2,169 +2,266 @@
 @import "active_admin/mixins";
 @import "active_material";
 
-.product-thumb {
-  width: 40px;
-}
+.active_admin {
 
-.dropdown_menu_button.disabled {
-  font-size: 12px;
-}
+  #wrapper{
+    padding-bottom: 60px;
+  }
 
-.scopes li {
-  font-size: 10px;
-  margin-left: 10px;
-}
+  .product-thumb {
+    width: 40px;
+  }
 
-table.index_table {
-  thead {
+  .dropdown_menu_button.disabled {
+    font-size: 12px;
+  }
+
+  .scopes li {
+    font-size: 10px;
+    margin-left: 10px;
+  }
+
+  .attributes_table {
+    table {
+      width: 100%;
+      tr {
+        display: inline-block;
+        width: 50%;
+        margin: 20px auto;
+
+        th {
+          display: inline-block;
+          font-size: 14px;
+          font-weight: normal;
+          text-decoration: underline;
+          margin: 0px auto 6px;
+        }
+      }
+    }
+
+  }
+
+  table.index_table {
+    table-layout: fixed;
+
+    thead {
+      tr {
+        background: #ececec;
+      }
+
+    }
+
+    thead th.col-selectable,
+    tr td.col.col-selectable {
+      width: 4%;
+      padding: 0px 1.5%;
+    }
+
+    th.col.col-id,
+    tr td.col.col-id {
+      width: 5%;
+      padding: 0px 1%;
+      text-align: center;
+    }
+
+    // String small column
+    th.col.col-limite,
+    tr td.col.col-limite,
+    th.col.col-payment,
+    tr td.col.col-payment {
+      width: 7%;
+      text-align: center;
+      font-size: 11px;
+      padding: 8px 1%;
+    }
+
+    // String medium column
+    th.col.col-orden,
+    tr td.col.col-orden,
+    th.col-pago,
+    tr td.col-pago,
+    th.col-fecha_de_creacion,
+    tr td.col-fecha_de_creacion,
+    th.col-registro,
+    tr td.col-registro,
+    th.col-ultima_vez_conectado,
+    tr td.col-ultima_vez_conectado,
+    th.col-productos_en_carrito,
+    tr td.col-productos_en_carrito,
+    th.col-productos_comprados,
+    tr td.col-productos_comprados,
+    th.col.col-pago,
+    tr td.col.col-pago {
+      width: 15%;
+      text-align: center;
+      font-size: 11px;
+      padding: 8px 1%;
+    }
+
+    // String large column
+    th.col-buyer,
+    tr td.col-buyer,
+    th.col-email,
+    tr td.col-email{
+      width: 25%;
+      text-align: center;
+      padding: 8px 0.5%;
+    }
+
+    //Number column
+    th.col-id,
+    tr td.col-id,
+    th.col-fecha_limite,
+    tr td.col-fecha_limite {
+      width: 2%;
+      padding: 8px 1%;
+      text-align: center;
+    }
+
     tr {
-      background: #ececec;
-    }
 
-  }
+      td.col {
 
-  thead th.col-selectable,
-  tr td.col.col-selectable {
-    width: 1.5%;
-    padding: 0px 1.5%;
-  }
+        a,
+        &.col-pago span {
+          color: $blue-state;
+          -webkit-border-radius: 2px;
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+          text-transform: lowercase;
+          padding: 2px 8px;
 
-  th.col.col-nro,
-  tr td.col.col-nro {
-    width: 2%;
-    padding: 0px 1%;
-  }
+          &:hover {
+            text-decoration: none;
 
-  th.col.col-orden,
-  tr td.col.col-orden {
-    width: 22%;
-    text-align: center;
-  }
-
-  th.col.col-pago,
-  tr td.col.col-pago{
-    width: 20%;
-    text-align: center;
-  }
-
-  th.col.col-payment,
-  tr td.col.col-payment,
-  th.col-fecha_limite,
-  tr td.col-fecha_limite {
-    width: 2%;
-    padding: 8px 1%;
-    text-align: center;
-  }
-
-  tr {
-
-    td.col {
-
-      a,
-      &.col-pago span {
-        color: $blue-state;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
-        border-radius: 2px;
-        text-transform: lowercase;
-        padding: 2px 8px;
-
-        &:hover {
-          text-decoration: none;
-
+          }
         }
-      }
 
-      &.col-selectable {
-      }
-
-      &.col-nro {
-      }
-
-      &.col-buyer {
-        width: 22%;
-        font-size: 11px;
-        padding: 8px 1% 8px 0px;
-      }
-
-      &.col-title {
-        width: 10%;
-        text-transform: lowercase;
-        font-size: 12px;
-        line-height: 14px;
-        padding: 4px 0%;
-      }
-
-      &.col-pago {
-        span {
-          background: $green-state;
-          color: white;
+        &.col-selectable {
         }
-      }
 
-      &.col-orden {
-        a {
-          color: white;
+        &.col-nro {
         }
+
+        &.col-buyer {
+          width: 22%;
+          font-size: 11px;
+          padding: 8px 1% 8px 0px;
+        }
+
+        &.col-title {
+          width: 10%;
+          text-transform: lowercase;
+          font-size: 12px;
+          line-height: 14px;
+          padding: 4px 0%;
+        }
+
+        &.col-pago {
+          span {
+            background: $green-state;
+            color: white;
+          }
+        }
+
+        &.col-orden {
+          a {
+            color: white;
+          }
+        }
+
+        &.col-status {
+          width: 10%;
+        }
+
+        &.col-payment {
+        }
+
+        &.col-fecha_limite {
+        }
+
+        &.status a {
+          background: #F7BCBC !important;
+        }
+
       }
 
-      &.col-status {
-        width: 10%;
+      &.encargado .col-orden a {
+        background: $blue-state;
       }
 
-      &.col-payment {
+      &.en-herreria .col-orden a {
+        background: $orange-state;
       }
 
-      &.col-fecha_limite {
+      &.en-pintureria .col-orden a {
+        background: $red-state;
       }
 
-      &.status a {
-        background: #F7BCBC !important;
+      &.listo-para-entregar .col-orden a {
+        background: $green-state;
+      }
+
+      &.entregada .col-orden a {
+        background: $grey-state;
+      }
+
+      &.cancelado .col-orden a {
+        background: $red-state;
+      }
+
+      .status {
+        font-weight: bold;
       }
 
     }
+  }
 
-    &.encargado .col-orden a {
-      background: $blue-state;
-    }
+  #active_admin_content {
 
-    &.en-herreria .col-orden a {
-      background: $orange-state;
-    }
-
-    &.en-pintureria .col-orden a {
-      background: $red-state;
-    }
-
-    &.listo-para-entregar .col-orden a {
-      background: $green-state;
-    }
-
-    &.entregada .col-orden a {
-      background: $grey-state;
-    }
-
-    &.cancelado .col-orden a {
-      background: $red-state;
-    }
-
-    .status {
+    h4 {
       font-weight: bold;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+  }
+
+  a.finished-button {
+    color: #009E00;
+    font-weight: bold;
+  }
+
+  li.total-row-price {
+    padding: 0px 16px;
+  }
+
+  #header h1 img {
+    width: 95px;
+  }
+
+  .has_many_add{
+    background: $black_lazlo;
+    color: white;
+    font-weight: bold;
+    margin: 20px 2%;
+  }
+
+  .footer{
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .active_admin {
+    .attributes_table {
+      table {
+
+        tr {
+          width: 100%;
+        }
+      }
     }
 
   }
 }
-
-a.finished-button {
-  color: #009E00;
-  font-weight: bold;
-}
-
-li.total-row-price {
-  font-size: 16px;
-}
-
-#header h1 img {
-  width: 95px;
-}
-

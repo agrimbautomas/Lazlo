@@ -83,9 +83,7 @@ ActiveAdmin.register Order do
   index(:row_class => -> record { OrderStatus.find(record.order_status_id).name_slug unless record.order_status_id.nil? }) do
 	 selectable_column
 
-	 column 'Nro' do |order|
-		p order.id
-	 end
+	 column :id
 
 	 column :buyer do |order|
 		if order.buyer.present?
