@@ -9,10 +9,10 @@ $(document).ready(function () {
 
 // Header Scroll functions
 function setUpHeaderToggleOnScroll() {
-
     $(window).scroll(function (event) {
-        didScroll = true;
-    });
+		  console.log(didScroll );
+		  didScroll = true;
+	 });
 
     setInterval(function () {
         if (didScroll) {
@@ -21,22 +21,14 @@ function setUpHeaderToggleOnScroll() {
         }
     }, 250);
 
+
 }
 
-$(window).scroll(function (event) {
-    didScroll = true;
-});
-
-setInterval(function () {
-    if (didScroll) {
-        hasScrolled();
-        didScroll = false;
-    }
-}, 250);
 
 function hasScrolled() {
     var st = $(this).scrollTop();
     var navbarHeight = $('header').outerHeight();
+    console.log(navbarHeight );
 
     if (Math.abs(lastScrollTop - st) <= delta)
         return;

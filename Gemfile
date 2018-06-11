@@ -33,13 +33,13 @@ gem 'mysql2', '~> 0.3.18'
 gem 'omniauth-facebook'
 
 gem 'paperclip', '~> 5.0.0'
-#gem 'rails-i18n', '~> 4.0.0'
+gem 'rails-i18n'
 
 
 # For User roles, url: https://github.com/RolifyCommunity/rolify
 gem 'rolify'
 
-#gem 'simple_form'
+gem 'simple_form'
 
 # MercadoPago https://github.com/mercadopago/sdk-ruby
 gem 'mercadopago-sdk'
