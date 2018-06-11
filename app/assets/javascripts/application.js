@@ -1,54 +1,53 @@
 //= require_tree .
 //= require jquery3
 //= require jquery_ujs
-// require turbolinks Avoid turbo links since images dont show properly
 
-var $contactForm;
-$( document ).ready(function(){
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
 
-    setupVars();
-    setupContactForm();
-    setupAlertButtons();
-
-
-    function setupVars() {
-        $contactForm = $('.contact-form')
-    }
-
-    function setupContactForm() {
-        $('.contact-form-button').each(function () {
-            $(this).click(function () {
-                showContactForm();
-            })
-        })
-
-        $('.close-contact-form').click(function () {
-            hideContactForm();
-        })
-    }
-
-
-    function showContactForm() {
-        $contactForm.show().animate({
-            opacity: 1
-        }, 300);
-    }
-
-    function hideContactForm() {
-        $contactForm.animate({
-            opacity: 0
-        }, 300, function () {
-            $(this).hide()
-        });
-    }
-
-    function setupAlertButtons() {
-        $('.notification-bar .close-notification-bar').each(function () {
-            $(this).click(function () {
-                $(this).parent().hide();
-            });
-        });
-    }
-
+$(document).ready(function () {
+	 setUpHeaderToggleOnScroll();
+	 setupSilderCarousel();
 });
 
+// Header Scroll functions
+function setUpHeaderToggleOnScroll() {
+
+	 $(window).scroll(function (event) {
+		  didScroll = true;
+	 });
+
+	 setInterval(function () {
+		  if (didScroll) {
+				hasScrolled();
+				didScroll = false;
+		  }
+	 }, 250);
+
+}
+
+function hasScrolled() {
+	 var st = $(this).scrollTop();
+	 var navbarHeight = $('header').outerHeight();
+
+	 if (Math.abs(lastScrollTop - st) <= delta)
+		  return;
+
+	 if (st > lastScrollTop && st > navbarHeight) {
+		  $('header').removeClass('nav-down').addClass('nav-up');
+	 } else {
+		  if (st + $(window).height() < $(document).height())
+				$('header').removeClass('nav-up').addClass('nav-down');
+	 }
+
+	 lastScrollTop = st;
+}
+
+function setupSilderCarousel(){
+	 $('.bx-wrapper').bxSlider({
+		  randomStart: true,
+		  controls: false,
+		  mode: 'vertical'
+	 });
+}
