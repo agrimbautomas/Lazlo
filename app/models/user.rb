@@ -2,8 +2,6 @@ class User < ApplicationRecord
 
 	acts_as_paranoid
 
-	# Include default devise modules. Others available are:
-	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable, :encryptable,
 		:recoverable, :rememberable, :trackable, :validatable,
 		:omniauthable, :confirmable, :omniauth_providers => [:facebook]
@@ -30,6 +28,10 @@ class User < ApplicationRecord
 
 	def name
 		email.gsub(/.+@([^.]+).+/, '\0');
+	end
+
+	def current_orders
+		Order.current_for self
 	end
 
 	def add_product_to_cart product

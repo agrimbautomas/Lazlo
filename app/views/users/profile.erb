@@ -2,18 +2,55 @@
 <%= render :partial => 'layouts/header' %>
 <!-- End Header -->
 
+<% if @current_purchased_orders.any? %>
+  <div class="profile-purchase-header">
+    <div class="grilla">
+
+
+      <div class="block">
+        <h2>tu compra</h2>
+      </div>
+
+
+      <div class="block">
+        <div class="inner-block">
+          <h3>PRODUCTOS</h3>
+          Nombre del producto
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="inner-block">
+          <h3>PRECIO</h3>
+          Nombre del producto
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="inner-block">
+          <h3>TRAKEO DEL PRODCUTO</h3>
+          Nombre del producto
+
+          <%= render :partial => 'users/orders/order_tracking' %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% end %>
+
 <div class="grilla user-purchased-products profile-container">
 
   <% if current_user.orders.any? %>
-      <% current_user.orders.order(:created_at => 'DESC').each do |order|
-        @order = order
-      %>
-          <%= render :partial => 'users/orders/order_row' %>
-      <% end %>
+    <% current_user.orders.order(:created_at => 'DESC').each do |order|
+      @order = order
+     %>
+      <%= render :partial => 'users/orders/order_row' %>
+    <% end %>
   <% else %>
-  <div class="no-orders-message">
-    No has realizado ninguna compra aún
-  </div>
+    <div class="no-orders-message">
+      No has realizado ninguna compra aún
+    </div>
   <% end %>
 
   <%= link_to 'Cerrar Sesión', destroy_user_session_path, :method => :delete, :class => 'log-out-button' %>

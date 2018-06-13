@@ -1,0 +1,26 @@
+<%= @order.order_status.name %>
+
+<div class="status-blocks-container">
+  <%
+    status_class = 'status-active'
+    @statuses.each_with_index do |product_status, i|
+  %>
+
+    <div class="status-block <%= status_class %>">
+      <div class="track">
+        <span class="line"></span>
+        <span class="dot"></span>
+      </div>
+
+      <label><%= product_status.name %></label>
+      <label class="date"><%= @order.created_at.strftime('%d/%m/%y') %></label>
+
+    </div>
+
+    <%
+      if (status_class == 'status-active') and (product_status == @order.order_status)
+        status_class = 'status-inactive'
+      end
+    %>
+  <% end %>
+</div>

@@ -43,6 +43,8 @@ class Order < ApplicationRecord
   validates_presence_of :user, :if => :buyer_is_nil?
   validates_presence_of :buyer, :if => :user_is_nil?
 
+  scope :current_for, -> (user) { where(:user => user).order(:created_at => 'DESC') }
+
   def set_code
 	 code = (0...8).map { (65 + rand(26)).chr }.join
 	 if Order.find_by(code: code).blank?

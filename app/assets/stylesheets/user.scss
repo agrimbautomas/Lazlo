@@ -1,5 +1,109 @@
 @import "variables";
 
+.profile-purchase-header {
+  width: 100%;
+  display: inline-block;
+  background: white;
+  box-shadow: 0px 1px 3px #e2e2e2;
+  text-align: center;
+  padding: 20px 0px 50px;
+
+  .block {
+    float: left;
+    width: 20%;
+    width: calc(20% - 1px);
+    width: -webkit-calc(20% - 1px);
+    border-right: #d8d8d8 1px solid;
+    text-align: left;
+    display: inline-block;
+    height: 140px;
+
+    &:last-child {
+      width: 40%;
+      border: none;
+    }
+
+    h2 {
+      color: $black_lazlo;
+      font-size: 2.4em;
+      display: inline-block;
+      line-height: 0.8em;
+    }
+
+    .inner-block {
+      width: 86%;
+      margin: 0px 7%;
+      font-size: 0.8em;
+
+      h3 {
+        font-size: 0.95em;
+        margin: 0px 0px 10px;
+      }
+    }
+  }
+
+  .status-blocks-container {
+    width: 100%;
+    display: inline-block;
+    margin: 20px 0px;
+
+    .status-block {
+      width: 20%;
+      float: left;
+
+      .track {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        height: 22px;
+        position: relative;
+        margin-left: -50px;
+
+        .line, .dot {
+          background: $yellow_lazlo;
+          color: $yellow_lazlo;
+          float: left;
+          position: absolute;
+        }
+
+        .line {
+          width: 100%;
+          height: 4px;
+          top: 8px;
+          left: 0px;
+        }
+
+        .dot {
+          width: 20px;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          height: 20px;
+          right: 0px;
+        }
+
+      }
+
+      &:first-child .track .line {
+        display: none;
+      }
+
+      label{
+        width: 100%;
+        display: inline-block;
+        font-weight: bold;
+
+        &.date{
+          color: #828282;
+          font-weight: lighter;
+          font-style: italic;
+        }
+      }
+
+    }
+  }
+}
+
 .profile-container.grilla {
   width: 700px;
 
@@ -14,17 +118,17 @@
       font-style: italic;
       color: grey;
 
-      span.status{
+      span.status {
         font-weight: bold;
       }
-      
-      span.tracking-link{
+
+      span.tracking-link {
         float: right;
         margin-right: 3%;
         text-decoration: underline;
-        a{
+        a {
           color: $purple_lazlo;
-          &:hover{
+          &:hover {
             color: $purple_lazlo_hover;
           }
         }
@@ -53,7 +157,7 @@
         width: 50%;
         text-align: left;
         font-size: 18px;
-        a:hover{
+        a:hover {
           color: $green_lazlo_hover;
         }
       }
@@ -74,13 +178,13 @@
       }
     }
 
-    .total-row{
+    .total-row {
       width: 90%;
 
       margin: 10px 5%;
 
       span,
-      h6{
+      h6 {
         display: inline-block;
         float: left;
         text-align: right;
@@ -89,24 +193,24 @@
         line-height: 25px;
       }
 
-      h6{
+      h6 {
         width: 70%;
       }
 
-      span{
+      span {
         width: 30%;
       }
     }
   }
 
-  .no-orders-message{
+  .no-orders-message {
     font-size: 32px;
     font-family: 'Josefin Sans', sans-serif;
     width: 90%;
     margin: 150px 5% 200px;
   }
 
-  .log-out-button{
+  .log-out-button {
     text-decoration: underline;
   }
 }
