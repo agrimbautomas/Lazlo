@@ -13,8 +13,13 @@
       </div>
 
       <label><%= product_status.name %></label>
-      <label class="date"><%= @order.created_at.strftime('%d/%m/%y') %></label>
 
+      <% if product_status == @statuses.first %>
+        <label class="date"><%= @order.created_at.strftime('%d/%m/%y') %></label>
+      <% elsif product_status == @statuses.last %>
+        <label class="date"><%= (@order.created_at + 15.days).strftime('%d/%m/%y') %></label>
+      <% end %>
+      
     </div>
 
     <%
