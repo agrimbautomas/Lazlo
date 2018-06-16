@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   def profile
 
     @statuses = OrderStatus.visible.order(:priority)
-    @current_purchased_orders =  current_user.current_orders
-    @order = @current_purchased_orders.first
+    # Todo Remove limit
+    @current_purchased_orders =  current_user.current_orders.limit(3)
 
   end
 

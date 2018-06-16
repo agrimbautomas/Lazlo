@@ -1,31 +1,55 @@
-<%= @order.order_status.name %>
+<div class="order-row">
 
-<div class="status-blocks-container">
-  <%
-    status_class = 'status-active'
-    @statuses.each_with_index do |product_status, i|
-  %>
 
-    <div class="status-block <%= status_class %>">
-      <div class="track">
-        <span class="line"></span>
-        <span class="dot"></span>
+  <div class="block">
+    <div class="inner-block">
+      <h3>PRODUCTOS</h3>
+      <%= render :partial => 'users/orders/order_row' %>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="inner-block">
+      <h3>PRECIO TOTAL</h3>
+      <%= format_price @order.total %>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="inner-block">
+      <h3>TRACKEO DE LOS PRODUCTOS</h3>
+      <%= @order.order_status.name %>
+
+      <div class="status-blocks-container">
+        <%
+          status_class = 'status-active'
+          @statuses.each_with_index do |product_status, i|
+        %>
+
+          <div class="status-block <%= status_class %>">
+            <div class="track">
+              <span class="line"></span>
+              <span class="dot"></span>
+            </div>
+
+            <label><%= product_status.name %></label>
+
+            <% if product_status == @statuses.first %>
+              <label class="date"><%= @order.created_at.strftime('%d/%m/%y') %></label>
+            <% elsif product_status == @statuses.last %>
+              <label class="date"><%= (@order.created_at + 15.days).strftime('%d/%m/%y') %></label>
+            <% end %>
+
+          </div>
+
+          <%
+            if (status_class == 'status-active') and (product_status == @order.order_status)
+              status_class = 'status-inactive'
+            end
+          %>
+        <% end %>
       </div>
 
-      <label><%= product_status.name %></label>
-
-      <% if product_status == @statuses.first %>
-        <label class="date"><%= @order.created_at.strftime('%d/%m/%y') %></label>
-      <% elsif product_status == @statuses.last %>
-        <label class="date"><%= (@order.created_at + 15.days).strftime('%d/%m/%y') %></label>
-      <% end %>
-      
     </div>
-
-    <%
-      if (status_class == 'status-active') and (product_status == @order.order_status)
-        status_class = 'status-inactive'
-      end
-    %>
-  <% end %>
+  </div>
 </div>

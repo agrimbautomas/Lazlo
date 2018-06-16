@@ -64,7 +64,7 @@ ActiveAdmin.register User do
 		  end
 
 		  column t('total') do |product_row|
-			 product_row.formatted_total unless product_row.product.nil?
+			  format_price product_row.total unless product_row.product.nil?
 		  end
 
 		  column I18n.t('activerecord.models.product_image.one') do |product_row|

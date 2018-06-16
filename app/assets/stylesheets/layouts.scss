@@ -328,16 +328,22 @@ header {
         }
 
         &.header-user-name {
-          width: 94px;
+          min-width: 94px;
           height: 21px;
           font-size: 16px;
           text-align: left;
           color: rgba(0, 0, 0, 0.6);
           padding: 20px 9px;
+          width: auto;
 
           &:hover {
             color: #fed604;
+
+            .notification-number{
+              color: rgba(0, 0, 0, 0.6);
+            }
           }
+
         }
 
         &.cart-block {
@@ -357,21 +363,25 @@ header {
             background: rgba(254, 214, 4, 1);
           }
 
-          .notification-number {
-            background: #ff0e12;
-            position: absolute;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            border-radius: 50%;
-            height: 18px;
-            width: 18px;
-            text-align: center;
-            top: 2px;
-            right: 2px;
-            font-size: 12px;
-            line-height: 18px;
-          }
         }
+
+        .notification-number {
+          background: $yellow_lazlo;
+          position: absolute;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          height: 20px;
+          width: 20px;
+          text-align: center;
+          top: 12px;
+          right: 0px;
+          font-size: 12px;
+          line-height: 21px;
+          font-weight: bold;
+
+        }
+
       }
 
     }

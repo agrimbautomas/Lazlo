@@ -17,7 +17,7 @@
             </div>
 
             <span class="cart-product-price">
-                <%= product_row.formatted_total %>
+                <%= format_price product_row.total %>
             </span>
 
             <span class="cart-product-image">
@@ -31,7 +31,7 @@
 
       <div class="total-row">
         <h6>Total:</h6>
-        <span><%= @order.order_products_list.formatted_total %></span>
+        <span><%= format_price @order.total %></span>
       </div>
   <% end %>
 </div>

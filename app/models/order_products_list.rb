@@ -33,8 +33,4 @@ class OrderProductsList < ApplicationRecord
 	 total
   end
 
-  def formatted_total
-	 '$' + total.to_s
-  end
-
 end

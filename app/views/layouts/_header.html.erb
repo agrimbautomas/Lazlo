@@ -10,7 +10,9 @@
     </svg>
   </div>
 
-  <div class="notification-bar alert <% if alert.nil? %> hidden-bar <% end %>">
+  <div class="notification-bar alert
+    <% if alert.nil? %> hidden-bar
+    <% end %>">
     <p><%= alert %></p>
     <i class="fa fa-times-circle" aria-hidden="true"></i>
   </div>
@@ -88,23 +90,11 @@
       </a>
 
 
+      <a class="header-user-name" href="<%= user_signed_in? ? profile_url : new_user_session_path %>">
+        <%= user_signed_in? ? current_user.email : 'iniciar sesión' %>
 
-
-
-
-      <% if user_signed_in? %>
-          <a class="header-user-name" href="<%= profile_url %>"><%= current_user.email %></a>
-
-          <a class="social-icons smooth-transition cart-block" href="<%= cart_path %>">
-            <% if current_user.cart_count.present? %>
-                <span class="notification-number"><%= current_user.cart_count %></span>
-            <% end %>
-          </a>
-
-      <% else %>
-          <%= link_to 'iniciar sesión', new_user_session_path, :class => 'header-user-name' %>
-
-          <a class="social-icons smooth-transition with-hover cart-block" href="<%= cart_path %>">
+        <!--
+        <span class="social-icons smooth-transition with-hover cart-block" href="<%= cart_path %>">
             <span>
               <svg class="header-icon">
                 <use xlink:href="<%= image_url('sprite.svg') %>#cart-icon"/>
@@ -113,10 +103,15 @@
                 <use xlink:href="<%= image_url('sprite.svg') %>#cart-icon"/>
               </svg>
             </span>
-          </a>
-
-      <% end %>
-
+          <% if user_signed_in? and current_user.cart_count.present? %>
+            <span class="notification-number"><%= current_user.cart_count %></span>
+          <% end %>
+        </span>
+        -->
+        <% if user_signed_in? and current_user.cart_count.present? %>
+          <span class="notification-number"><%= current_user.cart_count %></span>
+        <% end %>
+      </a>
 
     </div>
 

@@ -8,26 +8,44 @@
   text-align: center;
   padding: 20px 0px 50px;
 
-  .block {
+  .order-row {
+    display: inline-block;
+    float: right;
+    width: 80%;
+
+    margin: 0px 0px 25px;
+  }
+
+  .purchase-block {
     float: left;
     width: 20%;
-    width: calc(20% - 1px);
-    width: -webkit-calc(20% - 1px);
-    border-right: #d8d8d8 1px solid;
     text-align: left;
     display: inline-block;
     height: 140px;
-
-    &:last-child {
-      width: 40%;
-      border: none;
-    }
+    border: none;
 
     h2 {
       color: $black_lazlo;
       font-size: 2.4em;
       display: inline-block;
       line-height: 0.8em;
+    }
+  }
+
+  .block {
+    float: left;
+    width: 25%;
+    width: calc(25% - 1px);
+    width: -webkit-calc(25% - 1px);
+    border-left: #d8d8d8 1px solid;
+    text-align: left;
+    display: inline-block;
+    height: 140px;
+
+    &:last-child {
+      width: 50%;
+      width: calc(50% - 1px);
+      width: -webkit-calc(50% - 1px);
     }
 
     .inner-block {
@@ -88,19 +106,19 @@
         display: none;
       }
 
-      label{
+      label {
         width: 100%;
         display: inline-block;
         font-weight: bold;
 
-        &.date{
+        &.date {
           color: #828282;
           font-weight: lighter;
           font-style: italic;
         }
       }
 
-      &.status-inactive{
+      &.status-inactive {
 
         .track .line,
         .track .dot {
@@ -108,12 +126,12 @@
           color: $grey_hover;
         }
 
-        .date{
+        .date {
           display: none;
         }
 
-        &:last-child{
-          .date{
+        &:last-child {
+          .date {
             display: inline-block;
           }
         }
@@ -122,104 +140,35 @@
 
     }
   }
-}
 
-.profile-container.grilla {
-  width: 700px;
-
-  .user-purchased-item-block {
+  .product-row {
     width: 100%;
-    margin: 80px 0px;
+    display: inline-block;
+    padding: 6px 0px;
 
-    .order-info-row {
-      width: 100%;
-      display: inline-block;
+    a {
+      width: 80%;
       text-align: left;
-      font-style: italic;
-      color: grey;
+      font-size: 18px;
+      text-decoration: underline;
 
-      span.status {
-        font-weight: bold;
+      &:hover {
+        color: $yellow_lazlo;
       }
 
-      span.tracking-link {
-        float: right;
-        margin-right: 3%;
-        text-decoration: underline;
-        a {
-          color: $purple_lazlo;
-          &:hover {
-            color: $purple_lazlo_hover;
-          }
-        }
-      }
-
-      h4 {
-        width: 80%;
-        float: left;
-        text-align: left;
-        font-size: 22px;
-      }
-
-      .cart-product-quantity {
-        width: 20%;
-        float: right;
-      }
     }
 
-    .product-row {
-      width: 100%;
+    .cart-product-price {
+      width: 20%;
+      text-align: right;
+
+    }
+
+    a,
+    .cart-product-price {
       display: inline-block;
-      padding: 10px 0px;
-      border-bottom: 1px solid $grey_hover;
-
-      h2 {
-        width: 50%;
-        text-align: left;
-        font-size: 18px;
-        a:hover {
-          color: $green_lazlo_hover;
-        }
-      }
-
-      .cart-product-quantity {
-        width: 30%;
-      }
-
-      .cart-product-price {
-        width: 20%;
-      }
-
-      h2,
-      .cart-product-quantity,
-      .cart-product-price {
-        display: inline-block;
-        float: left;
-      }
-    }
-
-    .total-row {
-      width: 90%;
-
-      margin: 10px 5%;
-
-      span,
-      h6 {
-        display: inline-block;
-        float: left;
-        text-align: right;
-        font-size: 16px;
-        font-weight: bold;
-        line-height: 25px;
-      }
-
-      h6 {
-        width: 70%;
-      }
-
-      span {
-        width: 30%;
-      }
+      float: left;
+      font-size: 12px;
     }
   }
 
@@ -230,10 +179,10 @@
     margin: 150px 5% 200px;
   }
 
-  .log-out-button {
-    text-decoration: underline;
-  }
+
 }
+
+
 
 /************************************************************************************/
 /************************************************************************************/

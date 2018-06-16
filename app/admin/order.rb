@@ -236,7 +236,7 @@ ActiveAdmin.register Order do
 		  end
 
 		  column t('total') do |order_products_row|
-			 order_products_row.formatted_total
+			  format_price order_products_row.total
 		  end
 
 		  column I18n.t('activerecord.models.product_image.one') do |order_products_row|

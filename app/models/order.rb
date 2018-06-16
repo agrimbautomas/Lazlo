@@ -68,6 +68,10 @@ class Order < ApplicationRecord
 	 Rails.application.routes.url_helpers.tracking_order_by_code_url(code)
   end
 
+  def total
+	  order_products_list.total
+  end
+
   private
 
   def buyer_is_nil?
@@ -77,6 +81,7 @@ class Order < ApplicationRecord
   def user_is_nil?
 	 user.nil?
   end
+
 
 
 end

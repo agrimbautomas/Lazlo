@@ -3,35 +3,19 @@
 <!-- End Header -->
 
 <% if @current_purchased_orders.any? %>
+
   <div class="profile-purchase-header">
+
     <div class="grilla">
 
-
-      <div class="block">
+      <div class="purchase-block">
         <h2>tu compra</h2>
       </div>
 
-
-      <div class="block">
-        <div class="inner-block">
-          <h3>PRODUCTOS</h3>
-          Nombre del producto
-        </div>
-      </div>
-
-      <div class="block">
-        <div class="inner-block">
-          <h3>PRECIO</h3>
-          Nombre del producto
-        </div>
-      </div>
-
-      <div class="block">
-        <div class="inner-block">
-          <h3>TRAKEO DEL PRODCUTO</h3>
-          <%= render :partial => 'users/orders/order_tracking' %>
-        </div>
-      </div>
+      <% @current_purchased_orders.each do |order|
+        @order = order  %>
+        <%= render :partial => 'users/orders/order_tracking' %>
+      <% end %>
 
     </div>
   </div>
@@ -42,7 +26,7 @@
   <% if current_user.orders.any? %>
     <% current_user.orders.order(:created_at => 'DESC').each do |order|
       @order = order
-     %>
+         %>
       <%= render :partial => 'users/orders/order_row' %>
     <% end %>
   <% else %>

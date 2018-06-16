@@ -17,12 +17,9 @@ class ProductRow < ApplicationRecord
   validates_presence_of :product, :quantity
   validates_numericality_of :quantity, greater_than: 0
 
-  def total_price
+  def total
     quantity * product.price
   end
 
-  def formatted_total
-    '$' + total_price.to_s
-  end
 
 end
