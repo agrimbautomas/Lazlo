@@ -2,8 +2,16 @@ var didScroll;
 var lastScrollTop = 0;
 var delta = 5;
 
+
+var $contactForm;
+
+
 jQuery(document).ready(function () {
 	 setUpHeaderToggleOnScroll();
+	 
+	 setupVars();
+	 setupContactForm();
+	 setupAlertButtons();
 });
 
 // Header Scroll functions
@@ -38,3 +46,44 @@ function hasScrolled() {
 
 	 lastScrollTop = st;
 }
+
+
+function setupVars() {
+	 $contactForm = $('.contact-form')
+}
+
+function setupContactForm() {
+	 $('.contact-form-button').each(function () {
+		  $(this).click(function () {
+				showContactForm();
+		  })
+	 })
+
+	 $('.close-contact-form').click(function () {
+		  hideContactForm();
+	 })
+}
+
+
+function showContactForm() {
+	 $contactForm.show().animate({
+		  opacity: 1
+	 }, 300);
+}
+
+function hideContactForm() {
+	 $contactForm.animate({
+		  opacity: 0
+	 }, 300, function () {
+		  $(this).hide()
+	 });
+}
+
+function setupAlertButtons() {
+	 $('.notification-bar .close-notification-bar').each(function () {
+		  $(this).click(function () {
+				$(this).parent().hide();
+		  });
+	 });
+}
+
