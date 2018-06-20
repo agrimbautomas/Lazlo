@@ -112,7 +112,7 @@ button {
     background: transparent;
     border: solid 4px $black_lazlo;
 
-    &:hover{
+    &:hover {
       background: $yellow_lazlo;
       border-color: $yellow_lazlo;
     }
@@ -122,7 +122,7 @@ button {
     background: $yellow_lazlo;
     color: $black_lazlo;
 
-    &:hover{
+    &:hover {
 
     }
   }
@@ -339,7 +339,7 @@ header {
           &:hover {
             color: #fed604;
 
-            .notification-number{
+            .notification-number {
               color: rgba(0, 0, 0, 0.6);
             }
           }
@@ -698,7 +698,7 @@ span.error {
   color: white;
   font-size: 30px;
   overflow: auto;
-  z-index: 9999;
+  z-index: 999999;
 
   display: none;
   opacity: 0;
