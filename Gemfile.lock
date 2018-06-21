@@ -509,6 +509,7 @@ DEPENDENCIES
   friendly_id (~> 5.1.0)
   instagram
   jbuilder (~> 2.0)
+  jquery-rails
   json_matchers
   letsencrypt_plugin
   mercadopago-sdk

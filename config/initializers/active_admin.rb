@@ -184,7 +184,7 @@ ActiveAdmin.setup do |config|
   #
   # To load a stylesheet:
   config.clear_stylesheets!
-  #config.register_stylesheet 'admin/active_admin.css'
+  config.register_stylesheet 'admin/active_admin.css'
   #   config.register_stylesheet 'my_stylesheet.css'
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
@@ -192,7 +192,7 @@ ActiveAdmin.setup do |config|
   #
   # To load a javascript file:
   config.clear_javascripts!
-  #config.register_javascript 'admin/active_admin.js'
+  config.register_javascript 'admin/active_admin.js'
 
   # == CSV options
   #

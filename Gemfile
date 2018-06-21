@@ -23,6 +23,9 @@ gem 'config'
 gem 'devise'
 gem 'devise-encryptable'
 gem 'devise-i18n'
+
+# Ruby on Rails unobtrusive scripting adapter for jQuery https://github.com/rails/jquery-ujs
+gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 
 gem 'rails_config'
