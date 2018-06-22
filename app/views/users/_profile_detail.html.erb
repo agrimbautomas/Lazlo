@@ -1,0 +1,30 @@
+<section class="profile-detail">
+  <div class="grilla user-purchased-products profile-container">
+    <h6>TU CUENTA</h6>
+
+    <div class="block block-left">
+      <span><%= current_user.name %></span>
+      <%= link_to 'cerrar sesión', destroy_user_session_path, :method => :delete, :class => 'log-out-button' %>
+
+      <p>No hay cuenta de mercado pago vinculada</p>
+      <!-- <a href="">vincular</a> -->
+    </div>
+
+
+    <div class="block block-right">
+      <% if current_user.orders.any? %>
+          <% current_user.orders.order(:created_at => 'DESC').each do |order|
+            @order = order
+          %>
+              <%= render :partial => 'users/orders/order_row' %>
+          <% end %>
+      <% else %>
+          <div class="no-orders-message">
+            No has realizado ninguna compra aún
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+
+</section>

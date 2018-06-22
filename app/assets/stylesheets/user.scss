@@ -179,10 +179,52 @@
     margin: 150px 5% 200px;
   }
 
-
 }
 
+section.profile-detail {
+  margin: 30px auto;
 
+  h6 {
+    width: 100%;
+    margin: 0px 0px 20px;
+  }
+
+  .block {
+    display: inline-block;
+    width: 77%;
+    width: calc(77% - 1px);
+    border-left: #d8d8d8 1px solid;
+    float: right;
+    padding: 0px 1.5%;
+
+    &.block-left {
+      width: 19%;
+      float: left;
+      border: none;
+      padding: 0px 1% 0px 0px;
+
+      span,
+      p {
+        font-size: 14px;
+        display: inline-block;
+      }
+
+      span {
+        font-weight: bold;
+      }
+
+      a {
+        font-style: italic;
+        color: $blue_link;
+        width: 100%;
+        display: inline-block;
+        font-size: 13px;
+        text-decoration: underline;
+        margin: 0px auto 18px;
+      }
+    }
+  }
+}
 
 /************************************************************************************/
 /************************************************************************************/

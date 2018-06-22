@@ -21,23 +21,10 @@
   </div>
 <% end %>
 
-<div class="grilla user-purchased-products profile-container">
 
-  <% if current_user.orders.any? %>
-    <% current_user.orders.order(:created_at => 'DESC').each do |order|
-      @order = order
-         %>
-      <%= render :partial => 'users/orders/order_row' %>
-    <% end %>
-  <% else %>
-    <div class="no-orders-message">
-      No has realizado ninguna compra aún
-    </div>
-  <% end %>
-
-  <%= link_to 'Cerrar Sesión', destroy_user_session_path, :method => :delete, :class => 'log-out-button' %>
-
-</div>
+<!-- Start Profile Detail -->
+<%= render :partial => 'users/profile_detail' %>
+<!-- End Profile Detail -->
 
 
 <!-- Start Footer -->

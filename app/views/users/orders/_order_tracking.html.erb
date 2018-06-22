@@ -18,7 +18,7 @@
   <div class="block">
     <div class="inner-block">
       <h3>TRACKEO DE LOS PRODUCTOS</h3>
-      <%= @order.order_status.name %>
+      <%= @order.order_status.name unless @order.order_status.nil? %>
 
       <div class="status-blocks-container">
         <%
