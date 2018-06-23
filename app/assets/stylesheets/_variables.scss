@@ -49,7 +49,6 @@ $green-state: #009D58;
 $grey-state: #656565;
 
 
-
 @font-face {
   font-family: 'futura';
   src: url('futura-medium-01-webfont.woff2') format('woff2'),
@@ -77,31 +76,49 @@ $grey-state: #656565;
 
 }
 
-/*
-@font-face {
-  font-family: 'futura-condensed';
-  src: url('futura-condensedmedium-04-webfont.woff2') format('woff2'),
-  url('futura-condensedmedium-04-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
+.medium-border-radious {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
-@font-face {
-  font-family: 'futura-condensed';
-  src: url('futura-condensedextrabold-05-webfont.woff2') format('woff2'),
-  url('futura-condensedextrabold-05-webfont.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-
+.small-border-radious {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
-@font-face {
-  font-family: 'adam.cg_proregular';
-  src: url('adam-cg-pro.regular-webfont.woff2') format('woff2'),
-  url('adam-cg-pro.regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
+.circle-border-radious {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
 }
-*/
+
+.smooth-transition {
+  -webkit-transition: $smooth_transition;
+  -moz-transition: $smooth_transition;
+  -o-transition: $smooth_transition;
+  transition: $smooth_transition;
+}
+
+.transition {
+  -webkit-transition: $slow_transition;
+  -moz-transition: $slow_transition;
+  -o-transition: $slow_transition;
+  transition: $slow_transition;
+}
+
+.fast-transition {
+  -webkit-transition: $fast_transition;
+  -moz-transition: $fast_transition;
+  -o-transition: $fast_transition;
+  transition: $fast_transition;
+}
+
+.margin-top-medium {
+  margin-top: $margin_medium;
+}
+
+.margin-bottom-medium {
+  margin-bottom: $margin_medium;
+}
