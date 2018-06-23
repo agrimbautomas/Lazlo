@@ -40,6 +40,9 @@ gem 'rails-i18n'
 # For User roles, url: https://github.com/RolifyCommunity/rolify
 gem 'rolify'
 
+# url: https://github.com/rails-api/active_model_serializers
+gem 'active_model_serializers', '~> 0.10.0'
+
 gem 'simple_form'
 
 # MercadoPago https://github.com/mercadopago/sdk-ruby
