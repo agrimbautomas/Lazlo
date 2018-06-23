@@ -8,7 +8,7 @@
 <% if @home_page.present? and @home_page.page_images.present? %>
     <!-- Start Slider -->
     <div class="home">
-      <ul class="bx-wrapper">
+      <ul class="bx-wrapper home-slider">
         <% @home_page.page_images.each do |image| %>
             <li><img src="<%= image.picture.url(slider_image_size) %>"/></li>
         <% end %>

@@ -8,21 +8,64 @@
 
       <p>No hay cuenta de mercado pago vinculada</p>
       <!-- <a href="">vincular</a> -->
+
+      <div class="profile-promotion">
+        <h4>APROVECHÁ DEL CUPÓN</h4>
+        <h3>DE $2.000</h3>
+      </div>
     </div>
 
 
     <div class="block block-right">
-      <% if current_user.orders.any? %>
-          <% current_user.orders.order(:created_at => 'DESC').each do |order|
-            @order = order
-          %>
-              <%= render :partial => 'users/orders/order_row' %>
+
+      <div class="profile-products-slider-buttons">
+        <a>CARRITO</a>
+        <a>HISTORIAL</a>
+      </div>
+
+      <div class="bx-wrapper profile-products-slider">
+        <div class="profile-products-block">
+          <% if current_user.favourites_list.present? and current_user.favourites_list.product_rows.present? %>
+              <% current_user.favourites_list.product_rows.each do |product_row| %>
+                  <div class="cart-product-row" data-remove-path="<%= remove_cart_product_row_url product_hash %>">
+
+                    <i class="fa fa-times smooth-transition" aria-hidden="true"></i>
+
+                    <div class="cart-product-image">
+                      <img src="<%= product_row.product.image.url(:thumb) %>"/>
+                    </div>
+
+                    <h2>
+                      <a href="<%= product_path product_row.product %>" class="smooth-transition">
+                        <%= product_row.product.name %>
+                      </a>
+                    </h2>
+
+                    <span class="cart-product-price"><%= format_price product_row.product.price %></span>
+                  </div>
+              <% end %>
+          <% else %>
+              <div class="no-orders-message">
+                No has realizado ninguna compra aún
+              </div>
           <% end %>
-      <% else %>
-          <div class="no-orders-message">
-            No has realizado ninguna compra aún
-          </div>
-      <% end %>
+        </div>
+
+        <div class="profile-products-block">
+          <% if current_user.orders.any? %>
+              <% current_user.orders.order(:created_at => 'DESC').each do |order|
+                @order = order
+              %>
+                  <%= render :partial => 'users/orders/order_row' %>
+              <% end %>
+          <% else %>
+              <div class="no-orders-message">
+                No has realizado ninguna compra aún
+              </div>
+          <% end %>
+        </div>
+      </div>
+
     </div>
 
   </div>

@@ -3,7 +3,21 @@ $( document ).ready(function() {
     $noProductsMessage = $('.no-products-message');
     setupCartFunctions();
     updateRowPrices();
+    setupProfileProducsSlider();
 });
+
+function setupProfileProducsSlider() {
+    $('.profile-products-slider').bxSlider({
+        controls: false,
+        infiniteLoop: false,
+        touchEnabled: false
+    });
+}
+
+/***************************************/
+/********* Products functions **********/
+/***************************************/
+
 
 function setupCartFunctions() {
     $('.cart-product-row').each(function () {

@@ -4,7 +4,7 @@ $(document).ready(function(){
 });
 
 function setupSilderCarousel(){
-    $('.bx-wrapper').bxSlider({
+    $('.home-slider').bxSlider({
         randomStart: true,
         controls: false,
         mode: 'vertical'

@@ -223,7 +223,47 @@ section.profile-detail {
         margin: 0px auto 18px;
       }
     }
+
+    .profile-promotion {
+      background: $yellow_lazlo;
+      width: 100%;
+      cursor: pointer;
+      padding: 16px 0px;
+      margin: 20px 0px;
+
+      h4,
+      h3 {
+        width: 100%;
+        display: inline-block;
+        color: black;
+        text-align: center;
+        font-size: 0.88em;
+      }
+
+      h3 {
+        font-size: 2.2em;
+      }
+    }
+
   }
+
+  .profile-products-slider {
+
+  }
+
+  .profile-products-slider-buttons {
+    a {
+      font-weight: bold;
+      font-size: 1em;
+      border-bottom: 2px solid black;
+      margin: 0px 10% 0px 0px;
+    }
+
+  }
+  .bx-wrapper .bx-viewport {
+    background: none;
+  }
+
 }
 
 /************************************************************************************/
