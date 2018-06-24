@@ -12,7 +12,9 @@ class Api::V1::ChatController < Api::V1::ApiController
 				when 'get_categories'
 					render json: CategoriesResponse.with(chat_params: parameters)
 				when 'get_marvels'
-					render json: CategoriesResponse.with(chat_params: parameters)
+					render json: MarvelsResponse.show_all
+				when 'get_marvel_by_name'
+					render json: MarvelsResponse.by_name(chat_params: parameters)
 				else
 					render_failed_response
 			end
