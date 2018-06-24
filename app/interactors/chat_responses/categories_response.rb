@@ -6,7 +6,7 @@ class CategoriesResponse < ChatResponseInteractor
 	end
 
 	def execute
-		@response[:fulfillmentText] = "Tenemos #{Category.all.map(&:name).join(', ')}. Que estabas buscando?"
+		@response[:fulfillmentText] = "Tenemos #{Category.all.map(&:name).join(', ').downcase}. Que estabas buscando?"
 		@response
 	end
 
