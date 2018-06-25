@@ -11,6 +11,8 @@ class ProductResponse < ChatResponseInteractor
 		get_product_response.execute
 	end
 
+
+
 	def execute
 		@@response
 	end

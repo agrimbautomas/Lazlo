@@ -22,7 +22,7 @@ class ChatResponseInteractor < Interactor
 	def self.existing_records_response records, messure = ''
 		response = ''
 		if records.present?
-			response = 'Si, tenemos. Te paso los precios: \n'
+			response = "Si, tenemos. Te \\n paso /\nlos precios: \n\n"
 			records.each do |record|
 				response += "#{record.name.capitalize}: #{format_price record.price} #{messure} \n"
 			end
@@ -46,7 +46,9 @@ class ChatResponseInteractor < Interactor
 	private
 
 	def self.strip_query query
-		query.lstrip.chop
+		clean_query = query.lstrip.chop
+		clean_query.gsub!(/[^abcdefghijklmnñopqrstuvwxyz ]/,'')
+		clean_query
 	end
 
 	def self.format_price price
