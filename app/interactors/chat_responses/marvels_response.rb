@@ -11,7 +11,7 @@ class MarvelsResponse < ChatResponseInteractor
 
 		identify_objects_by_name model: Marvel, names: chat_params[:material]
 
-		@@response[:fulfillmentText] = existing_records_response records @exisitng_records, 'm2'
+		@@response[:fulfillmentText] = existing_records_response @exisitng_records, 'm2'
 		@@response[:fulfillmentText] += non_existing_records_response @non_existing_records_names
 
 		get_marvels_response.execute

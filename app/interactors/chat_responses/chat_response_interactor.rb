@@ -13,7 +13,7 @@ class ChatResponseInteractor < Interactor
 		@exisitng_records = []
 		@non_existing_records_names = []
 		names.each do |name|
-			model_object = model.find_by("name LIKE ? ", "%#{name}%")
+			model_object = model.find_by("name LIKE ? ", "%#{ strip_query(name) }%")
 			model_object.present? ? @exisitng_records.push(model_object) : @non_existing_records_names.push(name)
 		end
 
@@ -31,9 +31,9 @@ class ChatResponseInteractor < Interactor
 	end
 
 	def self.non_existing_records_response names
-		response = '. '
+		response = ''
 		if names.present?
-			response += 'Por el momento no trabajamos con '
+			response = 'Por el momento no trabajamos con '
 			names.each_with_index do |name, i|
 				response += i != 0 ? ' ni con ' : ''
 				response += name
@@ -43,6 +43,11 @@ class ChatResponseInteractor < Interactor
 		response
 	end
 
+	private
+
+	def self.strip_query query
+		query.lstrip.chop
+	end
 
 	def self.format_price price
 		ApplicationController.helpers.format_price price
