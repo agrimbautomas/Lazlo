@@ -7,6 +7,11 @@ class ChatResponseInteractor < Interactor
 		@@response[:source] = Settings.urls.base
 	end
 
+	# Todo - Return rich text with fulfillmentMessages param
+	def execute
+		@@response
+	end
+
 	protected
 
 	def self.identify_objects_by_name model:, names:
@@ -45,16 +50,16 @@ class ChatResponseInteractor < Interactor
 		response
 	end
 
-	# Todo - Return rich text with fulfillmentMessages param
-	def execute
-		@@response
-	end
-
 	private
 
 	def self.strip_query query
+		#Remove front and last spaces
 		clean_query = query.lstrip.chop
+		#Remove special chars
 		clean_query.gsub!(/[^abcdefghijklmnñopqrstuvwxyz ]/, '')
+		#Make singular
+		clean_query = clean_query.partition(" ").first.singularize + " " + clean_query.split(' ')[1..-1].join(' ')
+
 		clean_query
 	end
 
