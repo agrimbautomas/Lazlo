@@ -6,8 +6,4 @@ class CategoriesResponse < ChatResponseInteractor
 		get_categories_response.execute
 	end
 
-	def execute
-		@@response
-	end
-
 end

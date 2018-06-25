@@ -21,10 +21,6 @@ class BudgetResponse < ChatResponseInteractor
 		get_budget_response.execute
 	end
 
-	def execute
-		@@response
-	end
-
 	private
 	def self.get_price_per_size sizes, price
 		size_sum = (sizes.first.to_i + sizes.second.to_i) / 2

@@ -22,8 +22,4 @@ class MarvelsResponse < ChatResponseInteractor
 		response
 	end
 
-	def execute
-		@@response
-	end
-
 end

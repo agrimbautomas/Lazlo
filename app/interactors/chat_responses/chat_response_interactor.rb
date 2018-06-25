@@ -45,6 +45,11 @@ class ChatResponseInteractor < Interactor
 		response
 	end
 
+	# Todo - Return rich text with fulfillmentMessages param
+	def execute
+		@@response
+	end
+
 	private
 
 	def self.strip_query query
