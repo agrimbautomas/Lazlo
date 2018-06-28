@@ -11,6 +11,8 @@ class Api::V1::ChatController < Api::V1::ApiController
 			case action
 				when 'get_categories'
 					render json: CategoriesResponse.show_all
+				when 'get_category_by_name'
+					render json: CategoriesResponse.by_name(chat_params: parameters)
 				when 'get_marvels'
 					render json: MarvelsResponse.show_all
 				when 'get_marvel_by_name'
