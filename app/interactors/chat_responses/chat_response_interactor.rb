@@ -59,10 +59,12 @@ class ChatResponseInteractor < Interactor
 	end
 
 	def strip_query query
-		#Remove front and last spaces
-		clean_query = query.lstrip.chop
 		#Remove special chars
-		clean_query.gsub!(/[^abcdefghijklmnñopqrstuvwxyz ]/, '')
+		clean_query = query.gsub!(/[^abcdefghijklmnñopqrstuvwxyz ]/, '').nil? ? query : query.gsub!(/[^abcdefghijklmnñopqrstuvwxyz ]/, '')
+
+		#Remove front and last spaces
+		byebug
+		clean_query = clean_query.lstrip.chop
 
 		if self.pluralize
 			#Make plural
