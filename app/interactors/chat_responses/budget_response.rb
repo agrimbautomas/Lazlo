@@ -3,9 +3,7 @@ class BudgetResponse < ChatResponseInteractor
 	def self.for_product chat_params: chat_params
 		get_budget_response = new chat_params: chat_params
 
-		marvel_name = chat_params[:material].first
-
-		marvel = Marvel.find_by("name LIKE ? ", "%#{marvel_name}%")
+		marvel = Marvel.find_by("name LIKE ? ", "%#{chat_params[:material]}%")
 
 		if marvel.present? and marvel.price.present?
 			price = get_price_per_size get_sizes(chat_params), marvel.price
@@ -14,10 +12,10 @@ class BudgetResponse < ChatResponseInteractor
 		elsif marvel.nil?
 			response = "Actualemente no trabajamos con #{marvel_name}, tenés otra consulta?"
 		else
-			response = "Actualemente no no tenemos el precio del #{marvel_name}, tenés otra consulta?"
+			response = "Actualemente no tenemos el precio del #{marvel_name}, tenés otra consulta?"
 		end
 
-		@@response[:fulfillmentText] = response
+		get_budget_response.response = response
 		get_budget_response.execute
 	end
 

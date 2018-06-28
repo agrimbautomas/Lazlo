@@ -9,10 +9,9 @@ class MarvelsResponse < ChatResponseInteractor
 	def self.by_name(chat_params:)
 		get_marvels_response = new chat_params: chat_params
 
-		identify_objects_by_name model: Marvel, names: chat_params[:material]
-
-		@@response[:fulfillmentText] = existing_records_response @exisitng_records, extra_response
-		@@response[:fulfillmentText] += non_existing_records_response @non_existing_records_names
+		get_marvels_response.identify_objects_by_name model: Marvel, names: chat_params[:material]
+		get_marvels_response.existing_records_response extra_response
+		get_marvels_response.non_existing_records_response
 
 		get_marvels_response.execute
 	end
