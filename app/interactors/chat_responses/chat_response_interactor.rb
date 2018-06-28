@@ -3,8 +3,8 @@ class ChatResponseInteractor < Interactor
 
 	def initialize(arguments)
 		super(arguments)
-		@@response = Hash.new
-		@@response[:source] = Settings.urls.base
+		@dialog_flow_response = Hash.new
+		@dialog_flow_response[:source] = Settings.urls.base
 
 		self.pluralize = false
 		self.existing_records = []
@@ -14,8 +14,8 @@ class ChatResponseInteractor < Interactor
 
 	# Todo - Return rich text with fulfillmentMessages param
 	def execute
-		@@response[:fulfillmentText] = self.response
-		@@response
+		@dialog_flow_response[:fulfillmentText] = self.response
+		@dialog_flow_response
 	end
 
 

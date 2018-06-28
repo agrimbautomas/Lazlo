@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 			put 'user/checkout_row/:product_row_id', to: 'cart#edit_checkout_product_row', :as => :edit_checkout_row
 			delete 'user/cart/:product_id', to: 'cart#remove_cart_product_row', :as => :remove_cart_product_row
 
-			post '/chat_response' => 'chat#default_response'
+			post '/chat_response' => 'chat#dialog_flow_response'
 		end
 	end
 

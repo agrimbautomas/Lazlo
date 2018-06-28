@@ -1,9 +1,9 @@
 class Api::V1::ChatController < Api::V1::ApiController
 	include ErrorRaiser
 
-	before_action :authenticate_user!, except: [:default_response]
+	before_action :authenticate_user!, except: [:dialog_flow_response]
 
-	def default_response
+	def dialog_flow_response
 
 		if params[:queryResult].present?
 			action = params[:queryResult][:action]
@@ -22,10 +22,11 @@ class Api::V1::ChatController < Api::V1::ApiController
 				when 'get_product'
 					render json: ProductResponse.by_name(chat_params: parameters)
 				else
-					render_failed_response
+					render_failed_response "action doesn't match any response"
 			end
 
 		end
+
 
 	end
 

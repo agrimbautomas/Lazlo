@@ -2,7 +2,7 @@ class MarvelsResponse < ChatResponseInteractor
 
 	def self.show_all
 		get_marvels_response = new chat_params: nil
-		@@response[:fulfillmentText] = "Trabajamos #{Marvel.all.map(&:name).join(', ').downcase}. Que estabas buscando?"
+		get_marvels_response.response = "Trabajamos #{Marvel.all.map(&:name).join(', ').downcase}. Que estabas buscando?"
 		get_marvels_response.execute
 	end
 
