@@ -23,7 +23,7 @@ class ChatResponseInteractor < Interactor
 		names.each do |name|
 			model_object = model.find_by("name LIKE ? ", "%#{ strip_query(name) }%")
 			model_object.present? ? existing_records.push(model_object) : non_existing_records_names.push(name)
-		end
+		end unless names.empty?
 
 	end
 
@@ -60,19 +60,14 @@ class ChatResponseInteractor < Interactor
 
 	def strip_query query
 		#Remove special chars
-		clean_query = query.gsub!(/[^abcdefghijklmnñopqrstuvwxyz ]/, '').nil? ? query : query.gsub!(/[^abcdefghijklmnñopqrstuvwxyz ]/, '')
+		parsed_query = query.gsub!(/[^abcdefghijklmnñopqrstuvwxyz ]/, '')
+		clean_query = parsed_query.nil? ? query : parsed_query
 
 		#Remove front and last spaces
-		byebug
 		clean_query = clean_query.lstrip.chop
 
-		if self.pluralize
-			#Make plural
-			clean_query = clean_query.partition(" ").first.pluralize
-		else
-			#Make singular
-			clean_query = clean_query.partition(" ").first.singularize
-		end
+		#Make plural or singular
+		clean_query = pluralize ? clean_query.partition(" ").first.pluralize : clean_query.partition(" ").first.singularize
 
 		clean_query += " " + clean_query.split(' ')[1..-1].join(' ')
 		clean_query

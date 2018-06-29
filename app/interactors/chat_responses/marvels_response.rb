@@ -14,6 +14,7 @@ class MarvelsResponse < ChatResponseInteractor
 		get_marvels_response.non_existing_records_response
 
 		get_marvels_response.execute
+
 	end
 
 	def self.extra_response
