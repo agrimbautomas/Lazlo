@@ -12,7 +12,7 @@ class CategoriesResponse < ChatResponseInteractor
 	end
 
 
-	def self.by_name chat_params: chat_params
+	def self.by_name chat_params:
 		get_category_response = new chat_params: chat_params
 
 		get_category_response.identify_objects_by_name model: Category, names: [chat_params[:product_category]]

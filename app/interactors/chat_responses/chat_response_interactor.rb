@@ -58,18 +58,17 @@ class ChatResponseInteractor < Interactor
 		end
 	end
 
-	def strip_query query
+	def strip_query name
 		#Remove special chars
-		parsed_query = query.gsub!(/[^abcdefghijklmnñopqrstuvwxyz ]/, '')
-		clean_query = parsed_query.nil? ? query : parsed_query
+		parsed_query = name.gsub!(/[^abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ ]/, '')
+		clean_query = parsed_query.nil? ? name : parsed_query
 
 		#Remove front and last spaces
-		clean_query = clean_query.lstrip.chop
+		clean_query = clean_query.split(' ').join(' ')
 
 		#Make plural or singular
-		clean_query = pluralize ? clean_query.partition(" ").first.pluralize : clean_query.partition(" ").first.singularize
-
-		clean_query += " " + clean_query.split(' ')[1..-1].join(' ')
+		first_word = pluralize ? clean_query.partition(" ").first.pluralize : clean_query.partition(" ").first.singularize
+		clean_query = first_word +  " " + clean_query.split(' ')[1..-1].join(' ')
 		clean_query
 	end
 
