@@ -1,6 +1,6 @@
 class ProductResponse < ChatResponseInteractor
 
-	def self.by_name chat_params: chat_params
+	def self.by_name chat_params:
 		get_product_response = new chat_params: chat_params
 
 		get_product_response.identify_objects_by_name model: Product, names: chat_params[:product]

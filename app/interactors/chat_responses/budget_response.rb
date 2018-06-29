@@ -1,6 +1,6 @@
 class BudgetResponse < ChatResponseInteractor
 
-	def self.for_product chat_params: chat_params
+	def self.for_product chat_params:
 		get_budget_response = new chat_params: chat_params
 
 		marvel = Marvel.find_by("name LIKE ? ", "%#{chat_params[:material]}%")
