@@ -17,10 +17,10 @@ class Api::V1::ChatController < Api::V1::ApiController
 					render json: MarvelsResponse.show_all
 				when 'get_marvel_by_name'
 					render json: MarvelsResponse.by_name(chat_params: parameters)
-				when 'get_buget'
-					render json: BudgetResponse.for_product(chat_params: parameters)
-				when 'get_product'
+				when 'get_product_by_name'
 					render json: ProductResponse.by_name(chat_params: parameters)
+				when 'get_budget_by_material'
+					render json: BudgetResponse.for_product(chat_params: parameters)
 				else
 					render_failed_response "action doesn't match any response"
 			end
