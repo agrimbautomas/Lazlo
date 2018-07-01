@@ -44,6 +44,7 @@ Rails.application.routes.draw do
 	scope module: 'api' do
 		scope '1', module: 'v1' do
 			post 'user/checkout/:product_id', to: 'cart#add_product_to_cart', :as => :add_product_to_cart
+			post 'user/favourites/:product_id', to: 'favourites#add_product', :as => :add_product_to_favourites
 			put 'user/checkout_row/:product_row_id', to: 'cart#edit_checkout_product_row', :as => :edit_checkout_row
 			delete 'user/cart/:product_id', to: 'cart#remove_cart_product_row', :as => :remove_cart_product_row
 

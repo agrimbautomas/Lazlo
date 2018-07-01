@@ -145,6 +145,7 @@ input:-webkit-autofill {
 }
 
 .with-hover {
+  cursor: pointer;
 
   span {
     position: relative;
@@ -495,8 +496,8 @@ span.error {
   right: 40px;
   bottom: 40px;
   z-index: 9999;
-  width: 330px;
-  height: 395px;
+  width: auto;
+  height: auto;
 
   .chat-button {
     background: $yellow_lazlo;
@@ -542,6 +543,9 @@ span.error {
   }
 
   &.displayed {
+    width: 330px;
+    height: 395px;
+
     .chat-button {
       transform: rotate(90deg);
 

@@ -1,29 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
-
-/*
- *  Author     : Borba Jr
-/*--------------------------------------------------------
- *Resets
- *--------------------------------------------------------
-*/
 @import "variables";
-
-/************************************************************************************/
-/************************************************************************************/
-/********************************* Generics *****************************************/
-/************************************************************************************/
-/************************************************************************************/
 
 .image-block-with-transition {
   position: relative;
@@ -154,7 +129,7 @@
       float: left;
       margin: 0px 1%;
 
-      .product-description{
+      .product-description {
         bottom: 12%;
       }
 
@@ -176,7 +151,7 @@
           width: 83%;
           max-height: 350px;
 
-          .product-description{
+          .product-description {
 
           }
         }
@@ -200,7 +175,7 @@
         margin-top: -65px;
         max-width: 360px;
 
-        .product-description{
+        .product-description {
           bottom: 10%;
         }
 
@@ -268,8 +243,6 @@
       }
     }
 
-
-
   }
 
   .image-detail-container {
@@ -336,43 +309,75 @@
       }
     }
 
+    .product-action-button-container {
+      display: inline-block;
+      width: 40px;
+      cursor: pointer;
+
+      .product-action-button {
+        display: inline-block;
+        width: 58%;
+        margin: 0px;
+        padding: 0px 21%;
+
+        svg {
+          width: 100%;
+        }
+
+        span {
+          display: inline-block;
+          height: 30px;
+          width: 100%;
+        }
+      }
+
+      .count-number {
+        display: inline-block;
+        width: 100%;
+        font-size: 12px;
+        text-align: center;
+        margin-top: -5px;
+        float: left;
+
+      }
+    }
+
   }
 
 }
 
-
 /*********** Product Suggestions *************/
-.suggestions{
+.suggestions {
   margin: 40px auto;
   width: 100%;
   display: inline-block;
 
-  .section-title{
+  .section-title {
     font-size: 18px;
     font-weight: normal;
     margin: 0px 0px 24px;
   }
 
-  .suggestions-container{
+  .suggestions-container {
     margin: 10px auto;
 
-    .suggestion-block{
+    .suggestion-block {
       float: left;
       width: 13%;
       margin: 0px 0px 0px 1.3%;
       overflow: hidden;
 
-      &:first-child{
+      &:first-child {
         margin: 0px;
       }
 
-      h4{
+      h4 {
         font-weight: normal;
         font-size: 13px;
         margin: 5px 0px 0px;
       }
 
-      &:hover{
+      &:hover {
         opacity: 0.8;
       }
     }
