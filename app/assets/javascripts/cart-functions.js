@@ -1,90 +1,114 @@
-$( document ).ready(function() {
+var $profileProductsSlider;
 
-    $noProductsMessage = $('.no-products-message');
-    setupCartFunctions();
-    updateRowPrices();
-    setupProfileProducsSlider();
+$(document).ready(function () {
+
+	 $noProductsMessage = $('.no-products-message');
+	 $profileProductsSlider = $('.profile-products-slider-buttons');
+
+
+	 setupCartFunctions();
+	 updateRowPrices();
+	 setupProfileProductsSlider();
 });
 
-function setupProfileProducsSlider() {
-    $('.profile-products-slider').bxSlider({
-        controls: false,
-        infiniteLoop: false,
-        touchEnabled: false
-    });
+
+/***************************************/
+/********* Slider functions **********/
+
+/***************************************/
+
+function setupProfileProductsSlider() {
+	 $('.profile-products-slider').bxSlider({
+		  controls: false,
+		  infiniteLoop: false,
+		  touchEnabled: false,
+		  pagerSelector: $profileProductsSlider,
+		  buildPager: function (slideIndex) {
+				switch (slideIndex) {
+					 case 0:
+						  return 'FAVORITOS';
+					 case 1:
+						  return 'CARRITO';
+					 case 2:
+						  return 'HISTORIAL';
+				}
+		  }
+	 });
 }
+
 
 /***************************************/
 /********* Products functions **********/
+
 /***************************************/
 
 
 function setupCartFunctions() {
-    $('.cart-product-row').each(function () {
-        setupRemoveButton($(this));
-        setQuantityControls($(this));
-    });
+	 $('.cart-product-row').each(function () {
+		  setupRemoveButton($(this));
+		  setQuantityControls($(this));
+	 });
 }
 
 function setupRemoveButton($productRow) {
-    $productRow.children('i.remove-row').click(function () {
-        var productUrl = $productRow.data('remove-path');
+	 $productRow.children('i.remove-row').click(function () {
+		  var productUrl = $productRow.data('remove-path');
 
-        $.ajax({
-            url: productUrl,
-            context: document.body,
-            type: 'DELETE',
-            data: {
-                quantity: 1
-            }
-        }).done(function (data) {
-            if (data.response == 'success')
-                removeProductFromCart($productRow)
-        });
+		  $.ajax({
+				url: productUrl,
+				context: document.body,
+				type: 'DELETE',
+				data: {
+					 quantity: 1
+				}
+		  }).done(function (data) {
+				if (data.response == 'success')
+					 removeProductFromCart($productRow)
+		  });
 
-    });
+	 });
 }
 
 function removeProductFromCart($productRow) {
-    $productRow.remove();
-    checkIfListIsEmpty();
-    updateRowPrices();
-    decrementCartNumber();
+	 $productRow.remove();
+	 checkIfListIsEmpty();
+	 updateRowPrices();
+	 decrementCartNumber();
 }
 
 function setQuantityControls($productRow) {
-    var url = $productRow.data('put-path');
+	 var url = $productRow.data('put-path');
 
-    setSumEvents($productRow, url);
-    setSubstracEvents($productRow, url);
+	 setSumEvents($productRow, url);
+	 setSubstracEvents($productRow, url);
 }
 
 function checkIfListIsEmpty() {
-    if ($('.cart-product-row').length == 0)
-        $noProductsMessage.show();
-    else
-        $noProductsMessage.hide();
+	 if ($('.cart-product-row').length == 0)
+		  $noProductsMessage.show();
+	 else
+		  $noProductsMessage.hide();
 }
 
 function updateRowPrices() {
-    var totalPrice = 0;
-    $('.cart-product-row').each(function () {
+	 var totalPrice = 0;
+	 $('.cart-product-row').each(function () {
 
-        var $priceBox = $(this).find('.cart-product-price');
-        var rowTotal = getRowProductPrice($priceBox) * getRowQuantity($(this));
+		  var $priceBox = $(this).find('.cart-product-price');
+		  var rowTotal = getRowProductPrice($priceBox) * getRowQuantity($(this));
 
-        $priceBox.html('$' + rowTotal);
-        totalPrice += rowTotal;
-    });
+		  $priceBox.html('$' + rowTotal);
+		  totalPrice += rowTotal;
+	 });
 
-    setCheckoutTotal(totalPrice);
+	 setCheckoutTotal(totalPrice);
 }
 
 /**
  * Rows Methods
  */
 function setCheckoutTotal(totalPrice) {
-    $('.total-sum span').html(totalPrice);
+	 $('.total-sum span').html(totalPrice);
 }
 
 /**
@@ -93,8 +117,8 @@ function setCheckoutTotal(totalPrice) {
  * @returns {Number}
  */
 function getRowQuantity($row) {
-    var $quantityTag = $row.find('.quantity-message span');
-    return parseInt($quantityTag.text());
+	 var $quantityTag = $row.find('.quantity-message span');
+	 return parseInt($quantityTag.text());
 }
 
 /**
@@ -103,8 +127,8 @@ function getRowQuantity($row) {
  * @param $row
  */
 function setRowQuantity(quantity, $row) {
-    var $quantityTag = $row.find('.quantity-message span');
-    $quantityTag.text(quantity);
+	 var $quantityTag = $row.find('.quantity-message span');
+	 $quantityTag.text(quantity);
 }
 
 /**
@@ -113,11 +137,11 @@ function setRowQuantity(quantity, $row) {
  * @param url
  */
 function setSumEvents($row, url) {
-    $row.find('.fa-plus-circle').click(function () {
-        var quantity = getRowQuantity($row);
-        setRowQuantity(++quantity, $row);
-        requestProductRow('PUT', url, quantity, updateRowPrices())
-    })
+	 $row.find('.fa-plus-circle').click(function () {
+		  var quantity = getRowQuantity($row);
+		  setRowQuantity(++quantity, $row);
+		  requestProductRow('PUT', url, quantity, updateRowPrices())
+	 })
 }
 
 /**
@@ -126,13 +150,13 @@ function setSumEvents($row, url) {
  * @param url
  */
 function setSubstracEvents($row, url) {
-    $row.find('.fa-minus-circle').click(function () {
-        var quantity = getRowQuantity($row);
-        if (quantity > 1) {
-            setRowQuantity(--quantity, $row);
-            requestProductRow('PUT', url, quantity, updateRowPrices())
-        }
-    })
+	 $row.find('.fa-minus-circle').click(function () {
+		  var quantity = getRowQuantity($row);
+		  if (quantity > 1) {
+				setRowQuantity(--quantity, $row);
+				requestProductRow('PUT', url, quantity, updateRowPrices())
+		  }
+	 })
 }
 
 /**
@@ -141,5 +165,5 @@ function setSubstracEvents($row, url) {
  * @returns {Number}
  */
 function getRowProductPrice($priceBox) {
-    return $priceBox.data('product-price');
+	 return $priceBox.data('product-price');
 }

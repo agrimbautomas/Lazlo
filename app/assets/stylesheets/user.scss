@@ -247,16 +247,35 @@ section.profile-detail {
 
   }
 
-  .profile-products-slider {
+  .profile-products-block {
+    .profile-products-inner-block{
+      margin: 20px 5% 10px;
+      display: inline-block;
+      width: 90%;
+    }
 
   }
 
   .profile-products-slider-buttons {
-    a {
-      font-weight: bold;
-      font-size: 1em;
-      border-bottom: 2px solid black;
+
+    .bx-pager-item {
       margin: 0px 10% 0px 0px;
+      position: relative;
+      display: inline-block;
+
+      a {
+        font-weight: bold;
+        font-size: 1em;
+
+        &:hover,
+        &.active {
+          border-bottom: 2px solid black;
+        }
+        span {
+          position: absolute;
+        }
+      }
+
     }
 
   }
@@ -265,12 +284,12 @@ section.profile-detail {
     min-height: 250px;
   }
 
-  .no-products-message{
+  .no-products-message {
     width: 100%;
     margin-top: 4em;
     text-align: center;
 
-    h5{
+    h5 {
       font-size: 1.5em;
       text-align: center;
       width: 90%;
@@ -278,7 +297,7 @@ section.profile-detail {
       display: inline-block;
       position: relative;
 
-      a.with-hover{
+      a.with-hover {
         margin: 0px 0px 24px 0px;
         display: inline-block;
       }
