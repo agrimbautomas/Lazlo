@@ -302,11 +302,18 @@
       padding: 16px 0px;
       margin: 10px 0px 0px;
 
-      &.transparent-with-hover-yellow {
+      &.add-to-cart-btn {
         padding: 12px 0px;
         width: 98%;
         width: calc(100% - 8px);
+
+        &.in-cart,
+        &:hover {
+          background: $yellow_lazlo;
+          border-color: $yellow_lazlo;
+        }
       }
+
     }
 
     .product-action-button-container {
@@ -319,6 +326,13 @@
         width: 58%;
         margin: 0px;
         padding: 0px 21%;
+
+        &.in-fav {
+          svg.hovered {
+            opacity: 1;
+          }
+
+        }
 
         svg {
           width: 100%;

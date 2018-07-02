@@ -9,16 +9,21 @@
     <%= simple_format(@product.description) %>
   </div>
   <!--
-          <div class="product-quantity" data-request-path="">
-            <%= number_field_tag 'quantity', 1, min: 1 %>
-          </div>
-
-            -->
+    <div class="product-quantity" data-request-path="">
+      <%= number_field_tag 'quantity', 1, min: 1 %>
+    </div>
+  -->
 
   <div class="product-action-buttons">
 
     <div class="product-action-button-container">
-      <%= render :partial => 'icons/like_button' %>
+
+      <a class="product-action-button with-hover add-to-fav-btn"
+         href="<%= add_product_to_favourites_url(@product_hash) %>"
+         data-rm-href="<%= remove_product_from_favourites_url(@product_hash) %>">
+        <%= render :partial => 'icons/like_button' %>
+      </a>
+
       <span class="count-number">124</span>
     </div>
 
@@ -34,8 +39,7 @@
 
   <% if user_signed_in? %>
 
-    <a class="transparent-with-hover-yellow add-to-cart-btn button
-                    <%= @is_in_cart ? 'green-button in_cart' : 'transparent-button' %>"
+    <a class="transparent-with-hover-yellow add-to-cart-btn button <%= @is_in_cart ? 'in-cart' : '' %>"
        href="<%= add_product_to_cart_url(@product_hash) %>"
        data-rm-href="<%= remove_cart_product_row_url(@product_hash) %>">
       <%= @is_in_cart ? 'Guardado en el Carrito!' : 'AGREGAR AL CARRITO' %>

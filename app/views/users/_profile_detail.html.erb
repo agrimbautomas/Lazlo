@@ -46,7 +46,9 @@
             <% else %>
               <div class="no-products-message">
                 <h5>Todavía no marcaste ningún producto como favorito
-                  <%= render :partial => 'icons/like_button' %>
+                  <a class="product-action-button with-hover">
+                    <%= render :partial => 'icons/like_button' %>
+                  </a>
                 </h5>
               </div>
             <% end %>
@@ -57,7 +59,7 @@
           <div class="profile-products-inner-block">
             <% if current_user.orders.any? %>
               <% current_user.orders.order(:created_at => 'DESC').each do |order|
-                @order = order     %>
+                @order = order      %>
                 <%= render :partial => 'users/orders/order_row' %>
               <% end %>
             <% else %>
@@ -72,7 +74,7 @@
           <div class="profile-products-inner-block">
             <% if current_user.orders.any? %>
               <% current_user.orders.order(:created_at => 'DESC').each do |order|
-                @order = order %>
+                @order = order  %>
                 <%= render :partial => 'users/orders/order_row' %>
               <% end %>
             <% else %>

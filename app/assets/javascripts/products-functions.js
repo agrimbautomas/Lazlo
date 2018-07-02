@@ -2,15 +2,9 @@ jQuery(document).ready(function () {
 
 	 setImagesGallery();
 	 setToggleCartBtn();
+	 setToggleFavouriteBtn();
 	 setProductImagesSlider();
 });
-
-/**************************/
-/**************************/
-/** Products Categories  **/
-/**************************/
-/**************************/
-
 
 /**************************/
 /**************************/
@@ -30,11 +24,17 @@ function setImagesGallery() {
 	 });
 }
 
+/**************************/
+/**************************/
+/****  Product Cart ****/
+/**************************/
+/**************************/
+
 function setToggleCartBtn() {
 	 $(".add-to-cart-btn").click(function (e) {
 		  e.preventDefault();
 
-		  if ($(this).hasClass('in_cart'))
+		  if ($(this).hasClass('in-cart'))
 				removeFromCart($(this));
 		  else
 				addToCart($(this));
@@ -46,7 +46,7 @@ function setToggleCartBtn() {
 function addToCart($btn) {
 	 var url = $btn.attr('href');
 
-	 requestProductRow('POST', url, 1, addToCartCallback($btn));
+	 doAjaxRequest('POST', url, 1, addToCartCallback($btn));
 }
 
 
@@ -80,13 +80,58 @@ function removeFromCartCallback($btn) {
 
 
 function addToCartStyles($btn) {
-	 $btn.addClass('in_cart').addClass('green-button')
-		  .removeClass('transparent-button').html('Guardado en el Carrito!');
+	 $btn.addClass('in-cart').removeClass('transparent-button').html('Guardado en el Carrito!');
 }
 
 function removeFromCartStyles($btn) {
-	 $btn.removeClass('in_cart').removeClass('green-button')
-		  .addClass('transparent-button').html('Agregar al Carrito');
+	 $btn.removeClass('in-cart').addClass('transparent-button').html('Agregar al Carrito');
+}
+
+
+/**************************/
+/**************************/
+/*** Product Favourites ***/
+/**************************/
+/**************************/
+
+function setToggleFavouriteBtn() {
+	 $(".add-to-fav-btn").click(function (e) {
+		  e.preventDefault();
+
+		  if ($(this).hasClass('in-fav'))
+				removeFromFav($(this));
+		  else
+				addToFav($(this));
+	 })
+
+}
+
+function addToFav($btn) {
+	 var url = $btn.attr('href');
+	 doAjaxRequest('POST', url, 1, addToFavCallback($btn));
+}
+
+
+function removeFromFav($btn) {
+	 var url = $btn.data('rm-href');
+	 doAjaxRequest('DELETE', url, 1, removeFromFavCallback($btn));
+}
+
+function addToFavCallback($btn) {
+	 addToFavStyles($btn);
+}
+
+function removeFromFavCallback($btn) {
+	 removeFromFavStyles($btn);
+}
+
+
+function addToFavStyles($btn) {
+	 $btn.addClass('in-fav');
+}
+
+function removeFromFavStyles($btn) {
+	 $btn.removeClass('in-fav');
 }
 
 
@@ -117,7 +162,7 @@ function setProductImagesSlider() {
 /**************************/
 /**************************/
 
-function requestProductRow(method, url, quantity, callback) {
+function doAjaxRequest(method, url, quantity, callback) {
 
 	 $.ajax({
 		  url: url,

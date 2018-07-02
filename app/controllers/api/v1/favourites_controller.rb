@@ -1,21 +1,25 @@
-class Api::V1::CartController < Api::V1::ApiController
+class Api::V1::FavouritesController < Api::V1::ApiController
 
 	before_action :set_product
 
 	def add_product
 		byebug
-		#current_user.add_product_to_cart @product
+		current_user.add_product_to_cart @product
 		render json: { :response => 'success' }
 	end
 
-	def remove_cart_product_row
-		#current_user.checkout_list.product_rows.find_by(:product => params[:product_id]).destroy
-		render json: { :response => 'success' }
+	def create
+		favourite = CreateFavourite.with(
+			user: current_user,
+			product: Product.find( params[:product_id] )
+		)
+
+		render_products_response favourite.product
 	end
 
-	private
-	def set_product
-		@product = Product.friendly.find(params[:product_id])
+	def destroy
+		DeleteFavourite.with product: Product.find( params[:product_id] )
+		render_successful_empty_response
 	end
 
 end
