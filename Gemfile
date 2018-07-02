@@ -24,6 +24,9 @@ gem 'devise'
 gem 'devise-encryptable'
 gem 'devise-i18n'
 
+# Auto schema in models, url: https://github.com/ctran/annotate_models
+gem 'annotate'
+
 # Ruby on Rails unobtrusive scripting adapter for jQuery https://github.com/rails/jquery-ujs
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'

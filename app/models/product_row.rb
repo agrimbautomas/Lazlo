@@ -9,6 +9,16 @@
 #  product_id       :integer
 #  products_list_id :integer
 #
+# Indexes
+#
+#  fk_rails_cf1216850a                     (product_id)
+#  index_product_rows_on_products_list_id  (products_list_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (product_id => products.id)
+#  fk_rails_...  (products_list_id => products_lists.id)
+#
 
 class ProductRow < ApplicationRecord
 

@@ -24,8 +24,8 @@
 
         <div class="profile-products-block">
           <div class="profile-products-inner-block">
-            <% if current_user.favourites_list.present? and current_user.favourites_list.product_rows.present? %>
-              <% current_user.favourites_list.product_rows.each do |product_row| %>
+            <% if current_user.checkout_list.present? and current_user.checkout_list.product_rows.present? %>
+              <% current_user.checkout_list.product_rows.each do |product_row| %>
                 <div class="cart-product-row" data-remove-path="<%= remove_cart_product_row_url product_hash %>">
 
                   <i class="fa fa-times smooth-transition" aria-hidden="true"></i>

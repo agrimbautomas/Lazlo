@@ -6,8 +6,8 @@
 #  order_products_list_id :integer
 #  product_id             :integer
 #  quantity               :integer
-#  product_name           :string
-#  product_price          :float
+#  product_name           :string(255)
+#  product_price          :float(24)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

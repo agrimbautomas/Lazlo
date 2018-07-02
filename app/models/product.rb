@@ -3,21 +3,30 @@
 # Table name: products
 #
 #  id                 :integer          not null, primary key
-#  name               :string
-#  description        :text
-#  price              :float
+#  name               :string(255)
+#  description        :text(65535)
+#  price              :float(24)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  image_file_name    :string
-#  image_content_type :string
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
 #  image_file_size    :integer
 #  image_updated_at   :datetime
-#  slug               :string
+#  slug               :string(255)
 #  category_id        :integer
 #  views              :integer          default(0)
 #  featured           :boolean          default(FALSE)
 #  visible            :boolean          default(TRUE)
 #  deleted_at         :datetime
+#
+# Indexes
+#
+#  index_products_on_category_id  (category_id)
+#  index_products_on_deleted_at   (deleted_at)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (category_id => categories.id)
 #
 
 class Product < ApplicationRecord

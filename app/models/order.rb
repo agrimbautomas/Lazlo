@@ -5,18 +5,35 @@
 #  id                       :integer          not null, primary key
 #  buyer_id                 :integer
 #  product_id               :integer
-#  code                     :string
-#  detail                   :string
+#  code                     :string(255)
+#  detail                   :string(255)
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  order_status_id          :integer
-#  title                    :string
+#  title                    :string(255)
 #  payment                  :integer
-#  color                    :string
+#  color                    :string(255)
 #  mercado_pago_purchase_id :integer
 #  user_id                  :integer
 #  order_products_list_id   :integer
-#  payment_type             :integer          default(0), not null
+#  payment_type             :integer          default("cash"), not null
+#
+# Indexes
+#
+#  index_orders_on_buyer_id                  (buyer_id)
+#  index_orders_on_mercado_pago_purchase_id  (mercado_pago_purchase_id)
+#  index_orders_on_order_products_list_id    (order_products_list_id)
+#  index_orders_on_order_status_id           (order_status_id)
+#  index_orders_on_product_id                (product_id)
+#  index_orders_on_user_id                   (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (buyer_id => buyers.id)
+#  fk_rails_...  (mercado_pago_purchase_id => mercado_pago_purchases.id)
+#  fk_rails_...  (order_products_list_id => order_products_lists.id)
+#  fk_rails_...  (order_status_id => order_statuses.id)
+#  fk_rails_...  (product_id => products.id)
 #
 
 class Order < ApplicationRecord
