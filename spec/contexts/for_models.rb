@@ -14,3 +14,9 @@ end
 RSpec.shared_context 'create product' do |role|
 	let( :product ) { create :product }
 end
+
+RSpec.shared_context 'create favourite' do |role|
+	include_context 'create product'
+	include_context 'create user', :user
+	let( :favourite ) { create :favourite, product: product, user: user }
+end
