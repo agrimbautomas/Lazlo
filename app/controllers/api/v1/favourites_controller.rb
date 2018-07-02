@@ -10,6 +10,7 @@ class Api::V1::FavouritesController < Api::V1::ApiController
 			user: current_user,
 			product: Product.find(params[:product_id])
 		)
+
 		render_products_response favourite.product
 	end
 
