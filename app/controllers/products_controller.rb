@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   def show
 	 set_purchase_link unless current_user.nil?
 	 @is_in_cart = (current_user.has_product_in_cart?(@product) ? true : false) unless current_user.nil?
+	 @is_in_fav = (current_user.has_product_as_favourite?(@product) ? true : false) unless current_user.nil?
   end
 
   def set_request

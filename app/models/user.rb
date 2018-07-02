@@ -14,7 +14,7 @@ class User < ApplicationRecord
 	has_one :purchased_list, :dependent => :destroy
 	has_many :orders
 
-	def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+	def self.find_for_facebook_oauth(access_token, signed_in_resource = nil)
 		data = access_token.extra.raw_info
 		if user = User.where(:email => data.email).first
 			user
@@ -45,7 +45,7 @@ class User < ApplicationRecord
 	end
 
 	def has_product_as_favourite? product
-		favourites_list.present? and favourites_list.product_rows.present? and favourites_list.product_rows.where(:product => product).exists?
+		Favourite.exists?(product: product, user: self)
 	end
 
 	def has_bought? product
