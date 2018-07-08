@@ -24,5 +24,5 @@ RSpec.describe SiteConfig, type: :model do
   it { should validate_presence_of (:config_type) }
 
   it { should respond_to (:picture) }
-  it { should have_attached_file(:image) }
+  it { should have_attached_file(:picture) }
 end
