@@ -328,6 +328,18 @@
         padding: 0px 21%;
 
         &.in-fav {
+          svg{
+            -webkit-transition: none;
+            -moz-transition: none;
+            -o-transition: none;
+            transition: none;
+
+            &:active {
+              width: 110%;
+              margin: 0px -5%;
+            }
+          }
+
           svg.hovered {
             opacity: 1;
           }

@@ -11,7 +11,7 @@ class Api::V1::FavouritesController < Api::V1::ApiController
 			product: Product.find(params[:product_id])
 		)
 
-		render_products_response favourite.product
+		render_successful_response favourite.product
 	end
 
 	def destroy
