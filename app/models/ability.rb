@@ -2,7 +2,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     can :read, ActiveAdmin::Page, name: "Dashboard"
     full_admin_roles if user.has_role? :full_admin
     blacksmith_roles user if user.has_role? :blacksmith

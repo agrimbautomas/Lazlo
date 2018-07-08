@@ -266,12 +266,9 @@ es:
         marvel:
           one: Mármol
           other: Mármoles
-        page:
-          one: Página
-          other: Páginas
-        page_image:
-          one: Imágen
-          other: Imágenes
+        site_config:
+          one: Configuración
+          other: Configuraciones
       attributes:
         product:
           title: Título

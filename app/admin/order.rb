@@ -5,7 +5,7 @@ ActiveAdmin.register Order do
   permit_params :buyer_id, :user_id, :detail, :order_status_id, :title,
 					 :payment, order_products_rows_attributes: [:product_id, :quantity, :product_name, :product_price, :_destroy]
 
-  config.per_page = 20
+  config.per_page = 50
 
   filter :buyer
   filter :product

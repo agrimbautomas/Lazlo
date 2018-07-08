@@ -5,7 +5,7 @@ ActiveAdmin.register Product do
                 product_images_attributes: [:id, :picture, :_destroy]
 
   config.sort_order = 'name_asc'
-  config.per_page = 20
+  config.per_page = 50
 
   filter :name
   filter :price
