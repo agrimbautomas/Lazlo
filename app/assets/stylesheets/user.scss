@@ -276,6 +276,38 @@ section.profile-detail {
           margin: 0px 0px 13px;
         }
       }
+
+
+
+      .cart-product-row{
+        width: 100%;
+        display: inline-block;
+
+        a{
+          width: 100%;
+          display: inline-block;
+          font-weight: bold;
+          text-decoration: underline;
+
+          &:hover{
+            opacity: 0.8;
+          }
+        }
+
+        .left-block,
+        .right-block{
+          width: 80%;
+          float: left;
+          text-align: left;
+        }
+
+        .left-block{
+          width: 20%;
+        }
+
+      }
+
+
     }
 
   }
