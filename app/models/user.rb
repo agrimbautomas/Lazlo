@@ -45,7 +45,8 @@ class User < ApplicationRecord
 
 	has_one :checkout_list, :dependent => :destroy
 	has_one :purchased_list, :dependent => :destroy
-	has_many :orders
+	has_many :orders, :dependent => :destroy
+	has_many :favourites, :dependent => :destroy
 
 	def self.find_for_facebook_oauth(access_token, signed_in_resource = nil)
 		data = access_token.extra.raw_info

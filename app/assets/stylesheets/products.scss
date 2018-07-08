@@ -31,7 +31,7 @@
 
   h5, h6 {
     font-weight: normal;
-    font-size: 16px;
+    font-size: 1em;
 
     -webkit-transition: -webkit-transform 0.35s;
     transition: transform 0.35s;
@@ -98,7 +98,15 @@
       top: 42%;
       left: 47%;
     }
+
   }
+
+  &.without-margin {
+    .hover-block {
+      height: 100%;
+    }
+  }
+
   &:hover {
     .hover-block {
       opacity: 1;
@@ -328,7 +336,7 @@
         padding: 0px 21%;
 
         &.in-fav {
-          svg{
+          svg {
             -webkit-transition: none;
             -moz-transition: none;
             -o-transition: none;

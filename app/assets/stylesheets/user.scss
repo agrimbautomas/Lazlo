@@ -249,9 +249,33 @@ section.profile-detail {
 
   .profile-products-block {
     .profile-products-inner-block{
-      margin: 20px 5% 10px;
+      margin: 20px 1% 10px;
       display: inline-block;
-      width: 90%;
+      width: 98%;
+      position: relative;
+
+      .favourite-product-block{
+        float: left;
+        width: 32%;
+        width: calc(33% - 30px);
+        margin: 0px 0px 30px 30px;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+
+        &.last{
+          margin-left: 0px;
+        }
+
+        .image-block-with-transition {
+          height: 100%;
+          font-size: 0.7em;
+        }
+
+        section.profile-detail h6{
+          margin: 0px 0px 13px;
+        }
+      }
     }
 
   }

@@ -25,11 +25,8 @@
 
           <a class="image-block column<%= column %>-size<%= size %>" href="<%= product_path product %>">
             <div class="image-block-with-transition no-image-translate hover-block-trigger">
-                  <span class="hover-block smooth-transition">
-                    <svg>
-                      <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
-                    </svg>
-                  </span>
+
+              <%= render :partial => 'icons/eye_icon' %>
 
               <%= image_tag product.image.url(get_image_size column, size) %>
 

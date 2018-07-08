@@ -1,24 +1,25 @@
 <div class="profile-products-block">
   <div class="profile-products-inner-block">
-    <% if current_user.checkout_list.present? and current_user.checkout_list.product_rows.present? %>
-      <% current_user.checkout_list.product_rows.each do |product_row| %>
-        <div class="cart-product-row"
-             data-remove-path="<%= remove_cart_product_row_url product_hash(product_row.product.id) %>">
+    <% if current_user.favourites.any? %>
+      <% current_user.favourites.each_with_index do |favourite, i| %>
+        <a class="image-block favourite-product-block <%= i % 3 == 0 ? 'last' : '' %>"
+           href="<%= product_path favourite.product %>">
+          <div class="image-block-with-transition no-image-translate hover-block-trigger without-margin">
 
-          <i class="fa fa-times smooth-transition" aria-hidden="true"></i>
+            <%= render :partial => 'icons/eye_icon' %>
 
-          <div class="cart-product-image">
-            <img src="<%= product_row.product.image.url(:thumb) %>"/>
+            <%= image_tag favourite.product.image.url(:rectangular5) %>
+
+            <div class="product-description">
+              <h5><%= format_price favourite.product.price %>
+                <strong><%= favourite.product.name %></strong>
+              </h5>
+              <h6>medidas: 50x50x70 de alto</h6>
+            </div>
+
+
           </div>
-
-          <h2>
-            <a href="<%= product_path product_row.product %>" class="smooth-transition">
-              <%= product_row.product.name %>
-            </a>
-          </h2>
-
-          <span class="cart-product-price"><%= format_price product_row.product.price %></span>
-        </div>
+        </a>
       <% end %>
     <% else %>
       <div class="no-products-message">
