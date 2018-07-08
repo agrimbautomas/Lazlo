@@ -15,11 +15,14 @@
 
 require 'rails_helper'
 
-RSpec.describe PageImage, type: :model do
+RSpec.describe SiteConfig, type: :model do
 
-  it { should respond_to (:page) }
+  it { should respond_to (:caption) }
+  it { should validate_presence_of (:caption) }
+
+  it { should respond_to (:config_type) }
+  it { should validate_presence_of (:config_type) }
+
   it { should respond_to (:picture) }
-
-  it { should belong_to (:page) }
-
+  it { should have_attached_file(:image) }
 end
