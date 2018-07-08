@@ -5,17 +5,19 @@
 
 <% slider_image_size = mobile_device? ? :medium : :slider %>
 
-<% if @home_page.present? and @home_page.page_images.present? %>
-    <!-- Start Slider -->
-    <div class="home">
-      <ul class="bx-wrapper home-slider">
-        <% @home_page.page_images.each do |image| %>
-            <li><img src="<%= image.picture.url(slider_image_size) %>"/></li>
-        <% end %>
+<%
 
-      </ul>
-    </div>
-    <!-- End Slider -->
+  if SiteConfig.home_slide.present? %>
+  <!-- Start Slider -->
+  <div class="home">
+    <ul class="bx-wrapper home-slider">
+      <% SiteConfig.home_slide.each do |slide| %>
+        <li><img src="<%= slide.picture.url(slider_image_size) %>"/></li>
+      <% end %>
+
+    </ul>
+  </div>
+  <!-- End Slider -->
 <% end %>
 
 
@@ -26,10 +28,10 @@
   <section class="categories">
 
     <% if @page_categories.present? %>
-        <!-- Start Category Rows -->
-        <%= render :partial => 'home/category_rows' %>
-        <!-- End Category Rows -->
-  <% end %>
+      <!-- Start Category Rows -->
+      <%= render :partial => 'home/category_rows' %>
+      <!-- End Category Rows -->
+    <% end %>
 
   </section>
   <!-- End categories -->
@@ -37,7 +39,9 @@
 
   <!-- Start contact -->
   <section class="contact">
-    <%= image_tag 'home-contact-lazlo.jpg' %>
+    <% if SiteConfig.home_support.present? %>
+      <img src="<%= SiteConfig.home_support.first.picture.url(:home_support) %>">
+    <% end %>
     <div class="floating-text">
       En LAZLO. buscamos la expresion de las
       cosas mediante las formas geométricas
@@ -58,42 +62,42 @@
   <section class="products">
 
     <% if @most_liked_product.present? %>
-        <a class="left-product" href="<%= product_path @most_liked_product %>">
-          <div class="image-block-with-transition hover-block-trigger">
+      <a class="left-product" href="<%= product_path @most_liked_product %>">
+        <div class="image-block-with-transition hover-block-trigger">
                   <span class="hover-block smooth-transition">
                     <svg>
                       <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
                     </svg>
                   </span>
-            <%= image_tag @most_liked_product.image.url(:rectangular1) %>
+          <%= image_tag @most_liked_product.image.url(:rectangular1) %>
 
-            <div class="product-description">
-              <h5>PRODUCTO <strong>MÁS VENDIDO</strong></h5>
-              <h6><%= @most_liked_product.name %> - <%= format_price @most_liked_product.price %></h6>
-            </div>
-
+          <div class="product-description">
+            <h5>PRODUCTO <strong>MÁS VENDIDO</strong></h5>
+            <h6><%= @most_liked_product.name %> - <%= format_price @most_liked_product.price %></h6>
           </div>
-        </a>
+
+        </div>
+      </a>
     <% end %>
 
 
     <% if @most_purchased_product.present? %>
-        <a class="right-product" href="<%= product_path @most_purchased_product %>">
-          <div class="image-block-with-transition hover-block-trigger">
+      <a class="right-product" href="<%= product_path @most_purchased_product %>">
+        <div class="image-block-with-transition hover-block-trigger">
                   <span class="hover-block smooth-transition">
                     <svg>
                       <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
                     </svg>
                   </span>
-            <%= image_tag @most_purchased_product.image.url(:rectangular2) %>
+          <%= image_tag @most_purchased_product.image.url(:rectangular2) %>
 
-            <div class="product-description">
-              <h5>PRODUCTO <strong>MÁS LIKEADO</strong></h5>
-              <h6><%= @most_liked_product.name %></h6>
-            </div>
-
+          <div class="product-description">
+            <h5>PRODUCTO <strong>MÁS LIKEADO</strong></h5>
+            <h6><%= @most_liked_product.name %></h6>
           </div>
-        </a>
+
+        </div>
+      </a>
     <% end %>
 
 
@@ -109,7 +113,9 @@
         <h3>HASTA<br>40%OFF</h3>
       </div>
 
-      <span></span>
+      <% if SiteConfig.home_promotion.present? %>
+        <span style="background-image: url(<%= SiteConfig.home_promotion.first.picture.url(:home_promotion) %>)"></span>
+      <% end %>
     </a>
 
 
