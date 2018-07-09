@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def profile
-
-    @statuses = OrderStatus.visible.order(:priority)
+    # Remove cancelled from list for view
+    @statuses = Order.statuses.first Order.statuses.size - 1
     # Todo Remove limit
     @current_purchased_orders =  current_user.current_orders.limit(3)
 

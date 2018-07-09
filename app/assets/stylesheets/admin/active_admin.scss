@@ -123,6 +123,7 @@
       td.col {
 
         a,
+        &.col-orden span,
         &.col-pago span {
           color: $blue-state;
           -webkit-border-radius: 2px;
@@ -130,11 +131,14 @@
           border-radius: 2px;
           text-transform: lowercase;
           padding: 2px 8px;
-
           &:hover {
             text-decoration: none;
 
           }
+        }
+
+        &.col-orden span{
+          color: white;
         }
 
         &.col-selectable {
@@ -186,27 +190,27 @@
 
       }
 
-      &.encargado .col-orden a {
+      &.requested .col-orden span{
         background: $blue-state;
       }
 
-      &.en-herreria .col-orden a {
+      &.in_blacksmith .col-orden span {
         background: $orange-state;
       }
 
-      &.en-pintureria .col-orden a {
+      &.in_painting.col-orden span {
         background: $red-state;
       }
 
-      &.listo-para-entregar .col-orden a {
+      &.finished .col-orden span {
         background: $green-state;
       }
 
-      &.entregada .col-orden a {
+      &.delivered .col-orden span {
         background: $grey-state;
       }
 
-      &.cancelado .col-orden a {
+      &.cancelled .col-orden span {
         background: $red-state;
       }
 

@@ -5,7 +5,7 @@ ActiveAdmin.register Order do
 	permit_params :buyer_id, :user_id, :detail, :status, :title,
 		:payment, order_products_rows_attributes: [:product_id, :quantity, :product_name, :product_price, :_destroy]
 
-	config.per_page = 50
+	config.per_page = 30
 
 	filter :buyer
 	filter :product
@@ -18,15 +18,18 @@ ActiveAdmin.register Order do
 	# Config
 	#
 	Order.statuses.each do |status|
-	 scope status.first
+		scope(Order.human_enum_name(:status, status.first)) do |scope|
+			scope.where(status: status)
+		end
 	end
+
 
 	controller do
 
 		def scoped_collection
 			Order.includes(:order_products_rows)
 			return Order.all if current_admin_user.has_role? :full_admin
-			return Order.where(order_status_id: [2, 3]) if current_admin_user.has_role? :blacksmith
+			return Order.where(status: [2, 3]) if current_admin_user.has_role? :blacksmith
 		end
 
 		def create
@@ -101,7 +104,7 @@ ActiveAdmin.register Order do
 		end
 
 		column 'Orden' do |order|
-			order.status
+			span Order.human_enum_name(:status, order.status)
 		end
 
 
@@ -140,7 +143,7 @@ ActiveAdmin.register Order do
 				:label => 'Origen del comprador'
 			f.input :buyer, collection: Buyer.order(updated_at: :desc)
 			f.input :user, collection: User.order(updated_at: :desc)
-			#f.input :order_status_id, :as => :select, include_blank: false, collection: OrderStatus.all, :label => 'Estado'
+			f.input :status, :as => :select, include_blank: false
 			f.input :detail, :hint => 'Algun tipo de detalle para la producción'
 			f.input :payment, :input_html => { :min => 0, :step => 100 } if current_admin_user.has_role? :full_admin
 			f.input :title, :hint => 'Titulo de la orden (se muestra en el tracking)',
@@ -188,7 +191,7 @@ ActiveAdmin.register Order do
 			end
 
 			row 'Status' do |order|
-				order.status
+				order.status_str
 			end
 
 			row I18n.t('created_at') do |order|

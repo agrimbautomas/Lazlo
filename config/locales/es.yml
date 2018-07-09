@@ -287,6 +287,14 @@ es:
           code: Código
           detail: Detalle
           title: Titulo
+          status: Estado
+          statuses:
+            requested: Encargado
+            in_blacksmith: Herrería
+            in_painting: Pintura
+            finished: Terminada
+            delivered: Entregado
+            cancelled: Cancelado
         order_products_rows:
           product_name: Nombre del Producto
           quantity: Cantidad

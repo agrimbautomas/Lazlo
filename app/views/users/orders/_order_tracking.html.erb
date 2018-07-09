@@ -18,12 +18,12 @@
   <div class="block">
     <div class="inner-block">
       <h3>TRACKEO DE LOS PRODUCTOS</h3>
-      <%= @order.order_status.name unless @order.order_status.nil? %>
+      <%= @order.status_str unless @order.status.nil? %>
 
       <div class="status-blocks-container">
         <%
           status_class = 'status-active'
-          @statuses.each_with_index do |product_status, i|
+          @statuses.each_with_index do |status, item |
         %>
 
           <div class="status-block <%= status_class %>">
@@ -32,18 +32,18 @@
               <span class="dot"></span>
             </div>
 
-            <label><%= product_status.name %></label>
+            <label><%= Order.human_enum_name(:status, status.first) %></label>
 
-            <% if product_status == @statuses.first %>
+            <% if status == @statuses.first %>
               <label class="date"><%= @order.created_at.strftime('%d/%m/%y') %></label>
-            <% elsif product_status == @statuses.last %>
+            <% elsif status == @statuses.count %>
               <label class="date"><%= (@order.created_at + 15.days).strftime('%d/%m/%y') %></label>
             <% end %>
 
           </div>
 
           <%
-            if (status_class == 'status-active') and (product_status == @order.order_status)
+            if (status_class == 'status-active') and (status.first == @order.status)
               status_class = 'status-inactive'
             end
           %>

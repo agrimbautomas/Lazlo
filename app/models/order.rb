@@ -61,6 +61,14 @@ class Order < ApplicationRecord
 
 	scope :current_for, -> (user) { where(:user => user).order(:created_at => 'DESC') }
 
+	def self.human_enum_name(enum_name, enum_value)
+		I18n.t("activerecord.attributes.#{model_name.i18n_key}.#{enum_name.to_s.pluralize}.#{enum_value}")
+	end
+
+	def status_str
+		Order.human_enum_name(:status, status)
+	end
+
 	def set_code
 		code = (0...8).map { (65 + rand(26)).chr }.join
 		if Order.find_by(code: code).blank?

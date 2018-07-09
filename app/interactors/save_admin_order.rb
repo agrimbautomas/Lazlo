@@ -42,7 +42,7 @@ class SaveAdminOrder < Interactor
 	 @order.buyer_id = @order_params[:buyer_id]
 	 @order.user_id = @order_params[:user_id]
 	 @order.detail = @order_params[:detail] unless @order_params[:detail].empty?
-	 @order.order_status_id = @order_params[:order_status_id] unless @order_params[:order_status_id].empty?
+	 @order.status = @order_params[:status] unless @order_params[:status].empty?
 	 @order.title = @order_params[:title] unless @order_params[:title].empty?
 	 @order.payment = @order_params[:payment] unless @order_params[:payment].empty?
   end
