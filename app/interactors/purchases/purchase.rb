@@ -17,14 +17,14 @@ class Purchase < Interactor
 	 create_order(product_data['name'], order_products_list, order_status)
   end
 
-  def create_order title, products_list, order_status
+  def create_order title, products_list, status
 	 @order = Order.create(
 		  :user => @user,
 		  :order_products_list => products_list,
 		  :payment => products_list.total,
 		  :title => title,
 		  :payment_type => Order.payment_types[:mercado_pago],
-		  :order_status => order_status,
+		  :status => status,
 		  :detail => order_detail
 	 )
 	 checkout_callback

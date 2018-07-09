@@ -88,10 +88,6 @@ class Order < ApplicationRecord
 		save!
 	end
 
-	def tracking_link
-		Rails.application.routes.url_helpers.tracking_order_by_code_url(code)
-	end
-
 	def total
 		order_products_list.total unless order_products_list.nil?
 	end

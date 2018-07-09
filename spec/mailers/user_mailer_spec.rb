@@ -58,10 +58,6 @@ RSpec.describe UserMailer, type: :mailer do
 		expect(mail.body.encoded).to match(order.title)
 	 end
 
-	 it 'assigns tracking link' do
-		expect(mail.body.encoded).to match(order.tracking_link)
-	 end
-
   end
 
 end

@@ -4,14 +4,13 @@ RSpec.describe SaveAdminOrder do
 
   let(:order) { create(:order) }
   let(:buyer) { create(:buyer) }
-  let(:order_status) { create(:order_status) }
 
   before {
 	 order_params = ActionController::Parameters.new(
 		  :buyer_id => buyer.id,
 		  :user_id => nil,
 		  :detail => "Algun detalle",
-		  :order_status_id => order_status.id.to_s,
+		  :status => order.status,
 		  :title => "Algun titulo",
 		  :payment => "32323"
 	 )

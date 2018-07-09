@@ -1,6 +1,8 @@
 <div class="profile-products-block">
   <div class="profile-products-inner-block">
-    <% if current_user.orders.any? %>
+    <%
+      byebug
+      if current_user.orders.any? %>
       <% current_user.orders.order(:created_at => 'DESC').each do |order|
         @order = order   %>
         <%= render :partial => 'users/orders/profile_order_row' %>
