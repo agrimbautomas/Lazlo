@@ -1,17 +1,17 @@
 <div class="profile-products-block">
   <div class="profile-products-inner-block">
-    <% if current_user.checkout_list.present? %>
-      <div class="user-cart-left-block">
+    <% if current_user.checkout_list.present? and current_user.checkout_list.product_rows.any? %>
+      <div class="user-cart-left-block user-cart-block">
         <% current_user.checkout_list.product_rows.each do |product_row|
           @product_row = product_row
-        %>
+         %>
           <!-- Start Product Cart Row -->
           <%= render :partial => 'users/cart/product_cart_row' %>
           <!-- End Product Cart Row -->
         <% end %>
       </div>
 
-      <div class="user-cart-right-block">
+      <div class="user-cart-right-block user-cart-block">
         <h2>Total</h2>
         <h3 class="total-sum"></h3>
         <a href="<%= cart_checkout_url %>" class="checkout-button smooth-transition  yellow-with-icon-hover button">
@@ -20,11 +20,11 @@
         </a>
       </div>
 
-    <% else %>
-      <div class="no-products-message">
-        No tienes ningún producto en el carrito
-      </div>
-
     <% end %>
+
+    <div class="no-products-message cart-no-products-message">
+      <h5>Todavía no tenés ningun producto en el carrito</h5>
+    </div>
+
   </div>
 </div>

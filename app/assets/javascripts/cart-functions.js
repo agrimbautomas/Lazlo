@@ -1,15 +1,17 @@
+var $noProductsMessage;
 var $profileProductsSlider;
 var $currentProducRow;
 
 $(document).ready(function () {
 
-	 $noProductsMessage = $('.no-products-message');
+	 $noProductsMessage = $('.cart-no-products-message');
 	 $profileProductsSlider = $('.profile-products-slider-buttons');
 
 
 	 setupCartFunctions();
 	 updateRowPrices();
 	 setupProfileProductsSlider();
+	 checkIfListIsEmpty();
 });
 
 
@@ -60,11 +62,12 @@ function setupRemoveButton($productRow) {
 }
 
 function removeProductFromCart(data) {
+	 $currentProducRow.remove();
+	 $currentProducRow = null;
+
 	 checkIfListIsEmpty();
 	 updateRowPrices();
 	 decrementCartNumber();
-	 $currentProducRow.remove();
-	 $currentProducRow = null;
 }
 
 function setQuantityControls($productRow) {
@@ -75,10 +78,14 @@ function setQuantityControls($productRow) {
 }
 
 function checkIfListIsEmpty() {
-	 if ($('.cart-product-row').length == 0)
+	 console.log($('.cart-product-row').length);
+	 if ($('.cart-product-row').length == 0){
 		  $noProductsMessage.show();
-	 else
-		  $noProductsMessage.hide();
+		  $('.user-cart-block').hide();
+	 }else{
+
+	 }
+
 }
 
 function updateRowPrices(data) {
