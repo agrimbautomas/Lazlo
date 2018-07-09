@@ -86,7 +86,7 @@ class Order < ApplicationRecord
   end
 
   def total
-	  order_products_list.total
+	  order_products_list.total unless order_products_list.nil?
   end
 
   private

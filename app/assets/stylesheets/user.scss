@@ -396,33 +396,27 @@ section.profile-detail {
 
   }
 
-  .profile-products-slider-buttons {
+  .history-order-row{
+    display: inline-block;
+    width: 100%;
+    margin: 0px auto 34px;
 
-    .bx-pager-item {
-      margin: 0px 10% 0px 0px;
-      position: relative;
-      display: inline-block;
+    .order-column{
+      width: 25%;
+      float: left;
 
-      a {
-        font-weight: bold;
-        font-size: 1em;
-
-        &:hover,
-        &.active {
-          border-bottom: 2px solid black;
-        }
-        span {
-          position: absolute;
-        }
+      h6{
+        margin: 0px auto 0px;
+        font-size: 0.9em;
       }
 
+      span{
+        width: 100%;
+        font-size: 0.8em;
+      }
     }
+  }
 
-  }
-  .bx-wrapper .bx-viewport {
-    background: none;
-    min-height: 250px;
-  }
 
   .no-products-message {
     width: 100%;
@@ -432,7 +426,7 @@ section.profile-detail {
     &.cart-no-products-message {
       display: none;
     }
-    
+
     h5 {
       font-size: 1.5em;
       text-align: center;
@@ -448,6 +442,36 @@ section.profile-detail {
       }
     }
   }
+
+  .profile-products-slider-buttons {
+
+    .bx-pager-item {
+      margin: 0px 10% 0px 0px;
+      position: relative;
+      display: inline-block;
+
+      a {
+        font-weight: bold;
+        font-size: 1em;
+
+        &:hover,
+        &.active {
+          border-bottom: 2px solid $yellow_lazlo;
+        }
+        span {
+          position: absolute;
+        }
+      }
+
+    }
+
+  }
+
+  .bx-wrapper .bx-viewport {
+    background: none;
+    min-height: 250px;
+  }
+
 }
 
 /************************************************************************************/

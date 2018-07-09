@@ -1,0 +1,31 @@
+<div class="history-order-row">
+
+  <div class="order-column">
+    <h6>COMPRA DEL DÍA</h6>
+    <span><%= @order.created_at.strftime('%d/%m/%y') %></span>
+  </div>
+
+
+  <div class="order-column">
+    <h6>VALOR DE COMPRA</h6>
+    <span><%= format_price @order.total %></span>
+  </div>
+
+
+  <div class="order-column">
+    <h6>MEDIO DE PAGO</h6>
+    <span><%= I18n.t(@order.payment_type) %></span>
+  </div>
+
+
+  <div class="order-column">
+    <h6>PRODUCTO/S</h6>
+
+    <% if @order.order_products_list.present? and @order.order_products_list.order_products_rows.any? %>
+      <% @order.order_products_list.order_products_rows.each do |product_row| %>
+        <span><%= product_row.product_name %></span>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

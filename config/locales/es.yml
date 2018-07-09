@@ -338,3 +338,5 @@ es:
       ticket: Ticket
       account_money: Plata en Mercado Pago
   created_at: Fecha de creación
+  mercado_pago: Mercado Pago
+  cash: Efectivo
