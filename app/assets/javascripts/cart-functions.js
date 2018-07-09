@@ -1,4 +1,5 @@
 var $profileProductsSlider;
+var $currentProducRow;
 
 $(document).ready(function () {
 
@@ -51,29 +52,19 @@ function setupCartFunctions() {
 }
 
 function setupRemoveButton($productRow) {
-	 $productRow.children('i.remove-row').click(function () {
+	 $productRow.find('i.remove-row').click(function () {
 		  var productUrl = $productRow.data('remove-path');
-
-		  $.ajax({
-				url: productUrl,
-				context: document.body,
-				type: 'DELETE',
-				data: {
-					 quantity: 1
-				}
-		  }).done(function (data) {
-				if (data.response == 'success')
-					 removeProductFromCart($productRow)
-		  });
-
+		  $currentProducRow = $productRow;
+		  requestProductRow('DELETE', productUrl, 1, removeProductFromCart);
 	 });
 }
 
-function removeProductFromCart($productRow) {
-	 $productRow.remove();
+function removeProductFromCart(data) {
 	 checkIfListIsEmpty();
 	 updateRowPrices();
 	 decrementCartNumber();
+	 $currentProducRow.remove();
+	 $currentProducRow = null;
 }
 
 function setQuantityControls($productRow) {
@@ -90,14 +81,15 @@ function checkIfListIsEmpty() {
 		  $noProductsMessage.hide();
 }
 
-function updateRowPrices() {
+function updateRowPrices(data) {
 	 var totalPrice = 0;
 	 $('.cart-product-row').each(function () {
 
 		  var $priceBox = $(this).find('.cart-product-price');
 		  var rowTotal = getRowProductPrice($priceBox) * getRowQuantity($(this));
 
-		  $priceBox.html('$' + rowTotal);
+
+		  $priceBox.html(formatPrice(rowTotal));
 		  totalPrice += rowTotal;
 	 });
 
@@ -108,7 +100,7 @@ function updateRowPrices() {
  * Rows Methods
  */
 function setCheckoutTotal(totalPrice) {
-	 $('.total-sum span').html(totalPrice);
+	 $('.total-sum').html(formatPrice(totalPrice));
 }
 
 /**
@@ -117,7 +109,7 @@ function setCheckoutTotal(totalPrice) {
  * @returns {Number}
  */
 function getRowQuantity($row) {
-	 var $quantityTag = $row.find('.quantity-message span');
+	 var $quantityTag = $row.find('.quantity-message');
 	 return parseInt($quantityTag.text());
 }
 
@@ -127,7 +119,7 @@ function getRowQuantity($row) {
  * @param $row
  */
 function setRowQuantity(quantity, $row) {
-	 var $quantityTag = $row.find('.quantity-message span');
+	 var $quantityTag = $row.find('.quantity-message');
 	 $quantityTag.text(quantity);
 }
 
@@ -140,7 +132,7 @@ function setSumEvents($row, url) {
 	 $row.find('.fa-plus-circle').click(function () {
 		  var quantity = getRowQuantity($row);
 		  setRowQuantity(++quantity, $row);
-		  requestProductRow('PUT', url, quantity, updateRowPrices())
+		  requestProductRow('PUT', url, quantity, updateRowPrices)
 	 })
 }
 
@@ -154,7 +146,7 @@ function setSubstracEvents($row, url) {
 		  var quantity = getRowQuantity($row);
 		  if (quantity > 1) {
 				setRowQuantity(--quantity, $row);
-				requestProductRow('PUT', url, quantity, updateRowPrices())
+				requestProductRow('PUT', url, quantity, updateRowPrices)
 		  }
 	 })
 }
@@ -166,4 +158,25 @@ function setSubstracEvents($row, url) {
  */
 function getRowProductPrice($priceBox) {
 	 return $priceBox.data('product-price');
+}
+
+/**************************/
+/**************************/
+/*****  AJAX Methods *****/
+/**************************/
+
+/**************************/
+
+function requestProductRow(method, url, quantity, callback) {
+	 $.ajax({
+		  url: url,
+		  context: document.body,
+		  type: method,
+		  data: {
+				quantity: quantity
+		  }
+	 }).done(function (data) {
+		  if (data.response == 'success')
+				callback(data);
+	 });
 }

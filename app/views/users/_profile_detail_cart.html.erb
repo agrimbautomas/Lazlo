@@ -1,51 +1,28 @@
 <div class="profile-products-block">
   <div class="profile-products-inner-block">
     <% if current_user.checkout_list.present? %>
-      <% current_user.checkout_list.product_rows.each do |product_row| %>
-        <div class="cart-product-row"
-             data-remove-path="<%= remove_cart_product_row_url product_hash(product_row.product.id) %>"
-             data-put-path="<%= edit_checkout_row_url product_row_hash(product_row.id) %>">
+      <div class="user-cart-left-block">
+        <% current_user.checkout_list.product_rows.each do |product_row|
+          @product_row = product_row
+        %>
+          <!-- Start Product Cart Row -->
+          <%= render :partial => 'users/cart/product_cart_row' %>
+          <!-- End Product Cart Row -->
+        <% end %>
+      </div>
 
-          <a href="<%= product_path product_row.product %>" class="smooth-transition"><%= product_row.product.name %></a>
-
-          <div class="left-block">
-            <a class="cart-product-image" href="<%= product_path product_row.product %>">
-              <img src="<%= product_row.product.image.url(:thumb) %>"/>
-            </a>
-          </div>
-
-
-          <div class="right-block">
-
-            <i class="fa fa-times remove-row smooth-transition" aria-hidden="true"></i>
-
-
-            <div class="cart-product-quantity">
-
-              <div class="quantity-message">
-                x<span><%= product_row.quantity %></span>
-              </div>
-
-              <div class="quantity-controls">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                <i class="fa fa-minus-circle" aria-hidden="true"></i>
-              </div>
-            </div>
-
-            <% if product_row.product.price.present?
-                 total_price = product_row.quantity * product_row.product.price.to_i %>
-          <span class="cart-product-price" data-product-price="<%= product_row.product.price.to_i %>">
-              <%= format_price total_price %>
-          </span>
-            <% end %>
-          </div>
-
-        </div>
-      <% end %>
+      <div class="user-cart-right-block">
+        <h2>Total</h2>
+        <h3 class="total-sum"></h3>
+        <a href="<%= cart_checkout_url %>" class="checkout-button smooth-transition  yellow-with-icon-hover button">
+          <span>CHECKOUT</span>
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </a>
+      </div>
 
     <% else %>
       <div class="no-products-message">
-        No has realizado ninguna compra aún
+        No tienes ningún producto en el carrito
       </div>
 
     <% end %>

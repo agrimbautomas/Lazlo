@@ -121,9 +121,27 @@ button {
   &.yellow-with-icon-hover {
     background: $yellow_lazlo;
     color: $black_lazlo;
+    height: 20px;
+    padding: 16px 0px;
+    margin: 10px 0px 0px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+
+    i{
+      display: none;
+      text-align: center;
+      font-size: 1.45em;
+    }
 
     &:hover {
+      span{
+        display: none;
+      }
 
+      i{
+        display: block;
+      }
     }
   }
 

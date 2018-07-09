@@ -17,7 +17,6 @@ jQuery(document).ready(function () {
 });
 
 
-
 function setupVars() {
 	 $contactForm = $('.contact-form');
 	 $chatButton = $('.chat-button');
@@ -29,16 +28,16 @@ function setupVars() {
 * Chat functions
 *
 */
-function setupToggleChat(){
-	 $chatButton.click(function(){
-	 	 if($chatWidget.hasClass('displayed'))
-			  hideChat();
-	 	 else
-	 	 	 displayChat()
+function setupToggleChat() {
+	 $chatButton.click(function () {
+		  if ($chatWidget.hasClass('displayed'))
+				hideChat();
+		  else
+				displayChat()
 	 });
 }
 
-function displayChat(){
+function displayChat() {
 
 	 $chatWidget.addClass('displayed');
 	 $('.display-on-chat').animate({
@@ -47,11 +46,11 @@ function displayChat(){
 
 }
 
-function hideChat(){
+function hideChat() {
 
 	 $('.display-on-chat').animate({
 		  opacity: 0
-	 }, 100, function(){
+	 }, 100, function () {
 		  $chatWidget.removeClass('displayed');
 	 });
 }
@@ -133,3 +132,19 @@ function setupAlertButtons() {
 	 });
 }
 
+/*
+*
+* Helpers
+*
+ */
+function formatPrice(nStr) {
+	 nStr += '';
+	 x = nStr.split('.');
+	 x1 = x[0];
+	 x2 = x.length > 1 ? '.' + x[1] : '';
+	 var rgx = /(\d+)(\d{3})/;
+	 while (rgx.test(x1))
+		  x1 = x1.replace(rgx, '$1' + '.' + '$2');
+
+	 return '$' + x1 + x2;
+}
