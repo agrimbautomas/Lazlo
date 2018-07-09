@@ -2,7 +2,7 @@
 <%= render :partial => 'layouts/header' %>
 <!-- End Header -->
 
-<% if @current_purchased_orders.any? %>
+<% if current_user.current_orders.any? %>
 
   <div class="profile-purchase-header">
 
@@ -12,7 +12,7 @@
         <h2>tu compra</h2>
       </div>
 
-      <% @current_purchased_orders.each do |order|
+      <% current_user.current_orders.each do |order|
         @order = order  %>
         <%= render :partial => 'users/orders/order_tracking' %>
       <% end %>

@@ -59,7 +59,9 @@ class Order < ApplicationRecord
 	validates_presence_of :user, :if => :buyer_is_nil?
 	validates_presence_of :buyer, :if => :user_is_nil?
 
-	scope :current_for, -> (user) { where(:user => user).order(:created_at => 'DESC') }
+	scope :current, -> () { where.not(status: [Order.statuses[:delivered], Order.statuses[:cancelled]]) }
+	scope :of, -> (user) { where(user: user) }
+	scope :desc, -> () { order(:created_at => 'DESC') }
 
 	def self.human_enum_name(enum_name, enum_value)
 		I18n.t("activerecord.attributes.#{model_name.i18n_key}.#{enum_name.to_s.pluralize}.#{enum_value}")

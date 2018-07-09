@@ -65,7 +65,7 @@ class User < ApplicationRecord
 	end
 
 	def current_orders
-		Order.current_for self
+		Order.current.of(self).desc
 	end
 
 	def add_product_to_cart product

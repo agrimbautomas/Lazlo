@@ -6,7 +6,7 @@
   background: white;
   box-shadow: 0px 1px 3px #e2e2e2;
   text-align: center;
-  padding: 20px 0px 50px;
+  padding: 20px 0px 0px;
 
   .order-row {
     display: inline-block;
@@ -110,6 +110,7 @@
         width: 100%;
         display: inline-block;
         font-weight: bold;
+        font-size: 0.8em;
 
         &.date {
           color: #828282;

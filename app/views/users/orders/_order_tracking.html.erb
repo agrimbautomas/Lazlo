@@ -23,7 +23,7 @@
       <div class="status-blocks-container">
         <%
           status_class = 'status-active'
-          @statuses.each_with_index do |status, item |
+          @statuses.each do |status |
         %>
 
           <div class="status-block <%= status_class %>">
