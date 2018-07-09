@@ -244,7 +244,7 @@ es:
         order:
           one: Orden
           other: Ordenes
-        order_status:
+        status:
           one: Estado de la orden
           other: Estados de las ordenes
         order_products_row:
@@ -291,11 +291,6 @@ es:
           product_name: Nombre del Producto
           quantity: Cantidad
           product_price: Precio
-        order_status:
-          name: Nombre del estado
-          priority: Prioridad
-          visible: Visible
-          image: Imagen
         buyer:
           name: Nombre
           phone: Teléfono
