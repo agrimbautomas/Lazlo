@@ -46,7 +46,8 @@ class Order < ApplicationRecord
 	accepts_nested_attributes_for :order_products_rows, :allow_destroy => true
 
 	enum payment_type: [:cash, :mercado_pago]
-	enum status: { requested: 0, in_blacksmith: 1, in_painting: 2, finished: 3, delivered: 4 }
+	enum status: { requested: 0, in_blacksmith: 1, in_painting: 2,
+		finished: 3, delivered: 4, cancelled: 5 }
 
 	before_create :set_code
 	validates_presence_of :title, :payment_type, :order_products_list
