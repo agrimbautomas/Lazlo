@@ -1,8 +1,7 @@
 <div class="contact-form">
   <div class="contact-form-inner">
-    <svg class="close-contact-form">
-      <use xlink:href="<%= image_url('sprite.svg') %>#close-cross-black"/>
-    </svg>
+
+    <i class="fa fa-times close-contact-form" aria-hidden="true"></i>
 
     <%= form_tag('/contact_email', :method => 'POST', :class => 'contact') do %>
         <h5>hola@lazlo.la</h5>

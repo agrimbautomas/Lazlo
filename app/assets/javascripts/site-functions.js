@@ -2,6 +2,7 @@ var didScroll;
 var lastScrollTop = 0;
 var delta = 5;
 
+var $shadowLayer;
 var $contactForm;
 var $chatButton;
 var $chatWidget;
@@ -11,6 +12,7 @@ jQuery(document).ready(function () {
 	 setUpHeaderToggleOnScroll();
 
 	 setupVars();
+	 setupShadows();
 	 setupContactForm();
 	 setupAlertButtons();
 	 setupToggleChat();
@@ -18,6 +20,7 @@ jQuery(document).ready(function () {
 
 
 function setupVars() {
+	 $shadowLayer = $('.shadow-layer');
 	 $contactForm = $('.contact-form');
 	 $chatButton = $('.chat-button');
 	 $chatWidget = $('.chat-widget');
@@ -111,12 +114,14 @@ function setupContactForm() {
 
 
 function showContactForm() {
+	 showShadowLayer();
 	 $contactForm.show().animate({
 		  opacity: 1
 	 }, 300);
 }
 
 function hideContactForm() {
+	 hideShadowLayer();
 	 $contactForm.animate({
 		  opacity: 0
 	 }, 300, function () {
@@ -132,6 +137,32 @@ function setupAlertButtons() {
 	 });
 }
 
+
+
+
+/*
+*
+* Shadow Layer
+*
+ */
+
+function showShadowLayer() {
+	 $shadowLayer.show().animate({
+		  opacity: 1
+	 }, 300);
+}
+
+function hideShadowLayer() {
+	 $shadowLayer.animate({
+		  opacity: 0
+	 }, 300, function () {
+		  $(this).hide()
+	 });
+}
+
+function setupShadows(){
+	 
+}
 /*
 *
 * Helpers

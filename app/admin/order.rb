@@ -141,8 +141,8 @@ ActiveAdmin.register Order do
 				['Usuario de la Web', 'user', { :checked => is_user_checked }]
 			],
 				:label => 'Origen del comprador'
-			f.input :buyer, collection: Buyer.order(updated_at: :desc)
-			f.input :user, collection: User.order(updated_at: :desc)
+			f.input :buyer, collection: Buyer.order(name: :asc)
+			f.input :user, collection: User.order(name: :asc)
 			f.input :status, :as => :select, include_blank: false
 			f.input :detail, :hint => 'Algun tipo de detalle para la producción'
 			f.input :payment, :input_html => { :min => 0, :step => 100 } if current_admin_user.has_role? :full_admin

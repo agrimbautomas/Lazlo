@@ -1,19 +1,55 @@
 var $noProductsMessage;
 var $profileProductsSlider;
 var $currentProducRow;
+var $sidebar;
+var $showSidebarBtn;
+var $closeSidebarBtn;
 
 $(document).ready(function () {
 
 	 $noProductsMessage = $('.cart-no-products-message');
 	 $profileProductsSlider = $('.profile-products-slider-buttons');
 
-
+	 setupSidebar();
 	 setupCartFunctions();
 	 updateRowPrices();
 	 setupProfileProductsSlider();
 	 checkIfListIsEmpty();
 });
 
+
+/***************************************/
+/********* Display Sidebar **********/
+
+/***************************************/
+function setupSidebar() {
+	 $sidebar = $('aside.sidebar');
+	 $showSidebarBtn = $('.logged-cart-button');
+	 $closeSidebarBtn = $('.close-sidebar');
+
+	 $showSidebarBtn.click(function (e) {
+		  e.preventDefault();
+		  showSidebar();
+		  showShadowLayer();
+	 });
+
+	 $closeSidebarBtn.click(function () {
+		  hideSidebar();
+		  hideShadowLayer();
+	 });
+}
+
+function hideSidebar() {
+	 $sidebar.animate({
+		  right: -($sidebar.outerWidth() + 20)
+	 })
+}
+
+function showSidebar() {
+	 $sidebar.animate({
+		  right: 0
+	 })
+}
 
 /***************************************/
 /********* Slider functions **********/
@@ -78,14 +114,10 @@ function setQuantityControls($productRow) {
 }
 
 function checkIfListIsEmpty() {
-	 console.log($('.cart-product-row').length);
-	 if ($('.cart-product-row').length == 0){
+	 if ($('.cart-product-row').length == 0) {
 		  $noProductsMessage.show();
 		  $('.user-cart-block').hide();
-	 }else{
-
 	 }
-
 }
 
 function updateRowPrices(data) {

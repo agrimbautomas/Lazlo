@@ -2,10 +2,10 @@
 
 .user-cart {
 
-  &.grilla{
+  &.grilla {
     margin: 20px auto 0px;
   }
- 
+
   .cart-product-row {
     width: 100%;
     display: table;
@@ -121,7 +121,7 @@
 
 .user-cart-checkout {
 
-  &.grilla{
+  &.grilla {
     margin: 20px auto 0px;
   }
 
@@ -151,7 +151,7 @@
       min-width: 20px;
       padding: 0px 3% 0px 0px;
 
-      img{
+      img {
         width: 100%;
       }
     }
@@ -224,7 +224,119 @@
 /************************************************************************************/
 /************************************************************************************/
 
+aside.sidebar {
+  background: $grey_lazlo_bg;
+  position: fixed;
+  z-index: 9999999;
+  height: 100%;
+  right: -40%;
+  right: calc(-30% - 54px);
+  top: 0px;
+  width: 30%;
+  padding: 20px 24px;
+  box-shadow: 0px 0px 5px #212121a1;
 
+  .close-sidebar {
+    float: right;
+    cursor: pointer;
+    color: $grey_hover;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+
+  .inner-sidebar {
+    display: inline-block;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 100%;
+    height: calc(100% - 55px);
+    padding: 0px 20px 0px 0px;
+    margin: 20px 0px 0px 0px;
+
+
+
+    .user-cart-left-block,
+    .user-cart-right-block {
+      width: 100%;
+    }
+
+    .user-cart-left-block {
+      .cart-product-row {
+
+        .cart-product-row-header a {
+          font-size: 0.9em;
+        }
+
+        .left-block {
+          width: 10%;
+        }
+        .right-block {
+          width: 90%;
+        }
+      }
+    }
+
+    .user-cart-right-block {
+      margin: 10px auto 40px;
+      font-size: 0.7em;
+
+      h2,
+      h3,
+      a {
+        float: left;
+        display: inline-block;
+        width: auto;
+        text-decoration: none;
+        margin: 0px;
+      }
+
+      h2,
+      h3{
+        line-height: 2.2em;
+        color: $grey_hover;
+
+      }
+
+      h3{
+        line-height: 3em;
+        margin: 0px 0px 0px 4px;
+      }
+
+      a{
+        float: right;
+        width: 50%;
+      }
+    }
+
+    /************* Scroll bar ******************/
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background: rgba(0,0,0,0.05);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: $side_scroll_bar;
+      border: 1px solid $side_scroll_bar;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(left, $side_scroll_bar, #e4e4e4);
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+      background: linear-gradient(left, $side_scroll_bar, #1E98BA);
+    }
+
+  }
+
+}
 
 /************************************************************************************/
 /************************************************************************************/

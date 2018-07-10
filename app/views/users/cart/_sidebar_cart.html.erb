@@ -1,0 +1,28 @@
+<aside class="sidebar hide-on-shadow-click">
+
+  <i class="fa fa-times close-sidebar" aria-hidden="true"></i>
+
+  <div class="inner-sidebar" data-simplebar>
+    <% if user_signed_in? and current_user.checkout_list.present? and current_user.checkout_list.product_rows.any? %>
+      <div class="user-cart-left-block user-cart-block">
+        <% current_user.checkout_list.product_rows.each do |product_row|
+          @product_row = product_row
+ %>
+          <!-- Start Product Cart Row -->
+          <%= render :partial => 'users/cart/product_cart_row' %>
+          <!-- End Product Cart Row -->
+        <% end %>
+      </div>
+
+      <div class="user-cart-right-block user-cart-block">
+        <h2>Total:</h2>
+        <h3 class="total-sum"></h3>
+        <a href="<%= cart_checkout_url %>" class="checkout-button smooth-transition  yellow-with-icon-hover button">
+          <span>CHECKOUT</span>
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </a>
+      </div>
+
+    <% end %>
+  </div>
+</aside>

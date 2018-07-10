@@ -128,18 +128,18 @@ button {
     display: inline-block;
     text-align: center;
 
-    i{
+    i {
       display: none;
       text-align: center;
       font-size: 1.45em;
     }
 
     &:hover {
-      span{
+      span {
         display: none;
       }
 
-      i{
+      i {
         display: block;
       }
     }
@@ -324,23 +324,20 @@ header {
 
         }
 
-        &.cart-block {
-          position: relative;
+        &.cart-button {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          margin: -2px 0px 0px 0px;
+          font-size: 1.3em;
+          text-align: center;
 
-          span {
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            border-radius: 50%;
-            background: transparent;
+          i {
+            color: $grey_hover;
           }
-
-          &:hover span {
-            background: rgba(254, 214, 4, 1);
+          &:hover i{
+            color: black;
           }
-
         }
 
         .notification-number {
@@ -471,6 +468,20 @@ span.error {
     padding: 14px 24px;
     color: white;
   }
+}
+
+
+.shadow-layer{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  z-index: 999999;
+  opacity: 0;
+  display: none;
 }
 
 /******* Buttons *******/
@@ -725,6 +736,8 @@ span.error {
         }
       }
     }
+
+
   }
 
   a.social-icons {
@@ -800,18 +813,18 @@ span.error {
 
 /******* Contact *******/
 
+
 .contact-form {
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0px;
   left: 0px;
-  background: rgba(0, 0, 0, 0.5);
   text-align: center;
   color: white;
   font-size: 30px;
   overflow: auto;
-  z-index: 999999;
+  z-index: 9999999;
 
   display: none;
   opacity: 0;
@@ -868,11 +881,11 @@ span.error {
 
   }
 
-  svg {
+  i {
     width: 23px;
     height: 23px;
     position: absolute;
-    right: 16px;
+    right: 30px;
     top: 16px;
     cursor: pointer;
   }

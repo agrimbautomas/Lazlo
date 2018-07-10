@@ -93,24 +93,14 @@
       <a class="header-user-name" href="<%= user_signed_in? ? profile_url : new_user_session_path %>">
         <%= user_signed_in? ? current_user.email : 'iniciar sesión' %>
 
-        <!--
-        <span class="social-icons smooth-transition with-hover cart-block" href="<%= cart_path %>">
-            <span>
-              <svg class="header-icon">
-                <use xlink:href="<%= image_url('sprite.svg') %>#cart-icon"/>
-              </svg>
-              <svg class="hovered">
-                <use xlink:href="<%= image_url('sprite.svg') %>#cart-icon"/>
-              </svg>
-            </span>
+
+        <a class="cart-button <%= user_signed_in? ? 'logged-cart-button' : '' %>" href="<%= cart_path %>">
+          <i class="fa fa-shopping-cart smooth-transition" aria-hidden="true"></i>
           <% if user_signed_in? and current_user.cart_count.present? %>
             <span class="notification-number"><%= current_user.cart_count %></span>
           <% end %>
-        </span>
-        -->
-        <% if user_signed_in? and current_user.cart_count.present? %>
-          <span class="notification-number"><%= current_user.cart_count %></span>
-        <% end %>
+        </a>
+
       </a>
 
     </div>
@@ -118,4 +108,8 @@
   </nav>
 
 </header>
+
+<!-- Start Sidebar cart -->
+<%= render :partial => 'users/cart/sidebar_cart' %>
+<!-- End Sidebar cart -->
 
