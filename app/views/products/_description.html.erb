@@ -18,13 +18,15 @@
 
     <div class="product-action-button-container">
 
-      <a class="product-action-button with-hover add-to-fav-btn <%= @is_in_fav ? 'in-fav' : '' %>"
-         href="<%= add_product_to_favourites_url(@product_hash) %>"
+      <a class="product-action-button with-hover <%= user_signed_in? ? 'add-to-fav-btn' : '' %> <%= @is_in_fav ? 'in-fav' : '' %>"
+         href="<%= user_signed_in? ? add_product_to_favourites_url(@product_hash) : new_user_session_path %>"
          data-rm-href="<%= remove_product_from_favourites_url(@product_hash) %>">
         <%= render :partial => 'icons/like_button' %>
       </a>
 
-      <span class="count-number">124</span>
+      <span class="count-number fav-count-number">
+        <%= Favourite.count_for(@product) %>
+      </span>
     </div>
 
     <!-- Share button -->

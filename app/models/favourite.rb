@@ -26,4 +26,6 @@ class Favourite < ApplicationRecord
 	validates :user, presence: true
 	validates :product, presence: true
 
+	scope :count_for, -> (product) { where(product: product).count }
+
 end

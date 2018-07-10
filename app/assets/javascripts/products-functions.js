@@ -119,15 +119,29 @@ function removeFromFav($btn) {
 
 function addToFavCallback($btn) {
 	 addToFavStyles($btn);
+	 sumFavCount($btn);
 }
 
 function removeFromFavCallback($btn) {
 	 removeFromFavStyles($btn);
+	 substractFavCount();
 }
 
 
 function addToFavStyles($btn) {
 	 $btn.addClass('in-fav');
+}
+
+function getFavCount() {
+	 return parseInt($('.fav-count-number').html());
+}
+
+function sumFavCount() {
+	 $('.fav-count-number').html(getFavCount() + 1);
+}
+
+function substractFavCount() {
+	 $('.fav-count-number').html(getFavCount() - 1);
 }
 
 function removeFromFavStyles($btn) {
