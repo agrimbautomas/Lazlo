@@ -11,8 +11,12 @@ RSpec.shared_context 'create category' do
 	let( :category ) { create :category }
 end
 
-RSpec.shared_context 'create product' do |role|
+RSpec.shared_context 'create product' do
 	let( :product ) { create :product }
+end
+
+RSpec.shared_context 'create product row' do
+	let( :product_row ) { create :product_row }
 end
 
 RSpec.shared_context 'create favourite' do |role|

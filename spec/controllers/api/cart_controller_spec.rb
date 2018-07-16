@@ -1,4 +1,10 @@
 require 'rails_helper'
+require 'contexts/for_models'
+require 'shared_examples/for_controllers'
+
+RSpec.shared_context 'get products in cart' do
+	before { get :get_products_in_cart }
+end
 
 RSpec.describe Api::V1::CartController, type: :controller do
 	include ApplicationHelper
@@ -16,9 +22,6 @@ RSpec.describe Api::V1::CartController, type: :controller do
 
 		context 'with Token' do
 
-			before do
-
-			end
 
 			context 'POST product to user cart' do
 				login_user
@@ -40,6 +43,17 @@ RSpec.describe Api::V1::CartController, type: :controller do
 				end
 
 			end
+		end
+
+	end
+
+
+	describe 'Get product rows' do
+		include_context 'create product row'
+
+		context 'with token' do
+			include_context 'get products in cart'
+			include_examples 'expect successful response'
 		end
 	end
 

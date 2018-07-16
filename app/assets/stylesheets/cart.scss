@@ -257,6 +257,15 @@ aside.sidebar {
     margin: 20px 0px 0px 0px;
     width: 100%;
 
+    > div {
+      display: none;
+    }
+
+    .display-with-products,
+    .display-when-empty{
+      display: block;
+    }
+
     .user-cart-left-block,
     .user-cart-right-block {
       width: 100%;

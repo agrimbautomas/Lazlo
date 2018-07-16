@@ -9,7 +9,7 @@
 #  detail                   :string(255)
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
-#  order_status             :integer
+#  status                   :integer
 #  title                    :string(255)
 #  payment                  :integer
 #  color                    :string(255)
@@ -24,6 +24,7 @@
 #  index_orders_on_mercado_pago_purchase_id  (mercado_pago_purchase_id)
 #  index_orders_on_order_products_list_id    (order_products_list_id)
 #  index_orders_on_product_id                (product_id)
+#  index_orders_on_status                    (status)
 #  index_orders_on_user_id                   (user_id)
 #
 # Foreign Keys

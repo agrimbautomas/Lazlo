@@ -45,10 +45,14 @@ Rails.application.routes.draw do
 		scope '1', module: 'v1' do
 			get 'user/favourites' => 'favourites#index'
 
+			# Cart
+			get 'user/products_in_cart', to: 'cart#get_products_in_cart', :as => :product_in_cart
 			post 'user/checkout/:product_id', to: 'cart#add_product_to_cart', :as => :add_product_to_cart
-			post 'user/favourites/:product_id', to: 'favourites#create', :as => :add_product_to_favourites
 			put 'user/checkout_row/:product_row_id', to: 'cart#edit_checkout_product_row', :as => :edit_checkout_row
 			delete 'user/cart/:product_id', to: 'cart#remove_cart_product_row', :as => :remove_cart_product_row
+
+			# Favourites
+			post 'user/favourites/:product_id', to: 'favourites#create', :as => :add_product_to_favourites
 			delete 'user/favourites/:product_id', to: 'favourites#destroy', :as => :remove_product_from_favourites
 
 			post '/chat_response' => 'chat#dialog_flow_response'

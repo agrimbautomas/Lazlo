@@ -46,9 +46,16 @@ function hideSidebar() {
 }
 
 function showSidebar() {
+	 var url = $sidebar.data('prudcts-url');
+	 console.log(url);
+	 getCollection(url, [], refreshSidebarProducts);
 	 $sidebar.animate({
 		  right: 0
 	 })
+}
+
+function refreshSidebarProducts(data) {
+	 console.log('refreshSidebarProducts', data);
 }
 
 /***************************************/
@@ -217,5 +224,15 @@ function requestProductRow(method, url, quantity, callback) {
 	 }).done(function (data) {
 		  if (data.response == 'success')
 				callback(data);
+	 });
+}
+
+function getCollection(url, data, callback) {
+	 $.ajax({
+		  url: url,
+		  context: document.body,
+		  type: 'GET'
+	 }).done(function (data) {
+		  callback(data);
 	 });
 }

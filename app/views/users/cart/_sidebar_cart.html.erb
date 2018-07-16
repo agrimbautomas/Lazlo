@@ -1,34 +1,35 @@
-<aside class="sidebar hide-on-shadow-click">
+<aside class="sidebar hide-on-shadow-click" data-prudcts-url="<%= product_in_cart_url %>">
 
   <i class="fa fa-times close-sidebar" aria-hidden="true"></i>
 
   <div class="inner-sidebar" data-simplebar>
-    <% if user_signed_in? and current_user.checkout_list.present? and current_user.checkout_list.product_rows.any? %>
-      <div class="user-cart-left-block user-cart-block">
+    <% has_products = (user_signed_in? and current_user.checkout_list.present? and current_user.checkout_list.product_rows.any?) %>
+
+    <div class="user-cart-left-block user-cart-block <%= has_products ? 'display-with-products' : '' %>"
+      >
+      <% if has_products %>
         <% current_user.checkout_list.product_rows.each do |product_row|
           @product_row = product_row
-  %>
+    %>
           <!-- Start Product Cart Row -->
           <%= render :partial => 'users/cart/product_cart_row' %>
           <!-- End Product Cart Row -->
         <% end %>
-      </div>
+      <% end %>
+    </div>
 
-      <div class="user-cart-right-block user-cart-block">
-        <h2>Total:</h2>
-        <h3 class="total-sum"></h3>
-        <a href="<%= cart_checkout_url %>" class="checkout-button smooth-transition  yellow-with-icon-hover button">
-          <span>CHECKOUT</span>
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-        </a>
-      </div>
+    <div class="user-cart-right-block user-cart-block <%= has_products ? 'display-with-products' : '' %>">
+      <h2>Total:</h2>
+      <h3 class="total-sum"></h3>
+      <a href="<%= cart_checkout_url %>" class="checkout-button smooth-transition  yellow-with-icon-hover button">
+        <span>CHECKOUT</span>
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      </a>
+    </div>
 
-    <% else %>
+    <div class="no-products-message cart-no-products-message <%= has_products ? '' : 'display-when-empty' %>">
+      <h5>Todavía no tenés ningun producto en el carrito</h5>
+    </div>
 
-      <div class="no-products-message cart-no-products-message">
-        <h5>Todavía no tenés ningun producto en el carrito</h5>
-      </div>
-
-    <% end %>
   </div>
 </aside>
