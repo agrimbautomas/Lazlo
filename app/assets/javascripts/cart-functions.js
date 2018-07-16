@@ -47,15 +47,18 @@ function hideSidebar() {
 
 function showSidebar() {
 	 var url = $sidebar.data('prudcts-url');
-	 console.log(url);
-	 getCollection(url, [], refreshSidebarProducts);
-	 $sidebar.animate({
-		  right: 0
-	 })
+	 // TODO - Add async sidebar
+	 //getCollection(url, [], refreshSidebarProducts);
+	 $sidebar.animate({right: 0})
 }
 
 function refreshSidebarProducts(data) {
-	 console.log('refreshSidebarProducts', data);
+	 if (data.length > 0) {
+		  data.forEach(function (element) {
+				console.log('refreshSidebarProducts', element);
+		  });
+
+	 }
 }
 
 /***************************************/
@@ -233,6 +236,6 @@ function getCollection(url, data, callback) {
 		  context: document.body,
 		  type: 'GET'
 	 }).done(function (data) {
-		  callback(data);
+		  callback(data.response);
 	 });
 }

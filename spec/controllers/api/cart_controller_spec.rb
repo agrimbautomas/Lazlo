@@ -52,6 +52,7 @@ RSpec.describe Api::V1::CartController, type: :controller do
 		include_context 'create product row'
 
 		context 'with token' do
+			login_user
 			include_context 'get products in cart'
 			include_examples 'expect successful response'
 		end

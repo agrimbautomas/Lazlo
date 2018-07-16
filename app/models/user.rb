@@ -43,10 +43,16 @@ class User < ApplicationRecord
 	validates :email, presence: true, allow_blank: false,
 		:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
 
+	after_create :create_checkout_list
+
 	has_one :checkout_list, :dependent => :destroy
 	has_one :purchased_list, :dependent => :destroy
 	has_many :orders, :dependent => :destroy
 	has_many :favourites, :dependent => :destroy
+
+	def create_checkout_list
+		CheckoutList.create(:user => self)
+	end
 
 	def self.find_for_facebook_oauth(access_token, signed_in_resource = nil)
 		data = access_token.extra.raw_info
