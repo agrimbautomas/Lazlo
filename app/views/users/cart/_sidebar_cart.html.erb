@@ -7,7 +7,7 @@
       <div class="user-cart-left-block user-cart-block">
         <% current_user.checkout_list.product_rows.each do |product_row|
           @product_row = product_row
- %>
+  %>
           <!-- Start Product Cart Row -->
           <%= render :partial => 'users/cart/product_cart_row' %>
           <!-- End Product Cart Row -->
@@ -21,6 +21,12 @@
           <span>CHECKOUT</span>
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         </a>
+      </div>
+
+    <% else %>
+
+      <div class="no-products-message cart-no-products-message">
+        <h5>Todavía no tenés ningun producto en el carrito</h5>
       </div>
 
     <% end %>

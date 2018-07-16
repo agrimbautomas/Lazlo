@@ -255,8 +255,7 @@ aside.sidebar {
     height: calc(100% - 55px);
     padding: 0px 20px 0px 0px;
     margin: 20px 0px 0px 0px;
-
-
+    width: 100%;
 
     .user-cart-left-block,
     .user-cart-right-block {
@@ -336,6 +335,19 @@ aside.sidebar {
 
   }
 
+  .no-products-message{
+    width: 100%;
+    text-align: center;
+    position: relative;
+    height: 100%;
+
+    h5{
+      line-height: 1.5em;
+      position: absolute;
+      text-align: center;
+      top: 40%;
+    }
+  }
 }
 
 /************************************************************************************/

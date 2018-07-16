@@ -161,7 +161,10 @@ function hideShadowLayer() {
 }
 
 function setupShadows(){
-	 
+	 $shadowLayer.click(function () {
+		  hideSidebar();
+		  hideContactForm();
+	 })
 }
 /*
 *
