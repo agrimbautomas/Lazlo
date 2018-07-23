@@ -80,7 +80,7 @@ group :development, :test do
 	gem 'binding_of_caller'
 	gem 'byebug'
 
-	gem 'factory_girl_rails'
+	gem 'factory_bot_rails'
 	gem 'json_matchers'
 
 	gem 'rspec-collection_matchers'

@@ -28,7 +28,7 @@ require 'rspec/rails'
 require 'paperclip/matchers'
 require 'rspec/collection_matchers'
 require 'json_matchers/rspec'
-require 'support/factory_girl'
+require 'support/factory_bot'
 require 'support/mercado_pago_helper'
 require 'support/paranoia_examples'
 
