@@ -29,6 +29,14 @@ And the run in another terminal/process the following commmand in the same proje
 $ rake jobs:work
 ```
 
+### Auto load images of resources
+Create ```site-images``` folder in root dir and add images into it.
+Later just run the rake command:
+```
+$ rake app:add_images
+```
+
+
 ### Admin Section
 
 If you want to access to the admin panel of the app you cand do it from http://localhost:3000/admin
