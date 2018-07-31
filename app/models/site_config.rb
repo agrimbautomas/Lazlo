@@ -33,5 +33,4 @@ class SiteConfig < ApplicationRecord
 	validates_presence_of :caption, :config_type
 	validates_uniqueness_of :caption
 
-
 end

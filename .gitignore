@@ -37,3 +37,6 @@ reports/
 
 #Tests
 /test_output/*
+
+#Images autocomplete
+/site-images

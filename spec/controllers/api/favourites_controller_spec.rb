@@ -24,13 +24,13 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
 		end
 
 		describe 'with token' do
-			shared_context 'create user with device'
+			include_context 'create user with device'
 
 			context 'with correct id' do
 				include_context 'create product'
 				let( :favourite ) { create :favourite, product: product, user: user }
-				shared_context 'create favourites'
-				#include_examples 'expect successful response'
+				include_context 'create favourites'
+				include_examples 'expect redirect response'
 			end
 
 		end
