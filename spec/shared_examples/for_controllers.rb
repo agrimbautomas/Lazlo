@@ -3,6 +3,16 @@ RSpec.shared_examples 'expect json content type' do |status|
 	it { expect( response.status ).to eq status }
 end
 
+RSpec.shared_examples 'expect html content type' do |status|
+	it { expect(response.content_type).to eq("text/html") }
+	it { expect(response.status).to eq status }
+end
+
+RSpec.shared_examples 'expect successful view' do
+	include_examples 'expect html content type', 200
+
+end
+
 RSpec.shared_examples 'expect successful response' do
 	include_examples 'expect json content type', 200
 end
@@ -29,14 +39,4 @@ end
 
 RSpec.shared_examples 'expect unprocessable entity response' do
 	include_examples 'expect json content type', 422
-end
-
-
-RSpec.shared_examples 'expect html content type' do |status|
-	it { expect( response.status ).to eq status }
-end
-
-
-RSpec.shared_examples 'expect successful view response' do
-	include_examples 'expect html content type', 200
 end

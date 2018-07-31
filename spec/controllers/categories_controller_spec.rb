@@ -11,8 +11,7 @@ RSpec.describe CategoriesController, type: :controller do
 			get :show, params: { :id => category.slug }
 		}
 
-		it { expect(response.status).to eq 200 }
-		it { expect(response.content_type).to eq('text/html') }
+		include_examples 'expect successful view'
 
 		it 'renders the product template' do
 			expect(response).to render_template('show')

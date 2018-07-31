@@ -1,4 +1,8 @@
 require 'rails_helper'
+require 'shared_examples/for_controllers'
+require 'contexts/for_models'
+require 'contexts/for_controllers'
+
 
 RSpec.describe CheckoutController, type: :controller do
 	include MercadoPagoHelper
@@ -26,7 +30,7 @@ RSpec.describe CheckoutController, type: :controller do
 				}
 		}
 
-		it { expect(response.status).to eq 302 }
+		include_examples 'expect redirect response'
 
 		# Todo Fix responde and test
 		#it { expect(Order).to have(1).record }
@@ -47,7 +51,8 @@ RSpec.describe CheckoutController, type: :controller do
 				}
 		}
 
-		it { expect(response.status).to eq 302 }
+
+		include_examples 'expect redirect response'
 		it { expect(Order).to have(1).record }
 
 	end
@@ -66,7 +71,8 @@ RSpec.describe CheckoutController, type: :controller do
 				}
 		}
 
-		it { expect(response.status).to eq 302 }
+
+		include_examples 'expect redirect response'
 		it { expect(Order).to have(1).record }
 
 	end
