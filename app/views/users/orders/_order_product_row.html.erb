@@ -8,7 +8,9 @@
           <%= product_row.product_name %> <%= product_row.quantity > 1 ? " (x#{product_row.quantity })" : '' %>
         </a>
 
-        <span class="cart-product-price"><%= format_price product_row.total %></span>
+        <span class="cart-product-price">
+          <%= format_price product_row.total %>
+        </span>
 
       </div>
     <% end %>

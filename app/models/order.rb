@@ -48,7 +48,7 @@ class Order < ApplicationRecord
 
 	enum payment_type: [:cash, :mercado_pago]
 	enum status: { requested: 0, in_blacksmith: 1, in_painting: 2,
-		finished: 3, delivered: 4, cancelled: 5 }
+	               finished: 3, delivered: 4, cancelled: 5 }
 
 	before_create :set_code
 	validates_presence_of :title, :payment_type, :order_products_list
@@ -72,6 +72,10 @@ class Order < ApplicationRecord
 		Order.human_enum_name(:status, status)
 	end
 
+	def self.cart_order_statuses
+		statuses.first statuses.size - 1
+	end
+
 	def set_code
 		code = (0...8).map { (65 + rand(26)).chr }.join
 		if Order.find_by(code: code).blank?
@@ -83,10 +87,10 @@ class Order < ApplicationRecord
 
 	def create_mercado_pago_order_from_params mercado_pago_params
 		create_mercado_pago_purchase(
-			:status => mercado_pago_params['collection_status'],
-			:preference_id => mercado_pago_params['preference_id'],
-			:collection_id => mercado_pago_params['collection_id'],
-			:payment_type => mercado_pago_params['payment_type'],
+				:status => mercado_pago_params['collection_status'],
+				:preference_id => mercado_pago_params['preference_id'],
+				:collection_id => mercado_pago_params['collection_id'],
+				:payment_type => mercado_pago_params['payment_type'],
 		)
 		save!
 	end

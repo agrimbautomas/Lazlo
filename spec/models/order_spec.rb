@@ -1,25 +1,5 @@
-# == Schema Information
-#
-# Table name: orders
-#
-#  id                       :integer          not null, primary key
-#  buyer_id                 :integer
-#  product_id               :integer
-#  code                     :string
-#  detail                   :string
-#  created_at               :datetime         not null
-#  updated_at               :datetime         not null
-#  order_status_id          :integer
-#  title                    :string
-#  payment                  :integer
-#  color                    :string
-#  mercado_pago_purchase_id :integer
-#  user_id                  :integer
-#  order_products_list_id   :integer
-#  payment_type             :integer          default(0), not null
-#
-
 require 'rails_helper'
+require 'contexts/for_models'
 
 RSpec.describe Order, type: :model do
 
@@ -54,13 +34,29 @@ RSpec.describe Order, type: :model do
 
 	it { should respond_to (:status) }
 	it { expect define_enum_for(:status).with [:requested, :in_blacksmith,
-		:in_painting, :finished, :delivered, :cancelled] }
+	                                           :in_painting, :finished, :delivered, :cancelled] }
 
 	describe '#create!' do
-		let(:valid_order) { create(:order) }
+		include_context 'create order'
 
 		context 'with correct params' do
-			it { expect(valid_order).to be_valid }
+			it 'should be a creation valid' do
+				expect(order).to be_valid
+			end
+		end
+
+		context 'when calls human_enum_name with correct params' do
+			it 'should return a readable string' do
+				order.status = Order.statuses[:in_painting]
+				expect(Order.human_enum_name(:status, order.status)).to eq 'Pintura'
+			end
+		end
+
+		context 'when gets cart_order_statuses' do
+			it 'should not return cancelled status' do
+				expect(
+						Order.cart_order_statuses).not_to include(:cancelled)
+			end
 		end
 
 	end
