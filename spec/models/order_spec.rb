@@ -54,8 +54,7 @@ RSpec.describe Order, type: :model do
 
 		context 'when gets cart_order_statuses' do
 			it 'should not return cancelled status' do
-				expect(
-						Order.cart_order_statuses).not_to include(:cancelled)
+				expect(Order.cart_order_statuses).not_to include(:cancelled)
 			end
 		end
 

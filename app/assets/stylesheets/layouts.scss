@@ -335,7 +335,7 @@ header {
           i {
             color: $grey_hover;
           }
-          &:hover i{
+          &:hover i {
             color: black;
           }
         }
@@ -363,6 +363,54 @@ header {
 
   }
 
+  .header-sub-menu {
+    display: none;
+    margin: -5px 0px 0px 0px;
+
+    .block {
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        width: 25%;
+        width: calc(25% - 1px);
+        width: -webkit-calc(25% - 1px);
+      }
+
+      h3 {
+        a {
+          font-size: 0.95em;
+          margin: 0px 0px 5px;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+      }
+
+      a {
+        font-size: 0.9em;
+        width: 100%;
+        display: inline-block;
+        margin: 0px 0px 4px 0px;
+        text-transform: lowercase;
+
+        &:hover{
+          color: $blue_link;
+        }
+
+        &.see-more{
+          color: $blue_link;
+          text-decoration: underline;
+          font-style: italic;
+          font-size: 1em;
+
+        }
+      }
+
+    }
+
+  }
 }
 
 .notification-bar {
@@ -470,8 +518,7 @@ span.error {
   }
 }
 
-
-.shadow-layer{
+.shadow-layer {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -737,7 +784,6 @@ span.error {
       }
     }
 
-
   }
 
   a.social-icons {
@@ -812,7 +858,6 @@ span.error {
 }
 
 /******* Contact *******/
-
 
 .contact-form {
   width: 100%;

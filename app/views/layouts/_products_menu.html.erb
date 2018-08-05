@@ -1,0 +1,29 @@
+<% if @page_categories.present? %>
+    <div class="header-sub-menu">
+      <div class="grilla">
+
+
+        <% @page_categories.each_with_index do |category| %>
+            <div class="block">
+              <div class="inner-block">
+                <h3>
+                  <a href="<%= category_path category %>">
+                    <%= category.name %>
+                  </a>
+                </h3>
+                <% category.products.limit(4).each do |product| %>
+                    <a href="<%= product_path product %>"><%= product.name %></a>
+                <% end %>
+                <% if category.products.count > 4 %>
+                    <a class="see-more" href="<%= category_path category %>">
+                      ver mas
+                    </a>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+
+
+      </div>
+    </div>
+<% end %>
