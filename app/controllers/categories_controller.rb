@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
 
   before_action :set_request, :set_category, :set_meta_data
+  before_action :show, :set_section
 
   def show
 	 @products = Product.visible.where(category_id: @category)
@@ -21,5 +22,9 @@ class CategoriesController < ApplicationController
 					 @category.description,
 					 resource_absolute_path(@category.image.url(:medium))
   end
+
+	def set_section
+		@current_section = 'products'
+	end
 
 end

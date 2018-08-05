@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :set_request, :set_product, :set_meta_data, :set_product_hash
+  before_action :show, :set_section
 
   def show
 	 set_purchase_link unless current_user.nil?
@@ -36,6 +37,10 @@ class ProductsController < ApplicationController
 		  :product_id => @product.id,
 		  :version => Rails.application.config.API_VERSION
 	 }
+  end
+
+  def set_section
+	  @current_section = 'products'
   end
 
 end

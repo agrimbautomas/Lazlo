@@ -28,14 +28,14 @@
         </svg>
       </a>
 
-      <a class="menu-button" href="<%= root_path %>">
+      <a class="menu-button products-menu-button <%= @current_section == 'products' ? 'current-section' : '' %>">
         <h2 class="expandable">
           PRODUCTOS
         </h2>
         <span class="smooth-transition"></span>
       </a>
 
-      <a class="menu-button current-section" href="<%= root_path %>">
+      <a class="menu-button <%= @current_section == 'featured' ? 'current-section' : '' %>" href="<%= root_path %>">
         <h2>DESTACADOS</h2>
         <span class="smooth-transition"></span>
       </a>

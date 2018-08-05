@@ -21,6 +21,9 @@ RSpec.describe ProductsController, type: :controller do
 			expect(response).to render_template('show')
 		end
 
+		it 'assigns @current_section' do
+			expect(assigns(:current_section)).to eq 'products'
+		end
 
 	end
 
@@ -47,6 +50,7 @@ RSpec.describe ProductsController, type: :controller do
 		it 'should have the key version' do
 			expect(assigns(:product_hash)).to have_key(:version)
 		end
+
 
 	end
 

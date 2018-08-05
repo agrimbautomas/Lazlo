@@ -25,6 +25,10 @@ RSpec.describe CategoriesController, type: :controller do
 		it 'assigns @products' do
 			expect(assigns(:products)).to all(be_a(Product))
 		end
+		
+		it 'assigns @current_section' do
+			expect(assigns(:current_section)).to eq 'products'
+		end
 
 	end
 
