@@ -94,10 +94,12 @@
         <%= user_signed_in? ? current_user.email : 'iniciar sesión' %>
 
 
-        <a class="cart-button <%= user_signed_in? ? 'logged-cart-button' : '' %>" href="<%= cart_path %>">
+
+        <a class="cart-button <%= user_signed_in? ? ' logged-cart-button' : '' %><%= @action == 'profile' ? '' : ' displayable' %> "
+           href="<%= cart_path %>">
           <i class="fa fa-shopping-cart smooth-transition" aria-hidden="true"></i>
           <% if user_signed_in? and current_user.cart_count.present? %>
-            <span class="notification-number"><%= current_user.cart_count %></span>
+              <span class="notification-number"><%= current_user.cart_count %></span>
           <% end %>
         </a>
 
@@ -113,7 +115,9 @@
 
 </header>
 
-<!-- Start Sidebar cart -->
-<%= render :partial => 'users/cart/sidebar_cart' %>
-<!-- End Sidebar cart -->
 
+<% if @action != 'profile' %>
+    <!-- Start Sidebar cart -->
+    <%= render :partial => 'users/cart/sidebar_cart' %>
+    <!-- End Sidebar cart -->
+<% end %>

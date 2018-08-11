@@ -2,7 +2,6 @@ var $cartProductsNumber;
 var cartNumberValue;
 
 $( document ).ready(function() {
-
     $cartProductsNumber = $('.notification-number');
     setCartCounters();
 });
