@@ -10,7 +10,6 @@ end
 
 RSpec.shared_examples 'expect successful view' do
 	include_examples 'expect html content type', 200
-
 end
 
 RSpec.shared_examples 'expect successful response' do

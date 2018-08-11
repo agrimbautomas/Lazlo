@@ -1,42 +1,38 @@
 require 'rails_helper'
 require 'contexts/for_models'
+require 'contexts/for_controllers'
 require 'shared_examples/for_controllers'
 
 RSpec.shared_context 'get products in cart' do
 	before { get :get_products_in_cart }
 end
 
+RSpec.shared_context 'add product to cart' do
+	# Should be in json format otherwise displays a view
+	before { post :add_product_to_cart, :format => :json,
+								params: { :product_id => product.id }
+	}
+end
+
 RSpec.describe Api::V1::CartController, type: :controller do
 	include ApplicationHelper
 
-	let(:product) { create(:product) }
+	describe 'Add product to cart' do
 
-	describe 'CRUD products in user cart' do
+		include_context 'create product'
 
 		context 'without Token' do
-			before { post :add_product_to_cart, params: { product_id: product.id } }
-			it 'should be redirected if not registered' do
-				expect(response.status).to eq 302
-			end
+			include_context 'add product to cart'
+			include_examples 'expect unauthorized response'
 		end
 
 		context 'with Token' do
-
+			include_context 'create user'
+			include_examples 'stub devise'
 
 			context 'POST product to user cart' do
-				login_user
-
-				before {
-					post :add_product_to_cart,
-						:format => :json,
-						params: {
-							:product_id => product.id,
-							:quantity => 1
-						}
-				}
-
-				it { expect(response.status).to eq 200 }
-				it { expect(response.content_type).to eq('application/json') }
+				include_context 'add product to cart'
+				include_examples 'expect successful response'
 
 				it 'should respond success and update the cart' do
 					expect(response.body).to match_response_schema('product-cart-response')
@@ -52,7 +48,9 @@ RSpec.describe Api::V1::CartController, type: :controller do
 		include_context 'create product row'
 
 		context 'with token' do
-			login_user
+			include_context 'create user'
+			include_examples 'stub devise'
+
 			include_context 'get products in cart'
 			include_examples 'expect successful response'
 		end

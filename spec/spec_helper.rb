@@ -22,7 +22,6 @@ end
 
 #Testing
 require File.expand_path('../../config/environment', __FILE__)
-require_relative 'support/controller_macros'
 
 require 'rspec/rails'
 require 'paperclip/matchers'
@@ -38,10 +37,6 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
-
-  # Use the following instead if you are on Devise <= 4.1.0
-  # config.include Devise::TestHelpers, :type => :controller
-  config.extend ControllerMacros, :type => :controller
 
   config.expect_with :rspec do |expectations|
 	 expectations.include_chain_clauses_in_custom_matcher_descriptions = true

@@ -74,7 +74,7 @@ class User < ApplicationRecord
 		Order.current.of(self).desc
 	end
 
-	def add_product_to_cart product, quantity = 1
+	def add_product_to_cart product, quantity
 		self.checkout_list = CheckoutList.create(:user => self) unless self.checkout_list.present?
 		self.checkout_list.save_product_row product, quantity
 		self.save!

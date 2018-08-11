@@ -11,7 +11,8 @@ RSpec.describe CartController, type: :controller do
 	end
 
 	describe 'GET method for registered user' do
-		login_user
+		include_context 'create user'
+		include_examples 'stub devise'
 
 		it 'index renders the show cart template' do
 			get :show

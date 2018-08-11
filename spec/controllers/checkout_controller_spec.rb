@@ -17,17 +17,19 @@ RSpec.describe CheckoutController, type: :controller do
 	}
 
 	describe 'GET single_checkout_success ' do
-		login_user
+		include_context 'create user'
+		include_examples 'stub devise'
+
 
 		before {
 			mp_params = mercado_pago_params(user, product)
 			get :single_checkout_success,
-				params: {
-					:collection_id => mp_params[:collection_id],
-					:preference_id => mp_params[:preference_id],
-					:payment_type => mp_params[:payment_type],
-					:collection_status => mp_params[:collection_status]
-				}
+					params: {
+							:collection_id => mp_params[:collection_id],
+							:preference_id => mp_params[:preference_id],
+							:payment_type => mp_params[:payment_type],
+							:collection_status => mp_params[:collection_status]
+					}
 		}
 
 		include_examples 'expect redirect response'
@@ -38,17 +40,19 @@ RSpec.describe CheckoutController, type: :controller do
 	end
 
 	describe 'GET single_checkout_pending' do
-		login_user
+		include_context 'create user'
+		include_examples 'stub devise'
+
 
 		before {
 			mp_params = mercado_pago_params(user, product)
 			get :single_checkout_pending,
-				params: {
-					:collection_id => mp_params[:collection_id],
-					:preference_id => mp_params[:preference_id],
-					:payment_type => mp_params[:payment_type],
-					:collection_status => mp_params[:collection_status]
-				}
+					params: {
+							:collection_id => mp_params[:collection_id],
+							:preference_id => mp_params[:preference_id],
+							:payment_type => mp_params[:payment_type],
+							:collection_status => mp_params[:collection_status]
+					}
 		}
 
 
@@ -58,17 +62,19 @@ RSpec.describe CheckoutController, type: :controller do
 	end
 
 	describe 'GET single_checkout_cancelled' do
-		login_user
+		include_context 'create user'
+		include_examples 'stub devise'
+
 
 		before {
 			mp_params = mercado_pago_params(user, product)
 			get :single_checkout_cancelled,
-				params: {
-					:collection_id => mp_params[:collection_id],
-					:preference_id => mp_params[:preference_id],
-					:payment_type => mp_params[:payment_type],
-					:collection_status => mp_params[:collection_status]
-				}
+					params: {
+							:collection_id => mp_params[:collection_id],
+							:preference_id => mp_params[:preference_id],
+							:payment_type => mp_params[:payment_type],
+							:collection_status => mp_params[:collection_status]
+					}
 		}
 
 
@@ -76,6 +82,5 @@ RSpec.describe CheckoutController, type: :controller do
 		it { expect(Order).to have(1).record }
 
 	end
-
 
 end

@@ -28,7 +28,9 @@ RSpec.describe ProductsController, type: :controller do
 	end
 
 	describe 'GET product for registered user' do
-		login_user
+		include_context 'create user'
+		include_examples 'stub devise'
+
 		include_context 'get product by slug'
 
 		it 'assigns @is_in_cart' do

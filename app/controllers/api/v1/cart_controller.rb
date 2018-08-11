@@ -38,7 +38,7 @@ class Api::V1::CartController < Api::V1::ApiController
 	end
 
 	def set_quantity
-		@quantity = params[:quantity].present? ? params[:quantity] : nil
+		@quantity = params[:quantity].present? ? params[:quantity] : 1
 	end
 
 
