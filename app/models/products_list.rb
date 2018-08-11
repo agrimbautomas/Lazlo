@@ -15,8 +15,8 @@ class ProductsList < ApplicationRecord
 	belongs_to :order
 	has_many :product_rows, :dependent => :destroy
 
-	def save_product_row product
-		product_rows << ProductRow.create(:product => product)
+	def save_product_row product, quantity = 1
+		product_rows << ProductRow.create(:product => product, :quantity => quantity)
 		save!
 	end
 

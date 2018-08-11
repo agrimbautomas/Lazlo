@@ -2,7 +2,7 @@ class Api::V1::CartController < Api::V1::ApiController
 
 	before_action :set_product, only: [:add_product_to_cart, :remove_cart_product_row]
 	before_action :set_product_row, only: [:edit_checkout_product_row]
-	before_action :set_quantity, only: [:edit_checkout_product_row]
+	before_action :set_quantity, only: [:edit_checkout_product_row, :add_product_to_cart]
 
 	def get_products_in_cart
 		render_successful_response(
@@ -12,7 +12,7 @@ class Api::V1::CartController < Api::V1::ApiController
 	end
 
 	def add_product_to_cart
-		current_user.add_product_to_cart @product
+		current_user.add_product_to_cart @product, @quantity
 		render json: { :response => 'success' }
 	end
 

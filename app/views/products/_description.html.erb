@@ -2,20 +2,23 @@
 
 <div class="product-detail-container">
 
-  <%= format_price @product.price %>
-
 
   <div class="product-description">
+
+    <div class="text">
+      <%= simple_format(@product.description) %>
+    </div>
+
     <div class="row">
       <h2>Material:</h2>
       algo algo algo
     </div>
-
+    <!--
     <div class="row">
       <h2>Color:</h2>
       algo algo algo
     </div>
-
+    -->
     <div class="row">
       <h2>Medidas:</h2>
       algo algo algo
@@ -23,20 +26,20 @@
 
     <div class="row">
       <h2>Cantidad:</h2>
-      algo algo algo
+      <span class="product-quantity-value">1</span>
+      <i class="fa fa-minus-square-o rm-one-product" aria-hidden="true"></i>
+      <i class="fa fa-plus-square-o add-one-product" aria-hidden="true"></i>
     </div>
 
     <div class="row">
       <h2>Precio:</h2>
-      <%= simple_format(@product.description) %>
+      <span class="product-price-value" data-product-detail-price="<%= @product.price %>">
+      <%= format_price @product.price %>
+      </span>
     </div>
 
   </div>
-  <!--
-    <div class="product-quantity" data-request-path="">
-      <%= number_field_tag 'quantity', 1, min: 1 %>
-    </div>
-  -->
+
 
   <div class="product-action-buttons">
 

@@ -288,13 +288,13 @@
   .half-container-left {
     text-align: left;
     margin-right: 1%;
-    width: 72%;
+    width: 66%;
     max-width: 940px;
   }
 
   .half-container-right {
     text-align: left;
-    width: 26.5%;
+    width: 32.5%;
     margin: 10px 0px 0px 0.5%;
 
     h3{
@@ -308,17 +308,50 @@
       line-height: 22px;
       font-size: 15px;
 
-      .row{
+      .text, .row{
         width: 100%;
         display: inline-block;
-        border-bottom: 1px solid $grey_lazlo_soft;
-        padding: 7px 0px 10px;
+      }
+
+      .text{
+        margin: 15px auto;
+        font-size: 1.2em;
+      }
+
+      .row{
+        border-top: 1px solid $grey_lazlo_soft;
+        padding: 10px 0px;
+
+        &:last-child{
+          border-bottom: 1px solid $grey_lazlo_soft;
+        }
 
         h2{
           font-size: 0.9em;
           display: inline-block;
           font-weight: 600;
         }
+
+        span,
+        i{
+          display: inline-block;
+        }
+
+        i{
+          cursor: pointer;
+          font-size: 1.1em;
+          padding: 0.1em;
+          color: $black_lazlo;
+
+          &:hover{
+            color: $grey_hover;
+          }
+
+          &:active{
+            color: $yellow_lazlo;
+          }
+        }
+
       }
     }
 
