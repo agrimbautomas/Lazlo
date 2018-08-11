@@ -6,7 +6,31 @@
 
 
   <div class="product-description">
-    <%= simple_format(@product.description) %>
+    <div class="row">
+      <h2>Material:</h2>
+      algo algo algo
+    </div>
+
+    <div class="row">
+      <h2>Color:</h2>
+      algo algo algo
+    </div>
+
+    <div class="row">
+      <h2>Medidas:</h2>
+      algo algo algo
+    </div>
+
+    <div class="row">
+      <h2>Cantidad:</h2>
+      algo algo algo
+    </div>
+
+    <div class="row">
+      <h2>Precio:</h2>
+      <%= simple_format(@product.description) %>
+    </div>
+
   </div>
   <!--
     <div class="product-quantity" data-request-path="">
@@ -41,16 +65,16 @@
 
   <% if user_signed_in? %>
 
-    <a class="transparent-with-hover-yellow add-to-cart-btn button <%= @is_in_cart ? 'in-cart' : '' %>"
-       href="<%= add_product_to_cart_url(@product_hash) %>"
-       data-rm-href="<%= remove_cart_product_row_url(@product_hash) %>">
-      <%= @is_in_cart ? 'Guardado en el Carrito!' : 'AGREGAR AL CARRITO' %>
-    </a>
+      <a class="transparent-with-hover-yellow add-to-cart-btn button <%= @is_in_cart ? 'in-cart' : '' %>"
+         href="<%= add_product_to_cart_url(@product_hash) %>"
+         data-rm-href="<%= remove_cart_product_row_url(@product_hash) %>">
+        <%= @is_in_cart ? 'Guardado en el Carrito!' : 'AGREGAR AL CARRITO' %>
+      </a>
 
   <% else %>
-    <a class="transparent-with-hover-yellow add-to-cart-btn button" href="<%= new_user_session_path %>">
-      AGREGAR AL CARRITO
-    </a>
+      <a class="transparent-with-hover-yellow add-to-cart-btn button" href="<%= new_user_session_path %>">
+        AGREGAR AL CARRITO
+      </a>
   <% end %>
 
 

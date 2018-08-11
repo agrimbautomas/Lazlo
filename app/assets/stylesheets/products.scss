@@ -10,6 +10,8 @@
     bottom: 8%;
     left: 4%;
     z-index: 999;
+
+
   }
 
   .hover-block {
@@ -295,12 +297,29 @@
     width: 26.5%;
     margin: 10px 0px 0px 0.5%;
 
+    h3{
+      color: $black_lazlo;
+      text-transform: uppercase;
+    }
     .product-description {
       width: 100%;
       display: inline-block;
       margin: 0px auto 20px;
       line-height: 22px;
       font-size: 15px;
+
+      .row{
+        width: 100%;
+        display: inline-block;
+        border-bottom: 1px solid $grey_lazlo_soft;
+        padding: 7px 0px 10px;
+
+        h2{
+          font-size: 0.9em;
+          display: inline-block;
+          font-weight: 600;
+        }
+      }
     }
 
     a {
