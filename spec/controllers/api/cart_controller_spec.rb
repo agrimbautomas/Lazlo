@@ -38,6 +38,18 @@ RSpec.describe Api::V1::CartController, type: :controller do
 					expect(response.body).to match_response_schema('product-cart-response')
 				end
 
+				it 'should add a product row to the user checkout list' do
+					expect(user.checkout_list.product_rows.count).to eq 1
+				end
+
+				it 'should add the product to the user checkout list' do
+					expect(user.checkout_list.product_rows.first.product).to eq product
+				end
+
+				it 'should add a single product as quantity if not set' do
+					expect(user.checkout_list.product_rows.first.quantity).to eq 1
+				end
+
 			end
 		end
 
