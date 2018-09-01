@@ -1,31 +1,23 @@
+<div class="product-checkout-row">
 
-<div class="inner-sidebar" data-simplebar>
-  <% has_products = (user_signed_in? and current_user.checkout_list.present? and current_user.checkout_list.product_rows.any?) %>
-
-  <div class="user-cart-left-block user-cart-block <%= has_products ? 'display-with-products' : '' %>"
-  >
-    <% if has_products %>
-      <% current_user.checkout_list.product_rows.each do |product_row|
-        @product_row = product_row
-%>
-        <!-- Start Product Cart Row -->
-        <%= render :partial => 'users/cart/product_cart_row' %>
-        <!-- End Product Cart Row -->
-      <% end %>
-    <% end %>
+  <div class="product-checkout-col product-checkout-img">
+    <img src="<%= @product_row.product.image.url(:thumb) %>"/>
   </div>
 
-  <div class="user-cart-right-block user-cart-block <%= has_products ? 'display-with-products' : '' %>">
-    <h2>Total:</h2>
-    <h3 class="total-sum"></h3>
-    <a href="<%= checkout_path %>" class="checkout-button smooth-transition  yellow-with-icon-hover button">
-      <span>CHECKOUT</span>
-      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-    </a>
+  <div class="product-checkout-col product-checkout-name">
+    <%= @product_row.product.name %>
   </div>
 
-  <div class="no-products-message cart-no-products-message <%= has_products ? '' : 'display-when-empty' %>">
-    <h5>Todavía no tenés ningun producto en el carrito</h5>
+  <div class="product-checkout-col product-checkout-size">
+    90x60x45cm
+  </div>
+
+  <div class="product-checkout-col product-checkout-amount">
+    <%= @product_row.quantity %>
+  </div>
+
+  <div class="product-checkout-col product-checkout-price">
+    <%= format_price @product_row.total %>
   </div>
 
 </div>

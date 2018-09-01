@@ -7,7 +7,7 @@
 <div class="grilla user-cart  user-cart-checkout ">
 
   <!-- Checkout Block -->
-  <%= render :partial => 'cart/checkout_fixed_list' %>
+  <%= render :partial => 'checkout/checkout_products_list' %>
   <!-- End Checkout Block -->
 
 
@@ -20,12 +20,13 @@
     </div>
 
     <div class="total-sum-container">
-      <a href="<%= cart_url %>" class="edit-cart-button smooth-transition">
-        << Editar Compra
+      <a href="<%= profile_path %>" class="transparent-with-hover-yellow">
+        < Editar Compra
       </a>
 
-      <a href="<%= @checkout_link %>" name="MP-Checkout" class="buy-button lazlo-button green-button smooth-transition">
-        Comprar!
+      <a href="<%= @checkout_link %>" name="MP-Checkout" class="buy-button yellow-with-icon-hover button">
+        <span>COMPRAR</span>
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       </a>
     </div>
 

@@ -1,0 +1,30 @@
+<div class="checkout-products-list">
+
+  <h2>CHECKOUT</h2>
+  <% has_products = (user_signed_in? and current_user.checkout_list.present? and current_user.checkout_list.product_rows.any?) %>
+
+  <% if has_products %>
+
+    <div class="product-checkout-row product-checkout-header">
+      <div class="product-checkout-col product-checkout-img"></div>
+      <div class="product-checkout-col product-checkout-name">Productos</div>
+      <div class="product-checkout-col product-checkout-size">Medidas</div>
+      <div class="product-checkout-col product-checkout-amount">Cantidad</div>
+      <div class="product-checkout-col product-checkout-price">Total</div>
+    </div>
+
+    <% current_user.checkout_list.product_rows.each do |product_row|
+      @product_row = product_row
+     %>
+      <!-- Start Product Cart Row -->
+      <%= render :partial => 'checkout/checkout_product_row' %>
+      <!-- End Product Cart Row -->
+    <% end %>
+
+  <% else %>
+    <div class="no-products-message cart-no-products-message <%= has_products ? '' : 'display-when-empty' %>">
+      <h5>Todavía no tenés ningun producto en el carrito</h5>
+    </div>
+  <% end %>
+
+</div>

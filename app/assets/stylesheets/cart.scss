@@ -1,12 +1,12 @@
 @import "variables";
 
-.user-cart {
+.user-cart-checkout{
 
-  &.grilla {
+  &.grilla{
     margin: 20px auto 0px;
   }
 
-  .cart-product-row {
+  .cart-product-row{
     width: 100%;
     display: table;
 
@@ -15,185 +15,67 @@
     .cart-product-price,
     .cart-product-quantity,
     h2,
-    h2 a {
-      width: 20%;
-      display: table-cell;
-      vertical-align: middle;
-      color: $black_lazlo;
-      font-size: 20px;
-
-      &:hover {
-        color: $grey_hover;
-      }
-    }
-
-    .cart-product-image {
-      width: 10%;
-      min-width: 100px;
-
-    }
-
-    .fa-times {
-      color: $black_lazlo;
-      width: 5%;
-      cursor: pointer;
-      font-size: 20px;
-
-      &:hover {
-        color: $grey_hover;
-      }
-    }
-
-    h2 {
-      text-align: left;
-      width: 13%;
-    }
-
-    .cart-product-quantity {
-      font-size: 26px;
-      width: 6%;
-
-      &:hover {
-        color: $black_lazlo;
-      }
-
-      .quantity-message {
-        display: table-cell;
-        vertical-align: middle;
-        padding: 0px 12px 0px 0px;
-      }
-      .quantity-controls {
-        font-size: 20px;
-        display: table-cell;
-        vertical-align: middle;
-
-        i {
-          display: block;
-          color: $purple_lazlo;
-          cursor: pointer;
-          margin: 3px 0px;
-
-          &:active {
-            color: $purple_lazlo_hover;
-          }
-        }
-      }
-    }
-    .cart-product-price {
-      width: 17%;
-      font-size: 26px;
-      text-align: center;
-      &:hover {
-        color: inherit;
-      }
-    }
-  }
-
-  .total-row {
-    border-top: 1px solid gray;
-    display: inline-block;
-    width: 92%;
-    text-align: right;
-    color: $purple_lazlo;
-    font-size: 34px;
-    padding: 10px 4% 0px;
-    margin: 14px 0% 0px;
-
-    .total-sum-container {
-      width: 100%;
-      display: inline-block;
-
-      .total-sum {
-        width: 50%;
-        text-align: center;
-        max-width: 300px;
-        float: right;
-      }
-    }
-
-    .checkout-button {
-      float: right;
-      margin: 16px auto 10px;
-      max-width: 300px;
-    }
-  }
-}
-
-.user-cart-checkout {
-
-  &.grilla {
-    margin: 20px auto 0px;
-  }
-
-  .cart-product-row {
-    width: 100%;
-    display: table;
-
-    .fa-times,
-    .cart-product-image,
-    .cart-product-price,
-    .cart-product-quantity,
-    h2,
-    h2 a {
+    h2 a{
       width: 20%;
       display: table-cell;
       vertical-align: middle;
       color: $grey_hover;
       font-size: 20px;
 
-      &:hover {
+      &:hover{
         color: $grey_hover;
       }
     }
 
-    .cart-product-image {
+    .cart-product-image{
       width: 2%;
       min-width: 20px;
       padding: 0px 3% 0px 0px;
 
-      img {
+      img{
         width: 100%;
       }
     }
 
-    h2 {
+    h2{
       text-align: left;
       width: 13%;
     }
 
-    .cart-product-quantity {
+    .cart-product-quantity{
       font-size: 26px;
       width: 6%;
 
-      .quantity-message {
+      .quantity-message{
         display: table-cell;
         vertical-align: middle;
         padding: 0px 12px 0px 0px;
       }
 
     }
-    .cart-product-price {
+    .cart-product-price{
       width: 17%;
       font-size: 26px;
       text-align: center;
     }
   }
 
-  .total-row {
+  .total-row{
     border-top: 1px solid gray;
     display: inline-block;
-    width: 92%;
     text-align: right;
-    color: $purple_lazlo;
     font-size: 34px;
-    padding: 10px 4% 0px;
-    margin: 14px 0% 0px;
+    width: 100%;
+    margin: 0px auto;
+    padding: 20px 0px;
+    max-width: 900px;
 
-    .total-sum-container {
+    .total-sum-container{
       width: 100%;
       display: inline-block;
+      margin: 0px auto 50px;
 
-      .total-sum {
+      .total-sum{
         width: 50%;
         text-align: center;
         max-width: 300px;
@@ -201,19 +83,67 @@
       }
     }
 
-    .edit-cart-button {
+    .edit-cart-button{
       float: left;
       font-size: 18px;
       padding: 24px 0px;
       color: $black_lazlo;
 
-      &:hover {
+      &:hover{
         opacity: 0.85;
       }
     }
-    .buy-button {
+
+    .buy-button{
       margin: 16px auto 10px;
       max-width: 300px;
+      float: right;
+    }
+  }
+
+
+}
+
+/************************************************************************************/
+/************************************************************************************/
+/**************************** CHECKOUT **********************************************/
+/************************************************************************************/
+/************************************************************************************/
+.checkout-products-list{
+  text-align: center;
+
+  .product-checkout-row{
+    display: grid;
+    width: 100%;
+    margin: 0px auto;
+    padding: 20px 0px;
+    max-width: 900px;
+    grid-template-columns: 20% 30% 20% 15% 15%;
+    align-content: center;
+    border-bottom: 1px solid #eeeeee;
+    color: $grey_hover;
+
+    &:last-child{
+      border: none;
+    }
+
+    &.product-checkout-header{
+      font-size: 1.2em;
+      color: $black_lazlo;
+    }
+
+    .product-checkout-col{
+      align-content: center;
+      display: grid;
+
+
+      &.product-checkout-img{
+        text-align: center;
+        img{
+          width: 50%;
+          min-width: 50px;
+        }
+      }
     }
   }
 }
@@ -224,7 +154,7 @@
 /************************************************************************************/
 /************************************************************************************/
 
-aside.sidebar {
+aside.sidebar{
   background: $grey_lazlo_bg;
   position: fixed;
   z-index: 9999999;
@@ -236,18 +166,17 @@ aside.sidebar {
   padding: 20px 24px;
   box-shadow: 0px 0px 5px #212121a1;
 
-  .close-sidebar {
+  .close-sidebar{
     float: right;
     cursor: pointer;
     color: $grey_hover;
 
-    &:hover {
+    &:hover{
       color: black;
     }
   }
 
-
-  .inner-sidebar {
+  .inner-sidebar{
     display: inline-block;
     overflow: hidden;
     overflow-y: scroll;
@@ -257,7 +186,7 @@ aside.sidebar {
     margin: 20px 0px 0px 0px;
     width: 100%;
 
-    > div {
+    > div{
       display: none;
     }
 
@@ -267,33 +196,33 @@ aside.sidebar {
     }
 
     .user-cart-left-block,
-    .user-cart-right-block {
+    .user-cart-right-block{
       width: 100%;
     }
 
-    .user-cart-left-block {
-      .cart-product-row {
+    .user-cart-left-block{
+      .cart-product-row{
 
-        .cart-product-row-header a {
+        .cart-product-row-header a{
           font-size: 0.9em;
         }
 
-        .left-block {
+        .left-block{
           width: 10%;
         }
-        .right-block {
+        .right-block{
           width: 90%;
         }
       }
     }
 
-    .user-cart-right-block {
+    .user-cart-right-block{
       margin: 10px auto 40px;
       font-size: 0.7em;
 
       h2,
       h3,
-      a {
+      a{
         float: left;
         display: inline-block;
         width: auto;
@@ -320,25 +249,25 @@ aside.sidebar {
     }
 
     /************* Scroll bar ******************/
-    &::-webkit-scrollbar {
+    &::-webkit-scrollbar{
       width: 10px;
     }
-    &::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track{
       border-radius: 10px;
-      background: rgba(0,0,0,0.05);
+      background: rgba(0, 0, 0, 0.05);
     }
 
-    &::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb{
       border-radius: 10px;
       background: $side_scroll_bar;
       border: 1px solid $side_scroll_bar;
     }
 
-    &::-webkit-scrollbar-thumb:hover {
+    &::-webkit-scrollbar-thumb:hover{
       background: linear-gradient(left, $side_scroll_bar, #e4e4e4);
     }
 
-    &::-webkit-scrollbar-thumb:active {
+    &::-webkit-scrollbar-thumb:active{
       background: linear-gradient(left, $side_scroll_bar, #1E98BA);
     }
 
@@ -368,7 +297,7 @@ aside.sidebar {
 /************************************************************************************/
 /************************************************************************************/
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 750px){
 
 }
 
@@ -381,6 +310,6 @@ aside.sidebar {
 /************************************************************************************/
 /************************************************************************************/
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 450px){
 
 }
