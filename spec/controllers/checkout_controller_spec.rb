@@ -7,7 +7,6 @@ require 'contexts/for_controllers'
 RSpec.describe CheckoutController, type: :controller do
 	include MercadoPagoHelper
 
-
 	let(:user) { create(:user_with_checkout_list) }
 	let!(:product) { create(:product) }
 

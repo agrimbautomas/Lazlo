@@ -2,12 +2,10 @@ class CheckoutController < ApplicationController
 
   before_action :authenticate_user!
 
-
   def show
 	  params[:user] = current_user
 	  @checkout_link = MercadoPagoCartCheckout.(parameters: params, delegate: self).checkout
   end
-
 
   # Success
   def single_checkout_success
@@ -64,7 +62,7 @@ class CheckoutController < ApplicationController
 
   def redirect_to_cart message = nil
 	 flash[:notice] = message unless message.nil?
-	 redirect_to cart_path
+	 redirect_to checkout_path
   end
 
 end
