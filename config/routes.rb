@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
 	get '/cotizador' => 'home#cotizador'
 
-	get '/cart' => 'cart#show', :as => :cart
 	get '/me' => 'users#profile', :as => :profile
 
 
@@ -31,7 +30,7 @@ Rails.application.routes.draw do
 	get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
 	# Checkout
-	get '/checkout' => 'checkout#show', :as => :cart_checkout
+	get '/checkout' => 'checkout#show', :as => :checkout
 	get 'single-checkout-success', to: 'checkout#single_checkout_success'
 	get 'single-checkout-pending', to: 'checkout#single_checkout_pending'
 	get 'single-checkout-cancelled', to: 'checkout#single_checkout_cancelled'
