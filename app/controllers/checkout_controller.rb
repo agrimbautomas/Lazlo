@@ -2,6 +2,13 @@ class CheckoutController < ApplicationController
 
   before_action :authenticate_user!
 
+
+  def show
+	  params[:user] = current_user
+	  @checkout_link = MercadoPagoCartCheckout.(parameters: params, delegate: self).checkout
+  end
+
+
   # Success
   def single_checkout_success
 	 SuccessPurchase.(checkout_params).single_checkout
