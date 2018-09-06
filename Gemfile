@@ -74,6 +74,9 @@ gem 'paranoia', '~> 2.2'
 # For the js runtime
 gem 'therubyracer', platforms: :ruby
 
+# For geolocaction by IP, https://github.com/alexreisner/geocoder
+gem 'geocoder'
+
 group :development, :test do
 	# Replaces the standard Rails error page with a much better page
 	gem 'better_errors'

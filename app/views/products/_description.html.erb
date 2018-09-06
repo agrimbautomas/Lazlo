@@ -66,6 +66,14 @@
 
   </div>
 
+
+  <div class="shipping-message">
+    <% if @geolocated_city.present? %>
+        Hacemos envíos a <%= @geolocated_city %>!
+    <% end %>
+  </div>
+
+
   <% if user_signed_in? %>
 
       <a class="transparent-with-hover-yellow add-to-cart-btn button <%= @is_in_cart ? 'in-cart' : '' %>"
