@@ -81,7 +81,7 @@ Rails.application.configure do
   config.exceptions_app = self.routes
 
   # Set to :debug to see everything in the log.
-  config.log_level = :warn
+  config.log_level = :error
 
   # Sentry Config
   Raven.configure do |config|
