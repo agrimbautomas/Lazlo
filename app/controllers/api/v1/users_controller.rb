@@ -14,8 +14,15 @@ class Api::V1::UsersController < Api::V1::ApiController
 	end
 
 	def add_to_newsletter
-		MailChimpApi.add_member email: params[:email] unless params[:email].nil?
-		render_successful_empty_response
+		begin
+			MailChimpApi.add_member email: params[:email] unless params[:email].nil?
+			render_successful_empty_response
+		rescue Exception => ex
+			response = Hash.new
+			response[:status] = 'failed'
+			response[:message] = ex.title == 'Member Exists' ? 'El usuario ya esta registrado' : 'El email no es válido'
+			render_response_message hash: response, status: 200
+		end
 	end
 
 	private

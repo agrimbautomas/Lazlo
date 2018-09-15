@@ -9,6 +9,7 @@ var $chatWidget;
 var $productsMenuBtn;
 var $productsSubMenu;
 var $header;
+var $newsletterEmail;
 
 jQuery(document).ready(function () {
 	 setUpHeaderToggleOnScroll();
@@ -31,6 +32,7 @@ function setupVars() {
 	 $productsMenuBtn = $('.products-menu-button');
 	 $productsSubMenu = $('.products-sub-menu');
 	 $header = $('header');
+	 $newsletterEmail = $('.newsletter-email');
 }
 
 /*
@@ -183,7 +185,7 @@ function setupNewsletter() {
 	 $('.newsletter-footer-form').submit(function (e) {
 		  e.preventDefault();
 
-		  var email = $('.newsletter-email').val();
+		  var email = $newsletterEmail.val();
 		  var url = $(this).attr('url');
 
 		  if (email !== "")
@@ -196,27 +198,34 @@ function addContactToNewsletter(url, email) {
 		  url: url,
 		  data: {email: email}
 	 }).done(function (data) {
-		  console.log(data.response);
 		  if (data.response.status === 'successful')
 				successfulNewsletterCallback();
+		  if (data.response.status === 'failed')
+				failedNewsletterCallback(data.response.message);
 	 });
 }
 
 function successfulNewsletterCallback() {
-	 $('.newsletter-email').val("");
-	 showNotification('Gracias por sumarte al Newsletter de Lazlo!');
+	 $newsletterEmail.val("");
+	 showSuccessfulNotification('Gracias por sumarte al Newsletter de Lazlo!');
 }
 
-function showNotification(message) {
-	 $('.notification-bar.notice p').html(message);
-	 $('.notification-bar.notice').css({
-		  top: '-62px',
-		  display: 'block'
-	 }).animate({
-		  top: '0px'
-	 }).delay(3000).animate({
-		  top: '-62px'
-	 })
+function failedNewsletterCallback(message) {
+	 showFailedNotification(message);
+}
+
+function showFailedNotification(message) {
+	 showNotification($('.notification-bar.alert'), message);
+}
+
+function showSuccessfulNotification(message) {
+	 showNotification($('.notification-bar.notice'), message);
+}
+
+function showNotification($notificationBar, message) {
+	 $notificationBar.children('p').html(message);
+	 $notificationBar.css({top: '-64px', display: 'block'})
+		  .animate({top: '0px'}).delay(3000).animate({top: '-64px'})
 }
 
 /*
