@@ -21,13 +21,13 @@
 /*---Active admin files in /vendor/assets/stylesheets/ --*/
 @import "variables";
 
-html, body {
+html, body{
   text-align: center;
   overflow-x: hidden;
   background: $grey_lazlo_bg;
 }
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
   margin: 0;
   padding: 0;
   border: 0;
@@ -41,11 +41,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   text-align: left;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{
   display: block;
 }
 
-a {
+a{
   text-decoration: none;
   color: $black_lazlo;
 
@@ -57,43 +57,43 @@ a {
   letter-spacing: normal;
 }
 
-body {
+body{
   text-align: center;
   position: relative;
   color: $black_lazlo;
   padding-top: 62px;
 }
 
-h1, h2, h3, h4, h5, h6, button {
+h1, h2, h3, h4, h5, h6, button{
   font-family: 'futura', arial, sans-serif;
   font-weight: bold;
 }
 
-h1 {
+h1{
   font-size: 44px;
 }
 
-h2 {
+h2{
   font-size: 40px;
 }
 
-h3 {
+h3{
   font-size: 28px;
   line-height: 1.3em;
 }
 
-h4 {
+h4{
 }
 
-h5 {
+h5{
 }
 
-h6 {
+h6{
   font-size: 16px;
 }
 
 a.button,
-button {
+button{
   cursor: pointer;
 
   margin: 0px;
@@ -108,17 +108,17 @@ button {
   -o-transition: $fast_transition;
   transition: $fast_transition;
 
-  &.transparent-with-hover-yellow {
+  &.transparent-with-hover-yellow{
     background: transparent;
     border: solid 4px $black_lazlo;
 
-    &:hover {
+    &:hover{
       background: $yellow_lazlo;
       border-color: $yellow_lazlo;
     }
   }
 
-  &.yellow-with-icon-hover {
+  &.yellow-with-icon-hover{
     background: $yellow_lazlo;
     color: $black_lazlo;
     height: 20px;
@@ -128,18 +128,18 @@ button {
     display: inline-block;
     text-align: center;
 
-    i {
+    i{
       display: none;
       text-align: center;
       font-size: 1.45em;
     }
 
-    &:hover {
-      span {
+    &:hover{
+      span{
         display: none;
       }
 
-      i {
+      i{
         display: block;
       }
     }
@@ -147,30 +147,30 @@ button {
 
 }
 
-.yellow-button {
+.yellow-button{
   background: $yellow_lazlo;
 }
 
 input,
-textarea {
+textarea{
   outline: none;
   font-family: 'futura', arial, sans-serif;
   font-weight: bold;
 }
 
-input:-webkit-autofill {
+input:-webkit-autofill{
   -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
-.with-hover {
+.with-hover{
   cursor: pointer;
 
-  span {
+  span{
     position: relative;
   }
 
   svg.hovered,
-  svg.header-icon {
+  svg.header-icon{
     background-color: transparent;
     fill: currentColor;
     width: 29px;
@@ -181,7 +181,7 @@ input:-webkit-autofill {
     left: 0px;
   }
 
-  svg.hovered {
+  svg.hovered{
     opacity: 0;
 
     -webkit-transition: $slow_transition;
@@ -190,15 +190,15 @@ input:-webkit-autofill {
     transition: $slow_transition;
   }
 
-  &:hover {
-    svg.hovered {
+  &:hover{
+    svg.hovered{
       opacity: 1;
     }
   }
 
 }
 
-.grilla {
+.grilla{
   max-width: 1300px;
   text-align: center;
   display: inline-block;
@@ -209,7 +209,7 @@ input:-webkit-autofill {
 
 /******* Header *******/
 
-header {
+header{
   text-align: center;
   width: 100%;
   height: 62px;
@@ -220,25 +220,25 @@ header {
   z-index: 999999;
   transition: top 0.2s ease-in-out;
 
-  &.nav-up {
+  &.nav-up{
     top: -62px;
   }
 
-  nav.grilla {
+  nav.grilla{
     margin: 0px;
     height: inherit;
 
-    .left-container {
+    .left-container{
       float: left;
 
-      .menu-button {
+      .menu-button{
         float: left;
         text-align: center;
         padding: 19px 0px;
         margin: 0px 50px 0px 0px;
         cursor: pointer;
 
-        h2 {
+        h2{
           display: inline-block;
           color: $black_lazlo;
 
@@ -249,11 +249,11 @@ header {
           line-height: normal;
           letter-spacing: normal;
 
-          &.expandable {
+          &.expandable{
             position: relative;
           }
 
-          &.expandable:after {
+          &.expandable:after{
             content: "⌄";
             top: -5px;
             right: -18px;
@@ -261,7 +261,7 @@ header {
           }
         }
 
-        span {
+        span{
           width: 90%;
           height: 2px;
           display: block;
@@ -273,29 +273,29 @@ header {
         }
 
         &:hover span,
-        &.current-section span {
+        &.current-section span{
           -webkit-transform: scaleX(1);
           transform: scaleX(1);
         }
       }
 
-      .logo {
+      .logo{
         padding: 14px 13px 14px 0px;
         width: 132px;
         height: 30px;
 
-        svg {
+        svg{
           width: 100%;
           height: 100%;
         }
       }
     }
 
-    .right-container {
+    .right-container{
       float: right;
       text-align: right;
 
-      a {
+      a{
         padding: 19px 7px 15px;
         display: inline-block;
         cursor: pointer;
@@ -303,10 +303,10 @@ header {
         width: 29px;
         height: 28px;
 
-        &:hover {
+        &:hover{
         }
 
-        &.header-user-name {
+        &.header-user-name{
           min-width: 94px;
           height: 21px;
           font-size: 16px;
@@ -315,17 +315,17 @@ header {
           padding: 20px 9px;
           width: auto;
 
-          &:hover {
+          &:hover{
             color: #fed604;
 
-            .notification-number {
+            .notification-number{
               color: rgba(0, 0, 0, 0.6);
             }
           }
 
         }
 
-        &.cart-button {
+        &.cart-button{
           display: inline-block;
           width: 30px;
           height: 30px;
@@ -333,19 +333,19 @@ header {
           font-size: 1.3em;
           text-align: center;
 
-          i {
+          i{
             color: $grey_hover;
           }
-          &:hover i {
+          &:hover i{
             color: black;
           }
         }
 
-        &.responsive-menu {
+        &.responsive-menu{
           display: none;
         }
 
-        .notification-number {
+        .notification-number{
           background: $yellow_lazlo;
           position: absolute;
           -webkit-border-radius: 50%;
@@ -368,25 +368,25 @@ header {
 
   }
 
-  .header-sub-menu {
+  .header-sub-menu{
     display: none;
     margin: -5px 0px 0px 0px;
     box-shadow: 0px 2px 1px #e2e2e29e;
 
-    .block {
+    .block{
 
-      &:first-child {
+      &:first-child{
         border-left: none;
       }
 
-      &:last-child {
+      &:last-child{
         width: 25%;
         width: calc(25% - 1px);
         width: -webkit-calc(25% - 1px);
       }
 
-      h3 {
-        a {
+      h3{
+        a{
           font-size: 0.95em;
           margin: 0px 0px 5px;
           font-weight: bold;
@@ -394,18 +394,18 @@ header {
         }
       }
 
-      a {
+      a{
         font-size: 0.9em;
         width: 100%;
         display: inline-block;
         margin: 0px 0px 4px 0px;
         text-transform: lowercase;
 
-        &:hover {
+        &:hover{
           color: $blue_link;
         }
 
-        &.see-more {
+        &.see-more{
           color: $blue_link;
           text-decoration: underline;
           font-style: italic;
@@ -419,7 +419,7 @@ header {
   }
 }
 
-.notification-bar {
+.notification-bar{
   position: fixed;
   z-index: 99999;
   width: 100%;
@@ -433,11 +433,11 @@ header {
   overflow: hidden;
   display: none;
 
-  &.alert {
+  &.alert{
     background: $red_lazlo;
   }
 
-  p {
+  p{
     width: 92%;
     margin: 0px 4%;
     padding: 20px 0px;
@@ -445,7 +445,7 @@ header {
     text-align: center;
   }
 
-  .close-notification-bar {
+  .close-notification-bar{
     float: right;
     position: absolute;
     cursor: pointer;
@@ -456,20 +456,20 @@ header {
     top: 0px;
     padding: 18px;
 
-    &:hover {
+    &:hover{
       color: #ffffff
 
     }
   }
 }
 
-.error_notification {
+.error_notification{
   color: #ff2121;
   margin: 10px 0px;
   font-size: 14px;
 }
 
-span.error {
+span.error{
   color: #ff2121;
   text-align: right;
   display: inline-block;
@@ -477,52 +477,52 @@ span.error {
   font-size: 14px;
 
   &.notice,
-  &.alert {
+  &.alert{
     text-align: center;
   }
 }
 
 /******* Containers *******/
-.half-container {
+.half-container{
   width: 50%;
 
-  &.half-container-left {
+  &.half-container-left{
     float: left;
   }
 
-  &.half-container-right {
+  &.half-container-right{
     float: right;
   }
 }
 
 /******* 404 Page *******/
-.not-found-container {
+.not-found-container{
   width: 100%;
 
-  .not-found-image {
+  .not-found-image{
     margin: 40px auto;
     max-width: 100%;
   }
 
-  h1 {
+  h1{
     font-size: 40px;
     margin: 0px auto 50px;
   }
 
-  h2 {
+  h2{
     font-size: 48px;
     margin: 0px auto 20px;
     font-weight: bold;
     text-transform: uppercase;
   }
 
-  .green-button {
+  .green-button{
     padding: 14px 24px;
     color: white;
   }
 }
 
-.shadow-layer {
+.shadow-layer{
   width: 100%;
   height: 100%;
   position: fixed;
@@ -539,27 +539,27 @@ span.error {
 
 /******* Breadcrumbs *******/
 
-.breadcrumbs {
+.breadcrumbs{
   display: block;
   text-align: left;
   color: $black_lazlo;
   margin-top: 16px;
 
-  a {
+  a{
     display: inline-block;
     color: $black_lazlo;
     font-size: 15px;
     padding: 20px 0px 0px;
 
-    &.active {
+    &.active{
       font-style: italic;
     }
-    &:hover {
+    &:hover{
       text-decoration: underline;
     }
   }
 
-  i {
+  i{
     font-size: 10px;
     margin: 0px 5px 0px;
   }
@@ -567,11 +567,11 @@ span.error {
 
 /******** Chat *********/
 
-#drift-widget {
+#drift-widget{
   //display: none !important;
 }
 
-.chat-widget {
+.chat-widget{
   position: fixed;
   right: 40px;
   bottom: 40px;
@@ -579,7 +579,7 @@ span.error {
   width: auto;
   height: auto;
 
-  .chat-button {
+  .chat-button{
     background: $yellow_lazlo;
     width: 50px;
     height: 50px;
@@ -592,17 +592,17 @@ span.error {
     bottom: 0px;
     overflow: hidden;
 
-    svg {
+    svg{
       width: 25px;
       position: absolute;
       top: 0px;
       left: 13px;
 
-      &.chat-balloon-icon {
+      &.chat-balloon-icon{
         top: -50px;
       }
 
-      &.chat-cross-icon {
+      &.chat-cross-icon{
         display: none;
         width: 95px;
         height: 95px;
@@ -611,40 +611,40 @@ span.error {
       }
     }
 
-    &:hover svg.chat-balloon-icon {
+    &:hover svg.chat-balloon-icon{
       width: 28px;
       left: 12px;
     }
-    &:hover svg.chat-cross-icon {
+    &:hover svg.chat-cross-icon{
       width: 100px;
       height: 100px;
       top: 1px;
     }
   }
 
-  &.displayed {
+  &.displayed{
     width: 330px;
     height: 395px;
 
-    .chat-button {
+    .chat-button{
       transform: rotate(90deg);
 
-      svg.chat-cross-icon {
+      svg.chat-cross-icon{
         display: block;
       }
 
-      svg.chat-balloon-icon {
+      svg.chat-balloon-icon{
         display: none;
       }
     }
 
-    .display-on-chat {
+    .display-on-chat{
       display: block;
     }
 
   }
 
-  iframe.chat-iframe {
+  iframe.chat-iframe{
     width: 100%;
     height: 100%;
     bottom: 65px;
@@ -652,7 +652,7 @@ span.error {
     box-shadow: -1px -1px 4px #0000002e;
   }
 
-  .iframe-header {
+  .iframe-header{
     background: $yellow_lazlo;
     width: 90%;
     height: 90px;
@@ -661,22 +661,22 @@ span.error {
     top: -65px;
     padding: 10px 5%;
 
-    .top-header {
-      .logo-container {
+    .top-header{
+      .logo-container{
         background: white;
         height: 34px;
         width: 34px;
         padding: 10px;
         float: left;
 
-        svg {
+        svg{
           width: 80%;
           height: 80%;
           margin: 10%;
         }
 
       }
-      h3 {
+      h3{
         line-height: 3.8em;
         font-size: 1em;
         margin: 0px 0px 0px 5%;
@@ -686,7 +686,7 @@ span.error {
       }
     }
 
-    .bottom-header {
+    .bottom-header{
       line-height: 2em;
       width: 100%;
       display: inline-block;
@@ -694,7 +694,7 @@ span.error {
     }
   }
 
-  .display-on-chat {
+  .display-on-chat{
     opacity: 0;
     display: none;
   }
@@ -702,27 +702,27 @@ span.error {
 
 /******* Footer *******/
 
-.footer {
+.footer{
 
   padding: 40px 0px 60px;
   font-size: 13px;
   margin-top: 60px;
 
-  .footer-block {
+  .footer-block{
     width: 30%;
     margin: 0px 4% 0px 0px;
     float: left;
     text-align: left;
 
-    &:last-child {
+    &:last-child{
       margin-right: 0px;
     }
 
-    h6 {
+    h6{
       margin: 0px 0px 24px 0px;
       font-size: 14px;
 
-      a {
+      a{
         text-transform: uppercase;
         text-decoration: none;
         font-weight: bold;
@@ -730,33 +730,33 @@ span.error {
       }
     }
 
-    .contact {
+    .contact{
       a,
-      address {
+      address{
         font-size: 14px;
         margin-bottom: 8px;
         display: inline-block;
       }
 
-      address {
+      address{
         display: block;
       }
     }
 
-    form {
+    form{
       width: 100%;
       position: relative;
       z-index: 9;
 
       input,
-      button {
+      button{
         float: left;
         -webkit-border-radius: 0px;
         -moz-border-radius: 0px;
         border-radius: 0px;
       }
 
-      input {
+      input{
         width: 66%;
         background: $grey_softer;
         border: none;
@@ -766,22 +766,25 @@ span.error {
         font-style: italic;
       }
 
-      button {
+      button{
         width: 25%;
       }
     }
-    .social-icons {
-      a {
+    .social-icons{
+      width: 100%;
+      display: inline-block;
+
+      a{
         display: inline-block;
         width: 30px;
         height: 30px;
         margin: 20px 15px 0px 0px;
 
-        &:hover {
+        &:hover{
           opacity: 0.6;
         }
 
-        svg {
+        svg{
           width: 100%;
           height: 100%;
         }
@@ -790,7 +793,7 @@ span.error {
 
   }
 
-  a.social-icons {
+  a.social-icons{
     display: inline-block;
     width: 35px;
     margin-right: 10px;
@@ -801,31 +804,36 @@ span.error {
     background: #666;
     color: #222;
 
-    i {
+    i{
       font-size: 20px;
       margin: 7px;
 
     }
 
-    &:hover {
+    &:hover{
       background: #999;
       color: #222;
       text-decoration: none;
     }
   }
 
-  .instagram-fotos {
-    a {
+  .instagram-fotos{
+    a{
       float: left;
       width: 24%;
+      width: calc(25% - 14px);
       max-width: 77px;
-      margin: 0px 14px 0px 0px;
+      margin: 0px 0px 0px 14px;
       max-height: 73px;
 
-      &:hover {
+      &:hover{
         opacity: 0.85;
       }
-      img {
+
+      &:first-child{
+        margin: 0;
+      }
+      img{
         width: 100%;
       }
     }
@@ -835,7 +843,7 @@ span.error {
 
 /******* Footer Nav *******/
 
-.social-nav-footer {
+.social-nav-footer{
   background: #69CACA;
   width: 100%;
   border-top: 1px solid #e2e2e2;
@@ -843,7 +851,7 @@ span.error {
   position: fixed;
   bottom: 0px;
 
-  a.social-icons {
+  a.social-icons{
     text-decoration: none;
     color: white;
     padding: 10px 0px;
@@ -854,7 +862,7 @@ span.error {
     width: 20%;
     float: left;
 
-    &:hover {
+    &:hover{
       color: #f38385;
     }
   }
@@ -863,7 +871,7 @@ span.error {
 
 /******* Contact *******/
 
-.contact-form {
+.contact-form{
   width: 100%;
   height: 100%;
   position: fixed;
@@ -878,7 +886,7 @@ span.error {
   display: none;
   opacity: 0;
 
-  .contact-form-inner {
+  .contact-form-inner{
     width: 70%;
     height: 70%;
     margin: auto;
@@ -894,7 +902,7 @@ span.error {
   }
 
   input,
-  textarea {
+  textarea{
     color: $black_lazlo;
     border: none;
     border-bottom: 2px solid black;
@@ -905,12 +913,12 @@ span.error {
     padding: 0px 0px 5px 0px;
   }
 
-  textarea {
+  textarea{
     resize: vertical;
     height: 30px;
   }
 
-  input[type='submit'] {
+  input[type='submit']{
     background: $yellow_lazlo;
     color: $black_lazlo;
 
@@ -924,13 +932,13 @@ span.error {
     border: none;
     cursor: pointer;
 
-    &:hover {
+    &:hover{
       opacity: 0.8;
     }
 
   }
 
-  i {
+  i{
     width: 23px;
     height: 23px;
     position: absolute;
@@ -939,25 +947,25 @@ span.error {
     cursor: pointer;
   }
 
-  ::-webkit-input-placeholder {
+  ::-webkit-input-placeholder{
     color: $black_lazlo;
   }
 
-  :-moz-placeholder {
+  :-moz-placeholder{
     /* Firefox 18- */
     color: $black_lazlo;
   }
 
-  ::-moz-placeholder {
+  ::-moz-placeholder{
     /* Firefox 19+ */
     color: $black_lazlo;
   }
 
-  :-ms-input-placeholder {
+  :-ms-input-placeholder{
     color: $black_lazlo;
   }
 
-  h5 {
+  h5{
     font-size: 50px;
   }
 }
@@ -970,20 +978,57 @@ span.error {
 /************************************************************************************/
 /************************************************************************************/
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 950px){
 
-  header nav.grilla {
-    .right-container a.social-icons {
+  .bx-wrapper{
+    margin: 0 auto 30px;
+  }
+
+  h2{
+    font-size: 34px;
+  }
+
+  header nav.grilla{
+    .right-container a.social-icons{
       display: none;
+    }
+  }
+
+  .home section{
+    &.promotions .left-promotion{
+      .product-description h3{
+        font-size: 70px;
+      }
+
+    }
+
+    &.categories .left-column,
+    &.categories .right-column{
+      width: -webkit-calc(50% - 15px);
+      width: calc(50% - 15px);
+    }
+
+    &.categories .home-category-block{
+      padding: 0px 0px 5px 0px;
+
+      h2{
+        bottom: 55px;
+      }
     }
 
   }
 
+  .footer .footer-block form button{
+    font-size: 10px;
+    padding: 14px 5px;
+    border-width: 3px;
+  }
+
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 750px){
 
-  header nav.grilla {
+  header nav.grilla{
     .left-container a.menu-button{
       display: none;
       &.logo{
@@ -991,13 +1036,125 @@ span.error {
         margin: 0px;
       }
     }
-    .right-container a.responsive-menu {
+
+    .right-container a.responsive-menu{
       display: block;
     }
-
   }
+
+  .home section.promotions .left-promotion{
+    .product-description h3{
+      font-size: 50px;
+    }
+  }
+
+  .footer .footer-block{
+    width: 100%;
+    margin: 0px auto 40px;
+
+    form button{
+      font-size: 14px;
+      padding: 10px 5px;
+      border-width: 4px;
+    }
+  }
+
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px){
+
+  .home section{
+
+    &.products,
+    &.products .left-product,
+    &.products .right-product,
+    &.promotions .left-promotion,
+    &.promotions .right-promotion,
+    &.categories .left-column,
+    &.categories .right-column{
+      width: 100%;
+      margin: 0px 0px 0px 0px;
+      display: inline-block;
+    }
+
+    &.promotions .left-promotion,
+    &.promotions .right-promotion{
+      height: auto;
+      margin: 10px 0px;
+
+      .product-description{
+        height: 200px;
+      }
+
+      svg{
+        height: 90px;
+      }
+    }
+
+    &.categories .home-category-block{
+      height: auto;
+
+      h2{
+        bottom: 10px;
+        right: initial;
+        font-size: 24px;
+        left: 5px;
+      }
+
+      .image-block-with-hover{
+        float: right;
+        position: relative;
+      }
+
+    }
+
+    &.contact{
+      margin: 60px 0px;
+
+      img{
+        width: 75%;
+      }
+
+      .floating-text{
+        font-size: 14px;
+        top: 10px;
+        line-height: 15px;
+
+        button{
+          margin: 10px 0px;
+          padding: 6px 5px;
+        }
+      }
+    }
+  }
+
+  .chat-widget{
+    right: 16px;
+    bottom: 16px;
+
+    .chat-button{
+      width: 34px;
+      height: 34px;
+
+      svg.chat-balloon-icon{
+        top: -55px;
+        left: 5px;
+      }
+
+      &:hover svg.chat-balloon-icon{
+        width: 20px;
+        left: 7px;
+        top: -58px;
+      }
+
+      &:hover svg.chat-cross-icon{
+        width: 90px;
+        height: 90px;
+        top: -5px;
+        left: 0px;
+      }
+
+    }
+  }
 
 }
