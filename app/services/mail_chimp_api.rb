@@ -27,6 +27,5 @@ class MailChimpApi
 				LNAME: "Lazlo" }
 		}
 		@gibbon.lists(MC_LIST_ID).members.create(body: params)
-
 	end
 end

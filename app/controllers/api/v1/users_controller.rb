@@ -14,8 +14,8 @@ class Api::V1::UsersController < Api::V1::ApiController
 	end
 
 	def add_to_newsletter
-		MailChimpApi.add_member email: params[:email] unless params[:email].empty?
-		render_successful_response
+		MailChimpApi.add_member email: params[:email] unless params[:email].nil?
+		render_successful_empty_response
 	end
 
 	private

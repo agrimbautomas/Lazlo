@@ -4,20 +4,18 @@ require 'shared_examples/for_controllers'
 
 RSpec.shared_context 'send contact form' do
 	before {
-		post :contact_email,
-			:format => :json, params: {
-				:lazlo_name => 'some',
-				:lazlo_email => 'some@gmail.com',
-				:lazlo_message => 'a message',
-				:authenticity_token => rand(999..9999)
-			}
+		post :contact_email, params: {
+			:lazlo_name => 'some',
+			:lazlo_email => 'some@gmail.com',
+			:lazlo_message => 'a message',
+			:authenticity_token => rand(999..9999)
+		}
 	}
 end
 
 RSpec.shared_context 'send request to mailchimp' do
 	before {
-		post :add_to_newsletter,
-			:format => :json, params: { :email => 'some@gmail.com' }
+		post :add_to_newsletter, params: { :email => 'some@gmail.com' }
 	}
 end
 
@@ -47,8 +45,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
 		context 'without Token' do
 			include_context 'send request to mailchimp'
-			include_examples 'expect successful response'
-
+			include_examples 'expect bad request response'
 		end
 
 	end
