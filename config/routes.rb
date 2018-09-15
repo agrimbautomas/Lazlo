@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 	get '/me' => 'users#profile', :as => :profile
 
 
-	post '/contact_email' => 'api/v1/api#contact_email'
+	post '/contact_email' => 'api/v1/users#contact_email'
 
 	get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 
