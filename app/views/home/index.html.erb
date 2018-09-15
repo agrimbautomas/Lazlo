@@ -40,7 +40,7 @@
   <!-- Start contact -->
   <section class="contact">
     <% if SiteConfig.home_support.present? %>
-      <img src="<%= SiteConfig.home_support.first.picture.url(:home_support) %>">
+      <img src="<%= SiteConfig.home_support.first.picture.url(:slider) %>">
     <% end %>
     <div class="floating-text">
       <%= SiteConfig.home_support.first.caption %>
