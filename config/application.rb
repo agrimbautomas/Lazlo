@@ -21,8 +21,8 @@ module Lazlo
 		# config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 		config.i18n.default_locale = :es
 
-		config.autoload_paths << "#{Rails.root}/app/interactors"
-		config.autoload_paths << "#{Rails.root}/app/services"
+	 config.autoload_paths += Dir[Rails.root.join('app', 'interactors', '{*/}')]
+	 config.autoload_paths += Dir[Rails.root.join('app', 'services', '{*/}')]
 
 	end
 end

@@ -21,7 +21,6 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 	describe 'Send contact form' do
 
 		context 'without Token' do
-
 			include_context 'send contact form'
 			include_examples 'expect redirect response'
 
@@ -32,7 +31,17 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 			it 'should change the count of sent emails' do
 				expect(ActionMailer::Base.deliveries.count).to be >= 1
 			end
+		end
 
+	end
+
+
+	describe 'Send new member to mailchimp' do
+
+		context 'without Token' do
+			include_context 'send request to mailchimp'
+			include_examples 'expect successful response'
+			
 		end
 
 	end

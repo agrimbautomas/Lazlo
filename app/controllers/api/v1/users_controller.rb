@@ -1,4 +1,5 @@
 class Api::V1::UsersController < Api::V1::ApiController
+	before_action :authenticate_user!, except: [:contact_email, :add_to_newsletter]
 
 	def contact_email
 
