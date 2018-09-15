@@ -1,6 +1,4 @@
-class Api::V1::UsersController < ActionController::Base
-
-	before_action :authenticate_user!, except: [:contact_email]
+class Api::V1::UsersController < Api::V1::ApiController
 
 	def contact_email
 
@@ -15,7 +13,8 @@ class Api::V1::UsersController < ActionController::Base
 	end
 
 	def add_to_newsletter
-		MailChimpApi.add_member email: 'someone@gmail.com'
+		MailChimpApi.add_member email: params[:email] unless params[:email].empty?
+		render_successful_response
 	end
 
 	private
