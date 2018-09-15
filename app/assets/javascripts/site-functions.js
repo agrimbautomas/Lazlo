@@ -13,7 +13,6 @@ var $newsletterEmail;
 
 jQuery(document).ready(function () {
 	 setUpHeaderToggleOnScroll();
-
 	 setupVars();
 	 setupToggleMenu();
 	 setupShadows();
@@ -224,8 +223,12 @@ function showSuccessfulNotification(message) {
 
 function showNotification($notificationBar, message) {
 	 $notificationBar.children('p').html(message);
-	 $notificationBar.css({top: '-64px', display: 'block'})
-		  .animate({top: '0px'}).delay(3000).animate({top: '-64px'})
+	 $notificationBar.show()
+		  .animate({top: '0px'}).delay(3000)
+		  .animate({top: '-64px'}, {
+				easing: 'swing',
+				complete: $(this).hide()
+		  });
 }
 
 /*

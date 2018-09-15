@@ -1,21 +1,21 @@
 <header class="nav-down">
 
   <!-- Notifications -->
-  <div class="notification-bar notice
-    <% if notice.nil? %> hidden-bar
-    <% end %>">
-    <p><%= notice %></p>
-    <svg class="close-notification-bar">
-      <use xlink:href="<%= image_url('sprite.svg') %>#close-cross-white"/>
-    </svg>
+  <div class="notification-bar notice">
+    <p></p>
   </div>
 
-  <div class="notification-bar alert
-    <% if alert.nil? %> hidden-bar
-    <% end %>">
-    <p><%= alert %></p>
-    <i class="fa fa-times-circle" aria-hidden="true"></i>
+  <div class="notification-bar alert">
+    <p></p>
   </div>
+
+  <script>
+		<% if notice.present? %>
+		showSuccessfulNotification('<%= notice %>');
+		<% elsif alert.present? %>
+		showFailedNotification('<%= alert %>');
+		<% end %>
+  </script>
   <!-- END Notifications -->
 
 
@@ -99,7 +99,7 @@
          href="<%= checkout_path %>">
         <i class="fa fa-shopping-cart smooth-transition" aria-hidden="true"></i>
         <% if user_signed_in? and current_user.cart_count.present? %>
-            <span class="notification-number"><%= current_user.cart_count %></span>
+          <span class="notification-number"><%= current_user.cart_count %></span>
         <% end %>
       </a>
       <a class="responsive-menu with-hover">
@@ -122,7 +122,7 @@
 
 
 <% if @action != 'profile' %>
-    <!-- Start Sidebar cart -->
-    <%= render :partial => 'users/cart/sidebar_cart' %>
-    <!-- End Sidebar cart -->
+  <!-- Start Sidebar cart -->
+  <%= render :partial => 'users/cart/sidebar_cart' %>
+  <!-- End Sidebar cart -->
 <% end %>

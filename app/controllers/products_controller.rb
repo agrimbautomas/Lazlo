@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
 	before_action :set_request, :set_product, :set_meta_data, :set_product_hash
-	before_action :show, :set_section, :set_location
+	before_action :show, :set_section
 
 	def show
 		set_purchase_link unless current_user.nil?
@@ -22,8 +22,8 @@ class ProductsController < ApplicationController
 
 	def set_meta_data
 		set_og_tags @product.name,
-								@product.description.squish,
-								resource_absolute_path(@product.image.url(:medium))
+			@product.description.squish,
+			resource_absolute_path(@product.image.url(:medium))
 	end
 
 	def set_purchase_link
@@ -34,22 +34,13 @@ class ProductsController < ApplicationController
 
 	def set_product_hash
 		@product_hash = {
-				:product_id => @product.id,
-				:version => Rails.application.config.API_VERSION
+			:product_id => @product.id,
+			:version => Rails.application.config.API_VERSION
 		}
 	end
 
 	def set_section
 		@current_section = 'products'
-	end
-
-	def set_location
-		begin
-			results = Geocoder.search request.remote_ip
-			@geolocated_city = results.first.country == 'AR' ? results.first.city : nil
-		rescue
-			@geolocated_city = nil
-		end
 	end
 
 end

@@ -5,24 +5,24 @@
 
 
   <div style="border: #69caca 1px solid;
-          -webkit-border-radius: 5px;
-          -moz-border-radius: 5px;
-          border-radius: 5px;
-          max-width: 600px;
-          width: 96%;
-          display: inline-block;">
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      max-width: 600px;
+      width: 96%;
+      display: inline-block;">
 
     <div style="background: url(<%= @images[:background] %>);">
 
       <div style="background: #69CACA;
-              margin-top: 36px;
-              display: inline-block;
-              width: 100%;
-              color: white;
-              border-top: 1px solid white;
-              font-family: 'Tahoma',sans-serif;
-              font-size: 14px;
-              padding: 6px 0px;">Bienvenido
+          margin-top: 36px;
+          display: inline-block;
+          width: 100%;
+          color: white;
+          border-top: 1px solid white;
+          font-family: 'Tahoma',sans-serif;
+          font-size: 14px;
+          padding: 6px 0px;">Bienvenido
         <a style="color: white;">
           <%= @email %></a>!
       </div>
@@ -34,22 +34,22 @@
       <img src="<%= @images[:account_icon] %>" style="width: 50%; max-width: 150px; margin: 40px 25% 40px;">
 
       <h1 style="font-family: 'Tahoma',sans-serif;
-              font-size: 20px; color: black;">Podés confirmar tu cuenta en el siguiente link
+          font-size: 20px; color: black;">
+        Confirmá tú cuenta haciendo click en el botón
       </h1>
 
 
       <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>" style="    background: #69caca;
-              color: white;
-              border-radius: 5px;
-              padding: 20px 0px;
-              font-weight: bold;
-              font-size: 16px;
-              font-family: 'Tahoma',sans-serif;
-              text-decoration: none;
-              width: 80%;
-              margin: 30px auto 40px;
-              display: inline-block;">
-
+          color: white;
+          border-radius: 5px;
+          padding: 20px 0px;
+          font-weight: bold;
+          font-size: 16px;
+          font-family: 'Tahoma',sans-serif;
+          text-decoration: none;
+          width: 80%;
+          margin: 30px auto 40px;
+          display: inline-block;">
         Confirmar cuenta
       </a>
 

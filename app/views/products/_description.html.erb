@@ -63,29 +63,22 @@
     </div>
     <!-- End Share button -->
 
-
   </div>
 
-
-  <div class="shipping-message">
-    <% if @geolocated_city.present? %>
-        Hacemos envíos a <%= @geolocated_city %>!
-    <% end %>
-  </div>
-
+  <div class="shipping-message">Hacemos envíos a todo el país!</div>
 
   <% if user_signed_in? %>
 
-      <a class="transparent-with-hover-yellow add-to-cart-btn button <%= @is_in_cart ? 'in-cart' : '' %>"
-         href="<%= add_product_to_cart_url(@product_hash) %>"
-         data-rm-href="<%= remove_cart_product_row_url(@product_hash) %>">
-        <%= @is_in_cart ? 'Guardado en el Carrito!' : 'AGREGAR AL CARRITO' %>
-      </a>
+    <a class="transparent-with-hover-yellow add-to-cart-btn button <%= @is_in_cart ? 'in-cart' : '' %>"
+       href="<%= add_product_to_cart_url(@product_hash) %>"
+       data-rm-href="<%= remove_cart_product_row_url(@product_hash) %>">
+      <%= @is_in_cart ? 'Guardado en el Carrito!' : 'AGREGAR AL CARRITO' %>
+    </a>
 
   <% else %>
-      <a class="transparent-with-hover-yellow add-to-cart-btn button" href="<%= new_user_session_path %>">
-        AGREGAR AL CARRITO
-      </a>
+    <a class="transparent-with-hover-yellow add-to-cart-btn button" href="<%= new_user_session_path %>">
+      AGREGAR AL CARRITO
+    </a>
   <% end %>
 
 

@@ -43,11 +43,9 @@
       <img src="<%= SiteConfig.home_support.first.picture.url(:home_support) %>">
     <% end %>
     <div class="floating-text">
-      En LAZLO. buscamos la expresion de las
-      cosas mediante las formas geométricas
-      destructuradamente ordenadas.
+      <%= SiteConfig.home_support.first.caption %>
       <button class="transparent-with-hover-yellow contact-form-button">
-        Contactar
+        Preguntanos
         <svg>
           <use xlink:href="<%= image_url('sprite.svg') %>#right-arrow"/>
         </svg>
