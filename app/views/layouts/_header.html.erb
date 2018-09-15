@@ -94,6 +94,10 @@
         <%= user_signed_in? ? current_user.email : 'iniciar sesión' %>
       </a>
 
+      <a class="header-user-icon" href="<%= user_signed_in? ? profile_url : new_user_session_path %>">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </a>
+
 
       <a class="cart-button <%= user_signed_in? ? ' logged-cart-button' : '' %><%= @action == 'profile' ? '' : ' displayable' %> "
          href="<%= checkout_path %>">

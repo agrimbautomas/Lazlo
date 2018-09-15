@@ -322,7 +322,10 @@ header{
               color: rgba(0, 0, 0, 0.6);
             }
           }
+        }
 
+        &.header-user-icon{
+          display: none;
         }
 
         &.cart-button{
@@ -332,10 +335,12 @@ header{
           margin: -2px 0px 0px 0px;
           font-size: 1.3em;
           text-align: center;
+          position: relative;
 
           i{
             color: $grey_hover;
           }
+
           &:hover i{
             color: black;
           }
@@ -1065,6 +1070,55 @@ span.error{
 
   header{
     top: -1px !important;
+
+    nav.grilla .right-container{
+      a.header-user-name{
+        display: none;
+      }
+
+      a.header-user-icon{
+        display: block;
+        color: $grey_hover;
+        text-align: center;
+        font-size: 19px;
+      }
+    }
+  }
+
+  aside.sidebar{
+    width: 80%;
+    right: -82%;
+    right: calc(-80% - 54px);
+  }
+
+  .header-sub-menu .grilla .block,
+  .header-sub-menu .grilla .block:last-child{
+    width: 100%;
+    display: inline-block;
+    height: auto;
+    border-top: 1px solid gray;
+
+    .inner-block{
+      width: 100%;
+      margin: 0px;
+      font-size: 1em;
+
+      h3{
+        margin: 0px;
+
+        a{
+          text-align: center;
+          margin: 0px;
+          padding: 30px 0px;
+        }
+      }
+
+    }
+
+    a.sub-category,
+    a.see-more{
+      display: none;
+    }
   }
 
   .home section{

@@ -6,7 +6,6 @@ var $shadowLayer;
 var $contactForm;
 var $chatButton;
 var $chatWidget;
-var $productsMenuBtn;
 var $productsSubMenu;
 var $header;
 var $newsletterEmail;
@@ -28,7 +27,6 @@ function setupVars() {
 	 $contactForm = $('.contact-form');
 	 $chatButton = $('.chat-button');
 	 $chatWidget = $('.chat-widget');
-	 $productsMenuBtn = $('.products-menu-button');
 	 $productsSubMenu = $('.products-sub-menu');
 	 $header = $('header');
 	 $newsletterEmail = $('.newsletter-email');
@@ -40,7 +38,7 @@ function setupVars() {
  *
  */
 function setupToggleMenu() {
-	 $productsMenuBtn.click(function () {
+	 $('.products-menu-button, .responsive-menu').click(function () {
 		  if ($productsSubMenu.hasClass('displayed'))
 				hideProductsSubMenu();
 		  else

@@ -12,7 +12,7 @@
                   </a>
                 </h3>
                 <% category.products.limit(4).each do |product| %>
-                    <a href="<%= product_path product %>"><%= product.name %></a>
+                    <a class="sub-category" href="<%= product_path product %>"><%= product.name %></a>
                 <% end %>
                 <% if category.products.count > 4 %>
                     <a class="see-more" href="<%= category_path category %>">
