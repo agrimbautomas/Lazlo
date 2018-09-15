@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
 
 	post '/contact_email' => 'api/v1/users#contact_email'
-	post '/add_to_newsletter' => 'api/v1/users#add_to_newsletter'
+	post '/add_to_newsletter' => 'api/v1/users#add_to_newsletter', :as => :add_to_newsletter
 
 	get '/tracking/:tracking_code' => 'orders#tracking', :as => :tracking_order_by_code
 

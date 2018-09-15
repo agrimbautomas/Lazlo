@@ -11,25 +11,26 @@ var $productsSubMenu;
 var $header;
 
 jQuery(document).ready(function () {
-    setUpHeaderToggleOnScroll();
+	 setUpHeaderToggleOnScroll();
 
-    setupVars();
-    setupToggleMenu();
-    setupShadows();
-    setupContactForm();
-    setupAlertButtons();
-    setupToggleChat();
+	 setupVars();
+	 setupToggleMenu();
+	 setupShadows();
+	 setupContactForm();
+	 setupAlertButtons();
+	 setupToggleChat();
+	 setupNewsletter();
 });
 
 
 function setupVars() {
-    $shadowLayer = $('.shadow-layer');
-    $contactForm = $('.contact-form');
-    $chatButton = $('.chat-button');
-    $chatWidget = $('.chat-widget');
-    $productsMenuBtn = $('.products-menu-button');
-    $productsSubMenu = $('.products-sub-menu');
-    $header = $('header');
+	 $shadowLayer = $('.shadow-layer');
+	 $contactForm = $('.contact-form');
+	 $chatButton = $('.chat-button');
+	 $chatWidget = $('.chat-widget');
+	 $productsMenuBtn = $('.products-menu-button');
+	 $productsSubMenu = $('.products-sub-menu');
+	 $header = $('header');
 }
 
 /*
@@ -38,30 +39,30 @@ function setupVars() {
  *
  */
 function setupToggleMenu() {
-    $productsMenuBtn.click(function () {
-        if ($productsSubMenu.hasClass('displayed'))
-            hideProductsSubMenu();
-        else
-            displayProductsSubMenu();
-    })
+	 $productsMenuBtn.click(function () {
+		  if ($productsSubMenu.hasClass('displayed'))
+				hideProductsSubMenu();
+		  else
+				displayProductsSubMenu();
+	 })
 }
 
 function displayProductsSubMenu() {
-    $productsSubMenu.addClass('displayed');
-    $productsSubMenu.show();
+	 $productsSubMenu.addClass('displayed');
+	 $productsSubMenu.show();
 }
 
 function hideProductsSubMenu() {
-    $productsSubMenu.removeClass('displayed');
-    $productsSubMenu.hide();
+	 $productsSubMenu.removeClass('displayed');
+	 $productsSubMenu.hide();
 }
 
 function showHeader() {
-    $header.removeClass('nav-up').addClass('nav-down');
+	 $header.removeClass('nav-up').addClass('nav-down');
 }
 
 function hideHeader() {
-    $header.removeClass('nav-down').addClass('nav-up');
+	 $header.removeClass('nav-down').addClass('nav-up');
 }
 
 /*
@@ -70,30 +71,30 @@ function hideHeader() {
  *
  */
 function setupToggleChat() {
-    $chatButton.click(function () {
-        if ($chatWidget.hasClass('displayed'))
-            hideChat();
-        else
-            displayChat()
-    });
+	 $chatButton.click(function () {
+		  if ($chatWidget.hasClass('displayed'))
+				hideChat();
+		  else
+				displayChat()
+	 });
 }
 
 function displayChat() {
 
-    $chatWidget.addClass('displayed');
-    $('.display-on-chat').animate({
-        opacity: 1
-    }, 100);
+	 $chatWidget.addClass('displayed');
+	 $('.display-on-chat').animate({
+		  opacity: 1
+	 }, 100);
 
 }
 
 function hideChat() {
 
-    $('.display-on-chat').animate({
-        opacity: 0
-    }, 100, function () {
-        $chatWidget.removeClass('displayed');
-    });
+	 $('.display-on-chat').animate({
+		  opacity: 0
+	 }, 100, function () {
+		  $chatWidget.removeClass('displayed');
+	 });
 }
 
 /*
@@ -103,76 +104,133 @@ function hideChat() {
  */
 function setUpHeaderToggleOnScroll() {
 
-    $(window).scroll(function (event) {
-        didScroll = true;
-    });
+	 $(window).scroll(function (event) {
+		  didScroll = true;
+	 });
 
-    setInterval(function () {
-        if (didScroll) {
-            hasScrolled();
-            didScroll = false;
-        }
-    }, 250);
+	 setInterval(function () {
+		  if (didScroll) {
+				hasScrolled();
+				didScroll = false;
+		  }
+	 }, 250);
 
 }
 
 function hasScrolled() {
-    var st = $(this).scrollTop();
-    var navbarHeight = $('header').outerHeight();
+	 var st = $(this).scrollTop();
+	 var navbarHeight = $('header').outerHeight();
 
-    if (Math.abs(lastScrollTop - st) <= delta)
-        return;
+	 if (Math.abs(lastScrollTop - st) <= delta)
+		  return;
 
-    if (st > lastScrollTop && st > navbarHeight) {
-        hideHeader();
-        hideProductsSubMenu();
-    } else if (st + $(window).height() < $(document).height())
-        showHeader();
+	 if (st > lastScrollTop && st > navbarHeight) {
+		  hideHeader();
+		  hideProductsSubMenu();
+	 } else if (st + $(window).height() < $(document).height())
+		  showHeader();
 
 
-    lastScrollTop = st;
+	 lastScrollTop = st;
 }
 
 
+/*
+ *
+ * Contact
+ *
+ */
 function setupContactForm() {
-    $('.contact-form-button').each(function () {
-        $(this).click(function () {
-            showContactForm();
-        })
-    })
+	 $('.contact-form-button').each(function () {
+		  $(this).click(function () {
+				showContactForm();
+		  })
+	 })
 
-    $('.close-contact-form, .contact-form').click(function () {
-        hideContactForm();
-    })
+	 $('.close-contact-form, .contact-form').click(function () {
+		  hideContactForm();
+	 })
 
-    $('.contact-form-inner').click(function (e) {
-        e.stopPropagation();
-    })
+	 $('.contact-form-inner').click(function (e) {
+		  e.stopPropagation();
+	 })
 }
 
 
 function showContactForm() {
-    showShadowLayer();
-    $contactForm.show().animate({
-        opacity: 1
-    }, 300);
+	 showShadowLayer();
+	 $contactForm.show().animate({
+		  opacity: 1
+	 }, 300);
 }
 
 function hideContactForm() {
-    hideShadowLayer();
-    $contactForm.animate({
-        opacity: 0
-    }, 300, function () {
-        $(this).hide()
-    });
+	 hideShadowLayer();
+	 $contactForm.animate({
+		  opacity: 0
+	 }, 300, function () {
+		  $(this).hide()
+	 });
 }
 
+
+/*
+ *
+ * Newsletter
+ *
+ */
+function setupNewsletter() {
+	 $('.newsletter-footer-form').submit(function (e) {
+		  e.preventDefault();
+
+		  var email = $('.newsletter-email').val();
+		  var url = $(this).attr('url');
+
+		  if (email !== "")
+				addContactToNewsletter(url, email);
+	 });
+}
+
+function addContactToNewsletter(url, email) {
+	 $.post({
+		  url: url,
+		  data: {email: email}
+	 }).done(function (data) {
+		  console.log(data.response)
+		  if (data.response.status === 'successful')
+				successfulNewsletterCallback();
+	 });
+
+}
+
+function successfulNewsletterCallback() {
+	 console.log('Gracias por sumarte al Newsletter de Lazlo!')
+	 showNotification('Gracias por sumarte al Newsletter de Lazlo!')
+}
+
+function showNotification(message){
+	 $('.notification-bar.notice p').html(message)
+	 $('.notification-bar.notice').css({
+		  top: '-62px',
+		  display: 'block'
+	 }).animate({
+		  top: '0px'
+	 }).delay(3000).animate({
+		  top: '-62px'
+	 })
+}
+/*
+ *
+ * Alert
+ *
+ */
+
 function setupAlertButtons() {
-    $('.notification-bar .close-notification-bar').each(function () {
-        $(this).click(function () {
-            $(this).parent().hide();
-        });
-    });
+	 $('.notification-bar .close-notification-bar').each(function () {
+		  $(this).click(function () {
+				$(this).parent().hide();
+		  });
+	 });
 }
 
 
@@ -183,38 +241,39 @@ function setupAlertButtons() {
  */
 
 function showShadowLayer() {
-    $shadowLayer.show().animate({
-        opacity: 1
-    }, 300);
+	 $shadowLayer.show().animate({
+		  opacity: 1
+	 }, 300);
 }
 
 function hideShadowLayer() {
-    $shadowLayer.animate({
-        opacity: 0
-    }, 300, function () {
-        $(this).hide()
-    });
+	 $shadowLayer.animate({
+		  opacity: 0
+	 }, 300, function () {
+		  $(this).hide()
+	 });
 }
 
 function setupShadows() {
-    $shadowLayer.click(function () {
-        hideSidebar();
-        hideContactForm();
-    })
+	 $shadowLayer.click(function () {
+		  hideSidebar();
+		  hideContactForm();
+	 })
 }
+
 /*
  *
  * Helpers
  *
  */
 function formatPrice(nStr) {
-    nStr += '';
-    x = nStr.split('.');
-    x1 = x[0];
-    x2 = x.length > 1 ? '.' + x[1] : '';
-    var rgx = /(\d+)(\d{3})/;
-    while (rgx.test(x1))
-        x1 = x1.replace(rgx, '$1' + '.' + '$2');
+	 nStr += '';
+	 x = nStr.split('.');
+	 x1 = x[0];
+	 x2 = x.length > 1 ? '.' + x[1] : '';
+	 var rgx = /(\d+)(\d{3})/;
+	 while (rgx.test(x1))
+		  x1 = x1.replace(rgx, '$1' + '.' + '$2');
 
-    return '$' + x1 + x2;
+	 return '$' + x1 + x2;
 }
