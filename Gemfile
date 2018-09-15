@@ -15,6 +15,9 @@ gem 'responsive_active_admin'
 # url: https://github.com/activeadmin-plugins/active_admin_datetimepicker
 #gem 'active_admin_datetimepicker'
 
+# Mailchimp integration, url: https://github.com/amro/gibbon
+gem 'gibbon'
+
 # For admin authorizations, url: https://github.com/CanCanCommunity/cancancan
 gem 'cancan'
 gem 'coffee-rails'

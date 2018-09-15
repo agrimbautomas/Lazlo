@@ -2,3 +2,5 @@ urls:
   base: https://lazlo.la
 admin:
   emails: hola@lazlo.la, tomas@amalgama.co
+mailchimp:
+  api_key: 5ceffbbec5a558fc1685669232826ed1-us19

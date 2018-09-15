@@ -14,6 +14,13 @@ RSpec.shared_context 'send contact form' do
 	}
 end
 
+RSpec.shared_context 'send request to mailchimp' do
+	before {
+		post :add_to_newsletter,
+			:format => :json, params: { :email => 'some@gmail.com' }
+	}
+end
+
 
 RSpec.describe Api::V1::UsersController, type: :controller do
 	include ApplicationHelper
@@ -41,7 +48,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 		context 'without Token' do
 			include_context 'send request to mailchimp'
 			include_examples 'expect successful response'
-			
+
 		end
 
 	end
