@@ -92,17 +92,22 @@
 
       <a class="header-user-name" href="<%= user_signed_in? ? profile_url : new_user_session_path %>">
         <%= user_signed_in? ? current_user.email : 'iniciar sesión' %>
+      </a>
 
 
-
-        <a class="cart-button <%= user_signed_in? ? ' logged-cart-button' : '' %><%= @action == 'profile' ? '' : ' displayable' %> "
-           href="<%= checkout_path %>">
-          <i class="fa fa-shopping-cart smooth-transition" aria-hidden="true"></i>
-          <% if user_signed_in? and current_user.cart_count.present? %>
-              <span class="notification-number"><%= current_user.cart_count %></span>
-          <% end %>
-        </a>
-
+      <a class="cart-button <%= user_signed_in? ? ' logged-cart-button' : '' %><%= @action == 'profile' ? '' : ' displayable' %> "
+         href="<%= checkout_path %>">
+        <i class="fa fa-shopping-cart smooth-transition" aria-hidden="true"></i>
+        <% if user_signed_in? and current_user.cart_count.present? %>
+            <span class="notification-number"><%= current_user.cart_count %></span>
+        <% end %>
+      </a>
+      <a class="responsive-menu with-hover">
+        <span>
+          <svg class="header-icon">
+            <use xlink:href="<%= image_url('sprite.svg') %>#menu-responsive-icon"/>
+          </svg>
+        </span>
       </a>
 
     </div>

@@ -196,20 +196,19 @@ function addContactToNewsletter(url, email) {
 		  url: url,
 		  data: {email: email}
 	 }).done(function (data) {
-		  console.log(data.response)
+		  console.log(data.response);
 		  if (data.response.status === 'successful')
 				successfulNewsletterCallback();
 	 });
-
 }
 
 function successfulNewsletterCallback() {
-	 console.log('Gracias por sumarte al Newsletter de Lazlo!')
-	 showNotification('Gracias por sumarte al Newsletter de Lazlo!')
+	 $('.newsletter-email').val("");
+	 showNotification('Gracias por sumarte al Newsletter de Lazlo!');
 }
 
-function showNotification(message){
-	 $('.notification-bar.notice p').html(message)
+function showNotification(message) {
+	 $('.notification-bar.notice p').html(message);
 	 $('.notification-bar.notice').css({
 		  top: '-62px',
 		  display: 'block'
@@ -219,6 +218,7 @@ function showNotification(message){
 		  top: '-62px'
 	 })
 }
+
 /*
  *
  * Alert

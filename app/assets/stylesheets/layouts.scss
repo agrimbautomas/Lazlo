@@ -341,6 +341,10 @@ header {
           }
         }
 
+        &.responsive-menu {
+          display: none;
+        }
+
         .notification-number {
           background: $yellow_lazlo;
           position: absolute;
@@ -397,11 +401,11 @@ header {
         margin: 0px 0px 4px 0px;
         text-transform: lowercase;
 
-        &:hover{
+        &:hover {
           color: $blue_link;
         }
 
-        &.see-more{
+        &.see-more {
           color: $blue_link;
           text-decoration: underline;
           font-style: italic;
@@ -963,224 +967,39 @@ span.error {
 /************************************************************************************/
 /************************************************************************************/
 /************************************************************************************/
-/************************************************************************************/
 /*************************** RESPONSIVE *********************************************/
 /************************************************************************************/
 /************************************************************************************/
 /************************************************************************************/
 
-@media screen and (max-width: 650px) {
-  .footer .footer-block {
-    display: block;
-    width: 90%;
-    margin: 0px 5% 20px;
-    text-align: center;
+@media screen and (max-width: 950px) {
+
+  header nav.grilla {
+    .right-container a.social-icons {
+      display: none;
+    }
 
   }
 
 }
 
-/************************************************************************************/
-/************************************************************************************/
-/************************************************************************************/
-/************************************************************************************/
-/*************************** Tracking *********************************************/
-/************************************************************************************/
-/************************************************************************************/
-/************************************************************************************/
+@media screen and (max-width: 750px) {
 
-.full-container {
-  width: 100%;
-}
+  header nav.grilla {
+    .left-container a.menu-button{
+      display: none;
+      &.logo{
+        display: block;
+        margin: 0px;
+      }
+    }
+    .right-container a.responsive-menu {
+      display: block;
+    }
 
-.buyers-data {
-  margin: 0px 10%;
-  line-height: 35px;
-
-  h1 {
-    margin: 20px 10% 20px;
-    display: inline-block;
-    font-size: 22px;
-    color: #F48789;
-    width: 80%;
-  }
-}
-
-/************************************************************************************/
-/************************************************************************************/
-/************************************************************************************/
-/*************************** RESPONSIVE *********************************************/
-/************************************************************************************/
-/************************************************************************************/
-/************************************************************************************/
-
-@media screen and (max-width: 900px) {
-  .status-blocks-container {
-    margin: 10% 2% 0px 0px;
-    width: 20%;
-    height: 90%;
-  }
-  .status-block {
-    width: 100%;
-    height: 20%;
-
-    label {
-      float: left;
-      width: 55%;
-      margin: 0px 0px 0px 0px;
-      text-align: right;
-    }
-    p {
-      margin: -5px 0px 0px 0px;
-      float: left;
-      font-size: 12px;
-      text-align: right;
-      width: 55%;
-    }
-    .logo-container {
-      float: right;
-      margin: 0px;
-      width: 30%;
-    }
-    .status-line {
-      height: 100%;
-      width: 7%;
-      bottom: 95%;
-      right: 12%;
-      left: inherit;
-      top: inherit;
-    }
-    &.status-inactive p {
-      margin-top: 0px;
-    }
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .social, .contact {
-    width: 100%;
-    height: 50vh;
-  }
-  .social {
-    height: 50px;
-    display: inline-block;
-  }
-  .social-block {
-    height: 100%;
-    position: relative;
-    width: 33.3%;
-    display: inline-block;
-    float: left;
-    top: 0px !important;
-    margin: 0px 0px;
-    img {
-      max-height: 25px;
-      max-width: 50%;
-      margin: 8px 0px;
-    }
-  }
-  .grilla-social {
-    max-width: 100%;
-    margin: 25px 0px 0px;
-  }
-  .icons {
-    height: auto;
-    padding: 36px 0px 0px;
-  }
-  .nav-icon {
-    margin: 10px 0%;
-  }
-  .landing-slides-container img {
-    width: 100%;
-    height: auto;
-  }
-  .hide-in-mobile, .arrow, .icon-list {
-    display: none !important;
-  }
-  .hide-in-desktop {
-    display: inline-block !important;
-  }
-  .icons.icons-footer {
-    display: block !important;
-  }
-  h3 {
-    font-size: 22px;
-  }
-  h4 {
-    font-size: 12px;
-  }
-  h5 {
-    font-size: 11px;
-  }
-
-  .status-block {
-    p {
-      font-size: 10px;
-    }
-    label {
-      margin-top: -10px;
-      font-size: 10px;
-    }
-  }
-  .buyers-data h1 {
-    font-size: 18px;
   }
 }
 
 @media screen and (max-width: 500px) {
-
-  header {
-    .logo img {
-      max-width: 150px;
-      margin: 14px auto;
-    }
-
-    .social-nav-container {
-      height: 40px;
-
-      .social-nav {
-        display: none;
-      }
-    }
-
-    nav {
-      .grilla {
-        margin: 0px;
-        max-width: 100%;
-      }
-      a {
-        width: 100%;
-        padding: 15px 0px;
-      }
-    }
-
-  }
-
-  .social-nav-footer {
-    display: block;
-  }
-
-  .contact-form h5 {
-    font-size: 28px;
-  }
-
-  .contact-form {
-    padding-bottom: 40px;
-
-    font-size: 32px;
-  }
-
-  .contact-form {
-    .fa-times {
-      font-size: 40px;
-      right: 5%;
-      top: 2%;
-    }
-
-    input[type='submit'] {
-      font-size: 30px;
-      padding: 12px 6%;
-    }
-  }
 
 }
