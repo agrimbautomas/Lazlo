@@ -42,7 +42,7 @@ class Order < ApplicationRecord
 	belongs_to :mercado_pago_purchase
 
 	has_one :order_products_list, :dependent => :destroy
-	has_many :order_products_rows, through: :order_products_list
+	has_many :order_products_rows, through: :order_products_list, :dependent => :destroy
 
 	accepts_nested_attributes_for :order_products_rows, :allow_destroy => true
 

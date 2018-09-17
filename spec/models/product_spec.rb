@@ -1,25 +1,3 @@
-# == Schema Information
-#
-# Table name: products
-#
-#  id                 :integer          not null, primary key
-#  name               :string
-#  description        :text
-#  price              :float
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  image_file_name    :string
-#  image_content_type :string
-#  image_file_size    :integer
-#  image_updated_at   :datetime
-#  slug               :string
-#  category_id        :integer
-#  views              :integer          default(0)
-#  featured           :boolean          default(FALSE)
-#  visible            :boolean          default(TRUE)
-#  deleted_at         :datetime
-#
-
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
@@ -43,13 +21,16 @@ RSpec.describe Product, type: :model do
   it { should belong_to(:category) }
 
   it { should respond_to(:orders) }
-  it { should have_many(:orders) }
+  it { should have_many(:orders).dependent(:destroy) }
+
+  it { should respond_to(:favourites) }
+  it { should have_many(:favourites).dependent(:destroy) }
 
   it { should respond_to(:product_images) }
-  it { should have_many(:product_images) }
+  it { should have_many(:product_images).dependent(:destroy) }
 
   it { should respond_to(:product_rows) }
-  it { should have_many(:product_rows) }
+  it { should have_many(:product_rows).dependent(:destroy) }
 
   it { should respond_to (:image) }
   it { should have_attached_file(:image) }

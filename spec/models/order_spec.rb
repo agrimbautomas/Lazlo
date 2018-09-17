@@ -34,7 +34,7 @@ RSpec.describe Order, type: :model do
 
 	it { should respond_to (:status) }
 	it { expect define_enum_for(:status).with [:requested, :in_blacksmith,
-	                                           :in_painting, :finished, :delivered, :cancelled] }
+		:in_painting, :finished, :delivered, :cancelled] }
 
 	describe '#create!' do
 		include_context 'create order'

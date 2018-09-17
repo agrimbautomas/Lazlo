@@ -39,9 +39,10 @@ class Product < ApplicationRecord
 	friendly_id :name, use: :slugged
 
 	belongs_to :category
-	has_many :orders
+	has_many :orders, :dependent => :destroy
 	has_many :product_images, :dependent => :destroy
-	has_many :product_rows
+	has_many :product_rows, :dependent => :destroy
+	has_many :favourites, :dependent => :destroy
 
 	accepts_nested_attributes_for :product_images, :allow_destroy => true
 
