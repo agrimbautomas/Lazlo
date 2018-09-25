@@ -156,6 +156,9 @@ textarea{
   outline: none;
   font-family: 'futura', arial, sans-serif;
   font-weight: bold;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 input:-webkit-autofill{

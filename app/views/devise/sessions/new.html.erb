@@ -1,6 +1,13 @@
-<div class="register-section">
+<%
 
-  <div class="register-pop-up">
+  slider_image_size = mobile_device? ? :medium : :slider
+  background_img = SiteConfig.home_slide.present? ? SiteConfig.home_slide.first.picture.url(slider_image_size) : nil
+%>
+
+<div class="register-section" style='<%= background_img.present? ? "background-image: url(#{background_img})" : "" %>'>
+
+
+<div class="register-pop-up">
 
     <a class="" href="<%= root_path %>">
       <svg class="close-register-form">

@@ -1,6 +1,6 @@
 @import "variables";
 
-.register-section {
+.register-section{
   background: url(lazlo-landing.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,7 +12,7 @@
   padding-top: 62px;
   margin-top: -62px;
 
-  .register-pop-up {
+  .register-pop-up{
     position: relative;
     z-index: 10;
     background: white;
@@ -24,17 +24,17 @@
     text-align: center;
     margin: 3% auto 0px;
 
-    form {
+    form{
       margin: -10px auto 0px;
 
     }
 
-    &.new-account-pop-up {
-      form {
+    &.new-account-pop-up{
+      form{
         margin: 10px auto 0px;
       }
     }
-    .close-register-form {
+    .close-register-form{
       width: 23px;
       height: 23px;
       position: absolute;
@@ -43,32 +43,32 @@
       cursor: pointer;
     }
 
-    .logo {
+    .logo{
       width: 140px;
       height: 35px;
       display: inline-block;
 
-      svg {
+      svg{
         width: 100%;
         height: 100%;
       }
     }
 
-    .form-inputs {
+    .form-inputs{
       text-align: center;
     }
 
-    .input {
+    .input{
       margin: 10px 0px 10px;
 
-      label {
+      label{
         font-weight: normal;
         font-size: 13px;
         margin: 0px 0px 3px 0px;
         display: inline-block;
       }
 
-      input {
+      input{
         border: solid 1px #d4d4d4;
         width: 92%;
         font-size: 12px;
@@ -76,14 +76,14 @@
         font-weight: normal;
         margin: 1px;
 
-        &:focus {
+        &:focus{
           margin: 0px;
           border: solid 2px #52b4e0;
         }
 
       }
 
-      &:first-child {
+      &:first-child{
         margin: 0px 0px 10px;
       }
 
@@ -93,7 +93,7 @@
 
     }
 
-    input[type=submit] {
+    input[type=submit]{
       background: #4285f4;
       width: 100%;
       color: white;
@@ -103,31 +103,31 @@
       cursor: pointer;
       margin: 20px auto 5px;
 
-      &:hover {
+      &:hover{
         background: #2975f5;
       }
     }
 
-    .forgot-password {
+    .forgot-password{
       display: inline-block;
       color: $black_lazlo;
       font-size: 12px;
     }
 
-    a.forgot-password {
+    a.forgot-password{
       text-decoration: underline;
       cursor: pointer;
 
-      &:hover {
+      &:hover{
         color: $yellow_lazlo;
       }
     }
 
-    .user_remember_me {
+    .user_remember_me{
       display: none;
     }
 
-    .register-fb {
+    .register-fb{
       background: #3b5998;
       color: white;
       width: 100%;
@@ -138,13 +138,12 @@
       cursor: pointer;
       margin: 10px auto 10px;
 
-      &:hover {
+      &:hover{
         background-color: #5076c5;
       }
     }
 
-
-    .create-account {
+    .create-account{
       color: $black_lazlo;
       width: 100%;
       display: inline-block;
@@ -153,12 +152,12 @@
       text-decoration: underline;
       text-align: center;
 
-      &:hover {
+      &:hover{
         color: $yellow_lazlo;
       }
     }
 
-    h3 {
+    h3{
       font-size: 14px;
       width: 100%;
       margin: 30px auto;
@@ -172,13 +171,34 @@
     }
   }
 
-  .register-black-filter {
+  .register-black-filter{
     position: absolute;
     background: rgba(0, 0, 0, 0.2);
     width: 100%;
     height: 100%;
     bottom: 0px;
     left: 0px;
+  }
+
+}
+
+@media screen and (max-width: 750px){
+
+}
+
+@media screen and (max-width: 550px){
+
+  .register-section .register-pop-up{
+    padding: 40px 10% 30px;
+    width: 65%;
+
+    .forgot-password{
+      font-size: 13px;
+    }
+
+    .register-fb{
+      margin: 20px auto 10px;
+    }
   }
 
 }
