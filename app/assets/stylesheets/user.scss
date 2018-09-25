@@ -1,7 +1,7 @@
 @import "variables";
 
 .header-sub-menu,
-.profile-purchase-header {
+.profile-purchase-header{
   width: 100%;
   display: inline-block;
   background: white;
@@ -9,7 +9,7 @@
   text-align: center;
   padding: 20px 0px 5px;
 
-  .order-row {
+  .order-row{
     display: inline-block;
     float: right;
     width: 80%;
@@ -17,7 +17,7 @@
     margin: 0px 0px 25px;
   }
 
-  .purchase-block {
+  .purchase-block{
     float: left;
     width: 20%;
     text-align: left;
@@ -25,7 +25,7 @@
     height: 140px;
     border: none;
 
-    h2 {
+    h2{
       color: $black_lazlo;
       font-size: 2.4em;
       display: inline-block;
@@ -33,7 +33,7 @@
     }
   }
 
-  .block {
+  .block{
     float: left;
     width: 25%;
     width: calc(25% - 1px);
@@ -43,34 +43,34 @@
     display: inline-block;
     height: 140px;
 
-    &:last-child {
+    &:last-child{
       width: 50%;
       width: calc(50% - 1px);
       width: -webkit-calc(50% - 1px);
     }
 
-    .inner-block {
+    .inner-block{
       width: 86%;
       margin: 0px 7%;
       font-size: 0.8em;
 
-      h3 {
+      h3{
         font-size: 0.95em;
         margin: 0px 0px 10px;
       }
     }
   }
 
-  .status-blocks-container {
+  .status-blocks-container{
     width: 100%;
     display: inline-block;
     margin: 20px 0px;
 
-    .status-block {
+    .status-block{
       width: 20%;
       float: left;
 
-      .track {
+      .track{
         width: 100%;
         display: inline-block;
         text-align: center;
@@ -78,21 +78,21 @@
         position: relative;
         margin-left: -50px;
 
-        .line, .dot {
+        .line, .dot{
           background: $yellow_lazlo;
           color: $yellow_lazlo;
           float: left;
           position: absolute;
         }
 
-        .line {
+        .line{
           width: 100%;
           height: 4px;
           top: 8px;
           left: 0px;
         }
 
-        .dot {
+        .dot{
           width: 20px;
           -webkit-border-radius: 50%;
           -moz-border-radius: 50%;
@@ -103,37 +103,37 @@
 
       }
 
-      &:first-child .track .line {
+      &:first-child .track .line{
         display: none;
       }
 
-      label {
+      label{
         width: 100%;
         display: inline-block;
         font-weight: bold;
         font-size: 0.8em;
 
-        &.date {
+        &.date{
           color: #828282;
           font-weight: lighter;
           font-style: italic;
         }
       }
 
-      &.status-inactive {
+      &.status-inactive{
 
         .track .line,
-        .track .dot {
+        .track .dot{
           background: $grey_hover;
           color: $grey_hover;
         }
 
-        .date {
+        .date{
           display: none;
         }
 
-        &:last-child {
-          .date {
+        &:last-child{
+          .date{
             display: inline-block;
           }
         }
@@ -143,38 +143,38 @@
     }
   }
 
-  .product-row {
+  .product-row{
     width: 100%;
     display: inline-block;
     padding: 6px 0px;
 
-    a {
+    a{
       width: 80%;
       text-align: left;
       font-size: 18px;
       text-decoration: underline;
 
-      &:hover {
+      &:hover{
         color: $yellow_lazlo;
       }
 
     }
 
-    .cart-product-price {
+    .cart-product-price{
       width: 20%;
       text-align: right;
 
     }
 
     a,
-    .cart-product-price {
+    .cart-product-price{
       display: inline-block;
       float: left;
       font-size: 12px;
     }
   }
 
-  .no-orders-message {
+  .no-orders-message{
     font-size: 32px;
     font-family: 'Josefin Sans', sans-serif;
     width: 90%;
@@ -183,15 +183,15 @@
 
 }
 
-section.profile-detail {
+section.profile-detail{
   margin: 30px auto;
 
-  h6 {
+  h6{
     width: 100%;
     margin: 0px 0px 20px;
   }
 
-  .block {
+  .block{
     display: inline-block;
     width: 77%;
     width: calc(77% - 1px);
@@ -199,23 +199,23 @@ section.profile-detail {
     float: right;
     padding: 0px 1.5%;
 
-    &.block-left {
+    &.block-left{
       width: 19%;
       float: left;
       border: none;
       padding: 0px 1% 0px 0px;
 
       span,
-      p {
+      p{
         font-size: 14px;
         display: inline-block;
       }
 
-      span {
+      span{
         font-weight: bold;
       }
 
-      a {
+      a{
         font-style: italic;
         color: $blue_link;
         width: 100%;
@@ -226,14 +226,15 @@ section.profile-detail {
       }
     }
 
-    .profile-promotion {
+    .profile-promotion{
       background: $yellow_lazlo;
       width: 100%;
       padding: 16px 0px;
       margin: 20px 0px;
+      max-width: 270px;
 
       h4,
-      h3 {
+      h3{
         width: 100%;
         display: inline-block;
         color: black;
@@ -241,21 +242,21 @@ section.profile-detail {
         font-size: 0.88em;
       }
 
-      h3 {
+      h3{
         font-size: 2.2em;
       }
     }
 
   }
 
-  .profile-products-block {
-    .profile-products-inner-block {
+  .profile-products-block{
+    .profile-products-inner-block{
       margin: 20px 1% 10px;
       display: inline-block;
       width: 98%;
       position: relative;
 
-      .favourite-product-block {
+      .favourite-product-block{
         float: left;
         width: 32%;
         width: calc(33% - 30px);
@@ -264,16 +265,16 @@ section.profile-detail {
         background-size: cover;
         background-position: center;
 
-        &.last {
+        &.last{
           margin-left: 0px;
         }
 
-        .image-block-with-transition {
+        .image-block-with-transition{
           height: 100%;
           font-size: 0.7em;
         }
 
-        section.profile-detail h6 {
+        section.profile-detail h6{
           margin: 0px 0px 13px;
         }
       }
@@ -303,17 +304,16 @@ section.profile-detail {
     }
   }
 
-
-  .no-products-message {
+  .no-products-message{
     width: 100%;
     margin-top: 4em;
     text-align: center;
 
-    &.cart-no-products-message {
+    &.cart-no-products-message{
       display: none;
     }
 
-    h5 {
+    h5{
       font-size: 1.5em;
       text-align: center;
       width: 90%;
@@ -322,29 +322,29 @@ section.profile-detail {
       position: relative;
       font-weight: normal;
 
-      a.with-hover {
+      a.with-hover{
         margin: 0px 0px 24px 0px;
         display: inline-block;
       }
     }
   }
 
-  .profile-products-slider-buttons {
+  .profile-products-slider-buttons{
 
-    .bx-pager-item {
+    .bx-pager-item{
       margin: 0px 10% 0px 0px;
       position: relative;
       display: inline-block;
 
-      a {
+      a{
         font-weight: bold;
         font-size: 1em;
 
         &:hover,
-        &.active {
+        &.active{
           border-bottom: 2px solid $yellow_lazlo;
         }
-        span {
+        span{
           position: absolute;
         }
       }
@@ -353,90 +353,87 @@ section.profile-detail {
 
   }
 
-  .bx-wrapper .bx-viewport {
+  .bx-wrapper .bx-viewport{
     background: none;
     min-height: 250px;
   }
 
 }
 
-
-
 /************************************************************************************/
 /*************************** GENERIC CART STYLES **********************************/
 /************************************************************************************/
 
 .user-cart-left-block,
-.user-cart-right-block {
+.user-cart-right-block{
   width: 50%;
   float: left;
   text-align: center;
 
-  h2 {
+  h2{
     text-align: center;
     text-decoration: underline;
     text-transform: lowercase;
     font-size: 2em;
   }
 
-  h3 {
+  h3{
     text-align: center;
     color: $grey_hover;
     font-size: 1.5em;
     margin: 20px auto 0px;
   }
 
-  .checkout-button {
+  .checkout-button{
     max-width: 250px;
     margin: 80px auto 0px;
     display: inline-block;
   }
 
-
-  .cart-product-row {
+  .cart-product-row{
     width: 100%;
     display: inline-block;
     margin: 0px 0px 30px 0px;
 
-    .cart-product-row-header {
+    .cart-product-row-header{
       width: 100%;
       display: inline-block;
 
-      a {
+      a{
         width: auto;
         float: left;
         font-weight: bold;
         text-decoration: underline;
         margin: 0px 0px 6px 0px;
 
-        &:hover {
+        &:hover{
           opacity: 0.7;
         }
 
       }
 
-      .remove-row {
+      .remove-row{
         float: right;
         color: $grey_hover;
         cursor: pointer;
-        &:hover {
+        &:hover{
           color: $yellow_lazlo;
         }
-        &:active {
+        &:active{
           color: $grey_hover;
         }
       }
     }
 
     .left-block,
-    .right-block {
+    .right-block{
       width: 100%;
       max-width: calc(100% - 110px);
       float: left;
       text-align: left;
     }
 
-    .left-block {
+    .left-block{
       width: 17%;
       min-width: 110px;
 
@@ -445,7 +442,7 @@ section.profile-detail {
       }
     }
 
-    .product-detail-row {
+    .product-detail-row{
       border-top: 1px solid $grey_lazlo_soft;
       width: 100%;
       width: calc(100% - 20px);
@@ -453,35 +450,34 @@ section.profile-detail {
       margin: 0px 0px 10px 20px;
       padding: 8px 0px 0px 0px;
 
-      strong {
+      strong{
         font-weight: bold;
       }
 
-      span {
+      span{
         color: $grey_hover;
         margin: 0px 0px 0px 2px;
         font-size: 1.02em;
       }
 
-      i {
+      i{
         font-size: 1.2em;
         cursor: pointer;
-        &:hover {
+        &:hover{
           color: $yellow_lazlo;
         }
-        &:active {
+        &:active{
           color: $grey_hover;
         }
       }
 
-      &:first-child {
+      &:first-child{
         border: none;
       }
 
     }
 
   }
-
 
 }
 
@@ -493,8 +489,53 @@ section.profile-detail {
 /************************************************************************************/
 /************************************************************************************/
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1000px){
 
+  section.profile-detail .block.block-left,
+  section.profile-detail .block.block-right{
+    width: 98%;
+    margin: 0px 1% 20px;
+  }
+}
+
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+/*************************** RESPONSIVE *********************************************/
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+
+@media screen and (max-width: 750px){
+  .header-sub-menu .purchase-block,
+  .profile-purchase-header{
+    .purchase-block{
+      width: 100%;
+      height: auto;
+      margin: 0px auto 20px;
+    }
+    .order-row{
+      width: 100%;
+      margin: 0px auto;
+    }
+
+    .block{
+      width: 100% !important;
+      height: auto;
+      border-left: none;
+      margin: 30px auto 0px;
+    }
+
+    .status-blocks-container .status-block{
+
+      label{
+        font-size: 0.7em;
+      }
+      .track{
+        margin-left: -22px;
+      }
+    }
+  }
 }
 
 /************************************************************************************/
@@ -506,6 +547,37 @@ section.profile-detail {
 /************************************************************************************/
 /************************************************************************************/
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px){
+
+  section.profile-detail{
+
+    .profile-products-slider-buttons .bx-pager-item{
+      margin: 0px auto;
+      width: 33%;
+      text-align: center;
+    }
+
+    .profile-products-block .profile-products-inner-block .favourite-product-block{
+      width: 100%;
+      margin: 0px auto 30px;
+
+      .image-block-with-transition img{
+        width: 100%;
+      }
+
+      .image-block-with-transition .product-description{
+        bottom: 27%;
+
+        h5{
+          font-size: 1.2em;
+        }
+      }
+
+    }
+  }
+
+  .user-cart-left-block, .user-cart-right-block{
+    width: 100%;
+  }
 
 }
