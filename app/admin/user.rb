@@ -76,5 +76,24 @@ ActiveAdmin.register User do
 
   end
 
+  csv do
+	  column :id
+	  column :name
+	  column :email
+	  column :created_at do |object|
+		  object.created_at&.strftime('%d/%m/%Y')
+	  end
+	  column 'Registro' do |user|
+		  user.confirmation_token.nil? ? 'Facebook' : 'Página'
+	  end
+	  column 'Productos en carrito' do |user|
+		  user.checkout_list.present? ? user.checkout_list.products_count : 0
+	  end
+
+	  column 'Productos comprados' do |user|
+		  user.purchased_list.present? ? user.purchased_list.products_count : 0
+	  end
+
+  end
 
 end

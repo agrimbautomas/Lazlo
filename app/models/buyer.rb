@@ -27,6 +27,9 @@ class Buyer < ApplicationRecord
 	validates :name, allow_blank: false,
 		:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
 
-	enum category: { market: 0, architect: 1 }
+	enum category: { final_costumer: 0, architect_decorator: 1, business: 2 }
 
+	def self.human_enum_name(enum_name, enum_value)
+		I18n.t("activerecord.attributes.#{model_name.i18n_key}.#{enum_name.to_s.pluralize}.#{enum_value}")
+	end
 end

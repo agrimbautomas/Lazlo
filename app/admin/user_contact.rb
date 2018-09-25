@@ -40,4 +40,15 @@ ActiveAdmin.register UserContact  do
   end
 
 
+  csv do
+    column :id
+    column :name
+    column :email
+    column :message
+    column :created_at do |object|
+      object.created_at&.strftime('%d/%m/%Y')
+    end
+  end
+
+
 end

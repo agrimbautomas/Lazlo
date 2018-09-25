@@ -6,6 +6,15 @@ ActiveAdmin.register Buyer do
 	filter :name
 	filter :email
 
+	#
+	# Config
+	#
+	Buyer.categories.each do |category|
+		scope(Buyer.human_enum_name(:category, category.first)) do |scope|
+			scope.where(category: category)
+		end
+	end
+
 	index do
 		selectable_column
 
@@ -14,7 +23,7 @@ ActiveAdmin.register Buyer do
 		column :phone
 		column :address
 		column :category do |buyer|
-			I18n.t("activerecord.attributes.buyer.categories.#{buyer.category}")
+			Buyer.human_enum_name(:category, buyer.category)
 		end
 
 		actions
@@ -40,11 +49,24 @@ ActiveAdmin.register Buyer do
 			row :phone
 			row :address
 			row :category do
-				I18n.t("activerecord.attributes.buyer.categories.#{buyer.category}")
+				Buyer.human_enum_name(:category, buyer.category)
 			end
 
 		end
 	end
 
+	csv do
+		column :id
+		column :name
+		column :email
+		column :phone
+		column :address
+		column :category do |object|
+			Buyer.human_enum_name(:category, object.category)
+		end
+		column :created_at do |object|
+			object.created_at&.strftime('%d/%m/%Y')
+		end
+	end
 
 end

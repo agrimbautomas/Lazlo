@@ -300,12 +300,22 @@ es:
           product_name: Nombre del Producto
           quantity: Cantidad
           product_price: Precio
+        user:
+          name: Nombre
         buyer:
           name: Nombre
           phone: Teléfono
           address: Dirección
+          category: Categoría
           categories:
-            architect: Arquitecto
+            final_costumer: Consumidor final
+            architect_decorator: Arq/Deco
+            business: Local
+          created_at: Fecha de creación
+        user_contact:
+          name: Nombre
+          message: Mensaje
+          created_at: Fecha de creación
         marvel:
           name: Nombre
           price: Precio de 100cm x 100cm

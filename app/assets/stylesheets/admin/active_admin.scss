@@ -254,6 +254,11 @@
     display: none;
   }
 
+  .scope.selected a {
+    background-color: initial;
+    text-decoration: underline;
+    color: black;
+  }
 }
 
 @media screen and (max-width: 500px) {

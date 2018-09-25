@@ -14,7 +14,8 @@ RSpec.describe Buyer, type: :model do
 	it { should respond_to (:category) }
 	it { should validate_presence_of (:category) }
 
-	it { expect define_enum_for(:category).with [:market, :architect] }
+	it { expect define_enum_for(:category).with [:final_costumer,
+		:architect_decorator, :business] }
 
 	describe '#create!' do
 		let(:valid_buyer) { create(:buyer) }
