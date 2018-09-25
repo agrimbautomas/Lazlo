@@ -2,7 +2,7 @@ ActiveAdmin.register Order do
 
 	menu priority: 2
 
-	permit_params :buyer_id, :user_id, :detail, :status, :title,
+	permit_params :buyer_id, :user_id, :detail, :status, :title, :document,
 		:payment, order_products_rows_attributes: [:product_id, :quantity, :product_name, :product_price, :_destroy]
 
 	config.per_page = 30
@@ -23,6 +23,13 @@ ActiveAdmin.register Order do
 		end
 	end
 
+	action_item :view, only: :show do
+		link_to I18n.t('download_attachement'), document_download_admin_order_path(resource) if resource.document.exists?
+	end
+
+	member_action :document_download, method: :get do
+		send_file resource.document.path
+	end
 
 	controller do
 
@@ -38,6 +45,7 @@ ActiveAdmin.register Order do
 
 			params[:order_params] = order_params
 			params[:order] = new_order
+
 
 			new_order = SaveAdminOrder.(params).save_or_update_order
 			@order = new_order
@@ -56,6 +64,7 @@ ActiveAdmin.register Order do
 
 			updated_order = SaveAdminOrder.(params).save_or_update_order
 
+
 			if updated_order.invalid?
 				display_resource_errors(updated_order)
 			else
@@ -68,7 +77,7 @@ ActiveAdmin.register Order do
 			if order.invalid?
 
 				flash[:error] = SaveAdminOrder.errors_message order
-				redirect_to :back
+				redirect_back(fallback_location: new_admin_order_path)
 			end
 		end
 
@@ -145,6 +154,7 @@ ActiveAdmin.register Order do
 			f.input :user, collection: User.order(name: :asc)
 			f.input :status, :as => :select, include_blank: false
 			f.input :detail, :hint => 'Algun tipo de detalle para la producción'
+			f.input :document, :as => :file, :hint => image_tag(f.object.document.url(:thumb))
 			f.input :payment, :input_html => { :min => 0, :step => 100 } if current_admin_user.has_role? :full_admin
 			f.input :title, :hint => 'Titulo de la orden (se muestra en el tracking)',
 				:label => 'Titulo de la orden' if current_admin_user.has_role? :full_admin
@@ -198,6 +208,9 @@ ActiveAdmin.register Order do
 				order.created_at
 			end
 
+			row :document do |order|
+				link_to order.document.original_filename, document_download_admin_order_path(order) if order.document.exists?
+			end
 			row :detail
 
 			row 'Título para Tracking' do

@@ -36,6 +36,9 @@ RSpec.describe Order, type: :model do
 	it { expect define_enum_for(:status).with [:requested, :in_blacksmith,
 		:in_painting, :finished, :delivered, :cancelled] }
 
+	it { should respond_to (:document) }
+	it { should have_attached_file(:document) }
+
 	describe '#create!' do
 		include_context 'create order'
 

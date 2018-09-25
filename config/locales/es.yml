@@ -287,6 +287,7 @@ es:
           code: Código
           detail: Detalle
           title: Titulo
+          document: Documento adjunto
           status: Estado
           statuses:
             requested: Encargado
@@ -343,3 +344,4 @@ es:
   created_at: Fecha de creación
   mercado_pago: Mercado Pago
   cash: Efectivo
+  download_attachement: Descargar adjunto

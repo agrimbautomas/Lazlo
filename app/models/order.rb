@@ -17,6 +17,10 @@
 #  user_id                  :integer
 #  order_products_list_id   :integer
 #  payment_type             :integer          default("cash"), not null
+#  attachment_file_name     :string(255)
+#  attachment_content_type  :string(255)
+#  attachment_file_size     :integer
+#  attachment_updated_at    :datetime
 #
 # Indexes
 #
@@ -48,7 +52,7 @@ class Order < ApplicationRecord
 
 	enum payment_type: [:cash, :mercado_pago]
 	enum status: { requested: 0, in_blacksmith: 1, in_painting: 2,
-	               finished: 3, delivered: 4, cancelled: 5 }
+		finished: 3, delivered: 4, cancelled: 5 }
 
 	before_create :set_code
 	validates_presence_of :title, :payment_type, :order_products_list
@@ -59,6 +63,9 @@ class Order < ApplicationRecord
 
 	validates_presence_of :user, :if => :buyer_is_nil?
 	validates_presence_of :buyer, :if => :user_is_nil?
+
+	has_attached_file :document
+	do_not_validate_attachment_file_type :document
 
 	scope :current, -> () { where.not(status: [Order.statuses[:delivered], Order.statuses[:cancelled]]) }
 	scope :of, -> (user) { where(user: user) }
@@ -87,10 +94,10 @@ class Order < ApplicationRecord
 
 	def create_mercado_pago_order_from_params mercado_pago_params
 		create_mercado_pago_purchase(
-				:status => mercado_pago_params['collection_status'],
-				:preference_id => mercado_pago_params['preference_id'],
-				:collection_id => mercado_pago_params['collection_id'],
-				:payment_type => mercado_pago_params['payment_type'],
+			:status => mercado_pago_params['collection_status'],
+			:preference_id => mercado_pago_params['preference_id'],
+			:collection_id => mercado_pago_params['collection_id'],
+			:payment_type => mercado_pago_params['payment_type'],
 		)
 		save!
 	end
