@@ -304,6 +304,8 @@ es:
           name: Nombre
           phone: Teléfono
           address: Dirección
+          categories:
+            architect: Arquitecto
         marvel:
           name: Nombre
           price: Precio de 100cm x 100cm

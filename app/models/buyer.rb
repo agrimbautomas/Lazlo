@@ -10,6 +10,7 @@
 #  phone      :string(255)
 #  address    :string(255)
 #  deleted_at :datetime
+#  category   :integer          default(1), not null
 #
 # Indexes
 #
@@ -17,10 +18,15 @@
 #
 
 class Buyer < ApplicationRecord
-  acts_as_paranoid
+	acts_as_paranoid
 
-  has_many :orders
+	has_many :orders
 
-  validates :name, presence: true, allow_blank: false,
-            :uniqueness => {:case_sensitive => false}, length: {maximum: 255}
+	validates_presence_of :name, :category
+
+	validates :name, allow_blank: false,
+		:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
+
+	enum category: { market: 0, architect: 1 }
+
 end

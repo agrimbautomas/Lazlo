@@ -17,10 +17,10 @@
 #  user_id                  :integer
 #  order_products_list_id   :integer
 #  payment_type             :integer          default("cash"), not null
-#  attachment_file_name     :string(255)
-#  attachment_content_type  :string(255)
-#  attachment_file_size     :integer
-#  attachment_updated_at    :datetime
+#  document_file_name       :string(255)
+#  document_content_type    :string(255)
+#  document_file_size       :integer
+#  document_updated_at      :datetime
 #
 # Indexes
 #
