@@ -26,7 +26,6 @@ FactoryBot.define do
 
 	 sequence(:name) { |n| "A random name #{n}" }
 	 sequence(:description) { |n| "A random description #{n}" }
-	 sequence(:price) { |n| n }
 	 category
 
 	 factory :product_without_price do

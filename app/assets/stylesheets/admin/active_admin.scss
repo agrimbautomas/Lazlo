@@ -2,34 +2,34 @@
 @import "active_admin/mixins";
 @import "active_material";
 
-.active_admin {
+.active_admin{
 
   #wrapper{
     padding-bottom: 60px;
   }
 
-  .product-thumb {
+  .product-thumb{
     width: 40px;
   }
 
-  .dropdown_menu_button.disabled {
+  .dropdown_menu_button.disabled{
     font-size: 12px;
   }
 
-  .scopes li {
+  .scopes li{
     font-size: 10px;
     margin-left: 10px;
   }
 
-  .attributes_table {
-    table {
+  .attributes_table{
+    table{
       width: 100%;
-      tr {
+      tr{
         display: inline-block;
         width: 50%;
         margin: 20px auto;
 
-        th {
+        th{
           display: inline-block;
           font-size: 14px;
           font-weight: normal;
@@ -40,25 +40,42 @@
     }
 
   }
+  .product.attributes_table .panel_contents{
+    table{
 
-  table.index_table {
+      tr{
+        width: 100%;
+        display: inline-block;
+        margin: 2px auto;
+        height: auto;
+
+        td, th{
+          width: 40%;
+          display: inline-block;
+        }
+      }
+    }
+
+  }
+
+  table.index_table{
     table-layout: fixed;
 
-    thead {
-      tr {
+    thead{
+      tr{
         background: #ececec;
       }
 
     }
 
     thead th.col-selectable,
-    tr td.col.col-selectable {
+    tr td.col.col-selectable{
       width: 4%;
       padding: 0px 1.5%;
     }
 
     th.col.col-id,
-    tr td.col.col-id {
+    tr td.col.col-id{
       width: 5%;
       padding: 0px 1%;
       text-align: center;
@@ -68,7 +85,7 @@
     th.col.col-limite,
     tr td.col.col-limite,
     th.col.col-payment,
-    tr td.col.col-payment {
+    tr td.col.col-payment{
       width: 7%;
       text-align: center;
       font-size: 11px;
@@ -91,7 +108,7 @@
     th.col-productos_comprados,
     tr td.col-productos_comprados,
     th.col.col-pago,
-    tr td.col.col-pago {
+    tr td.col.col-pago{
       width: 15%;
       text-align: center;
       font-size: 11px;
@@ -112,26 +129,26 @@
     th.col-id,
     tr td.col-id,
     th.col-fecha_limite,
-    tr td.col-fecha_limite {
+    tr td.col-fecha_limite{
       width: 2%;
       padding: 8px 1%;
       text-align: center;
     }
 
-    tr {
+    tr{
 
-      td.col {
+      td.col{
 
         a,
         &.col-orden span,
-        &.col-pago span {
+        &.col-pago span{
           color: $blue-state;
           -webkit-border-radius: 2px;
           -moz-border-radius: 2px;
           border-radius: 2px;
           text-transform: lowercase;
           padding: 2px 8px;
-          &:hover {
+          &:hover{
             text-decoration: none;
 
           }
@@ -141,19 +158,19 @@
           color: white;
         }
 
-        &.col-selectable {
+        &.col-selectable{
         }
 
-        &.col-nro {
+        &.col-nro{
         }
 
-        &.col-buyer {
+        &.col-buyer{
           width: 22%;
           font-size: 11px;
           padding: 8px 1% 8px 0px;
         }
 
-        &.col-title {
+        &.col-title{
           width: 10%;
           text-transform: lowercase;
           font-size: 12px;
@@ -161,30 +178,30 @@
           padding: 4px 0%;
         }
 
-        &.col-pago {
-          span {
+        &.col-pago{
+          span{
             background: $green-state;
             color: white;
           }
         }
 
-        &.col-orden {
-          a {
+        &.col-orden{
+          a{
             color: white;
           }
         }
 
-        &.col-status {
+        &.col-status{
           width: 10%;
         }
 
-        &.col-payment {
+        &.col-payment{
         }
 
-        &.col-fecha_limite {
+        &.col-fecha_limite{
         }
 
-        &.status a {
+        &.status a{
           background: #F7BCBC !important;
         }
 
@@ -194,52 +211,52 @@
         background: $blue-state;
       }
 
-      &.in_blacksmith .col-orden span {
+      &.in_blacksmith .col-orden span{
         background: $orange-state;
       }
 
-      &.in_painting.col-orden span {
+      &.in_painting.col-orden span{
         background: $red-state;
       }
 
-      &.finished .col-orden span {
+      &.finished .col-orden span{
         background: $green-state;
       }
 
-      &.delivered .col-orden span {
+      &.delivered .col-orden span{
         background: $grey-state;
       }
 
-      &.cancelled .col-orden span {
+      &.cancelled .col-orden span{
         background: $red-state;
       }
 
-      .status {
+      .status{
         font-weight: bold;
       }
 
     }
   }
 
-  #active_admin_content {
+  #active_admin_content{
 
-    h4 {
+    h4{
       font-weight: bold;
       text-transform: uppercase;
       font-size: 16px;
     }
   }
 
-  a.finished-button {
+  a.finished-button{
     color: #009E00;
     font-weight: bold;
   }
 
-  li.total-row-price {
+  li.total-row-price{
     padding: 0px 16px;
   }
 
-  #header h1 img {
+  #header h1 img{
     width: 95px;
   }
 
@@ -254,19 +271,19 @@
     display: none;
   }
 
-  .scope.selected a {
+  .scope.selected a{
     background-color: initial;
     text-decoration: underline;
     color: black;
   }
 }
 
-@media screen and (max-width: 500px) {
-  .active_admin {
-    .attributes_table {
-      table {
+@media screen and (max-width: 500px){
+  .active_admin{
+    .attributes_table{
+      table{
 
-        tr {
+        tr{
           width: 100%;
         }
       }

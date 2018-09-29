@@ -42,14 +42,14 @@ class Product < ApplicationRecord
 	has_many :product_images, :dependent => :destroy
 	has_many :product_rows, :dependent => :destroy
 	has_many :favourites, :dependent => :destroy
+	has_many :product_sizes, :dependent => :destroy
 
+	accepts_nested_attributes_for :product_sizes, :allow_destroy => true
 	accepts_nested_attributes_for :product_images, :allow_destroy => true
 
+	validates :slug, presence: true
 	validates :name, presence: true, allow_blank: false,
 		:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
-
-	validates_presence_of :price, :slug
-	validates_numericality_of :price, greater_than_or_equal_to: 0
 
 	before_save :parse_slug, :if => :name_changed?
 
@@ -77,6 +77,11 @@ class Product < ApplicationRecord
 
 	#Todo Add suggestions logic
 	scope :suggestions_for, -> (product) { where(:category => product.category).limit(7) }
+
+	#Todo Remove
+	def price
+		9999
+	end
 
 	def image_uri
 		URI.join($request.url, self.image.url)

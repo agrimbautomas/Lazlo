@@ -10,10 +10,6 @@ RSpec.describe Product, type: :model do
   it { should validate_length_of(:name).is_at_most(255) }
   it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
 
-  it { should respond_to (:price) }
-  it { should validate_presence_of (:price) }
-  it { should validate_numericality_of(:price).is_greater_than_or_equal_to(0) }
-
   it { should respond_to (:slug) }
   it { should validate_presence_of (:slug) }
 

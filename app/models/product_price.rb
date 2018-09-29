@@ -16,4 +16,14 @@
 #
 
 class ProductPrice < ApplicationRecord
+
+	belongs_to :product
+	belongs_to :product_size
+
+	validates :product, presence: true
+	validates :product_size, presence: true
+
+	validates_presence_of :price
+	validates_numericality_of :price, greater_than_or_equal_to: 0
+
 end
