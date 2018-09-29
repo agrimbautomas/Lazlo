@@ -1,6 +1,6 @@
 /* Slider */
 
-.slick-slider {
+.slick-slider{
   position: relative;
   display: block;
   box-sizing: border-box;
@@ -15,26 +15,26 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.slick-list {
+.slick-list{
   position: relative;
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 93%;
+  width: 94%;
   display: inline-block;
 
-  &:focus {
+  &:focus{
     outline: none;
   }
 
-  &.dragging {
+  &.dragging{
     cursor: pointer;
     cursor: hand;
   }
 }
 
 .slick-slider .slick-track,
-.slick-slider .slick-list {
+.slick-slider .slick-list{
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
@@ -42,7 +42,7 @@
   transform: translate3d(0, 0, 0);
 }
 
-.slick-track {
+.slick-track{
   position: relative;
   left: 0;
   top: 0;
@@ -51,74 +51,74 @@
   margin-right: auto;
 
   &:before,
-  &:after {
+  &:after{
     content: "";
     display: table;
   }
 
-  &:after {
+  &:after{
     clear: both;
   }
 
-  .slick-loading & {
+  .slick-loading &{
     visibility: hidden;
   }
 }
 
-.slick-slide {
+.slick-slide{
   float: left;
   height: 100%;
   width: 267px;
   min-height: 1px;
   margin: 0px 14px;
 
-  [dir="rtl"] & {
+  [dir="rtl"] &{
     float: right;
   }
-  img {
+  img{
     display: block;
   }
-  &.slick-loading img {
+  &.slick-loading img{
     display: none;
   }
 
   display: none;
 
-  &.dragging img {
+  &.dragging img{
     pointer-events: none;
   }
 
-  .slick-initialized & {
+  .slick-initialized &{
     display: block;
   }
 
-  .slick-loading & {
+  .slick-loading &{
     visibility: hidden;
   }
 
-  .slick-vertical & {
+  .slick-vertical &{
     display: block;
     height: auto;
     border: 1px solid transparent;
   }
 }
 
-.slick-arrow.slick-hidden {
+.slick-arrow.slick-hidden{
   display: none;
 }
 
-.slick-arrow {
+.slick-arrow{
   position: absolute;
   top: 0px;
   height: 100%;
   z-index: 99;
-  width: 30px;
+  width: 26px;
   border: none;
   font-size: 0;
-  background: #E0E0E0 ;
-  padding: 0px;
+  background: none;
+  padding: 0px 6px;
 
-  &.slick-prev {
+  &.slick-prev{
     left: 0px;
 
     &:before{
@@ -130,11 +130,11 @@
     }
   }
 
-  &.slick-next {
+  &.slick-next{
     right: 0px;
   }
 
-  &:before {
+  &:before{
     content: "";
     position: absolute;
     width: 200%;
@@ -146,6 +146,6 @@
   }
 
   &:hover{
-    background-color: #d4d4d4;
+    opacity: 0.7;
   }
 }

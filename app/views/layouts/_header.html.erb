@@ -31,13 +31,10 @@
       <a class="menu-button products-menu-button <%= @current_section == 'products' ? 'current-section' : '' %>">
         <h2 class="expandable">
           PRODUCTOS
-
           <svg>
             <use xlink:href="<%= image_url('sprite.svg') %>#menu-arrow-icon"/>
           </svg>
-
         </h2>
-
         <span class="smooth-transition"></span>
       </a>
 
@@ -106,7 +103,7 @@
 
 
       <a class="cart-button <%= user_signed_in? ? ' logged-cart-button' : '' %><%= @action == 'profile' ? '' : ' displayable' %> "
-         href="<%= checkout_path %>">
+         href="<%= user_signed_in? ? checkout_path : new_user_session_path %>">
         <i class="fa fa-shopping-cart smooth-transition" aria-hidden="true"></i>
         <% if user_signed_in? and current_user.cart_count.present? %>
           <span class="notification-number"><%= current_user.cart_count %></span>

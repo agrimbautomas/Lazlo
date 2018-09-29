@@ -1111,6 +1111,7 @@ span.error{
     display: inline-block;
     height: auto;
     border-top: 1px solid gray;
+    min-height: inherit;
 
     .inner-block{
       width: 100%;
@@ -1250,6 +1251,18 @@ span.error{
       max-width: 160px;
       overflow: hidden;
     }
+  }
+
+  .breadcrumbs{
+    margin-top: 0px;
+  }
+
+}
+
+@media screen and (max-width: 550px){
+
+  div.margin-top-medium{
+    margin-top: 15px;
   }
 
 }

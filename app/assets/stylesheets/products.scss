@@ -632,4 +632,20 @@
       }
     }
   }
+
+  .product-detail-section .product-images-gallery{
+    margin: 15px auto 30px;
+
+    .slick-slide{
+      margin: 0px 5px;
+    }
+
+    .slick-arrow.slick-prev{
+      left: -5px;
+    }
+    .slick-arrow.slick-next{
+      right: -5px;
+    }
+  }
+
 }

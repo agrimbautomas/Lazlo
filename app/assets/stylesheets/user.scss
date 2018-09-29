@@ -23,6 +23,7 @@
     text-align: left;
     display: inline-block;
     height: 140px;
+
     border: none;
 
     h2{
@@ -41,7 +42,7 @@
     border-left: #d8d8d8 1px solid;
     text-align: left;
     display: inline-block;
-    height: 140px;
+    min-height: 140px;
 
     &:last-child{
       width: 50%;
