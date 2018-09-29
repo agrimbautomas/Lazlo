@@ -4,7 +4,7 @@
   <title><%= @og_title.present? ? @og_title : 'Lazlo || Productos de Diseño' %></title>
   <meta name="keywords" content="mesa, ratona, auxiliar, de comedor, mesita, marmol, hierro, lampara, perchero, decoración, muebles, interiores, living, comedor, desayunador, consola, dresuar"/>
   <meta name="description"
-        content="<%= @og_description.present? ? @og_description : 'Tienda online de productos de diseño. Creamos, desarrollamos y fabricamos objetos de decoración. Muebles, mesas, iluminación, deco, sillas y más.'%>"/>
+        content="<%= @og_description.present? ? @og_description : 'Tienda online de productos de diseño. Creamos, desarrollamos y fabricamos objetos de decoración. Muebles, mesas, iluminación, deco, sillas y más.' %>"/>
   <meta name="canonical" content="http://lazlo.la"/>
   <meta name="robots" content="INDEX, FOLLOW"/>
   <meta name="author" content="amalgama.co"/>
@@ -12,7 +12,7 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta http-equiv="Content-Language" content="ES"/>
-  <link rel="alternate" hreflang="es" href="<%= @current_url || 'https://lazlo.la/' %>" />
+  <link rel="alternate" hreflang="es" href="<%= @current_url || 'https://lazlo.la/' %>"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
 
@@ -37,30 +37,48 @@
   <link rel="shortcut icon" href="<%= image_path('logos/lazlo-icon-40.png') %>">
   <link rel="icon" href="<%= image_path('logos/lazlo-icon-40.png') %>" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/fontawesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
   <!-- Apple Icons -->
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<%= image_path('logos/lazlo-icon-40.png') %>"/>
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= image_path('logos/lazlo-icon-40.png') %>"/>
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= image_path('logos/lazlo-icon-40.png') %>"/>
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= image_path('logos/lazlo-icon-40.png') %>"/>
+  <link rel="shortcut icon" href="<%= image_path('logos/lazlo-icon-bg-100.png') %>" type="image/x-icon"/>
+  <link rel="apple-touch-icon" href="<%= image_path('logos/lazlo-icon-bg-100.png') %>"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="<%= image_path('logos/lazlo-icon-bg-100.png') %>"/>
+  <link rel="apple-touch-icon" sizes="72x72" href="<%= image_path('logos/lazlo-icon-bg-100.png') %>"/>
+  <link rel="apple-touch-icon" sizes="76x76" href="<%= image_path('logos/lazlo-icon-bg-100.png') %>"/>
+  <link rel="apple-touch-icon" sizes="114x114" href="<%= image_path('logos/lazlo-icon-bg-100.png') %>"/>
+  <link rel="apple-touch-icon" sizes="120x120" href="<%= image_path('logos/lazlo-icon-bg-100.png') %>"/>
+  <link rel="apple-touch-icon" sizes="144x144" href="<%= image_path('logos/lazlo-icon-bg-100.png') %>"/>
+  <link rel="apple-touch-icon" sizes="152x152" href="<%= image_path('logos/lazlo-icon-bg-100.png') %>"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="<%= image_path('logos/lazlo-icon-bg-100.png') %>"/>
+
 
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-TVQGR3X');</script>
+  <script>(function (w, d, s, l, i) {
+		w[l] = w[l] || [];
+		w[l].push({
+			 'gtm.start':
+				  new Date().getTime(), event: 'gtm.js'
+		});
+		var f = d.getElementsByTagName(s)[0],
+			 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+		j.async = true;
+		j.src =
+			 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+		f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-TVQGR3X');</script>
   <!-- End Google Tag Manager -->
 
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVQGR3X"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVQGR3X"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <%= yield %>
