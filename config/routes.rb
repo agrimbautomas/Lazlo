@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 		get 'checkout', to: 'products#purchase'
 	end
 
-	get '/cotizador' => 'home#cotizador'
+	#get '/cotizador' => 'home#cotizador'
 
 	get '/me' => 'users#profile', :as => :profile
 

@@ -125,6 +125,7 @@ button{
     padding: 16px 0px;
     margin: 10px 0px 0px;
     width: 100%;
+    max-width: 400px;
     display: inline-block;
     text-align: center;
 
@@ -517,6 +518,8 @@ span.error{
 /******* 404 Page *******/
 .not-found-container{
   width: 100%;
+  display: inline-block;
+  text-align: center;
 
   .not-found-image{
     margin: 40px auto;
@@ -524,15 +527,19 @@ span.error{
   }
 
   h1{
-    font-size: 40px;
+    font-size: 36px;
     margin: 0px auto 50px;
+    max-width: 800px;
+    text-align: center;
   }
 
   h2{
-    font-size: 48px;
-    margin: 0px auto 20px;
+    font-size: 24px;
+    margin: 0px auto 50px;
     font-weight: bold;
     text-transform: uppercase;
+    max-width: 800px;
+    text-align: center;
   }
 
   .green-button{

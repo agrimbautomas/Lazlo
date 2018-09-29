@@ -4,16 +4,18 @@
 
 
 <div class="grilla">
-    <div class="not-found-container">
-      <%= image_tag('404-image.png', class: 'not-found-image') %>
+  <div class="not-found-container">
+    <svg>
+      <use xlink:href="<%= image_url('sprite.svg') %>#lazlo-logo"/>
+    </svg>
 
-      <h2>Uppppss!</h2>
-      <h1>No se pudo encontrar la página que estabas buscando</h1>
+    <h2>Uppppss!</h2>
+    <h1>No se pudo encontrar la página que estabas buscando</h1>
 
-      <a href="<%= root_path %>" class="green-button smooth-transition">
-        VOLVER A LA HOME
-      </a>
-    </div>
+    <a href="<%= root_path %>" class="yellow-with-icon-hover button">
+      VOLVER A LA HOME
+    </a>
+  </div>
 </div>
 
 
