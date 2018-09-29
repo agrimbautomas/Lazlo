@@ -9,6 +9,7 @@ var $chatWidget;
 var $productsSubMenu;
 var $header;
 var $newsletterEmail;
+var $productsMenuArrow;
 
 jQuery(document).ready(function () {
 	 setUpHeaderToggleOnScroll();
@@ -30,6 +31,7 @@ function setupVars() {
 	 $productsSubMenu = $('.products-sub-menu');
 	 $header = $('header');
 	 $newsletterEmail = $('.newsletter-email');
+	 $productsMenuArrow = $('.products-menu-button svg');
 }
 
 /*
@@ -48,11 +50,13 @@ function setupToggleMenu() {
 
 function displayProductsSubMenu() {
 	 $productsSubMenu.addClass('displayed');
+	 $productsMenuArrow.addClass('displayed');
 	 $productsSubMenu.show();
 }
 
 function hideProductsSubMenu() {
 	 $productsSubMenu.removeClass('displayed');
+	 $productsMenuArrow.removeClass('displayed');
 	 $productsSubMenu.hide();
 }
 

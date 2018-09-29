@@ -35,6 +35,10 @@
     <path fill="#444" fill-rule="nonzero" d="M5 12.7v-1.4h14v1.4H5zm0 5.6v-1.4h14v1.4H5zM5 7.1V5.7h14v1.4H5z"/>
   </symbol>
 
+  <symbol id="menu-arrow-icon" style="enable-background:new 0 0 512 512;" viewBox="0 0 512 512">
+    <polygon points="352,128.4 319.7,96 160,256 160,256 160,256 319.7,416 352,383.6 224.7,256 "/>
+  </symbol>
+
   <symbol id="instagram-icon" width="30" height="30" viewBox="0 0 30 30">
     <g fill="#444" fill-opacity=".2" fill-rule="evenodd">
       <path d="M14.738 17.702a2.69 2.69 0 0 0 2.692-2.686 2.69 2.69 0 0 0-2.692-2.685 2.69 2.69 0 0 0-2.693 2.685 2.69 2.69 0 0 0 2.693 2.686M17.838 12.265h1.893a.392.392 0 0 0 .392-.39v-1.89a.392.392 0 0 0-.392-.39h-1.893a.392.392 0 0 0-.392.39v1.89c0 .215.176.39.392.39"/>
@@ -219,8 +223,6 @@
           fill="#fed604"
     />
   </symbol>
-
-
 
 
 </svg>

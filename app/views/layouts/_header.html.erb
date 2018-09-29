@@ -31,7 +31,13 @@
       <a class="menu-button products-menu-button <%= @current_section == 'products' ? 'current-section' : '' %>">
         <h2 class="expandable">
           PRODUCTOS
+
+          <svg>
+            <use xlink:href="<%= image_url('sprite.svg') %>#menu-arrow-icon"/>
+          </svg>
+
         </h2>
+
         <span class="smooth-transition"></span>
       </a>
 

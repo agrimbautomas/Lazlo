@@ -256,12 +256,23 @@ header{
             position: relative;
           }
 
-          &.expandable:after{
-            content: "⌄";
-            top: -5px;
+          &.expandable svg{
+            top: 5px;
             right: -18px;
             position: absolute;
+            height: 15px;
+            width: 15px;
+            transform: rotate(-90deg);
+            -webkit-transition: $fast_transition;
+            -moz-transition: $fast_transition;
+            -o-transition: $fast_transition;
+            transition: $fast_transition;
+
+            &.displayed{
+              transform: rotate(-270deg);
+            }
           }
+
         }
 
         span{
