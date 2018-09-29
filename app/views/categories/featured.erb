@@ -1,0 +1,33 @@
+<!-- Start Header -->
+<%= render :partial => 'layouts/header' %>
+<!-- End Header -->
+
+<div class="grilla category-products">
+
+  <h1>DESTACADOS</h1>
+
+  <div class="category-products-container">
+
+
+    <% if @products.any? %>
+
+        <!-- Start Product Rows -->
+        <%= render :partial => 'categories/product_rows' %>
+        <!-- End Product Rows -->
+
+    <% end %>
+
+  </div>
+
+
+</div>
+
+
+
+
+
+<!-- Start Footer -->
+<%= render :partial => 'layouts/footer' %>
+<!-- End Footer -->
+
+

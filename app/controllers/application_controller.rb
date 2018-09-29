@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 	include ApplicationHelper
 
 	before_action :load_page_categories, :set_instagram, :set_original_url,
-								:set_raven_context, :set_action
+		:set_raven_context, :set_action
 
 	def set_instagram
 		instagram_client = Instagram.client(:access_token => INSTRAGRAM_ACCESS_TOKEN)
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 		@action = params[:action].present? ? params[:action] : ''
 	end
 
-	def set_og_tags title=nil, description=nil, image=nil
+	def set_og_tags title = nil, description = nil, image = nil
 		@og_title = title + ' || Lazlo'
 		@og_description = description
 		@og_image = image

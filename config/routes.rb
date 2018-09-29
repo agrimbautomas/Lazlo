@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 	mount LetsencryptPlugin::Engine, at: '/'
-	
+
 	begin
 		ActiveAdmin.routes(self)
 	rescue Exception => e
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 	root 'home#index'
 
 	resources :categories
+	get '/destacados' => 'categories#featured', :as => :featured
+
 	resources :products do
 		get 'checkout', to: 'products#purchase'
 	end
