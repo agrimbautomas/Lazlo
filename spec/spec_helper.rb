@@ -6,18 +6,29 @@ SimpleCov.start 'rails' do
 
   # Ignore default files, uncomment if modified
   add_filter 'app/admin'
-  add_filter 'config'
-  add_filter 'vendor'
-  add_filter 'spec'
   add_filter 'app/controllers/application_controller.rb'
   add_filter 'app/helpers/application_helper.rb'
   add_filter 'app/models/ability.rb'
-  add_filter 'app/errors/lazlo_error.rb'
+
+  add_filter 'bin'
+  add_filter 'challenge'
+  add_filter 'config'
+  add_filter 'db'
+  add_filter 'key'
+  add_filter 'lib'
+  add_filter 'log'
+  add_filter 'public'
+  add_filter 'reports'
+  add_filter 'site-images'
+  add_filter 'spec'
+  add_filter 'vendor'
+  add_filter 'test_output'
 
   add_group 'Models', '/app/models'
-  add_group 'Interactors', '/app/interactors'
   add_group 'Controllers', '/app/controllers'
+  add_group 'Interactors', '/app/interactors'
   add_group 'Serializers', '/app/serializers'
+  add_group 'Services', '/app/services'
 end
 
 #Testing

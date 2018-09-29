@@ -34,12 +34,12 @@ RSpec.describe HomeController, type: :controller do
 
 	end
 
-	describe 'When displays cotizador view' do
-		include_context 'get cotizador view'
-		it 'renders the cotizator template' do
-			expect(response).to render_template('home/cotizador')
-		end
-	end
+	# describe 'When displays cotizador view' do
+	# 	include_context 'get cotizador view'
+	# 	it 'renders the cotizator template' do
+	# 		expect(response).to render_template('home/cotizador')
+	# 	end
+	# end
 
 
 end
