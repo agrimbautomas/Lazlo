@@ -15,6 +15,10 @@ RSpec.shared_context 'create product' do
 	let( :product ) { create :product }
 end
 
+RSpec.shared_context 'create product size' do
+	let( :product_size ) { create :product_size }
+end
+
 RSpec.shared_context 'create order' do
 	let( :order ) { create :order }
 end

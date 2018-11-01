@@ -15,9 +15,11 @@
 class ProductSize < ApplicationRecord
 	belongs_to :product
 
-	validates :product, presence: true
+	validates_presence_of :name, :price, :product
 
-	validates :name, presence: true, allow_blank: false,
-		:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
+	validates_numericality_of :price, greater_than_or_equal_to: 0
+
+	validates :name, allow_blank: false, length: { maximum: 255 },
+		:uniqueness => { :case_sensitive => false, scope: :product }
 
 end

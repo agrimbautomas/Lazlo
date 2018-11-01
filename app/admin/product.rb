@@ -2,7 +2,7 @@ ActiveAdmin.register Product do
 	menu priority: 1, parent: I18n.t('activerecord.models.product.other')
 
 	permit_params :name, :slug, :description, :category_id, :image, :featured, :visible,
-		product_sizes_attributes: [:id, :name, :_destroy],
+		product_sizes_attributes: [:id, :name, :price, :_destroy],
 		product_images_attributes: [:id, :picture, :_destroy]
 
 	config.sort_order = 'name_asc'
@@ -60,6 +60,7 @@ ActiveAdmin.register Product do
 		inputs 'Medidas' do
 			f.has_many :product_sizes, new_record: true do |product_size|
 				product_size.input :name, :hint => 'Nombre de la medida como referencia, ej: 100cm x 150cm'
+				product_size.input :price, :hint => 'Precio del producto en esta medida'
 				product_size.input :_destroy, :as => :boolean, :required => false, :label => 'Borrar medida'
 			end
 		end
@@ -96,12 +97,12 @@ ActiveAdmin.register Product do
 			panel 'Medidas' do
 				table_for(product.product_sizes) do
 
-					column t('activerecord.models.product_size.one') do |product_size|
+					column t('activerecord.attributes.product_sizes.name') do |product_size|
 						product_size.name
 					end
 
-					column t('activerecord.models.product_price.one') do |product_size|
-						product.price
+					column t('activerecord.attributes.product_sizes.price') do |product_size|
+						product_size.price
 					end
 
 				end

@@ -241,9 +241,6 @@ es:
         product_price:
           one: Precio del producto
           other: Precios del producto
-        product_size:
-          one: Medida del producto
-          other: Medidas del producto
         category:
           one: Categoria de Producto
           other: Categorias de Productos
@@ -285,7 +282,8 @@ es:
           featured: Destacado
           product_sizes: Medidas del producto
         product_sizes:
-          name: Nombre
+          name: Medida del producto
+          price: Precio por medida
         product_image:
           picture: Imágen de la galería
         order:
