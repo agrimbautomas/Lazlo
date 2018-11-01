@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  host = 'lazlo.la'
+  host = Settings.urls.base
   config.API_VERSION = 1
 
   # In the development environment your application's code is reloaded on
