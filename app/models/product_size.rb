@@ -4,6 +4,7 @@
 #
 #  id         :bigint(8)        not null, primary key
 #  name       :string(255)      not null
+#  price      :float(24)        not null
 #  product_id :bigint(8)
 #
 # Indexes
