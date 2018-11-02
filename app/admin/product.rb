@@ -48,7 +48,6 @@ ActiveAdmin.register Product do
 	form do |f|
 		f.inputs I18n.t('activerecord.attributes.product.description') do
 			f.input :name
-
 			f.input :description
 			f.input :category_id, :as => :select, include_blank: false,
 				collection: Category.all, label: 'Tipo de producto'
@@ -59,6 +58,7 @@ ActiveAdmin.register Product do
 
 		inputs 'Medidas' do
 			f.has_many :product_sizes, new_record: true do |product_size|
+				f.semantic_errors *f.object.errors.keys
 				product_size.input :name, :hint => 'Nombre de la medida como referencia, ej: 100cm x 150cm'
 				product_size.input :price, :hint => 'Precio del producto en esta medida'
 				product_size.input :_destroy, :as => :boolean, :required => false, :label => 'Borrar medida'
@@ -67,6 +67,7 @@ ActiveAdmin.register Product do
 
 		inputs 'Galería de Imágenes' do
 			f.has_many :product_images, new_record: true do |product_image|
+				f.semantic_errors *f.object.errors.keys
 				hint = (product_image.object.picture.file? ? image_tag(product_image.object.picture.url(:medium)) : 'De por lo menos 500x500 px así se ven bien Flannn!')
 				product_image.input :picture, :hint => hint
 				product_image.input :_destroy, :as => :boolean, :required => false, :label => 'Borrar Imagen'

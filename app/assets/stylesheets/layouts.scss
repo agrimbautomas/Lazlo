@@ -111,6 +111,7 @@ button{
   &.transparent-with-hover-yellow{
     background: transparent;
     border: solid 4px $black_lazlo;
+    max-width: 392px;
 
     &:hover{
       background: $yellow_lazlo;

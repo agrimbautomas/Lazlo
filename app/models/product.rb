@@ -44,11 +44,14 @@ class Product < ApplicationRecord
 	has_many :favourites, :dependent => :destroy
 	has_many :product_sizes, :dependent => :destroy
 
+
 	accepts_nested_attributes_for :product_sizes, :allow_destroy => true
 	accepts_nested_attributes_for :product_images, :allow_destroy => true
 
-	validates :slug, presence: true
-	validates :name, presence: true, allow_blank: false,
+
+	validates :product_sizes, :length => { :minimum => 1 }
+	validates_presence_of :slug, :name
+	validates :name, allow_blank: false,
 		:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
 
 	before_save :parse_slug, :if => :name_changed?

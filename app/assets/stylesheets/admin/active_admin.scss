@@ -4,6 +4,13 @@
 
 .active_admin{
 
+  .errors{
+    li{
+      color: red;
+      font-weight: bold;
+    }
+  }
+
   #wrapper{
     padding-bottom: 60px;
   }
