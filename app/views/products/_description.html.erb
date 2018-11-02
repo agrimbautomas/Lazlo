@@ -20,24 +20,26 @@
     </div>
     -->
 
-    <div class="row">
-      <h2>Medidas:</h2>
-      <%= select_tag :sizes, options_from_collection_for_select(@product.product_sizes, "id", "name") %>
-    </div>
+    <% if @product.product_sizes.any? %>
+      <div class="row">
+        <h2>Medidas:</h2>
+        <%= select_tag :sizes, options_from_collection_for_select(@product.product_sizes, "id", "name") %>
+      </div>
 
-    <div class="row">
-      <h2>Cantidad:</h2>
-      <span class="product-quantity-value">1</span>
-      <i class="fa fa-minus-square-o rm-one-product" aria-hidden="true"></i>
-      <i class="fa fa-plus-square-o add-one-product" aria-hidden="true"></i>
-    </div>
+      <div class="row">
+        <h2>Cantidad:</h2>
+        <span class="product-quantity-value">1</span>
+        <i class="fa fa-minus-square-o rm-one-product" aria-hidden="true"></i>
+        <i class="fa fa-plus-square-o add-one-product" aria-hidden="true"></i>
+      </div>
 
-    <div class="row">
-      <h2>Precio:</h2>
-      <span class="product-price-value" data-product-detail-price="<%= @product.product_sizes.first.price %>">
+      <div class="row">
+        <h2>Precio:</h2>
+        <span class="product-price-value" data-product-detail-price="<%= @product.product_sizes.first.price %>">
       <%= format_price @product.product_sizes.first.price %>
       </span>
-    </div>
+      </div>
+    <% end %>
 
   </div>
 
@@ -58,7 +60,8 @@
     </div>
 
     <!-- Share button -->
-    <div class="product-action-button-container">
+    <div class="product-action-button-container"
+         onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<%= "#{EmailHelper::URL}/products/#{@product.slug}" %>','facebook-share-dialog','width=626,height=436')">
       <%= render :partial => 'icons/share_button' %>
       <span class="count-number">321</span>
     </div>
