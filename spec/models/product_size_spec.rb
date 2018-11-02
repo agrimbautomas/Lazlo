@@ -18,10 +18,9 @@ RSpec.describe ProductSize, type: :model do
 
 	describe '#create' do
 		include_context 'create product'
-		include_context 'create product size'
 
 		context 'with all parameters' do
-			it { expect(product_size).to be_valid }
+			it { expect(product.product_sizes.first).to be_valid }
 		end
 
 		context 'with same name reference' do

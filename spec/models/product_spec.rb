@@ -28,6 +28,9 @@ RSpec.describe Product, type: :model do
   it { should respond_to(:product_rows) }
   it { should have_many(:product_rows).dependent(:destroy) }
 
+  it { should respond_to(:product_sizes) }
+  it { should have_many(:product_sizes).dependent(:destroy) }
+
   it { should respond_to (:image) }
   it { should have_attached_file(:image) }
 

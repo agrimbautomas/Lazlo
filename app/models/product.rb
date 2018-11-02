@@ -49,8 +49,8 @@ class Product < ApplicationRecord
 	accepts_nested_attributes_for :product_images, :allow_destroy => true
 
 
-	validates :product_sizes, :length => { :minimum => 1 }
 	validates_presence_of :slug, :name
+	validates :product_sizes, :length => { :minimum => 1 }
 	validates :name, allow_blank: false,
 		:uniqueness => { :case_sensitive => false }, length: { maximum: 255 }
 

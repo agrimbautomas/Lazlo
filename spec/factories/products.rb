@@ -22,19 +22,22 @@
 
 FactoryBot.define do
 
-  factory :product do
+	factory :product do
 
-	 sequence(:name) { |n| "A random name #{n}" }
-	 sequence(:description) { |n| "A random description #{n}" }
-	 category
+		sequence(:name) { |n| "A random name #{n}" }
+		sequence(:description) { |n| "A random description #{n}" }
 
-	 factory :product_without_price do
-		price nil
-	 end
+		product_sizes { build_list :product_size, 3 }
+		category
 
-	 factory :product_with_image do
-		image { File.new(Rails.root.join('spec', 'photos', 'logo-green.png')) }
-	 end
-  end
+
+		factory :product_without_price do
+			price nil
+		end
+
+		factory :product_with_image do
+			image { File.new(Rails.root.join('spec', 'photos', 'logo-green.png')) }
+		end
+	end
 
 end
