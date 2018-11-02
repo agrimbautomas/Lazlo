@@ -81,9 +81,8 @@ class Product < ApplicationRecord
 	#Todo Add suggestions logic
 	scope :suggestions_for, -> (product) { where(:category => product.category).limit(7) }
 
-	#Todo Remove
 	def price
-		9999
+		product_sizes.order('price ASC').first.price
 	end
 
 	def image_uri

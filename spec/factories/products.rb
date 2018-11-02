@@ -35,6 +35,10 @@ FactoryBot.define do
 			price nil
 		end
 
+		factory :product_without_sizes do
+			product_sizes { nil }
+		end
+
 		factory :product_with_image do
 			image { File.new(Rails.root.join('spec', 'photos', 'logo-green.png')) }
 		end
