@@ -13,6 +13,8 @@ class Api::V1::CartController < Api::V1::ApiController
 
 	def add_product_to_cart
 		current_user.add_product_to_cart @product, @quantity
+		#AddProductToCart.with(user: current_user, product: @product, quantity: @quantity)
+
 		render json: { :response => 'success' }
 	end
 

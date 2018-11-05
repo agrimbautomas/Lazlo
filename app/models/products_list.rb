@@ -16,7 +16,8 @@ class ProductsList < ApplicationRecord
 	has_many :product_rows, :dependent => :destroy
 
 	def save_product_row product, quantity
-		product_rows << ProductRow.create(:product => product, :quantity => quantity)
+		product_rows.create(:product => product, :quantity => quantity)
+		byebug
 		save!
 	end
 

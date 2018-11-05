@@ -22,14 +22,15 @@
 
 class ProductRow < ApplicationRecord
 
-  belongs_to :product
+	belongs_to :product
 
-  validates_presence_of :product, :quantity
-  validates_numericality_of :quantity, greater_than: 0
+	validates_presence_of :product, :quantity
+	validates_numericality_of :quantity, greater_than: 0
+	validates :product, :uniqueness => { scope: :quantity }
 
-  def total
-    quantity * product.price
-  end
+	def total
+		quantity * product.price
+	end
 
 
 end
