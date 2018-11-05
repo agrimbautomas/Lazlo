@@ -7,8 +7,12 @@ SimpleCov.start 'rails' do
   # Ignore default files, uncomment if modified
   add_filter 'app/admin'
   add_filter 'app/controllers/application_controller.rb'
+  add_filter 'app/controllers/errors_controller.rb'
   add_filter 'app/helpers/application_helper.rb'
   add_filter 'app/models/ability.rb'
+  add_filter 'app/jobs/application_job.rb'
+
+  add_filter 'app/interactos/application_job.rb'
 
   add_filter 'bin'
   add_filter 'challenge'
@@ -23,6 +27,7 @@ SimpleCov.start 'rails' do
   add_filter 'spec'
   add_filter 'vendor'
   add_filter 'test_output'
+
 
   add_group 'Models', '/app/models'
   add_group 'Controllers', '/app/controllers'

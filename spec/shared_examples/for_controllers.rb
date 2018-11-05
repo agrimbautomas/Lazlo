@@ -32,6 +32,10 @@ RSpec.shared_examples 'expect forbidden response' do
 	include_examples 'expect json content type', 403
 end
 
+RSpec.shared_examples 'expect not found view' do
+	include_examples 'expect html content type', 404
+	end
+
 RSpec.shared_examples 'expect not found response' do
 	include_examples 'expect json content type', 404
 end
