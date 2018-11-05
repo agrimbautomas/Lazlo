@@ -32,5 +32,4 @@ class ProductRow < ApplicationRecord
 		quantity * product.price
 	end
 
-
 end
