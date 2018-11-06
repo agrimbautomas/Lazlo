@@ -6,13 +6,21 @@ SimpleCov.start 'rails' do
 
   # Ignore default files, uncomment if modified
   add_filter 'app/admin'
+
   add_filter 'app/controllers/application_controller.rb'
   add_filter 'app/controllers/errors_controller.rb'
+  add_filter 'app/controllers/omniauth_callbacks_controller.rb'
+
   add_filter 'app/helpers/application_helper.rb'
+
   add_filter 'app/models/ability.rb'
+
+  add_filter 'app/mailers/application_mailer.rb'
+
   add_filter 'app/jobs/application_job.rb'
 
-  add_filter 'app/interactos/application_job.rb'
+  add_filter 'app/interactors/background_job.rb'
+  add_filter 'app/interactors/auto_upload_images.rb'
 
   add_filter 'bin'
   add_filter 'challenge'

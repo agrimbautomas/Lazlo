@@ -82,14 +82,22 @@ class Product < ApplicationRecord
 	scope :suggestions_for, -> (product) { where(:category => product.category).limit(7) }
 
 	def price
-		product_sizes.order('price ASC').first.price
+		default_product.price
 	end
+
+	def size
+    default_product.name
+  end
 
 	def image_uri
 		URI.join($request.url, self.image.url)
 	end
 
 	private
+  def default_product
+    product_sizes.order('price ASC').first
+  end
+
 	def parse_slug
 		self.slug = self.name.downcase.strip.gsub(' ', '-').gsub('ñ', 'n').gsub(/[^\w-]/, '')
 		self.slug = self.slug + rand(0..9999).to_s if Product.find_by_slug(self.slug).present?
