@@ -33,8 +33,7 @@ RSpec.describe CheckoutController, type: :controller do
 
 		include_examples 'expect redirect response'
 
-		# Todo Fix responde and test
-		#it { expect(Order).to have(1).record }
+		it { expect(Order).to have(1).record }
 
 	end
 

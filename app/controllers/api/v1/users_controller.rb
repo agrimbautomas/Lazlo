@@ -2,14 +2,12 @@ class Api::V1::UsersController < Api::V1::ApiController
 	before_action :authenticate_user!, except: [:contact_email, :add_to_newsletter]
 
 	def contact_email
-
-		#Todo Refactor, add csrf validations
 		if params['authenticity_token'].present?
 			AdminMailer.contact_email(contact_params).deliver_now
 			flash[:notice] = 'Se envió el mensaje, en breve nos vamos a estar contactando. Gracias!'
 			redirect_to root_path
 		else
-			raise Exception;
+			raise Exception
 		end
 	end
 
@@ -17,7 +15,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 		begin
 			MailChimpApi.add_member email: params[:email] unless params[:email].nil?
 			render_successful_empty_response
-		rescue Exception => ex
+		rescue StandardError => ex
 			response = Hash.new
 			response[:status] = 'failed'
 			response[:message] = ex.title == 'Member Exists' ? 'El usuario ya esta registrado' : 'El email no es válido'

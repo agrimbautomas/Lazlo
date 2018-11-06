@@ -23,7 +23,9 @@
     <% if @product.product_sizes.any? %>
       <div class="row">
         <h2>Medidas:</h2>
-        <%= select_tag :sizes, options_from_collection_for_select(@product.product_sizes, "id", "name") %>
+        <div class="product-select">
+          <%= select_tag :sizes, options_from_collection_for_select(@product.product_sizes, "id", "name") %>
+        </div>
       </div>
 
       <div class="row">

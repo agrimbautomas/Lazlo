@@ -336,6 +336,7 @@
         span,
         i{
           display: inline-block;
+          color: $grey-state;
         }
 
         i{
@@ -352,6 +353,39 @@
             color: $yellow_lazlo;
           }
         }
+
+      }
+
+      .product-select {
+        width: 75%;
+        overflow: hidden;
+        background: #fafafa url(drop-down-arrow-dark.png) no-repeat 90% 50%;
+        text-align: left;
+        display: inline-block;
+        margin: 0px 0px -5px 0px;
+
+
+        select {
+          cursor: pointer;
+          padding: 0px 8px;
+          width: 95%;
+          border: none;
+          box-shadow: none;
+          background: transparent;
+          background-image: none;
+          -webkit-appearance: none;
+          color: $grey-state;
+          font-size: 1em;
+          
+          &:focus {
+            outline: none;
+          }
+
+          option{
+            padding: 10px 0px;
+          }
+        }
+
 
       }
     }

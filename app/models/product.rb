@@ -82,11 +82,11 @@ class Product < ApplicationRecord
 	scope :suggestions_for, -> (product) { where(:category => product.category).limit(7) }
 
 	def price
-		default_product.price
+    default_product.present? ? default_product.price : 0
 	end
 
 	def size
-    default_product.name
+    default_product.present? ? default_product.name : '0x0cm'
   end
 
 	def image_uri
