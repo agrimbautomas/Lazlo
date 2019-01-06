@@ -10,7 +10,7 @@
 #  phone      :string(255)
 #  address    :string(255)
 #  deleted_at :datetime
-#  category   :integer          default(1), not null
+#  category   :integer          default("architect_decorator"), not null
 #
 # Indexes
 #
