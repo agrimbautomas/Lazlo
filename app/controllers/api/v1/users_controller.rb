@@ -1,9 +1,11 @@
 class Api::V1::UsersController < Api::V1::ApiController
 	before_action :authenticate_user!, except: [:contact_email, :add_to_newsletter]
-
+	protect_from_forgery with: :exception
+	
 	def contact_email
 
 		#Todo Refactor, add csrf validations
+
 		if params['authenticity_token'].present?
 			AdminMailer.contact_email(contact_params).deliver_now
 			flash[:notice] = 'Se envió el mensaje, en breve nos vamos a estar contactando. Gracias!'
