@@ -5,8 +5,4 @@ class HomeController < ApplicationController
 		@most_purchased_product = Product.order('RAND()').first
 	end
 
-	def cotizador
-		@marvels = Marvel.all.order(:name)
-	end
-
 end
