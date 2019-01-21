@@ -3,8 +3,8 @@
 
     <i class="fa fa-times close-contact-form" aria-hidden="true"></i>
 
-    <%= form_tag('/contact_email', :method => 'POST', :class => 'contact') do %>
-
+    <%= form_tag('/contact_email', :method => 'POST', :class => 'contact') do |f| %>
+      <%= invisible_captcha %>
       <h5>hola@lazlo.la</h5>
 
       <input type="text" name="lazlo_name" placeholder="Nombre" required/>
