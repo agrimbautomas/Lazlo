@@ -7,8 +7,9 @@ SitemapGenerator::Sitemap.compress = :all_but_first
 #SitemapGenerator::Sitemap.public_path = "#{Dir.pwd}/public/"
 
 SitemapGenerator::Sitemap.create do
-  add '/cart', :changefreq => 'monthly', :priority => 0.3
-  add '/profile', :changefreq => 'monthly', :priority => 0.3
+  # Auth needed excluded 
+	# add '/cart', :changefreq => 'monthly', :priority => 0.3
+  # add '/profile', :changefreq => 'monthly', :priority => 0.3
   add '/users/sign_in', :changefreq => 'monthly', :priority => 0.3
   add '/users/sign_up', :changefreq => 'monthly', :priority => 0.3
   Category.find_each do |category|
