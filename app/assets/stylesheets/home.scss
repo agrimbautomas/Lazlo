@@ -243,6 +243,15 @@ Resets
         margin: -10px auto 10px;
       }
 
+      a.button.transparent-with-hover-yellow{
+        padding: 10px 18px;
+      }
+
+      a.button.transparent-with-hover-yellow:hover{
+        background: #ffffff99;
+        border-color: black;
+      }
+
       button.transparent-with-hover-yellow {
         padding: 10px 14px;
 
