@@ -224,6 +224,8 @@ GEM
       faraday_middleware (>= 0.8, < 0.10)
       hashie (>= 0.4.0)
       multi_json (~> 1.0, >= 1.0.3)
+    invisible_captcha (0.12.0)
+      rails (>= 3.2.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -525,6 +527,7 @@ DEPENDENCIES
   friendly_id (~> 5.1.0)
   gibbon
   instagram
+  invisible_captcha
   jbuilder (~> 2.0)
   jquery-rails
   json_matchers
@@ -566,4 +569,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.2
+   1.17.1

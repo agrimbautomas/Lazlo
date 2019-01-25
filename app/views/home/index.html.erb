@@ -105,16 +105,15 @@
 
   <!-- Start promotions -->
   <section class="promotions">
+    <% if SiteConfig.home_promotion.present? %>
+      <a class="left-promotion" href="<%= SiteConfig.home_promotion.first.caption %>">
+        <div class="product-description">
+          <!--        <h3>HASTA<br>40%OFF</h3>-->
+        </div>
 
-    <a class="left-promotion">
-      <div class="product-description">
-        <h3>HASTA<br>40%OFF</h3>
-      </div>
-
-      <% if SiteConfig.home_promotion.present? %>
         <span style="background-image: url(<%= SiteConfig.home_promotion.first.picture.url(:home_promotion) %>)"></span>
-      <% end %>
-    </a>
+      </a>
+    <% end %>
 
 
     <div class="right-promotion">
@@ -122,7 +121,8 @@
         <use xlink:href="<%= image_url('sprite.svg') %>#discount-icon"/>
       </svg>
       <h5>GANATE $300</h5>
-      <a href="https://www.facebook.com/lazlo.design" target="_blank" class="button transparent-with-hover-yellow">SEGUIR LAZLO EN FACEBOOK</a>
+      <a href="https://www.facebook.com/lazlo.design" target="_blank" class="button transparent-with-hover-yellow">SEGUIR
+        LAZLO EN FACEBOOK</a>
     </div>
 
   </section>

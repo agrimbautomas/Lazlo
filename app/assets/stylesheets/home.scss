@@ -217,7 +217,7 @@ Resets
         left: 0px;
         width: 100%;
         height: 100%;
-        opacity: 0.5;
+        //opacity: 0.5;
         background: url(promotion-home-lazlo.jpg);
       }
     }
@@ -241,6 +241,15 @@ Resets
         width: 100%;
         text-align: center;
         margin: -10px auto 10px;
+      }
+
+      a.button.transparent-with-hover-yellow{
+        padding: 10px 18px;
+      }
+
+      a.button.transparent-with-hover-yellow:hover{
+        background: #ffffff99;
+        border-color: black;
       }
 
       button.transparent-with-hover-yellow {

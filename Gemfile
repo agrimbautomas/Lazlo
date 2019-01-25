@@ -77,6 +77,9 @@ gem 'paranoia', '~> 2.2'
 # For the js runtime
 gem 'therubyracer', platforms: :ruby
 
+# Unobtrusive and flexible spam protection for Rails apps
+gem 'invisible_captcha'
+
 group :development, :test do
 	# Replaces the standard Rails error page with a much better page
 	gem 'better_errors'

@@ -1,5 +1,7 @@
 class Api::V1::UsersController < Api::V1::ApiController
 	before_action :authenticate_user!, except: [:contact_email, :add_to_newsletter]
+	protect_from_forgery with: :exception
+	invisible_captcha only: [:contact_email]
 
 	def contact_email
 		if params['authenticity_token'].present?
@@ -24,6 +26,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 	end
 
 	private
+
 	def contact_params
 		params.permit(:lazlo_name, :lazlo_email, :lazlo_message, :authenticity_token)
 	end
