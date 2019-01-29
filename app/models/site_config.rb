@@ -11,9 +11,16 @@
 #  picture_file_size    :integer
 #  picture_updated_at   :datetime
 #  config_type          :integer          not null
+#  product_id           :bigint(8)
+#
+# Indexes
+#
+#  index_site_configs_on_product_id  (product_id)
 #
 
 class SiteConfig < ApplicationRecord
+
+	belongs_to :product
 
 	has_attached_file :picture,
 		styles: {
@@ -28,7 +35,12 @@ class SiteConfig < ApplicationRecord
 
 	validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
 
-	enum config_type: { home_slide: 0, home_support: 1, home_promotion: 2 }
+	enum config_type: {
+			home_slide: 0,
+			home_support: 1,
+			home_promotion: 2,
+			most_liked_product: 3
+	}
 
 	validates_presence_of :caption, :config_type
 	validates_uniqueness_of :caption

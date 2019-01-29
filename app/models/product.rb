@@ -76,7 +76,13 @@ class Product < ApplicationRecord
 
 	scope :visible, -> { where(:visible => true) }
 
-	scope :most_viewed, -> { order('views DESC').first }
+	scope :most_viewed, -> {
+		order('views DESC').first
+	}
+
+	scope :most_liked, -> {
+		find(Favourite.group(:product_id).order('count(*) DESC').limit(1).pluck(:product_id).first)
+	}
 
 	#Todo Add suggestions logic
 	scope :suggestions_for, -> (product) { where(:category => product.category).limit(7) }

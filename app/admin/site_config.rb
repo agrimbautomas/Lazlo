@@ -1,11 +1,10 @@
 ActiveAdmin.register SiteConfig do
 	menu priority: 15, parent: I18n.t('config')
 
-	permit_params :picture, :caption, :config_type, :_destroy
+	permit_params :picture, :caption, :product_id, :config_type, :_destroy
+
 	config.sort_order = 'caption_asc'
 	config.per_page = 20
-
-	filter :caption
 
 
 	actions :all
@@ -30,6 +29,7 @@ ActiveAdmin.register SiteConfig do
 			f.input :caption
 			f.input :config_type
 			f.input :picture
+			f.input :product
 		end
 
 		actions
@@ -42,7 +42,8 @@ ActiveAdmin.register SiteConfig do
 		attributes_table_for site_config do
 			row :caption
 			row :config_type
-			row :image do
+			row :product
+			row :picture do
 				image_tag(site_config.picture.url(:medium))
 			end
 		end

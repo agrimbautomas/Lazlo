@@ -40,6 +40,9 @@ ActiveAdmin.register Product do
 		end
 
 		column :views
+		column 'Likes' do |product|
+			product.favourites.count
+		end
 		column :visible
 		actions
 	end
@@ -89,6 +92,9 @@ ActiveAdmin.register Product do
 				Category.find(product.category_id).name
 			end
 			row :views
+			row 'Likes' do
+				product.favourites.count
+			end
 			row :featured
 			row :visible
 			row :image do

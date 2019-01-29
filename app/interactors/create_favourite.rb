@@ -19,6 +19,6 @@ class CreateFavourite < Interactor
 	end
 
 	def favourite_exist?
-		Favourite.where( product: product ).first.present?
+		Favourite.where( product: product, user: user ).first.present?
 	end
 end

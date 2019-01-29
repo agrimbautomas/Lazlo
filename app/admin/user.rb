@@ -2,6 +2,12 @@ ActiveAdmin.register User do
   menu priority: 1, label: I18n.t('activerecord.models.user.app_users'),
 	  parent: I18n.t('activerecord.models.user.other')
 
+	filter :name
+	filter :email
+	filter :sign_in_count
+	filter :last_sign_in_at
+
+
 
   index do
 	 selectable_column
