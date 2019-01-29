@@ -42,6 +42,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{
+  text-align: center;
   display: block;
 }
 
@@ -204,7 +205,7 @@ input:-webkit-autofill{
 }
 
 .grilla{
-  max-width: 1300px;
+  max-width: 1100px;
   text-align: center;
   display: inline-block;
   margin: 0px auto 0px;

@@ -367,9 +367,10 @@ section.profile-detail{
 
 .user-cart-left-block,
 .user-cart-right-block{
-  width: 50%;
+  width: 36%;
   float: left;
   text-align: center;
+  margin: 0px 2%;
 
   h2{
     text-align: center;
@@ -480,6 +481,12 @@ section.profile-detail{
 
   }
 
+}
+
+
+.user-cart-left-block{
+  width: 60%;
+  margin: 0px;
 }
 
 /************************************************************************************/

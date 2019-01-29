@@ -24,24 +24,30 @@
       <div class="row">
         <h2>Medidas:</h2>
         <div class="product-select">
-          <%= select_tag :sizes, options_from_collection_for_select(@product.product_sizes, "id", "name") %>
+          <select name="sizes" id="sizes">
+            <% @product.product_sizes.each do |size| %>
+              <option value="<%= size.name %>" data-size-price="<%= size.price %>"><%= size.name %></option>
+            <% end %>
+          </select>
+
         </div>
       </div>
+    <% end %>
 
-      <div class="row">
-        <h2>Cantidad:</h2>
-        <span class="product-quantity-value">1</span>
-        <i class="fa fa-minus-square-o rm-one-product" aria-hidden="true"></i>
-        <i class="fa fa-plus-square-o add-one-product" aria-hidden="true"></i>
-      </div>
+    <div class="row">
+      <h2>Cantidad:</h2>
+      <span class="product-quantity-value">1</span>
+      <i class="fa fa-minus-square-o rm-one-product" aria-hidden="true"></i>
+      <i class="fa fa-plus-square-o add-one-product" aria-hidden="true"></i>
+    </div>
 
-      <div class="row">
-        <h2>Precio:</h2>
-        <span class="product-price-value" data-product-detail-price="<%= @product.product_sizes.first.price %>">
+    <div class="row">
+      <h2>Precio:</h2>
+      <span class="product-price-value" data-product-detail-price="<%= @product.product_sizes.first.price %>">
       <%= format_price @product.product_sizes.first.price %>
       </span>
-      </div>
-    <% end %>
+    </div>
+
 
   </div>
 
@@ -88,11 +94,12 @@
   <% end %>
 
 
-  <a href="<%= user_signed_in? ? @product_link : new_user_session_path %>" mp-mode='popup'
+  <a href="<%= user_signed_in? ? @product_link : new_user_session_path %>" mp-mode="popup"
      name="MP-Checkout" class="product-buy-button yellow-with-icon-hover button">
     <span>COMPRAR</span>
     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
   </a>
+
 
 
 </div>

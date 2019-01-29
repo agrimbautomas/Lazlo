@@ -2,24 +2,23 @@ var $addOneProductBtn;
 var $rmOneProductBtn;
 var $productQuantity;
 var $productDetailPrice;
-var productPrice;
 
 jQuery(document).ready(function () {
 
-	 setupProductVars();
-	 setImagesGallery();
-	 setToggleCartBtn();
-	 setToggleFavouriteBtn();
-	 setProductImagesSlider();
-	 setProductQuantityControls();
+    setupProductVars();
+    setImagesGallery();
+    setToggleCartBtn();
+    setToggleFavouriteBtn();
+    setProductImagesSlider();
+    setProductQuantityControls();
+    setProductSizes();
 });
 
 function setupProductVars() {
-	 $addOneProductBtn = $('.add-one-product');
-	 $rmOneProductBtn = $('.rm-one-product');
-	 $productQuantity = $('.product-quantity-value');
-	 $productDetailPrice = $('.product-price-value');
-	 productPrice = $productDetailPrice.data('product-detail-price');
+    $addOneProductBtn = $('.add-one-product');
+    $rmOneProductBtn = $('.rm-one-product');
+    $productQuantity = $('.product-quantity-value');
+    $productDetailPrice = $('.product-price-value');
 }
 
 /**************************/
@@ -30,15 +29,15 @@ function setupProductVars() {
 /**************************/
 
 function setImagesGallery() {
-	 $("#product-detail-zoom").elevateZoom({
-		  gallery: 'product-images-gallery',
-		  galleryActiveClass: 'active',
-		  zoomType: "inner",
-		  responsive: true,
-		  cursor: "crosshair",
-		  zoomWindowFadeIn: 500,
-		  zoomWindowFadeOut: 750
-	 });
+    $("#product-detail-zoom").elevateZoom({
+        gallery: 'product-images-gallery',
+        galleryActiveClass: 'active',
+        zoomType: "inner",
+        responsive: true,
+        cursor: "crosshair",
+        zoomWindowFadeIn: 500,
+        zoomWindowFadeOut: 750
+    });
 }
 
 /**************************/
@@ -49,58 +48,58 @@ function setImagesGallery() {
 /**************************/
 
 function setToggleCartBtn() {
-	 $(".add-to-cart-btn").click(function (e) {
-		  e.preventDefault();
+    $(".add-to-cart-btn").click(function ( e ) {
+        e.preventDefault();
 
-		  if ($(this).hasClass('in-cart'))
-				removeFromCart($(this));
-		  else
-				addToCart($(this));
-	 })
-
-}
-
-function addToCart($btn) {
-	 var url = $btn.attr('href');
-	 doAjaxRequest('POST', url, getProductDetailQuantity(), addToCartCallback($btn));
-}
-
-
-function removeFromCart($btn) {
-
-	 var url = $btn.data('rm-href');
-
-	 $.ajax({
-		  url: url,
-		  context: document.body,
-		  type: 'DELETE',
-		  data: {
-				quantity: 1
-		  }
-	 }).done(function (data) {
-		  if (data.response == 'success')
-				removeFromCartCallback($btn);
-	 });
+        if ($(this).hasClass('in-cart'))
+            removeFromCart($(this));
+        else
+            addToCart($(this));
+    })
 
 }
 
-function addToCartCallback($btn) {
-	 incrementCartNumber();
-	 addToCartStyles($btn);
-}
-
-function removeFromCartCallback($btn) {
-	 decrementCartNumber();
-	 removeFromCartStyles($btn);
+function addToCart( $btn ) {
+    var url = $btn.attr('href');
+    doAjaxRequest('POST', url, getProductDetailQuantity(), addToCartCallback($btn));
 }
 
 
-function addToCartStyles($btn) {
-	 $btn.addClass('in-cart').removeClass('transparent-button').html('Guardado en el Carrito!');
+function removeFromCart( $btn ) {
+
+    var url = $btn.data('rm-href');
+
+    $.ajax({
+        url: url,
+        context: document.body,
+        type: 'DELETE',
+        data: {
+            quantity: 1
+        }
+    }).done(function ( data ) {
+        if (data.response == 'success')
+            removeFromCartCallback($btn);
+    });
+
 }
 
-function removeFromCartStyles($btn) {
-	 $btn.removeClass('in-cart').addClass('transparent-button').html('Agregar al Carrito');
+function addToCartCallback( $btn ) {
+    incrementCartNumber();
+    addToCartStyles($btn);
+}
+
+function removeFromCartCallback( $btn ) {
+    decrementCartNumber();
+    removeFromCartStyles($btn);
+}
+
+
+function addToCartStyles( $btn ) {
+    $btn.addClass('in-cart').removeClass('transparent-button').html('Guardado en el Carrito!');
+}
+
+function removeFromCartStyles( $btn ) {
+    $btn.removeClass('in-cart').addClass('transparent-button').html('Agregar al Carrito');
 }
 
 
@@ -110,36 +109,56 @@ function removeFromCartStyles($btn) {
 /**************************/
 
 /**************************/
+function setProductSizes() {
+    $('.product-select select').bind("propertychange change", function () {
+        var price = $(this).children("option:selected").data('size-price');
+        setProductPrice(price);
+        console.log('Size Chenged!', getProductPrice());
+        updateTotal();
+    })
+}
+
+function setProductPrice( price ) {
+    $productDetailPrice.data('product-detail-price', price);
+}
+
+function getProductPrice() {
+    return parseInt($productDetailPrice.data('product-detail-price'));
+}
+
 function setProductQuantityControls() {
-	 setProductDetailAddBtn();
-	 setProductDetailRemoveBtn();
+    setProductDetailAddBtn();
+    setProductDetailRemoveBtn();
 }
 
 function setProductDetailAddBtn() {
-	 $addOneProductBtn.click(function () {
-		  var quantity = getProductDetailQuantity();
-		  $productQuantity.html(++quantity);
-		  updateProductPrice(quantity);
-	 });
+    $addOneProductBtn.click(function () {
+        var quantity = getProductDetailQuantity();
+        $productQuantity.html(++quantity);
+        updateTotal();
+
+    });
 }
 
 function setProductDetailRemoveBtn() {
-	 $rmOneProductBtn.click(function () {
-		  var quantity = getProductDetailQuantity();
-		  if (quantity > 1) {
-				$productQuantity.html(--quantity);
-				updateProductPrice(quantity);
-		  }
-	 })
+    $rmOneProductBtn.click(function () {
+        var quantity = getProductDetailQuantity();
+        if (quantity > 1) {
+            $productQuantity.html(--quantity);
+            updateTotal();
+        }
+    })
 }
+
 
 function getProductDetailQuantity() {
-	 return parseInt($productQuantity.html());
+    return parseInt($productQuantity.html());
 }
 
-function updateProductPrice(quantity) {
-	 var price = formatPrice(quantity * productPrice);
-	 $productDetailPrice.html(price);
+function updateTotal() {
+    var quantity = getProductDetailQuantity();
+    var price = formatPrice(quantity * getProductPrice());
+    $productDetailPrice.html(price);
 }
 
 /**************************/
@@ -150,57 +169,57 @@ function updateProductPrice(quantity) {
 /**************************/
 
 function setToggleFavouriteBtn() {
-	 $(".add-to-fav-btn").click(function (e) {
-		  e.preventDefault();
+    $(".add-to-fav-btn").click(function ( e ) {
+        e.preventDefault();
 
-		  if ($(this).hasClass('in-fav'))
-				removeFromFav($(this));
-		  else
-				addToFav($(this));
-	 })
+        if ($(this).hasClass('in-fav'))
+            removeFromFav($(this));
+        else
+            addToFav($(this));
+    })
 
 }
 
-function addToFav($btn) {
-	 var url = $btn.attr('href');
-	 doAjaxRequest('POST', url, 1, addToFavCallback($btn));
+function addToFav( $btn ) {
+    var url = $btn.attr('href');
+    doAjaxRequest('POST', url, 1, addToFavCallback($btn));
 }
 
 
-function removeFromFav($btn) {
-	 var url = $btn.data('rm-href');
-	 doAjaxRequest('DELETE', url, 1, removeFromFavCallback($btn));
+function removeFromFav( $btn ) {
+    var url = $btn.data('rm-href');
+    doAjaxRequest('DELETE', url, 1, removeFromFavCallback($btn));
 }
 
-function addToFavCallback($btn) {
-	 addToFavStyles($btn);
-	 sumFavCount($btn);
+function addToFavCallback( $btn ) {
+    addToFavStyles($btn);
+    sumFavCount($btn);
 }
 
-function removeFromFavCallback($btn) {
-	 removeFromFavStyles($btn);
-	 substractFavCount();
+function removeFromFavCallback( $btn ) {
+    removeFromFavStyles($btn);
+    substractFavCount();
 }
 
 
-function addToFavStyles($btn) {
-	 $btn.addClass('in-fav');
+function addToFavStyles( $btn ) {
+    $btn.addClass('in-fav');
 }
 
 function getFavCount() {
-	 return parseInt($('.fav-count-number').html());
+    return parseInt($('.fav-count-number').html());
 }
 
 function sumFavCount() {
-	 $('.fav-count-number').html(getFavCount() + 1);
+    $('.fav-count-number').html(getFavCount() + 1);
 }
 
 function substractFavCount() {
-	 $('.fav-count-number').html(getFavCount() - 1);
+    $('.fav-count-number').html(getFavCount() - 1);
 }
 
-function removeFromFavStyles($btn) {
-	 $btn.removeClass('in-fav');
+function removeFromFavStyles( $btn ) {
+    $btn.removeClass('in-fav');
 }
 
 
@@ -212,11 +231,11 @@ function removeFromFavStyles($btn) {
 /**************************/
 
 function setProductImagesSlider() {
-	 $('.product-images-gallery').slick({
-		  infinite: true,
-		  slidesToShow: 3,
-		  slidesToScroll: 3
-	 });
+    $('.product-images-gallery').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+    });
 }
 
 /**************************/
@@ -226,17 +245,17 @@ function setProductImagesSlider() {
 
 /**************************/
 
-function doAjaxRequest(method, url, quantity, callback) {
+function doAjaxRequest( method, url, quantity, callback ) {
 
-	 $.ajax({
-		  url: url,
-		  context: document.body,
-		  type: method,
-		  data: {
-				quantity: quantity
-		  }
-	 }).done(function (data) {
-		  if (data.response == 'success')
-				callback;
-	 });
+    $.ajax({
+        url: url,
+        context: document.body,
+        type: method,
+        data: {
+            quantity: quantity
+        }
+    }).done(function ( data ) {
+        if (data.response == 'success')
+            callback;
+    });
 }
