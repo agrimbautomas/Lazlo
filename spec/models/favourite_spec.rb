@@ -25,6 +25,17 @@ RSpec.describe Favourite, type: :model do
       end
     end
 
+    context 'with duplicated user and product' do
+			before{
+        Favourite.create product: product, user: user
+			}
+      it 'the creation is invalid' do
+        expect(
+            Favourite.create product: product, user: user
+        ).not_to be_valid
+      end
+    end
+
     context 'with invalid product' do
       it 'the creation is invalid' do
         expect(

@@ -26,6 +26,8 @@ class Favourite < ApplicationRecord
 	validates :user, presence: true
 	validates :product, presence: true
 
+	validates :user, :uniqueness => {:scope => :product}
+
 	#Todo Remove
 	scope :count_for, -> (product) { where(product: product).count + product.views }
 
