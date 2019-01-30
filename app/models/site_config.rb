@@ -22,6 +22,10 @@ class SiteConfig < ApplicationRecord
 
 	belongs_to :product
 
+	validates_presence_of :config_type
+	validates :caption, presence: true, allow_blank: false, length: { maximum: 255 }
+	validates_with ConfigValidator
+
 	has_attached_file :picture,
 		styles: {
 			slider: "1400x695#",
@@ -41,8 +45,5 @@ class SiteConfig < ApplicationRecord
 			home_promotion: 2,
 			most_liked_product: 3
 	}
-
-	validates_presence_of :caption, :config_type
-	validates_uniqueness_of :caption
 
 end
