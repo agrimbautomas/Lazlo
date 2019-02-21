@@ -285,6 +285,39 @@
   }
 }
 
+/****************************/
+/****************************/
+/********** Charts **********/
+/****************************/
+/****************************/
+
+
+.admin_stats{
+  .charts-container {
+    background: white;
+    .inner-cotainer {
+      padding: 10px 3%;
+    }
+  }
+
+  .power-bi-iframe {
+    width: 100%;
+    height: 90vh;
+    border: none;
+    box-shadow: none;
+  }
+
+  #active_admin_content{
+    padding: 0px;
+  }
+
+  #wrapper {
+    padding-bottom: 60px;
+  }
+
+}
+
+
 @media screen and (max-width: 500px){
   .active_admin{
     .attributes_table{
