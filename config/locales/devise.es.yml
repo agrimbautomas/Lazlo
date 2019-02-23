@@ -18,11 +18,11 @@ es:
       unconfirmed: "Debes confirmar tu cuenta para continuar."
     mailer:
       confirmation_instructions:
-        subject: "Instrucciones de confirmación"
+        subject: "Confirma tu cuenta!"
       reset_password_instructions:
-        subject: "Instrucciones para restablecer tu contraseña"
+        subject: "Restablece tu contraseña"
       unlock_instructions:
-        subject: "Instrucciones de desbloqueo"
+        subject: "Desbloquea tu cuenta"
     omniauth_callbacks:
       failure: "No se te ha podido autorizar de %{kind} debido a \"%{reason}\"."
       success: "Identificado correctamente con la cuenta de %{kind}."

@@ -7,15 +7,17 @@ class AppMailer < Devise::Mailer
 
   def mail_images
 	 {
-		  :logo => asset_absolute_path('logos/lazlo-icon-40.png'),
-		  :background => asset_absolute_path('logos/lazlo-icon-100.png')
+		  :logo => asset_absolute_path('mailer/lazlo-logo-black.png'),
+		  :facebook => asset_absolute_path('mailer/facebook-lazlo.png'),
+		  :instagram => asset_absolute_path('mailer/instagram-lazlo.png'),
+		  :pinterest => asset_absolute_path('mailer/pinterest-lazlo.png'),
+		  :header => asset_absolute_path('mailer/email-header.jpg')
 	 }
   end
 
   private
   def asset_absolute_path asset_name
-	 protocol = Rails.env.production? ? 'https:' : 'http:'
-	 protocol + ActionController::Base.helpers.asset_path(asset_name)
+	 ActionController::Base.helpers.asset_path(asset_name)
   end
 
 end
