@@ -1,16 +1,68 @@
-<h2>Resend confirmation instructions</h2>
+<%
 
-<%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :confirmation_token %>
+  slider_image_size = mobile_device? ? :medium : :slider
+  background_img = SiteConfig.home_slide.present? ? SiteConfig.home_slide.first.picture.url(slider_image_size) : nil
+%>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+<div class="register-section" style='<%= background_img.present? ? "background-image: url(#{background_img})" : "" %>'>
+
+
+  <div class="register-pop-up">
+
+    <a class="" href="<%= root_path %>">
+      <svg class="close-register-form">
+        <use xlink:href="<%= image_url('sprite.svg') %>#close-cross"/>
+      </svg>
+    </a>
+
+    <a class="logo" href="<%= root_path %>">
+      <svg>
+        <use xlink:href="<%= image_url('sprite.svg') %>#lazlo-logo"/>
+      </svg>
+    </a>
+
+
+
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <span class="notice error">
+      <%= f.error_notification %>
+      <%= f.full_error :confirmation_token %>
+
+      </span>
+
+      <span class="alert error"><%= alert %></span>
+
+      <div class="form-inputs">
+        <%= f.input :email, required: false, autofocus: true, label: 'Correo electrónico' %>
+        <%= f.input :password, required: false %>
+
+        <div class="form-actions">
+          <%= f.button :submit, 'INICIAR SESIÓN', class: 'smooth-transition' %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Resend confirmation instructions" %>
+        </div>
+
+        <span class="forgot-password">¿olvidaste tú constraseña?</span>
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <%= link_to "Recuperar", new_password_path(resource_name), class: 'forgot-password' %>
+          <br/>
+        <% end -%>
+        <%= f.input :remember_me, label: 'Recordar usuario', class: 'remember-user hidden-field',
+            :input_html => { :checked => true }, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+    <% end %>
+
+
+    <%= link_to "Ingresar con Facebook", user_facebook_omniauth_authorize_path, class: 'register-fb smooth-transition' %>
+
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "CREAR CUENTA", new_registration_path(resource_name), class: 'create-account smooth-transition' %>
+      <br/>
+    <% end -%>
+
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <div class="register-black-filter"></div>
+</div>
