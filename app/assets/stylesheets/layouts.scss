@@ -752,6 +752,7 @@ span.error{
         text-decoration: none;
         font-weight: bold;
         font-size: 14px;
+
       }
     }
 
@@ -761,6 +762,11 @@ span.error{
         font-size: 14px;
         margin-bottom: 8px;
         display: inline-block;
+      }
+
+      .fa{
+        font-size: 20px;
+        color: #4fce5d;
       }
 
       address{
