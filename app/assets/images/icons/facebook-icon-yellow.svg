@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 30 30"
+     version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path fill="#FED604" fill-rule="evenodd"
+        d="M18.759 10.324h-1.327c-1.04 0-1.242.492-1.242 1.212v1.589h2.482l-.324 2.49H16.19V22h-2.588v-6.386h-2.164v-2.49h2.164V11.29c0-2.13 1.31-3.29 3.223-3.29.916 0 1.704.067 1.934.098v2.226zM15.098 1C7.312 1 1 7.268 1 15s6.312 14 14.098 14c7.786 0 14.098-6.268 14.098-14S22.884 1 15.098 1z"/>
+
+</svg>

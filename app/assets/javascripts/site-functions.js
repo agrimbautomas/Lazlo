@@ -31,7 +31,7 @@ function setupVars() {
 	 $productsSubMenu = $('.products-sub-menu');
 	 $header = $('header');
 	 $newsletterEmail = $('.newsletter-email');
-	 $productsMenuArrow = $('.products-menu-button svg');
+	 $productsMenuArrow = $('.products-menu-button img');
 }
 
 /*

@@ -175,8 +175,8 @@ input:-webkit-autofill{
     position: relative;
   }
 
-  svg.hovered,
-  svg.header-icon{
+  img.hovered,
+  img.header-icon{
     background-color: transparent;
     fill: currentColor;
     width: 29px;
@@ -187,7 +187,7 @@ input:-webkit-autofill{
     left: 0px;
   }
 
-  svg.hovered{
+  img.hovered{
     opacity: 0;
 
     -webkit-transition: $slow_transition;
@@ -197,7 +197,7 @@ input:-webkit-autofill{
   }
 
   &:hover{
-    svg.hovered{
+    img.hovered{
       opacity: 1;
     }
   }
@@ -259,7 +259,7 @@ header{
             position: relative;
           }
 
-          &.expandable svg{
+          &.expandable img{
             top: 5px;
             right: -18px;
             position: absolute;
