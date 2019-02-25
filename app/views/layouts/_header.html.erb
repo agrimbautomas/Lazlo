@@ -23,9 +23,7 @@
     <div class="left-container">
 
       <a class="logo menu-button" href="<%= root_path %>">
-        <svg>
-          <use xlink:href="<%= image_url('sprite.svg') %>#lazlo-logo"/>
-        </svg>
+        <img src="<%= image_url('logos/lazlo-logotipo.svg') %>">
       </a>
 
       <a class="menu-button products-menu-button <%= @current_section == 'products' ? 'current-section' : '' %>">
