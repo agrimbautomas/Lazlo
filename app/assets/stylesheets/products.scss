@@ -94,7 +94,7 @@
 
     background: $yellow_lazlo_transparent;
 
-    svg {
+    img {
       width: 44px;
       height: 44px;
       position: absolute;
@@ -380,12 +380,12 @@
           -webkit-appearance: none;
           color: $grey-state;
           font-size: 1em;
-          
+
           &:focus {
             outline: none;
           }
 
-          option{
+          option {
             padding: 10px 0px;
           }
         }
@@ -434,7 +434,7 @@
         padding: 0px 21%;
 
         &.in-fav {
-          svg {
+          img {
             -webkit-transition: none;
             -moz-transition: none;
             -o-transition: none;
@@ -446,13 +446,13 @@
             }
           }
 
-          svg.hovered {
+          img.hovered {
             opacity: 1;
           }
 
         }
 
-        svg {
+        img {
           width: 100%;
         }
 
@@ -473,7 +473,7 @@
 
       }
 
-      .fb_iframe_widget{
+      .fb_iframe_widget {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -481,7 +481,7 @@
         left: 0px;
         opacity: 0.1;
 
-        .fb_iframe_widget span{
+        .fb_iframe_widget span {
 
         }
 

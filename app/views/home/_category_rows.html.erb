@@ -18,11 +18,7 @@
 
       <a class="home-category-block <%= index % 2 == 1 ? 'odd' : 'even' %>" href="<%= category_path category %>">
         <div class="image-block-with-hover hover-block-trigger ">
-                  <span class="hover-block smooth-transition">
-                    <svg>
-                      <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
-                    </svg>
-                  </span>
+          <%= render :partial => 'icons/eye_icon' %>
           <% image_size = index % 2 == 1 ? :rectangular2 : :rectangular1 %>
           <%= image_tag category.image.url(image_size) %>
         </div>

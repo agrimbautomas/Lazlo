@@ -616,7 +616,7 @@ span.error{
     bottom: 0px;
     overflow: hidden;
 
-    svg{
+    img{
       width: 25px;
       position: absolute;
       top: 0px;
@@ -635,11 +635,11 @@ span.error{
       }
     }
 
-    &:hover svg.chat-balloon-icon{
+    &:hover img.chat-balloon-icon{
       width: 28px;
       left: 12px;
     }
-    &:hover svg.chat-cross-icon{
+    &:hover img.chat-cross-icon{
       width: 100px;
       height: 100px;
       top: 1px;
@@ -653,11 +653,11 @@ span.error{
     .chat-button{
       transform: rotate(90deg);
 
-      svg.chat-cross-icon{
+      img.chat-cross-icon{
         display: block;
       }
 
-      svg.chat-balloon-icon{
+      img.chat-balloon-icon{
         display: none;
       }
     }
@@ -1171,7 +1171,7 @@ span.error{
         height: 200px;
       }
 
-      svg{
+      img{
         height: 90px;
       }
     }
@@ -1224,18 +1224,18 @@ span.error{
       width: 34px;
       height: 34px;
 
-      svg.chat-balloon-icon{
+      img.chat-balloon-icon{
         top: -55px;
         left: 5px;
       }
 
-      &:hover svg.chat-balloon-icon{
+      &:hover img.chat-balloon-icon{
         width: 20px;
         left: 7px;
         top: -58px;
       }
 
-      &:hover svg.chat-cross-icon{
+      &:hover img.chat-cross-icon{
         width: 90px;
         height: 90px;
         top: -5px;

@@ -46,9 +46,7 @@
       <%= SiteConfig.home_support.first.caption %>
       <button class="transparent-with-hover-yellow contact-form-button">
         Preguntanos
-        <svg>
-          <use xlink:href="<%= image_url('sprite.svg') %>#right-arrow"/>
-        </svg>
+        <img src="<%= image_url('icons/right-black-arrow-icon.svg') %>">
       </button>
 
     </div>
@@ -64,9 +62,7 @@
       <a class="left-product" href="<%= product_path @most_purchased_product %>">
         <div class="image-block-with-transition hover-block-trigger">
                   <span class="hover-block smooth-transition">
-                    <svg>
-                      <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
-                    </svg>
+                    <img src="<%= image_url('icons/eye-icon.svg') %>">
                   </span>
           <%= image_tag @most_purchased_product.image.url(:rectangular2) %>
 
@@ -86,9 +82,7 @@
       <a class="right-product" href="<%= product_path @most_liked_product %>">
         <div class="image-block-with-transition hover-block-trigger">
                   <span class="hover-block smooth-transition">
-                    <svg>
-                      <use xlink:href="<%= image_url('sprite.svg') %>#eye-icon"/>
-                    </svg>
+                    <img src="<%= image_url('icons/eye-icon.svg') %>">
                   </span>
           <%= image_tag @most_liked_product.image.url(:rectangular2) %>
 
@@ -120,9 +114,7 @@
 
 
     <div class="right-promotion">
-      <svg>
-        <use xlink:href="<%= image_url('sprite.svg') %>#discount-icon"/>
-      </svg>
+      <img src="<%= image_url('icons/discount-icon.svg') %>">
       <h5>GANATE $300</h5>
       <a href="https://www.facebook.com/lazlo.design" target="_blank" class="button transparent-with-hover-yellow">SEGUIR
         LAZLO EN FACEBOOK</a>
