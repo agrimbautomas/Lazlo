@@ -46,7 +46,8 @@
   }
 
   h6 {
-    font-size: 1em;
+    font-size: 0.8em;
+    line-height: 1.2em;
     opacity: 0;
     -webkit-transition: opacity 0.2s, -webkit-transform 0.35s;
     transition: opacity 0.2s, transform 0.35s;
@@ -95,11 +96,10 @@
     background: $yellow_lazlo_transparent;
 
     img {
-      width: 44px;
       height: 44px;
       position: absolute;
       top: 42%;
-      left: 47%;
+      left: 0%;
     }
 
   }
@@ -454,6 +454,10 @@
 
         img {
           width: 100%;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          height: auto;
         }
 
         span {

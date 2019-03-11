@@ -173,6 +173,7 @@ input:-webkit-autofill{
 
   span{
     position: relative;
+    display: inline-block;
   }
 
   img.hovered,
@@ -183,7 +184,7 @@ input:-webkit-autofill{
     height: 28px;
 
     position: absolute;
-    top: 0px;
+    top: -20px;
     left: 0px;
   }
 
