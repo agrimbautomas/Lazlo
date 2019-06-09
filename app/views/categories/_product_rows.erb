@@ -31,7 +31,9 @@
               <%= image_tag product.image.url(get_image_size column, size) %>
 
               <div class="product-description">
-                <h5><%= format_price product.price %> <strong><%= product.name %></strong></h5>
+                <h5>
+                  <strong><%= product.name %></strong>
+                </h5>
                 <h6>medidas: <%= product.size %></h6>
               </div>
 
