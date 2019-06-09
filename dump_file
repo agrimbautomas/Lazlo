@@ -1,0 +1,71 @@
+#!/bin/bash
+
+############################
+######## Functions #########
+############################
+
+empty_params_message () {
+    echo 'Invalid dump.'
+    echo $'\n You need to write the path of the dump file (ej: "./dump_file my_dump.sql")'
+}
+
+file_does_not_exits_message() {
+    echo $'\n\nInvalid dump.'
+    echo $'\n File does not exist'
+}
+
+copy_dump_to_container(){
+    echo $'\n\nFile copied to lazlo_db container...'
+#    docker exec -it lazlo_db rm $DUMP_FILE
+    docker cp $DUMP_FILE lazlo_db:/
+}
+
+drop_create_db(){
+    echo $'\n\nErasing and creating new db...'
+    docker exec -it lazlo_ws bundle exec rails db:drop db:create DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+}
+
+dump_file(){
+    echo $'\n\nDumping file into db...'
+    docker exec -i lazlo_db mysql -uroot -psinclair lazlo_dev < $DUMP_FILE
+}
+
+run_pending_migrations(){
+    echo $'\n\nRunning migrations...'
+    docker exec -it lazlo_ws bundle exec rails db:migrate
+}
+
+generate_site_images(){
+    echo $'\n\nGenerating site images...'
+    docker exec -it lazlo_ws bundle exec rake app:add_images
+}
+
+execute_dump(){
+    copy_dump_to_container
+    drop_create_db
+    dump_file
+    run_pending_migrations
+    generate_site_images
+    echo $'\n\nJOB SUCCEEDED!'
+}
+
+run_script(){
+    if [ "$DUMP_FILE" != "" ]; then
+        if test -f $DUMP_FILE; then
+            execute_dump
+        else
+            file_does_not_exits_message
+        fi
+    else
+        empty_params_message
+    fi
+}
+
+############################
+########## Script ##########
+############################
+
+# Reading dump file
+DUMP_FILE=$1
+
+run_script
