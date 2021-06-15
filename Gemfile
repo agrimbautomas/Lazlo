@@ -15,6 +15,9 @@ gem 'responsive_active_admin'
 # url: https://github.com/activeadmin-plugins/active_admin_datetimepicker
 #gem 'active_admin_datetimepicker'
 
+gem 'bcrypt_pbkdf'
+gem 'ed25519'
+
 # Mailchimp integration, url: https://github.com/amro/gibbon
 gem 'gibbon'
 
@@ -36,7 +39,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'rails_config'
 
-gem 'mysql2', '~> 0.3.18'
+gem 'mysql2'
 gem 'omniauth-facebook'
 
 gem 'paperclip', '~> 5.0.0'

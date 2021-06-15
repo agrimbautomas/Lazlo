@@ -1,4 +1,4 @@
-version: '3'
+version: '3.6'
 services:
    lazlo:
       container_name: lazlo_ws
@@ -18,7 +18,7 @@ services:
       container_name: lazlo_db
       image: mysql:5.7.22
       volumes:
-         - ./db/lazlo_db_test:/var/lib/lazlo_db_test
+         - ./db/lazlo_db:/var/lib/lazlo_db
       environment:
          MYSQL_ROOT_PASSWORD: sinclair
 

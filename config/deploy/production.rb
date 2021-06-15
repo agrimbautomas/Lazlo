@@ -1,10 +1,10 @@
-role :app, %w{deploy@lazlo.la}
-role :web, %w{deploy@lazlo.la}
-role :db, %w{deploy@lazlo.la}
+role :app, %w{deploy@lazlo.boutique}
+role :web, %w{deploy@lazlo.boutique}
+role :db, %w{deploy@lazlo.boutique}
 
 set :deploy_to, '/srv/rails/lazlo-web'
 
-server 'lazlo.la', user: 'deploy', roles: %w{web app}
+server 'lazlo.boutique', user: 'deploy', roles: %w{web app}
 
 set :rails_env, 'production'
 set :branch, 'production'
