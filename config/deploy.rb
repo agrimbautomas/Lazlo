@@ -8,3 +8,13 @@ set :linked_dirs, fetch(:linked_dirs, []).push(
 
 set :keep_releases, 2
 set :rvm_ruby_version, '2.5.1'
+
+namespace :puma do
+  Rake::Task[:restart].clear_actions
+
+  desc 'Force puma restart'
+  task :restart do
+    invoke 'puma:stop'
+    invoke 'puma:start'
+  end
+end
