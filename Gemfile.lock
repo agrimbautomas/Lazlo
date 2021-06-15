@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/seuros/capistrano-puma.git
+  revision: 285b45f51d0662e760cc5e75f15614589a2be170
+  specs:
+    capistrano3-puma (5.0.4)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (>= 4.0, < 6.0)
+
+GIT
   remote: git://github.com/vigetlabs/active_material.git
   revision: 54116c4650f889f9018b8cd9fdb30874b94454f4
   specs:
@@ -104,10 +113,6 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capistrano3-puma (5.0.4)
-      capistrano (~> 3.7)
-      capistrano-bundler
-      puma (>= 4.0, < 6.0)
     case_transform (0.2)
       activesupport
     climate_control (0.2.0)
@@ -329,7 +334,7 @@ GEM
       pry (>= 0.10.4)
     psych (3.3.2)
     public_suffix (4.0.6)
-    puma (5.3.2)
+    puma (4.3.8)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -529,7 +534,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rails (~> 1.1)
   capistrano-rvm
-  capistrano3-puma
+  capistrano3-puma!
   coffee-rails
   config
   devise
@@ -552,7 +557,7 @@ DEPENDENCIES
   paranoia (~> 2.2)
   pry
   pry-rails
-  puma
+  puma (~> 4.3, >= 4.3.7)
   rails (= 5.1.6)
   rails-controller-testing
   rails-i18n

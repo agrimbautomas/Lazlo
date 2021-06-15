@@ -73,7 +73,7 @@ gem 'turbolinks'
 
 gem 'uglifier', '>= 1.3.0'
 
-gem 'puma'
+gem 'puma', '~> 4.3', '>= 4.3.7'
 gem 'sitemap_generator'
 gem 'paranoia', '~> 2.2'
 
@@ -114,7 +114,7 @@ group :development do
 	gem 'capistrano', '~> 3.9'
 	gem 'capistrano-rails', '~> 1.1'
 	gem 'capistrano-rvm'
-	gem 'capistrano3-puma'
+	gem 'capistrano3-puma', github: 'seuros/capistrano-puma', require: false
 	gem 'capistrano-bundler'
 
 	# Spring speeds up development by keeping your application running in the bg
